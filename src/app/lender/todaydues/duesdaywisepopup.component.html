@@ -1,0 +1,21 @@
+<mat-dialog-content>Date Updated</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="row">
+        <div class="col-lg-12 tab">
+      
+          <form>
+            <input class="buttonstyle" (click)="payment('tomorrow')"  
+            [ngStyle]="showtab1 && {'background-color':'rgb(196, 225, 237)','border': '1px solid rgb(49, 27, 146)'}"   value="{{'Tomorrows Payments Rs:' + ' ' + (data.todaysdues.tomorrow_sum  ? data.todaysdues.tomorrow_sum : '0') }}" title="{{ 'Rs:'  + ' ' + (data.todaysdues.tomorrow_sum  ? data.todaysdues.tomorrow_sum : '0')}}" />&nbsp;&nbsp;
+            <input class="buttonstyle"  (click)="todays('today')" [ngStyle]="showtab2 && {'background-color':'rgb(196, 225, 237)','border': '1px solid rgb(49, 27, 146)'}"  value="{{'Todays Payments Rs:' + ' ' + (data.todaysdues.today_sum  ? data.todaysdues.today_sum : '0') }}" title="{{ 'Rs:'  + ' ' + (data.todaysdues.today_sum  ? data.todaysdues.today_sum : '0')}}"/>&nbsp;&nbsp;<br><br>
+            <input class="buttonstyle" (click)="segregatedpayment('delayed')" [ngStyle]="showtab3 && {'background-color':'rgb(196, 225, 237)','border': '1px solid rgb(49, 27, 146)'}" value="{{'Delayed Payments Rs:' + ' ' + (data.todaysdues.delayed_sum  ? data.todaysdues.delayed_sum : '0') }}" title="{{ 'Rs:'  + ' ' + (data.todaysdues.delayed_sum  ? data.todaysdues.delayed_sum : '0')}}" />&nbsp;&nbsp;
+            <input class="buttonstyle" (click)="latePayments('late')" [ngStyle]="showtab4 && {'background-color':'rgb(196, 225, 237)','border': '1px solid rgb(49, 27, 146)'}"   value="{{'Late Payments Rs:' + ' ' + (data.todaysdues.late_sum  ? data.todaysdues.late_sum : '0') }}" title="{{ 'Rs:'  + ' ' + (data.todaysdues.late_sum  ? data.todaysdues.late_sum : '0')}}"/>&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="example-button-row"><br><br><br><br>
+                <button mat-stroked-button color="primary" [mat-dialog-close]="paymentmethods_days">APPLY</button>
+                <button mat-stroked-button color="primary"  [mat-dialog-close]="true">CLEAR</button>
+              </div>   
+          
+        </form>
+
+        </div>
+      </div>
+</mat-dialog-actions>

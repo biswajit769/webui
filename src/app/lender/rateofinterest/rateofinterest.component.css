@@ -1,0 +1,75 @@
+.dopadding {
+    padding-left: 60px;
+}
+
+.headinglend5 {
+    width: 5%;
+}
+
+.container h5 {
+    font-weight: 900;
+}
+
+@media only screen and (min-width:320px) and (max-width: 767px) {
+    .lenderresp5 h1 {
+        color: black;
+        font-size: large;
+        font-weight: bold;
+    }
+    .lenderresp5 img.headinglend5 {
+        width: 10%;
+    }
+}
+
+.loader {
+    border: 2px solid white;
+    border-radius: 50%;
+    border-top: 4px solid #ed6560;
+    width: 40px;
+    height: 40px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    float: center;
+}
+
+.crossymbol {
+    float: right;
+    size: -19px;
+    width: 20px;
+    height: 18px;
+    padding-top: 0px;
+    padding-left: 6px;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #337ab6;
+    text-align: center;
+    color: white;
+}
+
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+p {
+    font-family: Lato;
+  }
+  label {
+    display: block;
+  }

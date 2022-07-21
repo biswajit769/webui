@@ -1,0 +1,644 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="ssss">
+  <div class="col-xs-12 col-md-12 text-center ">
+    <div class="col-md-offset-1 col-md-8 assss">
+      <form [formGroup]="companyRegForm">
+        <div class="row212 viewprofile bcolor zcx">
+          <aw-wizard #wizard [navBarLayout]="'large-filled-symbols'">
+            <aw-wizard-step [stepTitle]="'COMPANY DETAILS'"
+              [navigationSymbol]="{ symbol: '&#xf0b1;', fontFamily: 'FontAwesome' }">
+              <div class="centered-content">
+                <div>
+                  <div style="text-align:center">
+                  </div>
+                  <div>
+                    <fieldset class="alignlll">
+                      <table class="table-responsive width">
+                        <div class="table-head"></div>
+                        <table class="table">
+                          <thead>
+                          </thead>
+                          <tr>
+                            <th>Company Type</th>
+                            <th class="colourful">
+                              <select formControlName="companytype" [(ngModel)]="companydetails.companytype"
+                                name="companytype" class="form-control" required>
+                                <option value="" [disabled]="true">--Select Option--</option>
+                                <option *ngFor="let company of companytypes" [value]="company">{{company}}</option>
+                              </select>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th class="colourful">Business PAN</th>
+                            <th class="colourful abac">
+                              <input type="text" class="form-control" formControlName="bussiness_pan"
+                                name="bussiness_pan" [(ngModel)]="companydetails.bussiness_pan"
+                                placeholder="Enter Business PAN Number" required>
+                              <span class="adac "
+                                *ngIf="editform.bussiness_pan.errors && (editform.bussiness_pan.invalid && editform.bussiness_pan.dirty)">
+                                <p *ngIf="editform.bussiness_pan.errors.required"> PAN Number is Required</p>
+                                <p
+                                  *ngIf="editform.bussiness_pan.errors.maxlength || editform.bussiness_pan.errors.minlength ">
+                                  PAN
+                                  Number length should be 10 digits</p>
+                                <p *ngIf="editform.bussiness_pan.errors?.pattern">
+                                  PAN Number not valid.
+                                </p>
+                              </span>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>GST Number</th>
+                            <th>
+                              <input type="text" class="form-control" [(ngModel)]="companydetails.gst_number"
+                                name="gst_number" formControlName="gst_number" placeholder="Enter GST Number" required
+                                maxlength="15" minlength="15">
+                              <span class="adac"
+                                *ngIf="editform.gst_number.errors && (editform.gst_number.invalid &&  editform.gst_number.dirty)">
+                                <p *ngIf="editform.gst_number.errors.required"> GST Number is Required</p>
+                                <p
+                                  *ngIf="editform.gst_number.errors.maxlength || editform.gst_number.errors.minlength ">
+                                  GST Number length should be 15 digits</p>
+                                <p *ngIf="editform.gst_number.errors?.pattern">
+                                  GST Number not valid.
+                                </p>
+                              </span>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th class="colourful">Number Of Years in Business</th>
+                            <th class="colourful">
+                              <select [(ngModel)]="companydetails.business_years" name="business_years"
+                                formControlName="business_years" class="form-control" required>
+                                <option value="years" [disabled]="true">--Select Option--</option>
+                                <option *ngFor="let years of numberofyearsinbusiness" [value]="years">{{years}}</option>
+                              </select>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>Company Turnover</th>
+                            <th>
+                              <select [(ngModel)]="companydetails.company_turnover" name="company_turnover"
+                                formControlName="company_turnover" class="form-control" required>
+                                <option value="Select Option" [disabled]="true">--Select Option--</option>
+                                <option *ngFor="let turnover of company_turnover" [value]="turnover">{{turnover}}
+                                </option>
+                              </select>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th class="colourful">Number of Employees</th>
+                            <th class="colourful">
+                              <select [(ngModel)]="companydetails.number_of_employees" name="number_of_employees"
+                                formControlName="number_of_employees" class="form-control" required>
+                                <option value="" [disabled]="true">--Select Option--</option>
+                                <option *ngFor="let employees_no of numberofemployees" [value]="employees_no">
+                                  {{employees_no}}</option>
+                              </select>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>Director Identification Number</th>
+                            <th>
+                              <input type="text" class="form-control" formControlName="director_identification_number"
+                                name="director_identification_number"
+                                [(ngModel)]="companydetails.director_identification_number" placeholder="Enter DIN"
+                                required>
+                              <span class="adac"
+                                *ngIf="editform.director_identification_number.errors && (editform.director_identification_number.invalid && editform.director_identification_number.dirty)">
+                                <p *ngIf="editform.director_identification_number.errors.required">DIN Number is
+                                  required</p>
+                                <p
+                                  *ngIf="editform.director_identification_number.errors.maxlength || editform.director_identification_number.errors.minlength ">
+                                  DIN number
+                                  should be in valid format.</p>
+                              </span>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th class="colourful">Corporate Identification Number</th>
+                            <th class="colourful">
+                              <input type="text" class="form-control" formControlName="corporate_identification_number"
+                                name="corporate_identification_number"
+                                [(ngModel)]="companydetails.corporate_identification_number" placeholder="Enter CIN"
+                                required>
+                              <span class="adac"
+                                *ngIf="editform.corporate_identification_number.errors && (editform.corporate_identification_number.invalid && editform.corporate_identification_number.dirty)">
+                                <p *ngIf="editform.corporate_identification_number.errors.required">CIN Number is
+                                  required</p>
+                                <p
+                                  *ngIf="editform.corporate_identification_number.errors.maxlength || editform.corporate_identification_number.errors.minlength ">
+                                  CIN number
+                                  should be in valid format.</p>
+                              </span>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>Company Website</th>
+                            <th>
+                              <input type="text" class="form-control" formControlName="company_website_link"
+                                name="company_website_link" [(ngModel)]="companydetails.company_website_link"
+                                placeholder="Enter Your Company Website" required>
+                              <span class="adac"
+                                *ngIf="editform.company_website_link.errors && (editform.company_website_link.invalid && editform.company_website_link.dirty)">
+                                <p *ngIf="editform.company_website_link.errors.required"> company website address
+                                  Required
+                                </p>
+                                <p *ngIf="editform.company_website_link.errors?.pattern">
+                                  company website address is Invalid
+                                </p>
+                              </span>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th class="colourful">Official EmailID</th>
+                            <th class="colourful">
+                              <input type="text" class="form-control" formControlName="email_id" name="email_id"
+                                [(ngModel)]="companydetails.email_id" placeholder="finchain@gowdanar.com" required>
+                              <span class="adac"
+                                *ngIf="editform.email_id.errors && (editform.email_id.invalid && editform.email_id.dirty)">
+                                <p *ngIf="editform.email_id.errors.required"> Official EmailId is Required</p>
+                                <p *ngIf="editform.email_id.errors?.pattern">
+                                  Email Id not valid.
+                                </p>
+                              </span>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>Office Contact Number</th>
+                            <th>
+                              <input type="text" class="form-control" formControlName="contact_phone_number"
+                                placeholder="Enter Office Contact Number" name="contact_phone_number"
+                                [(ngModel)]="companydetails.contact_phone_number" required maxlength="8" minlength="8"
+                                (keypress)="keyPress($event)">
+                              <span class="adac"
+                                *ngIf="editform.contact_phone_number.errors && (editform.contact_phone_number.invalid && editform.contact_phone_number.dirty)">
+                                <p *ngIf="editform.contact_phone_number.errors.required">Office Number is required</p>
+                                <p
+                                  *ngIf="editform.contact_phone_number.errors.maxlength || editform.contact_phone_number.errors.minlength || editform.contact_phone_number.errors?.pattern">
+                                  Number should be in valid format.</p>
+                              </span>
+                            </th>
+                          </tr>
+                        </table>
+                        <div class="fdfd">
+                          <button type="button" class="btn btn-outline-rounded btn-info qwea " awNextStep
+                            (click)="skkkip()">Skip <span style="margin-left:10px;"
+                              class="glyphicon glyphicon-arrow-right"></span>
+                          </button>
+                        </div>
+                        <div class="fdfd90">
+                          <button type="button" class="btn btn-outline-rounded btn-info qwea" awNextStep
+                            (click)="companyreg()">Continue <span style="margin-left:10px;"
+                              class="glyphicon glyphicon-arrow-right"></span>
+                          </button>
+                        </div>
+                      </table>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </aw-wizard-step>
+
+            <aw-wizard-step class="property" [stepTitle]="'PROFESSIONAL DETAILS'"
+              [navigationSymbol]="{ symbol: '&#xf0c0;', fontFamily: 'FontAwesome' }">
+              <div class="centered-content dddss">
+                <div>
+                  <div>
+                    <fieldset class="alignll">
+                      <table class="table-responsive width">
+                        <div class="table-head"></div>
+                        <table class="table">
+                          <thead>
+                          </thead>
+                          <tr>
+                            <th class="colourful">Director Name</th>
+                            <th class="colourful">
+                              <input type="text" class="form-control" formControlName="director_name"
+                                name="director_name" (keypress)="keyPress1($event)"
+                                [(ngModel)]="companydetails.director_name" placeholder="Enter Director Name" required>
+                              <span class="adac"
+                                *ngIf="editform.director_name.errors && (editform.director_name.invalid && editform.director_name.dirty)">
+                                <p *ngIf="editform.director_name.errors.required">Director Name is required</p>
+                              </span>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>Director Mobile Number</th>
+                            <th>
+                              <input type="text" class="form-control" formControlName="director_mobile_number"
+                                [(ngModel)]="companydetails.director_mobile_number"
+                                placeholder="Enter Director Mobile Number" required maxlength="10" minlength="10"
+                                (keypress)="keyPress($event)">
+                              <span class="adac"
+                                *ngIf="editform.director_mobile_number.errors && (editform.director_mobile_number.invalid && editform.director_mobile_number.dirty)">
+                                <p *ngIf="editform.director_mobile_number.errors.required">Mobile Number is required</p>
+                                <p
+                                  *ngIf="editform.director_mobile_number.errors.maxlength || editform.director_mobile_number.errors.minlength || editform.director_mobile_number.errors?.pattern">
+                                  Number should be in valid format.</p>
+                              </span>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th class="colourful">Company Partner Name(Optional)</th>
+                            <th class="colourful">
+                              <input type="text" class="form-control" formControlName="partner_name" name="partner_name"
+                                [(ngModel)]="companydetails.partner_name" placeholder="Enter Your Company Partner Name"
+                                required (keypress)="keyPress1($event)">
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>Company Partner Mobile Number(Optional)</th>
+                            <th>
+                              <input type="text" [(ngModel)]="companydetails.partner_mobile_number" class="form-control"
+                                formControlName="partner_mobile_number"
+                                placeholder="Enter Company Partner Mobile Number" required maxlength="10" minlength="10"
+                                (keypress)="keyPress($event)">
+                              <span class="adac"
+                                *ngIf="editform.partner_mobile_number.errors && (editform.partner_mobile_number.invalid && editform.partner_mobile_number.touched)">
+                                <p *ngIf="editform.partner_mobile_number.errors.required">Mobile Number is required</p>
+                                <p
+                                  *ngIf="editform.partner_mobile_number.errors.maxlength || editform.partner_mobile_number.errors.minlength || editform.partner_mobile_number.errors?.pattern">
+                                  Number should be in valid format.</p>
+                              </span>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th class="colourful">Aadhar Card Number</th>
+                            <th class="colourful">
+                              <input type="text" class="form-control" name="adharcard_number"
+                                formControlName="adharcard_number" [(ngModel)]="companydetails.adharcard_number"
+                                placeholder="Aadhar Card Number" required maxlength="12" minlength="12"
+                                (keypress)="keyPress($event)">
+                              <span class="adac"
+                                *ngIf="editform.adharcard_number.errors && (editform.adharcard_number.invalid && editform.adharcard_number.touched)">
+                                <p *ngIf="editform.adharcard_number.errors.required">Aadhar Number is required</p>
+                                <p
+                                  *ngIf="editform.adharcard_number.errors.maxlength || editform.adharcard_number.errors.minlength ">
+                                  Aadhar Number should be in valid format.</p>
+                              </span>
+                            </th>
+                          </tr>
+                        </table>
+                        <div class="fdfd">
+                          <button type="button" class="btn btn-outline-rounded btn-info qwea " awNextStep
+                            (click)="skkkip()">Skip <span style="margin-left:10px;"
+                              class="glyphicon glyphicon-arrow-right"></span>
+                          </button>
+                        </div>
+                        <div class="fdfd901">
+                          <button type="button" class="btn btn-outline-rounded btn-info qwea" awPreviousStep><span
+                              style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span>
+                            Previous</button>
+                        </div>
+                        <div class="fdfd90">
+                          <button type="button" class="btn btn-outline-rounded btn-info qwea" awNextStep
+                            (click)="companyreg()">Continue <span style="margin-left:10px;"
+                              class="glyphicon glyphicon-arrow-right"></span>
+                          </button>
+                        </div>
+                      </table>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </aw-wizard-step>
+
+            <aw-wizard-step class="property1" [stepTitle]="'ADDRESS DETAILS'"
+              [navigationSymbol]="{ symbol: '&#xf2bb;', fontFamily: 'FontAwesome' }">
+              <div class="centered-content">
+                <div>
+                  <div>
+                    <fieldset class="alignll2">
+                      <table class="table-responsive width">
+                        <div class="table-head"></div>
+                        <table class="table">
+                          <thead class="profile">
+                          </thead>
+                          <tr>
+                            <th class="colourful">Company Office</th>
+                            <th class="colourful">
+                              <select [(ngModel)]="companydetails.present_address_type" name="employee_count"
+                                formControlName="present_address_type" class="form-control" required>
+                                <option value="" [disabled]="true">--Select Option--</option>
+                                <option *ngFor="let adress of adresstype" [value]="adress">{{adress}}</option>
+                              </select>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>Flat/Room/Door/Block No.</th>
+                            <th>
+                              <input type="text" formControlName="office_roomno" class="form-control"
+                                placeholder="Enter Flat/Room/Door/Block No." name="office_roomno"
+                                [(ngModel)]="companydetails.office_roomno" required>
+                              <span class="adac" class="help-block"
+                                *ngIf="editform.office_roomno.errors && (editform.office_roomno.invalid && editform.office_roomno.dirty)">
+                                <p *ngIf="editform.office_roomno.errors.required"> Enter House. No (or) Flat No</p>
+                              </span>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th class="colourful">Building name / Appartment Name</th>
+                            <th class="colourful">
+                              <input type="text" class="form-control" formControlName="permanentbuildingname"
+                                placeholder="Enter Bldg name / Apt Name" name="permanentbuildingname"
+                                [(ngModel)]="companydetails.permanentbuildingname" required>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>Street</th>
+                            <th>
+                              <input type="text" class="form-control" formControlName="company_street"
+                                placeholder="Enter street name" name="company_street"
+                                [(ngModel)]="companydetails.company_street" required>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th class="colourful">Landmark</th>
+                            <th class="colourful">
+                              <input type="text" class="form-control" formControlName="permanent_landmark"
+                                placeholder="Enter Landmark" name="permanent_landmark"
+                                [(ngModel)]="companydetails.permanent_landmark" required>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>State</th>
+                            <th>
+                              <select [(ngModel)]="companydetails.selectedState" name="selectedState"
+                                formControlName="selectedState" (change)="onSelect($event.target.value)"
+                                class="form-control" required>
+                                <option value="" [disabled]="true">--Select State--</option>
+                                <option *ngFor="let data of states" [value]="data.name">{{data.name}}</option>
+                              </select>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th class="colourful">City</th>
+                            <th class="colourful">
+                              <input type="text" class="form-control" formControlName="selectedcity"
+                                placeholder="Enter City" name="selectedcity" [(ngModel)]="companydetails.selectedcity"
+                                required>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th class="colourful">How long have you been in this address</th>
+                            <th class="colourful">
+                              <select [(ngModel)]="companydetails.longstay" formControlName="longstay" name="longstay"
+                                class="form-control" required>
+                                <option value=""> ---For how long you had been at this address---</option>
+                                <option *ngFor="let stay of stayduration" [value]="stay">{{stay}}
+                                </option>
+                              </select>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>Pincode</th>
+                            <th>
+                              <input type="text" class="form-control" [(ngModel)]="companydetails.pin_code"
+                                (keypress)="keyPress($event)" formControlName="pin_code" placeholder="Enter pincode"
+                                name="pin_code" minlength="6" maxlength="6" required>
+                            </th>
+                          </tr>
+                        </table>
+                        <div class="fdfd">
+                          <button type="button" class="btn btn-outline-rounded btn-info qwea " awNextStep
+                            (click)="skkkip()">Skip <span style="margin-left:10px;"
+                              class="glyphicon glyphicon-arrow-right"></span>
+                          </button>
+                        </div>
+                        <div class="fdfd901">
+                          <button class="property3" type="button" class="btn btn-outline-rounded btn-info qwea"
+                            awPreviousStep><span style="margin-right:10px;"
+                              class="glyphicon glyphicon-arrow-left"></span>
+                            Previous</button>
+                        </div>
+                        <div class="fdfd90">
+                          <button type="button" class="btn btn-outline-rounded btn-info qwea" awNextStep
+                            (click)="companyreg()">Continue <span style="margin-left:10px;"
+                              class="glyphicon glyphicon-arrow-right"></span>
+                          </button>
+                        </div>
+                      </table>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </aw-wizard-step>
+
+            <aw-wizard-step class="property2" [stepTitle]="'BANK DETAILS'"
+              [navigationSymbol]="{ symbol: '&#xf19c;', fontFamily: 'FontAwesome'}">
+              <div class="centered-content">
+                <div>
+                  <div>
+                    <fieldset class="alignll90">
+                      <table class="table-responsive width">
+                        <div class="table-head"></div>
+                        <table class="table">
+                          <thead class="profile">
+                          </thead>
+                          <tr>
+                            <th>Bank</th>
+                            <th>
+                              <select [(ngModel)]="companydetails.bank" name="bank" formControlName="bank"
+                                class="form-control" required>
+                                <option value="">--Select Bank--</option>
+                                <option *ngFor="let bankdata of banklist" [value]="bankdata.bankName">
+                                  {{bankdata.bankName}}</option>
+                              </select>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th class="colourful">IFSC Number</th>
+                            <th class="colourful">
+                              <input type="text" class="form-control" name="ifsc_code" formControlName="ifsc_code"
+                                [(ngModel)]="companydetails.ifsc_code" placeholder="Enter IFSC Number" required>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>Branch Name</th>
+                            <th>
+                              <input type="text" class="form-control" name="branch_name" formControlName="branch_name"
+                                [(ngModel)]="companydetails.branch_name" placeholder="Enter Branch Name" required>
+                            </th>
+                          </tr>
+                          <tr>
+                            <th class="colourful">Account Name</th>
+                            <th class="colourful">
+                              <input type="text" class="form-control" name="holder_name" formControlName="holder_name"
+                                [(ngModel)]="companydetails.holder_name" placeholder="Enter Account Name" required
+                                onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode=32)">
+                            </th>
+                          </tr>
+                          <tr>
+                            <th>Account Number</th>
+                            <th>
+                              <input type="text" class="form-control" name="account_number"
+                                formControlName="account_number" [(ngModel)]="companydetails.account_number"
+                                placeholder="Enter Account Number" required (keypress)="keyPress($event)">
+                            </th>
+                          </tr>
+                          <tr>
+                            <th class="colourful">Account Type</th>
+                            <th class="colourful">
+
+                              <select formControlName="acounttypes" class="form-control" name="acounttypes" required>
+                                <option value="">--Select Account Type --</option>
+                                <option *ngFor="let actype of accounttype" [value]="actype">{{actype}}</option>
+                              </select>
+                            </th>
+                          </tr>
+                        </table>
+                        <div class="fdfd">
+                          <button type="button" class="btn btn-outline-rounded btn-info qwea " awNextStep
+                            (click)="skkkip()">Skip <span style="margin-left:10px;"
+                              class="glyphicon glyphicon-arrow-right"></span>
+                          </button>
+                        </div>
+                        <div class="fdfd901">
+                          <button type="button" class="btn btn-outline-rounded btn-info qwea" awPreviousStep><span
+                              style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span>
+                            Previous</button>
+                        </div>
+                        <div class="fdfd90">
+                          <button type="button" class="btn btn-outline-rounded btn-info qwea" awNextStep
+                            (click)="companyreg()">Continue <span style="margin-left:10px;"
+                              class="glyphicon glyphicon-arrow-right"></span>
+                          </button>
+                        </div>
+                      </table>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </aw-wizard-step>
+
+            <aw-wizard-step class="property2" [stepTitle]="'Upload Document'"
+              [navigationSymbol]="{ symbol: '&#xf1c5;', fontFamily: 'FontAwesome'}">
+              <div class="centered-content uploaddocss">
+                <div>
+                  <div>
+                    <fieldset class="alignll90">
+                      <table class="table-responsive width">
+                        <div class="table-head"></div>
+                        <table class="table sdsdd">
+                          <div class="uploaddocs">
+                            <div class="row  col-sm-12 col-md-12" style="margin-left: 19px;">
+                              <form name="businesspan">
+                                <div id="bordercss">
+                                  <div class="col-md-12">
+                                    <div class="col-xs-8 col-sm-9 col-md-5">
+                                      <h4 class="boldtext margin" style="margin-left:-248px;">Business PAN</h4>
+                                    </div>
+                                    <div *ngIf="companydetails.Business_pan_file==null">
+                                      <div class="col-md-5" style="margin-top:20px;">
+                                        <input type="file" (change)="UploadDoc($event)"><span
+                                          style="color: green;">{{message}}</span>
+                                      </div>
+                                      <div class="col-md-2" class="marginsTp">
+                                      </div>
+                                    </div>
+                                    <div class="sqqqq" *ngIf="companydetails.Business_pan_file">
+                                      <span>Image Uploaded </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                              <form name="bankstatement">
+                                <div id="bordercss1">
+                                  <div class="col-md-12">
+                                    <div class="col-xs-8 col-sm-9 col-md-5">
+                                      <h4 class="boldtext margin" style="margin-left:-103px;">Latest 6 Months Bank
+                                        Statement</h4>
+                                    </div>
+                                    <div *ngIf="companydetails.bank_stmnt_borwr==null">
+                                      <div class="col-md-5 " style="margin-top:20px;">
+                                        <input type="file" (change)="UploadDoc1($event)" required><span
+                                          style="color: green;">{{message1}}</span>
+                                      </div>
+                                      <div class="col-xs-4 col-sm-4 col-md-2" class="marginsTp">
+                                      </div>
+                                    </div>
+                                    <div class="sqqqq" *ngIf="companydetails.bank_stmnt_borwr">
+                                      <span>Image Uploaded </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                              <form name="balancesheet">
+                                <div id="bordercss1">
+                                  <div class="col-md-12">
+                                    <div class="col-xs-8 col-sm-9 col-md-5">
+                                      <h4 class="boldtext margin" style="margin-left:-163px;"> Company Balance Sheet
+                                      </h4>
+                                    </div>
+                                    <div *ngIf="companydetails.Balance_sheet==null">
+                                      <div class="col-md-5" style="margin-top:20px;">
+                                        <input type="file" (change)="UploadDoc2($event)" required><span
+                                          style="color: green;">{{message2}}</span>
+                                      </div>
+                                      <div class="col-xs-4 col-sm-4 col-md-2" class="marginsTp">
+                                      </div>
+                                    </div>
+                                    <div class="sqqqq" *ngIf="companydetails.Balance_sheet">
+                                      <span>Image Uploaded </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                              <form name="addressproof">
+                                <div id="bordercss1">
+                                  <div class="col-md-12">
+                                    <div class="col-xs-8 col-sm-9 col-md-5">
+                                      <h4 class="boldtext margin" style="margin-left:-86px;">Present Address Proof
+                                        Documents</h4>
+                                    </div>
+                                    <div *ngIf="companydetails.present_address_proof==null">
+                                      <div class="col-md-5" style="margin-top:20px;">
+                                        <input type="file" (change)="UploadDoc3($event)" required><span
+                                          style="color: green;">{{message3}}</span>
+                                      </div>
+                                      <div class="col-xs-4 col-sm-4 col-md-2" class="marginsTp">
+                                      </div>
+                                    </div>
+                                    <div class="sqqqq" *ngIf="companydetails.present_address_proof">
+                                      <span>Image Uploaded </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </table>
+                        <div class="qqqqq">
+                          <div class="fdfd">
+                            <a routerLink="/Borrower_Dashboard/Dashboard-Details">
+                              <button type="button" class="btn btn-outline-rounded btn-info qwea " awNextStep>Skip <span
+                                  style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span>
+                              </button>
+                            </a>
+                          </div>
+                          <div class="fdfd901">
+                            <button type="button" class="btn btn-outline-rounded btn-info qwea" awPreviousStep><span
+                                style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span>
+                              Previous</button>
+                          </div>
+
+                          <div class="fdfd90">
+                            <button type="button" class="btn btn-outline-rounded btn-info qwea" awNextStep
+                              (click)="compnydatareg()">Submit <span style="margin-left:10px;"
+                                class="glyphicon glyphicon-arrow-right"></span>
+                            </button>
+                          </div>
+                        </div>
+                      </table>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </aw-wizard-step>
+          </aw-wizard>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

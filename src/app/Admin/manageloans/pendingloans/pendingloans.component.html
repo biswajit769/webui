@@ -1,0 +1,189 @@
+<div> 
+  <div>
+  <span id="itemsperpagemargin" style="margin-top: 0px;
+margin-bottom: 10px;"></span>
+<input  type="text" class="adminsearchbox1" placeholder="Enter Company Name" name="search"  >
+<span id="itemsperpagemargin">
+<select id="itemperpagestyle" >
+<option value="" disabled="">Select Records Per Page</option> 
+<option>10</option>
+<option>20</option>
+<option>30</option>
+<option>40</option>
+</select>
+</span>
+      <div class="table-responsive flexcroll" id="loanTableStyle" style="height: 100%;">
+          <table class="table table-striped  table-bordered" id="mytableborder">
+              <thead id="myloanhead">
+                  <tr class="tableTextCenter">
+                      <th>Loan Id</th>
+                      <th>Company Id</th>
+                      <th>Company Name</th>
+                      <th>Company Mobile Number</th>
+                      <th>Loan Amount</th>
+                      <th>Selected Interest</th>
+                      <th>Status</th>
+                      <th>Loan Details</th>
+                      <th>Action</th>
+                  </tr>
+              </thead>
+            <tbody  id="myduesbody">
+                  <tr *ngFor="let pending of pendingloan">
+                      <td>{{pending.id || 'empty'}}</td>
+                      <td>{{pending.company}}</td>
+                      <td>{{pending.companyName || 'empty'}}</td>
+                      <td>{{pending.company_mobile_number || 'empty'}}</td>
+                      <td>{{pending.loan_amount || 'empty'}}</td>
+                      <td>
+
+                         <span>
+                           <select *ngIf="pending.id == status2" name="rateinterest"  class="form-control" [(ngModel)]="pending.selected_interest" required style="position: static;">
+            <option value="" [disabled]="true">----Select Interest---- </option>
+            <option *ngFor="let interest of rateofinterests">
+                {{interest}}
+            </option>
+        </select></span><span *ngIf="pending.id !=status2">
+                      
+                          {{pending.selected_interest}} 
+                          </span>
+                      </td>
+
+                      <td>
+                          {{pending.status || 'empty'}} 
+                      </td>
+                      <td>
+            <button class="viewdetailsbutton" (click)="getCompletePendingLoans(pending.id)"><i class="glyphicon glyphicon-file"></i><span> View Details</span></button>
+          </td>
+                       <td>
+                          <div class="buttons" *ngIf="pending.id != status2" id="marginXedit">
+                              <button  type="button" class="btn btn-primary myButtonedit" (click)="edit(pending.id)">edit</button>
+                          </div>
+                          
+                          <form editable-form name="rowform"  class="form-buttons form-inline" id="marginXedit">
+
+                            <div *ngIf="pending.id == status2">
+                              <button  type="submit"  class="btn btn-primary myButtonadd" id="customSave" (click)="saveloaneditables(pending)">
+                                  save
+                              </button>
+                              <button type="button"(click)="cancel()" class="btn btn-default myButtoncancel" id="customCancel">
+                                  cancel
+                              </button>
+                            </div>
+                          </form>
+                        
+                      </td> 
+                  </tr> 
+              </tbody>
+              <tbody *ngIf="pendingloan.length==0">
+                  <tr>
+                      <th colspan="24" class="text-center" id="spanmessage">No records found</th>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+
+
+</div>
+
+
+
+
+<div id="myModal" #pendingloanpopup class="modal fade " role="dialog">
+<div class="modal-dialog" >
+  <div class="modal-content">
+    <div class="modal-header" style="background-color: #337ab6;
+height: 92px;">
+<a (click)="cancel1()" style="color: black;"><i class="glyphicon glyphicon-remove" id="placecloseicon"></i></a>
+      <h3 id="loandetpopuphead">Pending Loan Details</h3>
+    </div>
+    <div class="modal-body" style="padding: 0px">
+      <div class="table-responsive" >
+        <table class="table table-striped table-bordered placecenter" >
+         
+
+
+          <tr >
+            <th style="width: 50%">Loan Id</th>
+            <td style="width: 50%">{{loanpending.id}}</td>
+          </tr>
+          <tr>
+            <th>Company ID</th>
+            <td>{{loanpending.company || 'empty'}}</td>
+          </tr>
+           <tr>
+            <th>Company Name</th>
+            <td>{{loanpending.companyName || 'empty'}}</td>
+          </tr>
+           <tr>
+            <th>Company Mobile Number</th>
+            <td>{{loanpending.company_mobile_number || 'empty'}}</td>
+          </tr>
+           <tr>
+            <th>NBFC Id</th>
+            <td>{{loanpending.lender || 'empty'}}</td>
+          </tr>
+          <tr>
+            <th>NBFC Name</th>
+            <td>{{loanpending.lender_name || 'empty'}}</td>
+          </tr>
+          <tr>
+            <th>Loan Amount</th>
+            <td>{{loanpending.loan_amount || 'empty'}}</td>
+          </tr>
+          <tr>
+            <th>Tenure</th>
+            <td>{{loanpending.tenure || 'empty'}}</td>
+          </tr>
+          <tr>
+            <th>Accepted Interest</th>
+            <td>{{loanpending.selected_interest || 'empty'}}</td>
+          </tr>
+          <tr>
+            <th>Requested date</th>
+            <td>{{loanpending.requested_date || 'empty'}}</td>
+          </tr>
+          <tr>
+            <th>Repayment type</th>
+            <td>{{loanpending.repayment_type || 'empty'}}</td>
+          </tr>
+          <tr>
+            <th>Processing Fee</th>
+            <td>{{loanpending.processing_fee || 'empty'}}</td>
+          </tr>
+          <tr>
+            <th>Membership Type</th>
+             <td>{{loanpending.membership_type || 'empty'}}</td>
+          </tr>
+          <tr>
+            <th>Insurance</th>
+             <td>{{loanpending.insurance || 'empty'}}</td>
+          </tr>
+          <tr>
+            <th>Membership Fee</th>
+             <td>{{loanpending.membership_fee || 'empty'}}</td>
+          </tr> 
+         <tr>
+            <th>FINCHAIN Disbursement</th>
+             <td>{{loanpending.rtm_disbursement || 'empty'}}</td>
+          </tr> 
+           <tr>
+            <th>Company Disbursement</th>
+             <td>{{loanpending.borrower_disbursement || 'empty'}}</td>
+          </tr> 
+         <tr>
+            <th>Company Cheque</th>
+             <td>{{loanpending.borrwer_cheque || 'empty'}}</td>
+          </tr> 
+
+        </table>
+      </div>
+    </div>
+    <div class="modal-footer" id="recordsmodalfooter">
+      <button class="btn btn-default" (click)="cancel1()">close</button>
+    </div>
+  </div>
+
+</div>
+</div>
+

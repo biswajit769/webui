@@ -1,0 +1,54 @@
+.alignment{
+  margin-bottom: 4px;
+  border-radius: 10px;
+  /*border: 1px solid #3066da;*/
+  box-shadow: 10px 10px 10px 10px grey;
+}
+    h2{
+      color:  #040f4c;
+      text-align: center;
+      margin-top: 6px
+    }
+
+    .abc {
+      font-size: 12px;
+      color:black;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+  .abc:hover {
+    color:#337ab7;
+  }
+  
+.my-form{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  .full-width{
+    width: 260px;
+  } 
+  .help-block{
+    color: red;
+    margin-top: -14px;
+    
+  }
+  .userForm{
+    text-align: center;
+  }
+:host {
+  display: block;
+  overflow: hidden; 
+  }
+.parent {
+  height: 100%;
+  width: 200%;     
+  display: flex;    
+  }
+ 
+ @media screen and (max-width: 640px) and (min-width: 360px) {
+  .alignment {
+    margin-top: -63px;
+  }
+}

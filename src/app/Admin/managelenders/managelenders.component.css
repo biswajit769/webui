@@ -1,0 +1,314 @@
+
+.fade {
+        opacity: 1;
+
+    }
+
+
+.sizzz{
+        width: 259px;
+    height: 25px;
+}
+
+
+.backg{
+      background-color: whitesmoke;
+   width: 159%;
+    margin-left: -66px;
+
+}
+
+
+
+#myduesbody {
+    background: whitesmoke;
+    color: black;
+}
+
+
+#myloanhead {
+    background: beige;
+    color: #333333;
+}
+
+.applicationbutton {
+    border-radius: 4px;
+    background-color: #408c99;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 13px;
+    /* padding: 28px; */
+    width: 151px;
+    transition: all 0.5s;
+    cursor: pointer;
+    /* margin: 4px; */
+    margin-top: 14px;
+    height: 50px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    -webkit-box-shadow: 0px 10px 14px -7px #333;
+    
+}
+
+.applicationbutton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.applicationbutton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.applicationbutton:hover span {
+  padding-right: 25px;
+}
+
+.applicationbutton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
+#visitedborr1 {
+    font-size: 27px;
+    margin-left: 341px;
+    font-style: normal;
+    font-weight: bolder;
+    color: brown;
+}
+
+#profileHead1 {
+    text-align: center;
+    background: #337ab6;
+    padding: 5px;
+    color: white;
+    font-variant: small-caps;
+}
+#profileHead {
+    text-align: center;
+    background: #337ab6;
+    padding: 5px;
+    color: white;
+    font-variant: small-caps;
+}
+#popupBodyStyle {
+    font-weight: bold;
+}
+#firstRmTable {
+    width: 49%;
+}
+
+.myButtonedit {
+    -moz-box-shadow: inset 0px 39px 0px -24px #276873;
+    -webkit-box-shadow: inset 0px 39px 0px -24px #276873;
+    box-shadow: inset 0px 39px 0px -24px #276873;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #599bb3), color-stop(1, #408c99));
+    background: -moz-linear-gradient(top, #599bb3 5%, #337ab6 100%);
+    background: -webkit-linear-gradient(top, #599bb3 5%, #337ab6 100%);
+    background: -o-linear-gradient(top, #599bb3 5%, #337ab6 100%);
+    background: -ms-linear-gradient(top, #599bb3 5%, #337ab6 100%);
+    background: linear-gradient(to bottom, #599bb3 5%, #337ab6 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99', GradientType=0);
+    background-color: #599bb3;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #29668f;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    padding: 6px 15px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #3d768a;
+}
+
+.myButtonedit:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #599bb3));
+    background: -moz-linear-gradient(top, #408c99 5%, #599bb3 100%);
+    background: -webkit-linear-gradient(top, #408c99 5%, #599bb3 100%);
+    background: -o-linear-gradient(top, #408c99 5%, #599bb3 100%);
+    background: -ms-linear-gradient(top, #408c99 5%, #599bb3 100%);
+    background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3', GradientType=0);
+    background-color: #408c99;
+}
+
+.myButtonedit:active {
+    position: relative;
+    top: 1px;
+}
+
+
+.tableTextCenter th {
+    text-align: center;
+}
+
+.tableTextCenter td {
+    text-align: center;
+}
+
+.adminsearchbox1 {
+    width: 200px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 12px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin-bottom: 10px;
+    margin-top: 8px;
+    background: whitesmoke;
+    color: brown;
+    
+    text-align: center;
+        margin-left: 15px;
+}
+
+.adminsearchbox1:focus {
+    
+    width: 60%;
+    background: white;
+}
+
+
+.process {
+    display: table;
+    width: 100%;
+    position: relative;
+    margin-top: 15px;
+}
+
+#paginationStyle {
+    text-align: right;
+    padding: 18px;
+    }
+
+#box1 {
+    background: beige;
+    padding: 16px 106px 9px;
+    border-radius: 10px;
+    color: sienna;
+    font-size: 18px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+
+#spanmessage {
+    font-size: 20px;
+    color: red;
+}
+
+
+#visitedborr1 {
+    font-size: 27px;
+    margin-left: -9px;
+    font-style: normal;
+    font-weight: bolder;
+    color: brown;
+
+} 
+
+#itemperpagestyle {
+    border-radius: 3px;
+    color: rgba(0, 0, 0, 0.7);
+    background: white;
+    padding: 10px;
+    font-weight: bold;
+    width: 64px;
+    margin-top: 13px;
+    height: 49px;
+}
+#itemsperpagemargin {
+    float: right;
+    margin-right: 20px;
+}
+
+#closepopid {
+    background: none;
+    border: none;
+}
+
+@media only screen and (min-width:320px) and (max-width: 767px) {
+    
+    #itemsperpagemargin {
+    float: right;
+        margin-top: 10px;
+}
+    .adminsearchbox1{
+    width: 156px;
+    
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin-bottom: 10px;
+    margin-top: 23px;
+    background: whitesmoke;
+    color: brown;
+        margin-left: 15px;
+}
+
+#visitedborr {
+    font-size: 27px;
+    margin-left: 61px;
+    font-style: oblique;
+    font-weight: bolder;
+    color: brown;
+
+
+}
+
+ #disbursementMargin {
+        margin-top: 30px;
+        height: 100%;
+        width: 270px;
+    }
+    
+    #editTeam {
+        font-size: 15px;
+        padding-bottom: 5px;
+        padding-top: 4px;
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+    
+    #permissionFormStyle {
+        text-align: center;
+        background: whitesmoke;
+        padding: 31px 72px 37px 60px;
+        width: 100%;
+        margin-top: 11px;
+        margin-left: 0px;
+    }
+    
+	#buttontocenter {
+	text-align: center;
+    }
+
+    
+	.brdocsmobile {
+	    width: 729px;
+	}
+
+    }

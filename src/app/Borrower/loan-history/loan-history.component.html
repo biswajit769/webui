@@ -1,0 +1,52 @@
+<div class="loanhistory">
+  <div>
+      <div ng-show="loanhistoryloading">
+         <!--  <div class=loader></div> -->
+      </div>
+    </div>
+  <h1><img alt="loan History" src="assets/images/Loan History.png"  style="width: 5%;">&nbsp; Loan History</h1>
+  <div class="table-responsive tabledashboard">
+      <div class="LoanHistoryicon">
+          <table style="text-align: center;" class="loan-tbl  table table-bordered text-center">
+              <thead class="tableheader">
+                  <tr>
+                      <th style="background-color:#0066cc;">Lender Name</th>
+                      <th style="background-color:#0066cc;">Loan Amount</th>
+                      <th style="background-color:#0066cc;">Loan Request Date</th>
+                      <th style="background-color:#0066cc;">Loan Type</th>
+                      <th style="background-color:#0066cc;">Status</th>
+                  </tr>
+              </thead>
+             
+              <tbody>
+                  <tr class="cursor"  *ngFor="let loan of loanhistroy">
+                      <td (click)="loanhistorypop(loan)">{{loan.lender_name}}</td>
+                      <td (click)="loanhistorypop(loan)">{{loan.loan_amount}}</td>
+                      <td (click)="loanhistorypop(loan)">{{loan.requested_date  | date: 'dd'}}/{{loan.requested_date  | date:'MM'}}/{{loan.requested_date | date : 'yyyy'}}</td>
+                      <td (click)="loanhistorypop(loan)">{{loan.repayment_type}}</td>
+                      <td (click)="loanhistorypop(loan)">{{loan.status}}</td>
+                      <!-- <td ng-show="loan.status=='Accepted' || loan.status=='Pending'">
+                          <button type="button" class="btn btn-danger" ng-click="cancel(loan.pk)">Cancel Loan</button>
+                          <button ng-show="loan.status=='Pending'" type="button" class="btn btn-warning" ng-click="modify(loan)">Update</button>
+                      </td>
+                      <td ng-show="loan.status=='Disbursed' || loan.status=='Closed' || loan.fields.status=='Requested for extending'">
+                          <button type="button" class="btn btn-primary" ng-disabled="true">{{loan.fields.status}}</button>
+                      </td> -->
+                  </tr>
+                 <!--  <tr ng-show="loan.fields.status=='Cancelled' || loan.fields.status=='Extended'" ng-repeat="loan in loanhistory">
+                      <td ng-click="loanhistorypop(loan)">{{loan.fields.loan_amount}}</td>
+                      <td ng-click="loanhistorypop(loan)">{{loan.fields.requested_date}}</td>
+                      <td ng-click="loanhistorypop(loan)">{{loan.fields.repayment_type}}</td>
+                      <td>
+                          <button type="button" class="btn btn-danger" ng-disabled="true">{{loan.fields.status}}</button>
+                      </td>
+                  </tr> -->
+
+                  <tr>
+                      <td colspan="5" class="text-center orangefont" *ngIf="loanhistroy.length==0">No Closed Loans</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

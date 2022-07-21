@@ -1,0 +1,38 @@
+
+<div class="manageLoanPage">
+  <span style="font-size: 27px;">Loan Details</span>
+  </div>
+ 
+    <div class="tab">
+      <ul class="nav nav-tabs" style="border-bottom:none;margin-top: 10px;width: 95%;">
+        <li ng-hide="onlyadmin01"><a id="admintabstyle1" routerLink="pendingloans">Pending Loans</a></li>
+        <li ng-hide="onlyadmin01"><a id="admintabstyle1" routerLink="acceptedloans">Accepted Loans</a></li>
+        <li><a id="admintabstyle1" routerLink="dibursedloans">Disbursed Loans</a></li>
+  
+        <li><a id="admintabstyle1"  routerLink="closedloans">Closed Loans</a></li>
+        <li><a id="admintabstyle1"  routerLink="defaulters">Defaulters</a></li>
+        
+
+      </ul>  
+  </div>
+  
+  
+  
+  
+       
+      <div class="col-md-12">
+        <div class="row">
+          <div class="tab-content">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+
+  
+  
+  
+  
+  
+  
+  
+  

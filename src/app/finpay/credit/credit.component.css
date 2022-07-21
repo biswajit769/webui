@@ -1,0 +1,85 @@
+.container-fluid{
+    background-image: url(https://s3.ap-south-1.amazonaws.com/images.lazypay.in/lp-arrow-bg.svg);
+    height: 640px;
+    width: 100%;
+    background-attachment: fixed;
+     background-repeat: no-repeat;
+      background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+.col-md-12{
+	background-color: red;
+}
+
+
+
+
+  @media (min-width: 260px) and (max-width: 640px) {
+.container-fluid h2{
+	margin-top: 175px;
+    margin-left: 70px;
+}
+.container-fluid p{
+	margin-left: 50px;
+}
+.set{
+    height: 110px;
+    width: 125px;
+    margin-left: 40px;
+    margin-top: 32px;
+    border:2px solid #BFBFBF;
+    border-radius: 15px;
+}
+ .set1{
+	height: 75px;
+	margin-right: 200px;
+    margin-left: 5px;
+    margin-top: 7px;
+}
+.set2{
+    height: 110px;
+    width: 120px;
+    margin-left: 178px;
+    margin-top: -110px;
+    border:2px solid #BFBFBF;
+    border-radius: 15px;
+}
+#marg{
+	margin-left: -5px;
+}
+#marg1{
+	margin-left: 15px;
+}
+#marg2{
+	margin-left: 30px;
+}
+.set3{
+	height: 75px;
+	margin-right: 200px;
+    margin-left: 7px;
+    margin-top: 7px;
+}
+.set4{
+    height: 110px;
+    background-color: #fbe8ee;
+    width: 120px;
+    margin-left: 109px;
+    margin-top: -90px;
+    border:2px solid #BFBFBF;
+    border-radius: 15px;
+}
+.set5{
+	height: 75px;
+	margin-right: 200px;
+    margin-left: 5px;
+    margin-top: 7px;
+}
+button{
+	margin-top: 110px;
+	margin-left: 50px;
+	width: 250px;
+	border-radius: 15px;
+}
+
+  }

@@ -1,0 +1,84 @@
+/* #tblGrid,table, th, td {
+    border:disabled;
+  } */
+
+.crossymbol {
+    float: right;
+    size: -19px;
+    width: 20px;
+    height: 20px;
+    padding-top: 0px;
+    padding-left: 5px;
+}
+
+.abc {
+    margin-top: 10px;
+    text-align: right;
+    /* margin-bottom: 18px;
+    border-bottom: 1px solid #8d8d8d; */
+}
+
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+.close:hover {
+    background: #09a5c0;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #8d8d8d;
+    background-color:#337ab7;
+    text-align: center;
+    color: white;
+    
+}
+
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+    color: white;
+}
+
+
+.modal-body table.loan-table>tbody>tr>th {
+    text-align: center;
+}
+
+.modal-dialog {
+    width: 720px;
+}
+.tableheader {
+    background: #337ab7;
+    color: white;
+}
+.orangefont {
+    color: orange;
+    font-weight: bold;
+ }
+ .modal-body .form-horizontal .col-sm-2,
+.modal-body .form-horizontal .col-sm-10 {
+    width: 100%
+}
+
+.modal-body .form-horizontal .control-label {
+    text-align: left;
+}
+.modal-body .form-horizontal .col-sm-offset-2 {
+    margin-left: 15px;
+}

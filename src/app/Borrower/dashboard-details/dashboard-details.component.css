@@ -1,0 +1,260 @@
+
+a:hover,a:focus{
+  outline: none;
+  text-decoration: none;
+}
+.tab .nav-tabs{
+  border: none;
+ 
+}
+
+.sss{
+  margin-left: 600px;
+}
+
+
+.head{
+
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    text-align: center;
+}
+
+.tab{
+  position: relative;
+  top: 0px;
+  left: -25px;
+  z-index: 2;
+  overflow: hidden;
+  width: 90%;
+}
+.tab .nav-tabs li a{
+  padding: 12px 20px;
+  margin-right: 15px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #f1edee;
+  text-transform: uppercase;
+  border-radius: 0;
+  z-index: 1;
+  position: relative;
+  cursor: pointer;
+    background-color: #3379b6;
+}
+.tab .nav-tabs li a:hover{ color: #fff; }
+.tab .nav-tabs li.active a{
+  border: none;
+  color: #fff;
+}
+.tab .nav-tabs li a:before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  border: 1px solid #3379b6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.5s ease 0s;
+}
+.tab .nav-tabs li a:hover:before,
+.tab .nav-tabs li.active a:before{
+  opacity: 0;
+  transform: scale(0.5);
+}
+.tab .nav-tabs li a:after{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #3379b6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -1;
+  transform: scale(1.2);
+  transition: all 0.5s ease 0s;
+}
+.tab .nav-tabs li a:hover:after,
+.tab .nav-tabs li.active a:after{
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media only screen and (max-width: 479px){
+  .tab .nav-tabs{ overflow: hidden; 
+    margin-left: 34px;}
+  .tab .nav-tabs li{
+      width: 100%;
+      text-align: center;
+      margin-bottom: 15px;
+  }
+  .tab .nav-tabs li a{ margin-right: 0; }
+}
+
+/* Notification icon disign */
+
+ ul.nav li span {
+   /* display: block; */
+   padding: 1px;
+   position: relative;
+ }
+ ul.nav li mark {
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 10px;
+   border: 2px solid #FFF;
+   width: 20px;
+   height: 20px;
+   background-color: #ff4081;
+   position: absolute;
+   top: -5px;
+   left:2px;
+   font-size: 10px;
+   /* line-height: 20px; */
+   font-family: 'Roboto', sans-serif;
+   font-weight: 400;
+   color: #FFF;
+  
+ }
+.panel-heading, .panel-body {
+  border-radius: 0px;
+}
+.panel-heading {
+  background-color:#337ab7;
+  text-transform: uppercase;
+  font-weight: 600;
+  width:1120px;
+  height: 70px;
+
+}
+.nav-tabs {
+  border-bottom: none;
+}
+
+thead>tr>th {
+  cursor: pointer;
+}
+input[type=text] {
+width: 348px;
+height: 38px;
+margin-left: -25px;
+transition: width 0.4s ease-in-out;
+margin-top: 16px;
+}
+
+/* When the input field gets focus, change its width to 100% */
+/*input[type=text]:focus {
+  width: 10%;
+}*/
+
+html, body {
+height: 100%;
+}
+
+.page {
+display: block;
+position: absolute;
+top: 50%;
+left: 50%;
+margin: -17px 74px;
+float: right;
+}
+
+.select-dropdown {
+position: relative;
+background-color: #e6e6e6;
+width: auto;
+float: left;
+max-width: 100%;
+border-radius: 2px;}
+select {
+  font-family: "helvetica neue", helvetica;
+  font-size: 1rem;
+  font-weight: 200;
+  max-width: 100%;
+  padding: 11px 41px 10px 42px;
+  border: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  
+}
+
+.tableheader {
+  background: #3379b6;
+  color: white;
+  text-align: center;
+}
+
+.brclr1{
+  color: #062d64;
+}
+.page-header {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 2px solid #3f51b5;
+}
+#wrapper {
+  width: 100%;
+  margin-top: -50px;
+}
+#page-wrapper {
+    padding: 0 15px;
+     min-height: 500px;
+    background-color: white;
+}
+.fedration{
+  color: #062d64;
+}
+
+#dinu {
+    width: 100px; 
+    display:inline-block;
+}
+
+
+@media (min-width: 768px) {
+  #page-wrapper {
+  position: inherit;
+   margin-left: -105px;
+    padding: 0 30px;
+    border-left: 1px solid #337ab7;
+    /* margin-top: -89px; */
+  }
+}
+
+
+
+
+h2 {
+  text-align: center;
+  padding: 20px 0;
+}
+
+table caption {
+  padding: .5em 0;
+}
+
+table th,
+table td {
+  white-space: nowrap;
+}
+
+.p {
+  text-align: center;
+  padding-top: 140px;
+  font-size: 14px;
+}
+.loanModalHeader {
+  background-color: #337ab7;
+  color: white;
+  text-align: center;
+}
+
+#loanModalBody {
+  background: whitesmoke;
+}

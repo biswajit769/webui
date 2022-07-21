@@ -1,0 +1,214 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid" style="padding:20px;">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="margin-left: 33px;" href="#">
+        <img src="assets/images/finchain_logo.jpg" width="30" height="30" class="d-inline-block align-top">
+        <p style="margin-left: 40px;margin-top: -24px;font-size: 24px;"><b>FINCHAINPAY</b></p>
+      </a>
+    </div>
+
+    <!-- <p align="right">
+      For any support call on: 9876543210<br>
+      Avaliable Mon-Sat 9AM to 7PM<br>
+     <a routerLink="/finchainpay/finpayhome"> logout</a>
+    </p> -->
+
+    <div class="" align="right" style="margin-top: 25px;">
+      <p><span>For any support call on: 9876543210</span></p><br>
+      <p><span>Avaliable Mon-Sat 9AM to 7PM</span></p><br>
+      <p id="logout"><a routerLink="/finchainpay/finpayhome" class="txt-logout" title="Logout" (click)="logOut()">Logout</a>
+      </p>
+    </div>
+  </div>
+</nav>
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+  <div class="row act" *ngFor="let crt of Cred">
+    <p>Credit Limit:{{crt.credit_limit}}</p>
+  </div>
+  <div class="row act" style="margin-top:10px;">
+    <input type="text" class="trans-date" value="" placeholder="Enter the money to load" [(ngModel)]="amtData.Amount" name="amt">&nbsp;
+    <input type="text" class="trans-date" value="" placeholder="Tenure" [(ngModel)]="amtData.Tenure" name="tend">&nbsp;
+    <button type="button" class="btn btn-default now" (click)="model1(amtData)">Activate Now</button>
+  </div>
+</div>
+
+<div class="col-lg-8 col-md-12 col-xs-12 col-sm-12 nopadding left-section">
+  <div class="amountblock-section">
+    <div id="div_main" style="overflow: auto;">
+    </div>
+    <div class="amount-block">
+      <div class="os-amt-stmt">
+        <p>
+          <span class="due-label">Previous Due:</span>
+          <span class="prev-amt-value">Rs 0.0</span>
+        </p>
+      </div>
+      <div class="paynow-block mobile-hidden">
+        <a href="#" id="paynowbtn" class="btn button btn-paynow gradient" disabled="disabled">Pay Now</a>
+      </div>
+      <div class="os-amt">
+        <p class="label-amt-value">Outstanding Amount</p>
+        <div class="amt-value">
+          <span>Rs 0.0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 10px;margin-left: -84px;">
+    <div class="col-lg-7 col-md-6 col-md-offset-2">
+      <input placeholder="From" class="trans-date imgg" type="text" onfocus="(this.type='date')"
+        onblur="(this.type='text')" id="date"> &nbsp;
+      <img src="assets/daate.png" width="30" height="30">&nbsp;&nbsp;
+      <input placeholder="To" class="trans-date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')"
+        id="date">&nbsp;
+      <img src="assets/daate.png" width="30" height="30">
+    </div>
+    <div class="col-lg-3 col-md-6">
+      <div class="trans-opts" style="float: right;">
+        <select id="txn-status" class="filter">
+          <option disabled="">Status</option>
+          <option selected="" value="success">Success</option>
+          <option value="failed">Failed</option>
+          <option value="cancelled">Cancelled</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="trans-table" style="margin-top: 40px;">
+    <div class="trans-table-block">
+      <div id="tbl-trans" class="trans-table-block-head">
+        <div id="transactionsLabel" class="trans-table-block-head-text">Successful Transactions</div>
+
+        <div class="trans-table-block-head-text1">Debited (Rs)</div>
+        <div class="trans-table-block-head-text1">Credited (Rs) </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div id="txn_block">No Transactions</div>
+ 
+  </div>
+</div>
+
+<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 nopadding right-section">
+  <div class="payment-block">
+    <div class="payment-heading">
+      <div class="pay-details">
+        <h3> Payments </h3>
+      </div>
+      <div class="pay-amt">
+        <a href="" class="view-all">view
+          all</a>
+      </div>
+    </div>
+    <div class="paymentdetails-blank-block">
+      No Payments Made.
+    </div>
+  </div>
+
+  <div class="stmt-block">
+    <div class="stmt-heading">
+      <div class="stmt-details">
+        <h3> Statements </h3>
+      </div>
+      <div class="stmt-amtblock">
+        <a href="" class="view-all">view all</a>
+      </div>
+    </div>
+    <div class="statementsdetails-blank-block">
+      No Statements Available.
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="text-center">
+        <h4 class="modal-title" style="color: blue;">E-Nach Mandate</h4>
+        </div>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th colspan="2" style="text-align: center;background-color: aliceblue;">Mandate Details</th>
+            </tr>
+          </thead>
+          <tr>
+            <td><b>Maximum Amount(INR)</b></td>
+            <td>3000</td>
+          </tr>
+          <tr>
+            <td><b>Debit Frequency</b></td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td><b>Purpose</b></td>
+            <td>N/A</td>
+          </tr>
+          <tr>
+            <td><b>Start Date(dd-mm-yyyy)</b></td>
+            <td>02-12-2019</td>
+          </tr>
+          <tr>
+            <td><b>End Date(dd-mm-yyyy)</b></td>
+            <td>02-03-2020</td>
+          </tr>
+          <tr>
+            <td><b>Utility Code</b></td>
+            <td>N/A</td>
+          </tr>
+        </table>
+        <table class="table">
+          <thead>
+            <tr>
+              <th colspan="2" style="text-align: center;background-color: aliceblue;">Customer Details</th>
+            </tr>
+          </thead>
+          <tr>
+            <td><b>Bank Name</b></td>
+            <td>ICICI Bank</td>
+          </tr>
+          <tr>
+            <td><b>Account Number*</b></td>
+            <td>612372105612</td>
+          </tr>
+          <tr>
+            <td><b>Account Type*</b></td>
+            <td>Savings</td>
+          </tr>
+          <tr>
+            <td><b>Customer Name</b></td>
+            <td>Kishan</td>
+          </tr>
+          <tr>
+            <td><b>Verify Using</b></td>
+            <td>N/A</td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+      <fieldset>
+        <div class="item">
+          <input type="checkbox" id="a">
+          <label id="b" for="a">This is to confirm that the declaration has been carefully read, understand and prepared by me. I understand that iam authorized to cancelization this mandate by appropriately communicating this cancellation aggrement to <b style="color: blue">FinchainPay.</b></label>
+        </div>
+      </fieldset>
+      <div class="text-center">
+      <button class="btn-primary" id ="save" (click)="save1()">Submit</button>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+

@@ -1,0 +1,389 @@
+.borrowerdashboardleft li img {
+    width: 25%;
+    padding: 16px;
+}
+.viewprofile select {
+width: 75%;
+}
+table.loan-tbl th{
+
+text-align: center;
+}
+
+.tableheader {
+   background: grey;
+   color: white;
+}
+
+.orangefont {
+   color: orange;
+   font-weight: bold;
+}
+
+#loanextensionheader{
+   background: #ed6506;
+   color: white;
+}
+
+
+   #popupfooterbutton,
+   #popupfooterbutton:hover,
+   #popupfooterbutton:active,
+   #popupfooterbutton:visited {
+background-color: rgba(78, 67, 67, 0.75) !important;
+border-color: rgba(78, 67, 67, 0.75);
+background: rgba(78, 67, 67, 0.75);
+}
+
+
+.borrowerdashboardleft {
+    float: left;
+    padding: 0px;
+    list-style-type: none;
+}
+
+#dashboardbody {
+    max-height: 94%;
+    overflow: scroll;
+    position: fixed;
+    width: 24%;
+    background: rgb(251, 246, 243);
+}
+
+.sidenav {
+    display: none;
+}
+
+#dashboardbody::-webkit-scrollbar {
+    display: none;
+}
+
+.loanhistoryicon h3 img {
+    width: 50px;
+}
+
+.loanhistoryicon {
+    margin: 0px;
+}
+
+.table .loanhistoryheading {
+    background: #f18641;
+}
+
+.borrowerdashboardleft a li {
+    color: #000000;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.borrowerimg {
+   max-width: 80%;
+max-height: 165px;
+min-width: 80%;
+min-height: 165px;
+margin: 11px 0px 10px 0px;
+border-radius: 50%;
+background: wheat;
+}
+
+#myicon {
+    display: none;
+}
+
+.gridbox {
+    background: wheat;
+    padding: 25px 31px;
+    color: rgb(35, 86, 129);
+    border-radius: 15px;
+    margin: 27px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+
+
+.sidenav li img.borrowerimgmobile {
+    /*max-height: 89px;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 89px;
+    border-radius: 50%;
+    background: wheat;*/
+    max-width: 106%;
+    min-width: 100%;
+    border-radius: 50%;
+    margin: -7px 10px 10px -13px;
+    background: wheat;
+}
+.sidenav img {
+width: 10%;
+margin: 0px 8px;
+}
+
+.sidenav li {
+list-style-type: none;
+padding: 9px 19px;
+}
+
+.sidenav a {
+
+text-decoration: none;
+color: #000000;
+transition: 0.3s;
+font-weight: bolder;
+}
+
+.sidenav a:hover,
+.offcanvas a:focus {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    top: 0;
+    float: right;
+    right: 25px;
+    /* margin-top: 60px; */
+    font-size: 36px;
+    /* margin-left: 50px;*/
+}
+
+.borrowerdashboardleft span {
+    font-size: medium;
+    font-weight: bolder;
+}
+
+ul.borrowerdashboardleft li.active,
+ul.borrowerdashboardleft li:hover,
+ul.borrowerdashboardleft li.active:focus {
+    transition: all 1s;
+    transform: scale(1.1);
+    background: #d8ad81 !important;
+    color: white !important;
+}
+
+.uploaddocs .boldtext {
+    font-weight: bolder;
+    color: #676161;
+}
+
+.uploaddocs input[type="button"] {
+    margin-top: 13px;
+}
+
+.dashboarddetails {
+    margin-top: 20px;
+}
+
+.sidenav li.active,
+.sidenav li:hover,
+.sidenav li.active:focus {
+    background: wheat;
+    color: white;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+@media only screen and (min-width:320px) and (max-width: 767px) {
+   .dashboarddetails {
+margin-top: 0px;
+}
+   .rtm-score-strip{
+       display: none;
+   }
+    .viewprofile {
+        margin-top: -35px !important;
+    }
+    #dashboardicon {
+        margin-top: 28px;
+        display: block;
+    }
+    .sidenav {
+        display: block;
+    }
+    #myicon {
+        text-align: left;
+        margin-left: 1px;
+        margin-top: 12px;
+        padding: 4px 3px 11px;
+        display: block;
+    }
+    #dashboardbody {
+        position: absolute;
+        display: none;
+    }
+    .loanhistoryicon {
+        position: absolute;
+        z-index: -999;
+        background: white;
+    }
+    .dashboarddetailscolor {
+        z-index: -999;
+    }
+    .borrowerdashboardleft li img {
+        width: 32%;
+        padding: 26px;
+        margin: 7px;
+    }
+    .sidenav span {
+        font-size: medium;
+        font-weight: bolder;
+    }
+    .gridbox h3 {
+        font-size: 15px;
+    }
+    .gridbox {
+        background: wheat;
+        padding: 10px 12px;
+        font-size: medium;
+        color: rgb(35, 86, 129);
+        border-radius: 15px;
+        margin: 26px 22px;
+    }
+    .uploaddocs h1 {
+        color: #2356a0;
+        font-size: x-large;
+        font-weight: bolder;
+    }
+    .rtmscore1 th td {
+        font-size: small;
+        margin-top: 18px;
+        margin: 14px;
+        border: 0px
+    }
+    .rtmscore1 td {
+        padding: 4px 0px;
+    }
+    .rtmscore1 {
+        width: 46%;
+    }
+    .table-responsive {
+        border: 0px;
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width: 1024px) {
+    #dashboardicon {
+        margin-top: 28px;
+        display: block;
+    }
+    .sidenav {
+        display: block;
+    }
+    #myicon {
+        text-align: left;
+        margin-left: 1px;
+        padding: 4px 3px 11px;
+        background: white;
+        display: block;
+    }
+    ul.borrowerdashboardleft {
+        display: none;
+    }
+    .loanhistoryicon {
+        position: absolute;
+        z-index: -999;
+        background: white;
+    }
+    .dashboarddetailscolor {
+        position: absolute;
+        z-index: -999;
+        background: white;
+    }
+    .borrowerdashboardleft li img {
+        width: 32%;
+        padding: 26px;
+        margin: 7px;
+    }
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        color: #235681;
+        transition: 0.3s;
+        font-size: xx-large;
+        font-weight: bolder;
+    }
+    .sidenav span {
+        font-size: xx-large;
+        font-weight: bolder;
+    }
+    .gridbox {
+        background: wheat;
+        padding: 25px 18px;
+        color: rgb(35, 86, 129);
+        border-radius: 15px;
+        margin: 27px 59px;
+    }
+}
+
+@media only screen and (min-width:320px) and (max-width: 767px) {
+    .loanhistory h1 {
+        color: #2356a0;
+        font-size: large;
+        font-weight: bold;
+    }
+}
+
+.loader {
+    border: 2px solid white;
+    border-radius: 50%;
+    border-top: 4px solid #ed6560;
+    width: 40px;
+    height: 40px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    float: center;
+}
+
+.crossymbol  {
+    float: right;
+    size: -19px;
+    width: 20px;
+    height: 18px;
+    padding-top: 0px;
+    padding-left: 6px;
+    float: right;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #ed6506;
+    text-align: center;
+    color: white;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loan_details.html .modal-body table.loan-amt-table th {
+    text-align: left;
+}
+

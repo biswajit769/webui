@@ -1,0 +1,578 @@
+<div class="lendere">
+
+
+
+        <h1 style="margin-top:10%;"><img alt="profile" src="assets/images/Loan History.png" class="bheading">&nbsp; View Profile</h1>
+      
+            <div class="col-md-offset-1 col-md-8">
+               
+
+                <form [formGroup]="nbfcUpdateForm">
+                    <div class="row viewprofile">
+                      <div class="editdiv">
+                          <button class="btn btn-success editbutton" *ngIf="status1"  name="edit" (click)="update()">Edit</button>
+                          <button class="btn btn-warning editbutton cancelbutton" *ngIf="status2" (click)="cancel()">Cancel</button>
+                          <button class="btn btn-success editbutton"  data-toggle="modal" data-target="#success" *ngIf="status2" (click)="save(nbfcdetails)">Save</button>
+                      </div><br><br>
+                      <div style="text-align:center">
+                          <!-- <div *ngIf="viewborrowerprofileloading">
+                              <div class="loader"></div>
+                          </div> -->
+                        </div>
+                      <table class="table-responsive width">
+                          <div class="table-head table-header">NBFC DETAILS</div>
+                          <table class="table table-striped table bordered">
+                              <thead>
+                              </thead>
+                              <tr>
+                                  <th>Company Name</th>
+                                 
+                                  
+                                  <th>
+                                      
+<span *ngIf="companynameesds">{{nbfcdetails.companyName}}</span>
+
+         <div *ngIf="companynameesds1">
+                                      <input  type="text"  [readonly]="status3"  [(ngModel)]="nbfcdetails.companyName" class="form-control"  formControlName="fullname"  name="fullname">
+                                      <div class="alert alert-danger" role="alert" *ngIf="editform.fullname.dirty  && editform.fullname.errors?.required" id="executiveFormErrorStyle"> Please enter Company Name</div>
+                                  </div>
+
+                                  </th>
+                              </tr>
+            
+                              <tr>
+                                  <th class="colourful">DOE</th>
+                                  <th class="colourful">
+      <span *ngIf="doesesas">{{nbfcdetails.date_of_establishment |date:'dd/MM/yyyy'}}</span> 
+
+
+                                <mat-form-field  *ngIf="doesesas1">
+                                <mat-label>DOE (mm/dd/yyyy)</mat-label>
+                                <input matInput required  formControlName="doe" class="form-control" [readonly]="status3" [disabled]="status3"  name="doe" [(ngModel)]="nbfcdetails.date_of_establishment" [matDatepicker]="picker"
+                                    placeholder="Choose a date">
+                                <mat-datepicker-toggle class="mat-icon" matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker class="mat-icon" [disabled]="false"  #picker></mat-datepicker >
+                            </mat-form-field><br>
+                                     
+                                  </th>
+                              </tr>
+            
+                               <tr style="position:relative;">
+                                 
+
+                                  <th>Company Type</th>
+
+                                  <th >
+                                     
+
+                        <span *ngIf="types">{{nbfcdetails.companytype}}</span>
+
+                                      <select  *ngIf="types1" [ngClass]="{'noeditable': !edit, 'editing': edit}"  formControlName="organization"  [(ngModel)]="nbfcdetails.companytype"  name="organization" class="form-control"  >
+                                          <option value=""  >{{nbfcdetails.companytype}}</option>
+
+                                          <option *ngFor="let company of companytypes" [disabled]="!edit"  class="text1">{{company}}</option>
+                        
+                                      </select> 
+                                  
+
+
+                                 
+
+                                  </th>
+                               
+
+
+                               </tr>  
+            
+                              <tr>
+                                  <th class="colourful">Business PAN</th>
+                                  <th class="colourful">
+                                     
+                             <span *ngIf="pancards">{{nbfcdetails.bussiness_pan}}</span>
+
+                                      <div *ngIf="pancards1">
+                                      <input type="text" [readonly]="status3" class="form-control"   formControlName="pancard" name="pancard" 
+                                 [(ngModel)]="nbfcdetails.bussiness_pan" placeholder="Enter Business PAN Number">
+                                    <span
+                                    *ngIf="editform.pancard.errors && (editform.pancard.invalid && editform.pancard.dirty)">
+                                 <p *ngIf="editform.pancard.errors.required"> PAN Number is Required</p>
+                                 <p *ngIf="editform.pancard.errors.maxlength || editform.pancard.errors.minlength ">PAN Number length should be 10 digits</p>
+                                 <div *ngIf="editform.pancard.errors?.pattern">
+                                        PAN Number not valid.
+                                   </div> 
+                                 </span>
+                                  </div>
+                                  </th>
+                                </tr>
+            
+                                <tr>
+                                  <th>GST Number</th>
+                                  <th>
+                                     
+                        <span *ngIf="gstnumbers">{{nbfcdetails.gst_number}}</span>
+
+                                     
+                            <div *ngIf="gstnumbers1">
+                                      <input type="text" class="form-control" 
+                                      [(ngModel)]="nbfcdetails.gst_number"  [readonly]="status3" name="gstnumber" formControlName="gstnumber" placeholder="Enter GST Number">
+                                      <span 
+                                      *ngIf="editform.gstnumber.errors && (editform.gstnumber.invalid &&  editform.gstnumber.dirty)">
+                                      <p *ngIf="editform.gstnumber.errors.required"> GST Number is Required</p>
+                                      <p *ngIf="editform.gstnumber.errors.maxlength || editform.gstnumber.errors.minlength ">GST Number length should be 15 digits</p>
+                                      <div *ngIf="editform.gstnumber.errors?.pattern">
+                                        GST Number not valid.
+                                      </div> 
+                                      </span>
+                                 </div>
+                                  </th>
+                                </tr>
+            
+                                <tr>
+                                   <th class="colourful">Number Of Years <br />in Business</th>
+                                   <th class="colourful">
+                                      
+                         <span *ngIf="numbersyears">{{nbfcdetails.year_of_estd}}</span>
+                                      <select *ngIf="numbersyears1" [ngClass]="{'noeditable': !edit, 'editing': edit}" [(ngModel)]="nbfcdetails.year_of_estd" name="bussiness_since"  formControlName="bussiness_since" class="form-control"   required>
+                                            <option value=""  >{{nbfcdetails.year_of_estd}}</option>
+                                            <option *ngFor="let years of numberofyearsinbusiness" [disabled]="!edit">{{years}}</option>
+                                      </select> 
+                                    </th>
+                                </tr>
+            
+                                <tr>
+                                  <th>Company Turnover</th>
+                                    <th>
+                                      
+                        <span *ngIf="turnovers">{{nbfcdetails.company_turnover}}</span>
+                                      <select *ngIf="turnovers1" [ngClass]="{'noeditable': !edit, 'editing': edit}" [(ngModel)]="nbfcdetails.company_turnover" name="companyturnover"  formControlName="companyturnover" class="form-control" required>
+                                            <option value="" >{{nbfcdetails.company_turnover}}</option>
+                                            <option *ngFor="let turnover of company_turnover" [disabled]="!edit" >{{turnover}}</option>
+                                      </select> 
+                                    </th> 
+                                </tr>  
+            
+                                <tr>
+                                  <th class="colourful">DIN (Director<br />Identification Number</th>
+                                     <th class="colourful">
+                                       
+               <span *ngIf="dinnumbers">{{nbfcdetails.director_identification_number}}</span>
+
+               <div *ngIf="dinnumbers1">
+                                       <input type="text" [readonly]="status3"  class="form-control"  formControlName="din" name="din" 
+                                       [(ngModel)]="nbfcdetails.director_identification_number" placeholder="Enter DIN">
+                                       <span  *ngIf="editform.din.errors && (editform.din.invalid && editform.din.dirty)">
+                                        <p *ngIf="editform.din.errors.required">DIN Number is required</p>
+                                        <p *ngIf="editform.din.errors.maxlength || editform.din.errors.minlength ">DIN number should be in valid format.</p>
+                                       </span>
+                                     </div>
+                                     </th> 
+                                </tr>
+            
+                                <tr>
+                                  <th>Licence Number</th>
+                                     <th>
+                                      
+                 <span *ngIf="licencenumbers">{{nbfcdetails.Licence_number}}</span>
+                 <div *ngIf="licencenumbers1">
+                                       
+                        
+                                       <input type="text" [readonly]="false" class="form-control"  formControlName="cin" name="cin" 
+                                       [(ngModel)]="nbfcdetails.Licence_number" placeholder="Enter CIN">
+                                       <span *ngIf="editform.cin.errors && (editform.cin.invalid && editform.cin.dirty)">
+                                       <p *ngIf="editform.cin.errors.required">CIN Number is required</p>
+                                       <p *ngIf="editform.cin.errors.maxlength || editform.cin.errors.minlength ">CIN number should be in valid format.</p>
+                                       </span>
+                                    </div>
+                                     </th> 
+                                </tr>
+            
+                                <tr>
+                                  <th class="colourful">Company Website</th>
+                                     <th class="colourful">
+                                       
+                 <span *ngIf="companywebsites">{{nbfcdetails.companywebsite}}</span>
+                                       
+
+                         <div *ngIf="companywebsites1"> 
+
+                          <input type="text"  [readonly]="status3" class="form-control"  formControlName="company_website" name="company_website" 
+                                        [(ngModel)]="nbfcdetails.companywebsite" placeholder="Enter Your Company Website">
+                                        <span *ngIf="editform.company_website.errors && (editform.company_website.invalid && editform.company_website.dirty)">
+                                        <p *ngIf="editform.company_website.errors.required"> company website address Required
+                                        </p>  
+                                        <p *ngIf="editform.company_website.errors?.pattern">
+                                            company website address is Invalid
+                                        </p> 
+                                        </span>
+                                     </div>
+                                     </th> 
+                                </tr>
+            
+                               <tr>
+                                  <th>Official EmailID</th>
+                                     <th>
+               <span *ngIf="officialemailids">{{nbfcdetails.email_id}}</span>
+
+                                       
+                                       <div *ngIf="officialemailids1"> <input type="text" [readonly]="status3" class="form-control" formControlName="email_id" name="email_id" [(ngModel)]="nbfcdetails.email_id" placeholder="finchain@gowdanar.com">
+                                        <span *ngIf="editform.email_id.errors && (editform.email_id.invalid && editform.email_id.dirty)">
+                                        <p *ngIf="editform.email_id.errors.required"> Official EmailId is Required</p>
+                                        <p *ngIf="editform.email_id.errors?.pattern">
+                                            Email Id not valid.
+                                        </p> 
+                                        </span>
+                                     </div>
+                                     </th> 
+                                </tr>
+            
+                               <tr>
+                                  <th class="colourful">Office Contact Number</th>
+                                     <th class="colourful">
+          <span *ngIf="contactnumberss">{{nbfcdetails.contact_phone_number}}</span>
+
+                                    <div *ngIf="contactnumberss1"> <input type="text" [readonly]="status3" class="form-control" formControlName="officenumber"  placeholder="Enter Office Contact Number" name="officenumber" [(ngModel)]="nbfcdetails.contact_phone_number" required>
+                                        <span *ngIf="editform.officenumber.errors && (editform.officenumber.invalid && editform.officenumber.dirty)">
+                                        <p *ngIf="editform.officenumber.errors.required">Office Number is required</p>
+                                        <p *ngIf="editform.officenumber.errors.maxlength || editform.officenumber.errors.minlength || editform.officenumber.errors?.pattern"> Number should be in valid format.</p>
+                                        </span>
+                                     </div>
+                                     </th> 
+                                </tr>
+            
+                                 <tr>
+                                  <th>Director Name</th>
+                                     <th>
+                                        
+      <span *ngIf="directornameses">{{nbfcdetails.director_name}}</span>
+                                        
+<div *ngIf="directornameses1">
+                                        <input type="text" [readonly]="status3"  class="form-control" formControlName="directorname" name="directorname" 
+                                        [(ngModel)]="nbfcdetails.director_name" placeholder="Enter Director Name">
+                                        <span *ngIf="editform.directorname.errors && (editform.directorname.invalid && editform.directorname.dirty)">
+                                        <p *ngIf="editform.directorname.errors.required">Director Name is required</p>
+                                        </span>
+                                     </div>
+                                     </th> 
+                                </tr>
+            
+                                <tr>
+                                  <th class="colourful">Director Mobile Number</th>
+                                     <th class="colourful">
+                                       
+        <span *ngIf="directormnumbers">{{nbfcdetails.director_mobile_number}}</span>
+                                       
+<div *ngIf="directormnumbers1">
+                                        <input type="text" [readonly]="status3" class="form-control" formControlName="directornumber"  [(ngModel)]="nbfcdetails.director_mobile_number" required>
+                                        <span *ngIf="editform.directornumber.errors && (editform.directornumber.invalid && editform.directornumber.dirty)">
+                                        <p *ngIf="editform.directornumber.errors.required">Mobile Number is required</p>
+                                        <p *ngIf="editform.directornumber.errors.maxlength || editform.directornumber.errors.minlength || editform.directornumber.errors?.pattern">Number should be in valid format.</p>
+                                        </span>
+                                    </div>
+                                   </th> 
+                                </tr>
+            
+                               <tr>
+                                  <th>Company Partner Name</th>
+                                     <th>
+        <span *ngIf="companypertnernamess">{{nbfcdetails.partner_name}}</span>                  
+<div *ngIf="companypertnernamess1">
+                                        <input type="text" [readonly]="status3" class="form-control" formControlName="partnerName" name="partnerName" 
+                                        [(ngModel)]="nbfcdetails.partner_name" placeholder="Enter Your Company Partner Name">
+                                     </div>
+
+                                     </th> 
+                                </tr>
+            
+                                <tr>
+                                  <th class="colourful">Partner Mobile Number</th>
+                                     <th class="colourful">
+                                         
+<span *ngIf="partnermobilnumberss">{{nbfcdetails.partner_contact_number}}</span>
+                                        
+<div *ngIf="partnermobilnumberss1">
+                                         <input type="text" [readonly]="status3" [(ngModel)]="nbfcdetails.partner_contact_number" class="form-control" formControlName="partnernumber" required>
+                                         <span *ngIf="editform.partnernumber.errors && (editform.partnernumber.invalid && editform.partnernumber.touched)">
+                                        <p *ngIf="editform.partnernumber.errors.required">Mobile Number is required</p>
+                                        <p *ngIf="editform.partnernumber.errors.maxlength || editform.partnernumber.errors.minlength || editform.partnernumber.errors?.pattern"> Number should be in valid format.</p>
+                                        </span>
+                                     </div>
+                                     </th> 
+                                </tr>
+            
+                               <tr>
+                                  <th>Aadhar Card Number</th>
+                                  <th>
+    <span *ngIf="aadharenumberss">{{nbfcdetails.adharcard_number}}</span>
+            
+<div  *ngIf="aadharenumberss1">
+                                      <input type="text" class="form-control" [readonly]="status3"  name="aadhaar_card" formControlName="aadhaar_card" [(ngModel)]="nbfcdetails.adharcard_number" required>
+                                      <div class="alert alert-danger" role="alert" *ngIf="(editform.aadhaar_card.dirty) && editform.aadhaar_card.errors?.required"> Invalid Aadhar Number</div>
+                                  </div>
+                                  </th>
+                                </tr>
+                                
+                                <tr>
+                                  <th class="colourful">Company Address</th>
+                                  <th class="colourful">
+                                      
+ <span *ngIf="companyadddress">{{nbfcdetails.present_address_type}}</span>
+                                       <div *ngIf="companyadddress1">
+                                         <fieldset [disabled]="status3">
+                                            <input type="radio" formControlName="addresstype" name="addresstype" id="owned" value="Owned" [(ngModel)]="nbfcdetails.present_address_type" required>&nbsp;Own Building &nbsp;<br />
+                                            <input type="radio" formControlName="addresstype" name="addresstype" id="rented" value="Rented" [(ngModel)]="nbfcdetails.present_address_type" required>&nbsp;Rented Building
+                                          </fieldset>
+                                       </div>
+                                  </th>
+                               </tr>
+                         </table>
+                        </table>
+            
+            
+                      <table class="table-responsive width">
+                          <div class="table-head">ADDRESS DETAILS</div>
+            
+                          <table class="table table-striped table bordered">
+                              <thead class="profile">
+                              </thead>
+                              <tr>
+                                  <th>Flat/Room/Door/Block No.</th>
+                                  <th> 
+          
+
+    <span *ngIf="flatrooms">{{nbfcdetails.permanent_office_roomno}}</span>
+                                
+                        <div *ngIf="flatrooms1">        <input type="text" [readonly]="status3" formControlName="housenumber" class="form-control" placeholder="Enter Flat/Room/Door/Block No." name="housenumber" [(ngModel)]="nbfcdetails.permanent_office_roomno" required>
+                                <span class="help-block"
+                                *ngIf="editform.housenumber.errors && (editform.housenumber.invalid && editform.housenumber.dirty)">
+                             <p *ngIf="editform.housenumber.errors.required"> Enter House. No (or) Flat No</p>
+                             </span>
+                          </div> 
+
+                           </th>
+                          </tr> 
+            
+                           <tr>
+                                  <th class="colourful">Building/Apartment Name</th>
+                                  <th class="colourful">
+                                   
+<span *ngIf="bwuildings">{{nbfcdetails.permanentbuildingname}}</span>
+                    <div *ngIf="bwuildings1">               
+                                    <input type="text" [readonly]="status3" class="form-control" formControlName="Building" placeholder="Enter Bldg name / Apt Name" name="Building" [(ngModel)]="nbfcdetails.permanentbuildingname" required>
+                                 </div>
+                                  </th>
+                          </tr>
+            
+                          <tr>
+                                  <th>Street</th>
+                                  <th>
+  <span *ngIf="ststreets">{{nbfcdetails.permanent_street}}</span>
+                                
+
+                          <div *ngIf="ststreets1">         <input type="text" [readonly]="status3" class="form-control" formControlName="permanent_street" placeholder="Enter street name" name="permanent_street" [(ngModel)]="nbfcdetails.permanent_street" required>
+                                  </div>
+                                  </th>
+                          </tr>
+            
+                            <tr>
+                                  <th class="colourful">Landmark</th>
+                                  <th class="colourful">
+                                  
+<span *ngIf="landmarkss">{{nbfcdetails.permanent_landmark}}</span>
+                     <div *ngIf="landmarkss1">             
+
+                                  <input type="text" [readonly]="status3" class="form-control" formControlName="landmark"  placeholder="Enter Landmark" name="landmark" [(ngModel)]="nbfcdetails.permanent_landmark">
+                                 </div>
+                                  </th>
+                          </tr>
+            
+                           <tr>
+                                  <th>State</th>
+                                  <th>
+                                  
+<span *ngIf="statesss">{{nbfcdetails.selectedState}}</span>
+
+                                  <select *ngIf="statesss1" [ngClass]="{'noeditable': !edit, 'editing': edit}" [(ngModel)]="nbfcdetails.selectedState" name="states" formControlName="states" class="form-control"  (change)="onSelect($event.target.value)">
+                                  <option value="">{{nbfcdetails.selectedState}}</option>
+                                  <option *ngFor="let data of states" [disabled]="!edit">{{data.name}}</option>
+                                  </select>  
+                                  </th>
+                          </tr>
+            
+                             <tr>
+                                  <th class="colourful">District</th>
+                                  <th class="colourful">
+       
+       <span *ngIf="districtss">{{nbfcdetails.selecteddistric}}</span>                          
+
+                                  <select *ngIf="districtss1" [ngClass]="{'noeditable': !edit, 'editing': edit}"  [(ngModel)]="nbfcdetails.selecteddistric"  formControlName="districts" name="districts" class="form-control" (change)="select($event.target.value)">
+                                  <option value="">{{nbfcdetails.selecteddistric}}</option>
+                                  <option *ngFor="let district of districts" [disabled]="!edit">{{district.name}}</option>
+                                  </select> 
+                                  </th>
+                             </tr>
+            
+                          <!--    <tr>
+                                  <th>City</th>
+                                  <th>
+                                  <select   [(ngModel)]="nbfcdetails.selectedcity"  name="city"   formControlName="city" class="form-control">
+                                  <option [disabled]="status3">--Select City...</option>
+                                  <option *ngFor="let citi of city" [disabled]="status3" value= "{{citi.name}}">{{citi.name}}</option>
+                                  </select> 
+                                  </th>
+                             </tr> -->
+
+                                  <tr>
+                                     <th >City</th>
+                                     <th >
+                                     
+
+<span *ngIf="cityss">{{nbfcdetails.selectedcity}}</span>
+                                    
+                            <div *ngIf="cityss1">         <input type="text" [readonly]="status3" class="form-control" formControlName="city"  placeholder="Enter Landmark" name="city" [(ngModel)]="nbfcdetails.selectedcity">
+                                    </div> 
+                                     </th>
+                                  </tr>
+            
+            
+                              <tr>
+                                  <th class="colourful">How long have you been<br />in this address</th>
+                                  <th class="colourful">
+      <span *ngIf="howlongss">{{nbfcdetails.longstay}}</span>               
+
+                                      <select *ngIf="howlongss1" [ngClass]="{'noeditable': !edit, 'editing': edit}" [(ngModel)]="nbfcdetails.longstay"  formControlName="stayedDurations" name="stayedDurations"  
+                                                class="form-control"  required>           
+                                      <option  value="">{{nbfcdetails.longstay}}</option>
+                                      <option *ngFor="let stay of stayduration" [disabled]="!edit">{{stay}}
+                                      </option>
+                                      </select> 
+                                  </th>
+                          </tr>
+            
+                               <tr>
+                                  <th>Pincode</th>
+                                  <th>
+       
+       <span *ngIf="pincodess">{{nbfcdetails.pin_code}}</span>                       
+
+                                 <div *ngIf="pincodess1">     <input type="text" [readonly]="status3" class="form-control" [(ngModel)]="nbfcdetails.pin_code" (keypress)="keyPress($event)" formControlName="pincode" placeholder="Enter pincode" name="pincode" minlength="6" maxlength="6"   required="true" >
+            </div>
+                                  </th>
+                          </tr>
+            
+                       
+                       </table>
+                      </table> 
+            
+            
+                        <table class="table-responsive width">
+                            <div class="table-head">BANK DETAILS</div>
+                              <table class="table table-striped table bordered">
+                              <thead class="profile">
+                              </thead>
+                              <tr>
+                                  <th>Bank</th>
+                                  <th>
+                                     
+ <span *ngIf="bankkcs">{{nbfcdetails.bank}}</span> 
+
+                                     <select *ngIf="bankkcs1" [ngClass]="{'noeditable': !edit, 'editing': edit}" [(ngModel)]="nbfcdetails.bank" name="bankname" formControlName="bankname" class="form-control"  (change)="selctifsc($event.target.value)">
+                                     <option value="">{{nbfcdetails.bank}}</option>
+                                     <option *ngFor="let bankdata of bankname" [disabled]="!edit" >{{bankdata.bankName}}</option>
+                                     </select> 
+                               
+                                  </th>     
+                               </tr>    
+                                     
+                              <tr>
+                                  <th class="colourful">IFSC Number</th>
+                                  <th class="colourful">
+                                     
+<span *ngIf="ifcscssnums">{{nbfcdetails.ifsc_code}}</span> 
+<div *ngIf="ifcscssnums1">
+                                      <input type="text"  class="form-control" name="ifsccodes" [readonly]="status3" formControlName="ifsccodes" [(ngModel)]="nbfcdetails.ifsc_code" required>
+                                      <br>
+                                      <div class="alert alert-danger" role="alert" *ngIf="(editform.ifsccodes.dirty) && editform.ifsccodes.invalid" id="executiveFormErrorStyle"> Invalid IFCS Number</div>
+                                  </div>
+                                  </th>
+                              </tr>
+                             <tr>
+                                  <th>Branch Name</th>
+                                  <th>
+  <span *ngIf="branchnamees">{{nbfcdetails.branch_name}}</span> 
+       
+<div *ngIf="branchnamees1">
+
+                                      <input type="text"  class="form-control" [readonly]="status3" name="branchname" formControlName="branchname" [(ngModel)]="nbfcdetails.branch_name" required>
+                                      <div class="alert alert-danger" role="alert" *ngIf="(editform.branchname.dirty) && editform.branchname.errors?.required" id="executiveFormErrorStyle">Enter Branch Name</div>
+                                  </div>
+                                  </th>
+                              </tr>
+                             <tr>
+                                  <th class="colourful">Account Name</th>
+                                  <th class="colourful">
+                                     
+<span *ngIf="accountnmamess">{{nbfcdetails.holder_name}}</span>
+
+                                   
+<div *ngIf="accountnmamess1">
+                                      <input type="text" class="form-control" [readonly]="status3" name="accountname" formControlName="accountname" [(ngModel)]="nbfcdetails.holder_name">
+                                      <div class="alert alert-danger" role="alert" *ngIf="(editform.accountname.dirty) && editform.accountname.errors?.required" id="executiveFormErrorStyle">Enter Account Name</div>
+                                  </div>
+
+                                  </th>
+                              </tr>
+                              <tr>
+                                  <th>Account Number</th>
+                                  <th>
+    <span *ngIf="accountnumbersed">{{nbfcdetails.account_number}}</span>                                
+<div *ngIf="accountnumbersed1">
+
+
+                                      <input type="text" class="form-control" [readonly]="status3" name="accountno"  formControlName="accountno" [(ngModel)]="nbfcdetails.account_number" required>
+                                      <div class="alert alert-danger" role="alert" *ngIf="(editform.accountno.dirty) && editform.accountno.errors?.required" id="executiveFormErrorStyle">Enter Account Number</div>
+                                  </div>
+
+                                  </th>
+                              </tr>
+                              <tr>
+                                  <th class="colourful">Account Type</th>
+                                  <th class="colourful">
+                                   
+<span *ngIf="accounttypeeeds">{{nbfcdetails.acounttypes}}</span>
+
+                                        <select *ngIf="accounttypeeeds1" [ngClass]="{'noeditable': !edit, 'editing': edit}"  formControlName="accounttype1" class="form-control"  [(ngModel)]="nbfcdetails.acounttypes"  name="accounttype1">
+                                                <option value="">{{nbfcdetails.acounttypes}}</option>
+                                                <option *ngFor="let actype of accounttype" [disabled]="!edit">{{actype}}</option>
+                                              </select>
+                                  </th>
+                              </tr>
+            
+                          </table>
+                      </table>
+                      <div>
+                          <button class="btn btn-success editbutton" *ngIf="status1" (click)="update()">Edit</button>
+                          <button class="btn btn-warning editbutton cancelbutton" *ngIf="status2" (click)="cancel()">Cancel</button>
+                          <button class="btn btn-success editbutton"  *ngIf="status2" (click)="save(nbfcdetails)">Save</button>
+                      </div>
+                  </div>    
+                </form>
+            </div>
+    </div>
+    
+     <div class="modal fade" #updatesucess>
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header heads">
+                        <button type="button" class="close"  data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 class="text-center" style="margin-top: -5px;
+                        color: #eee;">Thank You</h3>
+                    </div>
+                    <div class="modal-body">
+                      <h4 class="text-center">Details Updated Successfully</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>

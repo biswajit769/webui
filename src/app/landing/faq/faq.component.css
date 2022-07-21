@@ -1,0 +1,226 @@
+   /*..............faqs start...............*/
+   
+.howitworks .faqtop {
+    background-color: black;
+    margin-bottom: 20px;
+}
+
+.howitworks .faqtop span {
+    font-size: 18px;
+    color: #fff;
+    line-height: 50px;
+    font-weight: 300;
+    padding-left: 4%;
+}
+
+.howitworks hr {
+    border: none;
+    border-top: 1px dotted #f00;
+    color: #fff;
+    background-color: #fff;
+    height: 1px;
+    width: 50%;
+}
+
+.howitworks .faqquationre {
+    color: #ed6506;
+    font-size: 15px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.howitworks .faqansre {
+    padding: 6px 0px 6px;
+    font-size: 15px;
+    color: #4b4b4b;
+    line-height: 22px;
+}
+
+.howitworks .faqtabs {
+    border-bottom: 0px;
+}
+
+.howitworks .faqtabs li:hover {
+    background: #ed6506;
+}
+
+.howitworks .faqtabs li.active {
+    background: #ed6506;
+}
+
+.howitworks .tabs li {
+    display: inline-block;
+    padding: 0 20px;
+    background: #969696;
+    color: #fff;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 46px;
+    cursor: pointer;
+    font-family: 'robotomedium';
+}
+
+.howitworks .faqanchfont {
+    color: white;
+    font-size: 18px;
+}
+
+.howitworks .faqtabs ul {
+    list-style-type: none;
+}
+
+.howitworks .faqtable {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.howitworks .faqtable table {
+    border: 1px grey;
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.howitworks .faqtable td {
+    border: 1px solid grey;
+    overflow: hidden;
+    width: 33.33%;
+    padding: 10px;
+}
+
+.howitworks .faqtable th {
+    border: 1px solid grey;
+    overflow: hidden;
+    width: 33.33%;
+    padding: 10px;
+}
+
+.howitworks .faqtable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.howitworks .faqtable th {
+    background-color: blue;
+    color: white;
+}
+
+.howitworks .faqtable3 table {
+    border: 1px grey;
+    table-layout: fixed;
+    width: 60%;
+    border-collapse: collapse;
+}
+
+.howitworks .faqtable3 td {
+    border: 1px solid grey;
+    overflow: hidden;
+    width: 14.28571%;
+    padding: 10px;
+    text-align: center;
+}
+
+.howitworks .faqtable3 th {
+    border: 1px solid grey;
+    overflow: hidden;
+    width: 12.33%;
+    padding: 10px;
+}
+
+.howitworks .faqtable3 tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.howitworks .faqtable3 th {
+    background-color: blue;
+    color: white;
+    border: 1px solid grey;
+}
+
+.admin .faqcontact ul {
+    display: inline;
+    padding: 2px;
+    list-style: none;
+    /* float: right;
+    margin-top: 10px; */
+}
+
+.admin .faqcontact li {
+    margin-right: 5px;
+    font-size: 12px;
+    color: #424242;
+}
+/*.........faqs ends.................*/
+/*.........faqs media start..........*/
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    .admin .faqcontact {
+        display: flex;
+        padding: 2px;
+        list-style: none;
+        float: center;
+        margin-top: 10px;
+    }
+    .admin .faqcontact li {
+        margin-right: 5px;
+        font-size: 12px;
+        color: #424242;
+    }
+    .howitworks .faqtable3 td {
+        border: 1px solid grey;
+        overflow: hidden;
+        width: 14.28571%;
+        padding: 10px;
+    }
+    .howitworks .faqtable3 th {
+        border: 1px solid grey;
+        overflow: hidden;
+        width: 12.33%;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 600px) and (min-width: 0px) {
+    .howitworks .tabs li {
+        width: 112%;
+        margin-bottom: 10px;
+        margin-left: -42px;
+    }
+}
+/*.........faqs media ends...........*/
+/*.........faqs tab start..........*/
+
+@media screen and (max-width:1024px)and (min-width: 768px) {
+    .admin .faqcontact {
+        display: flex;
+        padding: 2px;
+        list-style: none;
+        float: center;
+        margin-top: 10px;
+    }
+    .admin .faqcontact li {
+        margin-right: 5px;
+        font-size: 12px;
+        color: #424242;
+    }
+    @media screen and (max-width: 767px) and (min-width: 449px) {
+        .howitworks .faqanchfont {
+            color: white;
+            font-size: 12px;
+        }
+        .howitworks .tabs li {
+            display: inline-block;
+            padding: 0px;
+            background: #969696;
+            color: #fff;
+            font-size: 20px;
+            font-weight: normal;
+            line-height: 46px;
+            cursor: pointer;
+            font-family: 'robotomedium';
+            width: 21%;
+        }
+    }
+}
+/*.........faqs tab ends...........*/

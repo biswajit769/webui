@@ -1,0 +1,38 @@
+
+<div class="col-md-12 col-xs-12">
+        <h1 style="margin-left: 10px;"><img alt="Notification" src="assets/images/Notification.png" align="center" style="width: 5%;">Payment Info</h1>
+    <div class="row table-responsive tabledashboard" style="margin-left: 10px;">
+        <table class="table table-striped table-bordered ">
+            <thead class="tableheader">
+                <tr class="lender-head">
+                    <th>Serial No</th>
+                    <th>Loan ID</th>
+                    <th>Paid Amount</th>
+                    <th>Payment Date</th>
+                    <th>Payment Mode</th>
+                    <th>Total Paid Amount</th>
+                    <th>Pending Amount</th>
+
+                 
+                </tr>
+            </thead>
+
+            <tbody *ngFor="let payy of payinfo;index as i">
+                    <tr >
+                        <td>{{i+1}}</td>
+                        <td>{{payy.loan_id}}</td>
+                        <td>{{payy.todays_amount}}</td>
+                        <td>{{payy.date}}</td>
+                        <td>{{payy.paymode}}</td>
+                        <td>{{payy.paid_amount}}</td>
+                        <td>{{payy.pending_amount}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7" class="text-center orangefont" *ngIf="payinfo.length==0">No Records Found</td>
+                    </tr>
+                </tbody>
+        </table>
+    </div>
+</div>
+
+            

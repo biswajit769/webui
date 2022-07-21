@@ -1,0 +1,21 @@
+td{
+    text-align: center;
+}
+    .closebutton {
+    float: right;
+    size: -19px;
+    width: 20px;
+    height: 18px;
+    padding-top: 0px;
+    padding-left: 6px;
+}
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #ed6506;
+    text-align: center;
+    color: white;
+}
+.orangefont{
+    color: #ed6506;
+}

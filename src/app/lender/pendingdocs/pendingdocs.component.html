@@ -1,0 +1,48 @@
+<div class="lenderresp4">
+    <h1 style="margin-top:10%;"><img alt="upload" src="assets/images/uploaddocuments.png" align="center" style="width: 5%;">
+    &nbsp;Upload Document</h1>
+    <div class="row col-sm-12 col-md-offset-1 col-md-8">
+        <form name="uploaddocuments">
+            <div class="col-xs-8 col-sm-9 col-md-9">
+                <h4 class="">Bank Statement:</h4>
+                <input type="file"  (change)="UploadDoc($event)" ><span style="color: green;">{{message1}}</span>
+                <!-- <span style="color:green" class="wordsize">Please upload pdf file only </span> -->
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3" style="padding-top: 32px;">
+
+                  <button type="submit" class="btn btn-primary"  (click)="lenderdoc1()" [disabled]="!selectedFile">Upload</button>
+
+
+                  <span style="color:green; margin-left: 5px;" *ngIf="profi"  class="glyphicon glyphicon-ok"  ></span>
+              
+              </div>
+            <!-- <div class="col-xs-2 col-sm-2 col-md-2" style="padding-top: 32px;">
+                <button type="submit" class="btn btn-primary"  (click)="lenderdoc1()" >Upload</button>
+                <span style="color:green;" *ngIf="banktick" class="glyphicon glyphicon-ok"> </span>
+                <span style="color:red;" *ngIf="bankcross" class="glyphicon glyphicon-remove"> </span>
+            </div> -->
+        </form>
+
+        <form name="licencecopy">
+           
+            <div class="col-xs-8 col-sm-9 col-md-9">
+                <h4 class="">Licence Copy:</h4>
+                <input type="file"  (change)="UploadDoc1($event)" ><span style="color: green;">{{message2}}</span>
+                <!-- <span style="color:green" class="wordsize">Please upload pdf file only </span> -->
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3" style="padding-top: 32px;">
+
+                  <button type="submit" class="btn btn-primary"  (click)="lenderdoc2()" [disabled]="!selectedFile1">Upload</button>
+
+
+                  <span style="color:green; margin-left: 5px;" *ngIf="profi1"  class="glyphicon glyphicon-ok"  ></span>
+              
+              </div>
+            <!-- <div class="col-xs-2 col-sm-2 col-md-2" style="padding-top: 32px;">
+                <button type="button" class="btn btn-primary" (click)="lenderdoc2()"  style="margin-top: 14px;">Upload</button>
+                <span style="color:green;" *ngIf="banktick" class="glyphicon glyphicon-ok"> </span>
+                <span style="color:red;" *ngIf="bankcross" class="glyphicon glyphicon-remove"> </span>
+            </div> -->
+        </form>
+    </div>
+</div>

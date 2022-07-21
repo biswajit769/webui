@@ -1,0 +1,528 @@
+.container {
+    width: 100%;
+}
+
+p {
+    font-family: Gotham A, Gotham B, sans-serif;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+
+   
+
+
+
+.lender-landingpage .howitworkspara1 p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: blue;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.mr img {
+    width: 16%;
+}
+
+.miss img {
+    width: 21%;
+}
+
+.space {
+    margin-bottom: 7px;
+}
+.lenderenteramount span {
+    color: #2631b1;
+    bottom: 10px;
+    font-size: 13px;
+}
+
+.secondradio {
+    margin-right: -4px;
+}
+.lender-registration .coinimage  {
+    margin-top: 45px;
+}
+.lender-registration .threecoinimage img {
+    width: 100%;
+}
+
+.lender-registration .landingimg img {
+    width: 50%;
+}
+
+.lender-registration .landingimg1 img {
+    width: 15%;
+}
+
+.lender-registration .landingimg2 img {
+    width: 11%;
+}
+
+.lender-registration .landingimg3 img {
+    width: 16%;
+    margin-bottom: 15px;
+}
+
+.lender-registration .landingimg5 img {
+    width: 12%;
+}
+
+.lender-registration .lenderheader {
+    margin-top: 41px;
+}
+
+.lender-registration .lenderbutton {
+    background: rgb(35, 86, 129);
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    padding: 11px 43px;
+    border: 0px;
+    border-radius: 15px;
+    outline: 0px;
+    margin-top: 10px;
+}
+
+.lender-registration .lenderbutton2 {
+    background: #ed6506;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    padding: 11px 26px;
+    border: 0px;
+    border-radius: 15px;
+    outline: 0px;
+    margin-top: 10px;
+
+}
+
+.lender-registration .lenderbutton2 a {
+    color: white;
+    text-decoration: none;
+}
+
+.lender-registration .pan {
+    font-size: 13px;
+}
+
+.lender-registration .apply {
+    background: rgb(35, 86, 129);
+    padding: 10px 36px;
+}
+
+.lender-registration .anchor a {
+    text-decoration: none;
+    color: white;
+}
+
+.lender-registration button {
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    border: 0px;
+    margin-top: 10px;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.lender-registration .lendercoin-xs {
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.lender-registration .pancardclass {
+    width: 14%;
+}
+
+.lender-registration .features {
+    margin-left: 20px;
+}
+
+.lender-registration .features p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #595959;
+    margin-bottom: 10px;
+}
+
+.lender-registration .lenderlandhead1 {
+    font-family: Gotham A, Gotham B, sans-serif;
+    font-size: 28px;
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #ed6506;
+    padding: 16px;
+}
+
+.lender-registration .lenderlandhead {
+    font-family: Gotham A, Gotham B, sans-serif;
+    font-size: 28px;
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #ed6506;
+    padding: 30px;
+}
+
+.lender-registration .go button {
+    background: #f18641;
+    border: 0px;
+    color: #fff;
+    font-weight: bold;
+    padding: 6px 7px;
+    border-top-right-radius: 14px;
+    margin: 0px 0px 0px -54px;
+    border-bottom-right-radius: 14px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+    .lender-registration .uldiv2 {
+    width: 250px;
+    /*Whatever you want to define*/
+    margin: 0 auto;
+    padding: 5px 0 0 0;
+    list-style-type: none;
+    text-align: center;
+    display: table;
+}
+
+.lender-registration .uldiv2 ul li {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+.lender-registration p
+{
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #595959;
+    margin-bottom: 10px;
+    font-family: Gotham A, Gotham B, sans-serif;
+}
+.lender-registration .lrbutton button {
+    position: relative;
+    top: 5px;
+    margin-bottom: 100px;
+}
+
+.lender-registration .lrbutton1 button {
+    position: relative;
+    top: 5px;
+    margin-bottom: 98px;
+}
+
+
+/*i phone*/
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    /*lender-registration*/
+    .rtmfooter {
+        display: none;
+    }
+    #rtmfooterid {
+        display: none;
+    }
+    .lender-registration .form-layout {
+        display: block;
+    }
+     .individual img {
+        width: 87%;
+    }
+    .company img {
+        width: 56%;
+    }
+    .mr img {
+        width: 23%;
+    }
+    .miss img {
+        width: 32%;
+    }
+    /*.go {
+        text-align: center;
+        margin-top: -11px;
+    }*/
+    .lender-registration .go button {
+        border-radius: 7px;
+        margin-top: 11px;
+        margin-right: -39px;
+    }
+    /* .lender-registration .go button {
+     background: #f18641;
+     border: 0px;
+     color: #fff;
+     font-weight: bold;
+     padding: 7px 21px;
+     border-radius: 15px;
+     margin: 10px 0px 0px 0px;
+     border-radius: 9px;
+ }
+*/
+    .lender-registration .lenderself {
+        margin-left: -10px;
+    }
+    .lender-registration {
+        margin-top: 0px !important;
+    }
+    .lender-registration .landingimg img {
+        width: 94%;
+    }
+    .lender-registration .landingimg1 img {
+        width: 26%;
+    }
+    .lender-registration .landingimg2 img {
+        width: 26%;
+    }
+    .lender-registration .landingimg3 img {
+        width: 53%;
+    }
+    .lender-registration .lendercoin-md {
+        display: none;
+    }
+    .lender-registration .lendercoin-xs {
+        display: block;
+    }
+    .lender-registration .lendercoin-xs img {
+        width: 100%;
+        width: 50%;
+        padding: 10px;
+    }
+    .lender-registration .pancardclass {
+        width: 29%;
+    }
+    .lender-registration .aadharimg {
+        width: 122px;
+    }
+    /*.lender-registration .lenderlandpara
+{
+    margin-left: -3px;
+    margin-right: -3px;
+}*/
+    .lender-registration .landingimg5 img {
+        width: 30%;
+    }
+    .lender-registration .lenderlandhead {
+        padding: 15px;
+    }
+     .lender-registration .lrbutton button {
+        position: relative;
+        top: 5px;
+    }
+    .lender-registration .lrbutton1 button {
+        position: relative;
+        top: 5px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .lender-registration .lrbutton {
+        margin-bottom: 40px;
+        margin-top: 20px;
+    }
+    .lender-registration .lrbutton1 {
+        margin-bottom: 20px;
+        margin-top: -12px;
+    }
+}
+
+@media screen and (max-width:1024px) and (min-width:768px) {
+   .individual img {
+        width: 53%;
+    }
+    .company img {
+        width: 35%;
+    }
+    .go button {
+        background: #f18641;
+        border: 0px;
+        color: #fff;
+        font-weight: bold;
+        /* padding: 3px 92px; */
+        margin: 0px 0px 0px 300px;
+        border-bottom-right-radius: 13px;
+        width: 101px;
+        border-radius: 11px;
+    }
+    .lender-registration .go {
+        text-align: center;
+    }
+    .lender-registration .landingimg img {
+        width: 65%;
+    }
+    .lender-registration .landingimg1 img {
+        width: 22%;
+    }
+    .lender-registration .landingimg2 img {
+        width: 16%;
+    }
+    .lender-registration .lendercoin-xs {
+        display: none;
+    }
+    .lender-registration .landingimg3 img {
+        width: 21%;
+    }
+      .mr img {
+        width: 14%;
+    }
+    .miss img {
+        width: 19%;
+    }
+    .lender-registration .lrbutton button {
+        position: relative;
+        top: 5px;
+        margin-bottom: 100px;
+    }
+    .lender-registration .lrbutton1 button {
+        position: relative;
+        top: 5px;
+        margin-bottom: 40px;
+    }
+}
+
+
+/*borrower registration css sample*/
+/*
+.lender-registration span.tick {
+    background: #f18641 !important;
+    padding: 6px 1px 7px 14px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.lender-registration span.tick:after {
+    content: '\2713';
+    display: inline-block;
+    color: #fff;
+    padding: 0 6px 0 0;
+    margin-left: 6px;
+}*/
+
+.lender-registration .next {
+    background: #337ab7;
+    color: #fff;
+    margin-top: -10px;
+    padding: 12px 8px 12px 8px;
+    font-size: 18px;
+    border-radius: 0px;
+}
+
+.lender-registration .next:hover {
+    background: #337ab7;
+    color: #fff;
+    padding: 12px 8px 12px 8px;
+    margin-top: -10px;
+    font-size: 18px;
+}
+
+.lender-registration span.tick {
+    background: #fff !important;
+    padding: 6px 1px 7px 14px;
+    color: #f18641 !important;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+
+.lender-registration span.tick:after {
+    content: '\2713';
+    display: inline-block;
+    color: #f18641 !important;
+    padding: 0 6px 0 0;
+    margin-left: 6px;
+}
+
+
+/*.lender-registration .form-layout {
+    height: 328px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}*/
+
+.lender-registration .lendeaddress {
+    height: 72px;
+}
+
+.lender-registration .test {
+    height: 200px;
+    margin-top: 30px;
+}
+
+.lender-registration .orange-icon-layout {
+    background: white;
+    overflow: hidden;
+    padding: 180px 0px;
+}
+
+.lender-registration .form-group img {
+  
+    position: relative;
+    top: 0px;
+    margin: 6px 24px;
+}
+
+.lender-registration.form-group {
+    margin-bottom: 20px;
+}
+
+.lender-registration .form-group .mobileno img {
+    top: 3px;
+}
+
+
+/*--------@media query for lenderfrontpage---------------*/
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    .lender-registration p.lenderparagraph {
+        text-align: justify;
+    }
+    .lender-registration h2.lenderheader2 {
+        margin-top: -21px;
+        font-size: 25px;
+    }
+    .lender-registration .lenderbutton2 {
+        padding-right: 34px;
+    }
+    .lender-registration .go button {
+        background: #f18641;
+        border: 0px;
+        color: #fff;
+        font-weight: bold;
+        padding: 6px 7px;
+        border-top-right-radius: 14px;
+        margin: 0px 0px 0px 0px;
+        border-bottom-right-radius: 14px;
+        border-bottom-left-radius: 14px;
+        border-top-left-radius: 14px;
+        border-radius: 9px;
+    }
+    .lender-registration .go {
+        text-align: center;
+    }
+    .lender-registration .secondradio {
+        margin-right: -1px;
+    }
+    .lender-registration .lenderself {
+        margin-left: -10px;
+    }
+}

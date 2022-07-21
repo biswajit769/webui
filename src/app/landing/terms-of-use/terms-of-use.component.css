@@ -1,0 +1,1301 @@
+.container {
+    width: 100%;
+}
+
+p {
+    font-family: Gotham A, Gotham B, sans-serif;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.howitworks .Howitworks img {
+    width: 85%;
+    margin-bottom: 0px;
+}
+
+.howitworks .Howitworks {
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #ed6506;
+}
+
+.howitworks .Howitworks img {
+    width: 85%;
+    margin-bottom: 0px;
+}
+
+.howitworks .Howitworks {
+    text-align: center;
+}
+
+.howitworks .Howitworksvid {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.howitworks .Howitworksvid iframe {
+    width: 640px;
+    height: 360px;
+    margin: 0 auto;
+    border: 0;
+    display: table;
+}
+
+.howitworks .Howitworkshand img {
+    width: 100%;
+    margin-bottom: 0px;
+    margin-top: 30px;
+}
+
+.howitworks .Howitworkslong img {
+    width: 85%;
+    margin-bottom: 0px;
+}
+
+.howitworks .Howitworks1 img {
+    width: 60%;
+}
+
+.howitworks .Howitworks1 {
+    text-align: center;
+}
+
+.howitworks .Howitworks2 img {
+    width: 55%;
+}
+
+.howitworks .Howitworks2 {
+    text-align: center;
+}
+
+.howitworks img.howitworks7 {
+    width: 50%;
+}
+
+.howitworks .howitworkstabletd img {
+    text-align: center;
+    width: 10%;
+}
+
+.howitworks .howitworkstabletd1 img {
+    text-align: center;
+    width: 10%;
+}
+
+.howitworks img.howitworksrtm {
+    width: 100%;
+}
+
+.howitworks .visable-xs {
+    display: none;
+}
+
+.howitworks .howitworksheading {
+    padding: 15px;
+}
+
+.howitworks .howitworkspara1 {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #595959;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.howitworks #new-board-btn {
+    white-space: normal;
+    width: 200px;
+    padding: 15px;
+    margin-left: 30px;
+}
+
+.howitworks .HowitworksBottom {
+    background-color: #e6e7e8;
+}
+
+.howitworks .howitworkstablehead {
+    width: 22%;
+}
+
+.howitworks .howitworkstabletd1 {
+    text-align: center;
+}
+
+.howitworks .howitworkstabletd {
+    text-align: center;
+}
+
+.borrowerlandingpage p.barrowersubhead {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #595959;
+    margin-bottom: 5px;
+}
+
+.lender-registration p.barrowersubhead {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #595959;
+    margin-bottom: 5px;
+}
+
+.howitworks .howitdiv {
+    width: 312px;
+    margin: 0 auto;
+    padding: 5px 0 0 0;
+    list-style-type: none;
+    text-align: center;
+    display: table;
+}
+
+.howitworks .howitdiv ul li {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    position: relative;
+    padding: 0;
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #595959;
+}
+
+.howitworks .howitdiv1 {
+    width: 286px;
+    margin: 0 auto;
+    padding: 5px 0 0 0;
+    list-style-type: none;
+    text-align: center;
+    display: table;
+}
+
+.howitworks .howitdiv1 ul li {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    position: relative;
+    padding: 0;
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #595959;
+}
+
+.howitworks .howitdiv button {
+    background: rgb(35, 86, 129);
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    padding: 10px 36px;
+    border: 0px;
+    margin-top: 9px;
+    border-radius: 15px;
+}
+
+.howitworks .howitdiv a {
+    color: #ffffff;
+}
+
+.howitworks .howitdiv1 a {
+    color: #ffffff;
+}
+
+.howitworks .howitdiv1 button {
+    background: #ed6506;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    padding: 10px 36px;
+    border: 0px;
+    margin-top: 9px;
+    border-radius: 15px;
+}
+
+.howitworks .hwitwrkswhy {
+    color: #ed6506;
+    padding: 20px;
+}
+
+.howitworks .hwitwrkswhy1 {
+    padding: 20px;
+}
+/*....................howitworks media start.......................*/
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    .howitworks h3.howitworksheading12 {
+        text-align: center;
+    }
+    .howitworks .hwitwrkswhy {
+        padding: 0px;
+    }
+    .howitworks .hwitwrkswhy1 {
+        padding: 0px;
+    }
+    .howitworks .howitworksheading {
+        padding: 0px;
+    }
+    .howitworks .Howitworkshand img {
+        width: 79%;
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+    .howitworks #new-board-btn {
+        white-space: normal;
+        width: 200px;
+        padding: 15px;
+        width: 100%;
+        margin-left: 0px;
+    }
+    .howitworks img.howitworks7 {
+        display: none;
+    }
+    #new-board-btn {
+        white-space: normal;
+        width: 100%;
+        padding: 15px;
+        margin-left: 0px;
+    }
+    .howitworks .Howitworks img {
+        width: 100%;
+        margin-bottom: 0px;
+    }
+    .howitworks .howitworkstabletd img {
+        text-align: center;
+        width: 36%;
+    }
+    .howitworks .visable-xs {
+        display: block;
+    }
+    .howitworks .visable-md {
+        display: none;
+    }
+    .howitworks .Howitworksvid iframe {
+        width: 100%;
+        height: 340px;
+    }
+    .howitworks .Howitworks1 img {
+        width: 80%;
+    }
+    .howitworks .Howitworks2 img {
+        width: 98%;
+    }
+}
+/*....................howitworks media end.......................*/
+/*....................howitworks tab start.......................*/
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    .howitworks .Howitworkshand img {
+        width: 113%;
+        margin-bottom: 0px;
+        margin-top: 68px;
+    }
+    .howitworks .Howitworks img {
+        width: 63%;
+        margin-bottom: 0px;
+        margin-top: 68px;
+    }
+    .howitworks .Howitworkslong img {
+        width: 40%;
+        margin-bottom: 0px;
+        margin-top: 68px;
+    }
+    .howitworks .Howitworks1 img {
+        width: 60%;
+    }
+    .howitworks .Howitworks2 img {
+        width: 51%;
+    }
+    .howitworks .Howitworks1 {
+        text-align: center;
+    }
+    .howitworks .Howitworks2 {
+        text-align: center;
+    }
+}
+/*....................howitworks tab end.......................*/
+/*....................AboutUs start.......................*/
+
+.howitworks .aboutus img {
+    width: 85%;
+    margin-top: -50px;
+}
+
+.howitworks .organisations1 img {
+    width: 80%;
+}
+
+.howitworks .ourstory0 h3 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: -12 px;
+    padding-top: 20px;
+}
+
+.howitworks .ourpatner h2 {
+    color: #ed6506;
+    margin-bottom: 15px;
+}
+
+.howitworks .relatedpages {
+    background-color: #e5e5e5;
+    margin-top: 20px;
+}
+
+.howitworks .relatedpages ul {
+    list-style-type: none;
+    margin-left: -40px;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.howitworks .relatedpages li {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+a {
+    color: #15a3c7;
+}
+
+.howitworks .relatedpages ul li a:hover {
+    text-decoration: none;
+    color: #ed6506;
+}
+/* ................aboutusends..................*/
+/* ................aboutus media start..................*/
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    .howitworks .aboutus img {
+        width: 100%;
+        margin-top: 0px;
+    }
+    .howitworks .organisations1 img {
+        width: 40%;
+        margin: 3px;
+    }
+    .howitworks .relatedpages h3 ul {
+        margin-bottom: 10px;
+        padding-top: 0px;
+        text-align: center;
+        margin-top: 0px;
+    }
+    .howitworks .ourstory0 h3 {
+        font-size: 45px;
+        margin-bottom: 0px;
+        text-align: center;
+    }
+    .howitworks .howitworkstabletd1 img {
+        text-align: center;
+        width: 36%;
+    }
+}
+/* ................aboutus media ends..................*/
+/* ................aboutus tab start..................*/
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    .howitworks .aboutus img {
+        width: 100%;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .howitworks .organisations1 img {
+        width: 50%;
+    }
+    .howitworks .ourstory0 h3 {
+        font-size: 30px;
+        margin-bottom: 15px;
+        text-align: left;
+    }
+    .howitworks .relatedpages {
+        margin-top: 20px;
+    }
+}
+/* ................aboutus tab ends..................*/
+/*................................managamenteam......start...................*/
+
+.howitworks .Managementhead {
+    font-weight: 400;
+    font-size: 32px;
+    margin-left: 10px;
+    margin-top: 29px;
+    margin-bottom: 9px;
+    color: #595959;
+}
+
+.howitworks img.managementimg {
+    width: 80%;
+    margin-top: 46px;
+    ;
+}
+
+.howitworks .management-visible-xs {
+    display: none;
+}
+
+.howitworks .relatedpages-visable-sm {
+    display: none;
+}
+
+.howitworks p.managementparaxs {
+    font-family: Gotham A, Gotham B, sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+    color: #737373;
+    padding-top: 20px;
+}
+
+.howitworks p.managementparaxs a:hover {
+    color: #ed6506;
+    text-decoration: none;
+}
+
+.howitworks h2.managementhead1 {
+    font-size: 15px;
+    line-height: 1.45;
+    font-weight: 700;
+    color: #3f3f3f;
+    margin-bottom: 0;
+}
+
+.howitworks .read-more-state {
+    display: none;
+}
+
+.howitworks .read-more-target {
+    opacity: 0;
+    max-height: 0;
+    font-size: 0;
+    transition: .25s ease;
+}
+
+.howitworks .read-more-state:checked ~ .read-more-wrap .read-more-target {
+    opacity: 1;
+    font-size: inherit;
+    max-height: 999em;
+}
+
+.howitworks .read-more-state ~ .read-more-trigger:before {
+    content: 'Show more';
+}
+
+.howitworks .read-more-state:checked ~ .read-more-trigger:before {
+    content: 'Show less';
+}
+
+.howitworks .read-more-trigger {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 .5em;
+    color: lightblue;
+    font-size: .9em;
+    line-height: 2;
+}
+/*...............managamenteam..ends........*/
+/*...............managamenteam media start........*/
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    .howitworks .management-visible-xs {
+        display: block;
+    }
+    .howitworks .management-visible-xs {
+        width: 45%;
+    }
+    .howitworks h2.managementhead1 {
+        font-size: 15px;
+        line-height: 1.45;
+        font-weight: 700;
+        color: #3f3f3f;
+        margin-bottom: 0;
+        text-align: center;
+    }
+    .howitworks .management-visible-xs img {
+        width: 100%;
+    }
+    .howitworks .management-visible-md {
+        display: none;
+    }
+    .howitworks .relatedpages-visable-sm {
+        display: none;
+    }
+    .howitworks p.managementparaxs {
+        display: none;
+    }
+    .howitworks .Managementhead {
+        font-size: 24px;
+        text-align: center;
+    }
+    .howitworks .managementpara1xs {
+        display: none;
+    }
+}
+/*...............managamenteam media ends........*/
+/*...............managamenteam tab start........*/
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    .howitworks .management-visible-xs {
+        display: none;
+    }
+    .howitworks .relatedpages-visable-sm {
+        display: block;
+    }
+    .howitworks .relatedpages-visable-md {
+        display: none;
+    }
+}
+/*...............managamenteam tab ends........*/
+/*.........................contactus..starts...*/
+
+.howitworks h2.contactusready {
+    font-size: 28px;
+    color: #595959;
+    margin-bottom: 20px;
+}
+
+.howitworks .contactusreadypara {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #595959;
+}
+/*.howitworks a.contactusbuttonstart
+{
+   font-size: 15px;
+ height: 40px;
+ line-height: 38px;
+ padding: 0 25px;
+}*/
+
+.howitworks .readytostart {
+    background-color: #e6e7e8;
+    padding: 20px;
+}
+
+.howitworks .contactuskeepme {
+    margin-top: 70px;
+}
+/*.howitworks .contactusaccelerate
+{
+ background-color: #e6e7e8;
+ padding: 50px 0 60px;
+}
+.howitworks h2.accelerateinv
+{
+color: #ed6506;
+margin-bottom: 20px;
+}
+.howitworks button.accelerateinvbutton
+
+{
+padding: 10px;
+}*/
+
+.howitworks p.contactuspara {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #595959;
+}
+
+.howitworks p.contactuspara1 {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #595959;
+    margin-left: 10px;
+    margin-bottom: 6px;
+}
+
+.howitworks h2.acceleratehead {
+    font-weight: 400;
+    font-size: 26px;
+    color: #595959;
+}
+/*.howitworks .contactustop {
+    padding-left: 30px;
+}*/
+/*...............contactus ends............*/
+/*...............contactus media start............*/
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    .howitworks .contactuskeepme {
+        white-space: normal;
+        padding: 15px;
+        padding: 0px;
+        margin-top: 0px;
+        text-align: center;
+    }
+    .howitworks .readytostart {
+        background-color: #e6e7e8;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .howitworks h2.contactusready {
+        font-size: 28px;
+        color: #07131c;
+        margin-bottom: 20px;
+        margin-left: 0px;
+        margin-right: 0px
+    }
+    .howitworks .contactusreadypara {
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #595959;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .howitworks a.contactustopa {
+        font-size: 13px;
+    }
+    .howitworks .contactustop {
+        padding-left: 0px;
+    }
+}
+/*...............contactus media ends............*/
+/*...............contactus tab start............*/
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {}
+/*...............contactus tab ends............*/
+/*.............media start...............*/
+
+.howitworks h2.mediahead1 {
+    font-size: 21px;
+}
+
+.howitworks h2.mediahead1 a:hover {
+    color: orange;
+    text-decoration: none;
+}
+/*..............media ends................*/
+/*..............media media start................*/
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    .howitworks .mediaimg img {
+        padding-top: 20px;
+    }
+}
+/*..............media media ends................*/
+/*..........Advisory start................*/
+
+.howitworks .advisorymar {
+    padding-top: 20px;
+}
+
+.howitworks .advisorypara {
+    font-size: 14px;
+    line-height: 1.45;
+    color: #737373;
+    padding-bottom: 10px;
+}
+
+.howitworks .advisoryhead {
+    font-weight: 400;
+    font-size: 32px;
+    margin-top: 65px;
+    margin-bottom: 23px;
+    color: #595959;
+}
+
+.howitworks p.advisoryhead1 {
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+.howitworks h2.advisoryname {
+    font-size: 15px;
+    line-height: 1.45;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.howitworks .advisorypara {
+    margin-bottom: 20px;
+}
+
+.howitworks .advisoryhr {
+    border-top: 1px solid #e5e5e5;
+    /*padding-top: 25px;*/
+}
+/*....................Advisory ends..........*/
+/*....................Advisory media start..........*/
+
+@media screen and (max-width: 767px) and (min-width: 320px) {}
+/*....................Advisory media ends..........*/
+/*..............reviews start..............*/
+
+.howitworks .text-dark {
+    color: #333333 !important;
+    font-size: 30px;
+}
+
+.btn-secondary:hover {
+    background-color: #107d99;
+}
+
+.howitworks .reviewsbutton {
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 55%;
+    color: white;
+}
+
+.howitworks .reviewsorcall {
+    font-size: 18px;
+    font-weight: 700;
+    color: #15a3c7;
+    transition: color .3s;
+    width: 45%;
+}
+
+#review_header .overall .color5 {
+    background-color: #019f17;
+}
+
+#review_header .overall .numbers {
+    font-size: 32px;
+    font-weight: bold;
+    background-color: #cccccc;
+    padding: 16px 0;
+    float: none;
+    margin: 0;
+}
+
+#review_header {
+    padding: 50px 15px 15px 15px;
+    border-bottom: #cccccc solid 1px;
+    /* border-top: #cccccc solid 1px; */
+}
+
+#review_header1 {
+    padding: 0px 15px 15px 15px;
+    /* border-top: #cccccc solid 1px; */
+}
+
+#review_header1 {
+    padding: 0 15px 15px 15px;
+    border-bottom: #cccccc solid 1px;
+    /* border-top: #cccccc solid 1px; */
+}
+
+#review_header .overall {
+    width: 100px;
+    color: white;
+}
+
+#review_header .block {
+    display: block;
+    height: 96px;
+    float: left;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.outof div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#review_header .overall .outof {
+    padding: 5px 0;
+    font-size: 14px;
+    background-color: #000;
+}
+
+#review_header .graph {
+    width: 196px;
+    margin-left: 15px;
+}
+
+#review_header .stars .desc {
+    padding-bottom: 6px;
+    margin: 0 auto;
+}
+
+#review_header .stars {
+    width: 135px;
+    font-size: 22px;
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+#review_header1 .stars {
+    width: 135px;
+    font-size: 22px;
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+#review_header .stars .on {
+    width: 25px;
+    height: 24px;
+    background-image: url(https://www.shopperapproved.com/page/images3_0/stars/star-full-md.png);
+    display: inline-block;
+    margin: 1px;
+}
+
+#review_header1 .stars .on {
+    width: 25px;
+    height: 24px;
+    background-image: url(https://www.shopperapproved.com/page/images3_0/stars/star-full-md.png);
+    display: inline-block;
+    margin: 1px;
+}
+
+#review_header .stars .half {
+    width: 25px;
+    height: 24px;
+    background-image: url(https://www.shopperapproved.com/page/images3_0/stars/star-half-md.png);
+    display: inline-block;
+    margin: 1px;
+}
+
+#review_header1 .stars .half {
+    width: 25px;
+    height: 24px;
+    background-image: url(https://www.shopperapproved.com/page/images3_0/stars/star-half-md.png);
+    display: inline-block;
+    margin: 1px;
+}
+
+#review_header .overall .color5 {
+    background-color: #019f17;
+}
+
+.merchant_review {
+    max-width: inherit;
+}
+
+.merchant_review {
+    padding: 20px 15px 30px 15px;
+    clear: both;
+}
+
+.merchant_review .images .verified {
+    padding-left: 16px;
+    background: url(https://www.shopperapproved.com/page/images3_0/verifiedbuyer.png) no-repeat left center;
+    float: right;
+    margin-top: -24px
+}
+
+.merchant_review .images {
+    float: right;
+    font-size: 12px;
+    margin-right: 15px;
+}
+/*............reviews ends................*/
+/*............reviews media start.....*/
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    .howitworks .reviewsbutton {
+        display: none;
+    }
+    .howitworks .reviewsorcall {
+        display: none;
+    }
+    #review_header {
+        text-align: center;
+    }
+    .lender-registration .reviewsbutton {
+        display: none;
+    }
+    .lender-registration .reviewsorcall {
+        display: none;
+    }
+}
+/*............reviews media start.....*/
+/*............reviews media start.....*/
+
+@media screen and (max-width: 1024px)and (min-width: 767px) {
+    .howitworks .reviewsbutton {
+        font-size: 18px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 100%;
+        color: white;
+    }
+    .howitworks .reviewsorcall {
+        font-size: 18px;
+        font-weight: 700;
+        color: #15a3c7;
+        transition: color .3s;
+        width: 100%;
+        text-align: center;
+    }
+}
+/*............reviews media ends......*/
+/*..............faqs start...............*/
+
+.howitworks .faqtop {
+    background-color: black;
+    margin-bottom: 20px;
+}
+
+.howitworks .faqtop span {
+    font-size: 18px;
+    color: #fff;
+    line-height: 50px;
+    font-weight: 300;
+    padding-left: 4%;
+}
+
+.howitworks hr {
+    border: none;
+    border-top: 1px dotted #f00;
+    color: #fff;
+    background-color: #fff;
+    height: 1px;
+    width: 50%;
+}
+
+.howitworks .faqquationre {
+    color: #ed6506;
+    font-size: 15px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.howitworks .faqansre {
+    padding: 6px 0px 6px;
+    font-size: 15px;
+    color: #4b4b4b;
+    line-height: 22px;
+}
+
+.howitworks .faqtabs {
+    border-bottom: 0px;
+}
+
+.howitworks .faqtabs li:hover {
+    background: #ed6506;
+}
+
+.howitworks .faqtabs li.active {
+    background: #ed6506;
+}
+
+.howitworks .tabs li {
+    display: inline-block;
+    padding: 0 20px;
+    background: #969696;
+    color: #fff;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 46px;
+    cursor: pointer;
+    font-family: 'robotomedium';
+}
+
+.howitworks .faqanchfont {
+    color: white;
+    font-size: 18px;
+}
+
+.howitworks .faqtabs ul {
+    list-style-type: none;
+}
+
+.howitworks .faqtable {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.howitworks .faqtable table {
+    border: 1px grey;
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.howitworks .faqtable td {
+    border: 1px solid grey;
+    overflow: hidden;
+    width: 33.33%;
+    padding: 10px;
+}
+
+.howitworks .faqtable th {
+    border: 1px solid grey;
+    overflow: hidden;
+    width: 33.33%;
+    padding: 10px;
+}
+
+.howitworks .faqtable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.howitworks .faqtable th {
+    background-color: blue;
+    color: white;
+}
+
+.howitworks .faqtable3 table {
+    border: 1px grey;
+    table-layout: fixed;
+    width: 60%;
+    border-collapse: collapse;
+}
+
+.howitworks .faqtable3 td {
+    border: 1px solid grey;
+    overflow: hidden;
+    width: 14.28571%;
+    padding: 10px;
+    text-align: center;
+}
+
+.howitworks .faqtable3 th {
+    border: 1px solid grey;
+    overflow: hidden;
+    width: 12.33%;
+    padding: 10px;
+}
+
+.howitworks .faqtable3 tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.howitworks .faqtable3 th {
+    background-color: blue;
+    color: white;
+    border: 1px solid grey;
+}
+
+.admin .faqcontact ul {
+    display: inline;
+    padding: 2px;
+    list-style: none;
+    float: right;
+    margin-top: 10px;
+}
+
+.admin .faqcontact li {
+    margin-right: 5px;
+    font-size: 12px;
+    color: #424242;
+}
+/*.........faqs ends.................*/
+/*.........faqs media start..........*/
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    .admin .faqcontact {
+        display: flex;
+        padding: 2px;
+        list-style: none;
+        float: center;
+        margin-top: 10px;
+    }
+    .admin .faqcontact li {
+        margin-right: 5px;
+        font-size: 12px;
+        color: #424242;
+    }
+    .howitworks .faqtable3 td {
+        border: 1px solid grey;
+        overflow: hidden;
+        width: 14.28571%;
+        padding: 10px;
+    }
+    .howitworks .faqtable3 th {
+        border: 1px solid grey;
+        overflow: hidden;
+        width: 12.33%;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 600px) and (min-width: 0px) {
+    .howitworks .tabs li {
+        width: 112%;
+        margin-bottom: 10px;
+        margin-left: -42px;
+    }
+}
+/*.........faqs media ends...........*/
+/*.........faqs tab start..........*/
+
+@media screen and (max-width:1024px)and (min-width: 768px) {
+    .admin .faqcontact {
+        display: flex;
+        padding: 2px;
+        list-style: none;
+        float: center;
+        margin-top: 10px;
+    }
+    .admin .faqcontact li {
+        margin-right: 5px;
+        font-size: 12px;
+        color: #424242;
+    }
+    @media screen and (max-width: 767px) and (min-width: 449px) {
+        .howitworks .faqanchfont {
+            color: white;
+            font-size: 12px;
+        }
+        .howitworks .tabs li {
+            display: inline-block;
+            padding: 0px;
+            background: #969696;
+            color: #fff;
+            font-size: 20px;
+            font-weight: normal;
+            line-height: 46px;
+            cursor: pointer;
+            font-family: 'robotomedium';
+            width: 21%;
+        }
+    }
+}
+/*.........faqs tab ends...........*/
+/*...........termsconditions start........*/
+
+.admin .faqcontact {
+    display: flex;
+    padding: 2px;
+    list-style: none;
+    float: right;
+    margin-top: 10px;
+}
+
+.admin .faqcontact li {
+    margin-right: 20px;
+    color: #424242;
+}
+
+.admin .termsconditionpara {
+    padding-left: 50px;
+    padding-right: 30px;
+}
+
+.admin .termsconditionpara h4 {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #595959;
+}
+
+.admin .termsconditionpara p {
+    padding-right: 30px;
+}
+
+.howitworks .popupiframe iframe {
+    /* position:absolute;*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 640px;
+}
+/*.........termsconditions end................*/
+/*............termsconditions start............*/
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    .admin .termsconditionpara {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .admin .termsconditionpara h4 {
+        font-family: "Gotham A", "Gotham B", sans-serif;
+        font-size: 21px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #595959;
+    }
+    .admin .termsconditionpara p {
+        padding-right: 0px;
+    }
+    .howitworks .popupiframe iframe {
+        /*  position:absolute;*/
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 640px;
+        overflow-x: hidden;
+    }
+}
+/*......termsconditions end................*/
+/*............termsconditions start.............*/
+
+@media screen and (max-width:1024px) and (min-width:768px) {
+    .admin .termsconditionpara {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .admin .termsconditionpara h4 {
+        font-family: "Gotham A", "Gotham B", sans-serif;
+        font-size: 21px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #595959;
+    }
+    .admin .termsconditionpara p {
+        padding-right: 0px;
+    }
+    .howitworks .popupiframe iframe {
+        /*   position:absolute;*/
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 640px;
+    }
+    /*...............termsconditions end................*/
+}
+/*.......................help start......................*/
+
+.howitworks .helplinks li {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #595959;
+    list-style: none;
+    margin-left: -38px;
+}
+
+.howitworks p.helppara {
+    font-family: "Gotham A", "Gotham B", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #595959;
+}
+
+.howitworks .helphead {
+    font-weight: 400;
+    font-size: 24px;
+    margin-top: 29px;
+    margin-bottom: 9px;
+    color: #ed6506;
+}
+
+.howitworks .goeswrong {
+    background-color: #e6e7e8;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.howitworks .contactdiv {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    .howitworks .goeswrong {
+        background-color: #e6e7e8;
+        text-align: justify;
+    }
+}
+/*.......................help start......................*/

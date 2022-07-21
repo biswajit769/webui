@@ -1,0 +1,482 @@
+<div>
+    <div class="lenderdashboard">
+        <div class="row">
+            <h1 style="margin-top:10%;"><img alt="active loan" src="assets/images/Loan Request.png" align="center" style="width: 5%;
+                margin-left: 32px;">&nbsp; Active Loans</h1>
+        </div>
+    </div>
+    <!-- <div>
+        <span id="itemsperpagemargin" style="margin-top: 0px;
+            margin-bottom: 10px;"></span>
+        <input ng-model="search" type="text" class="adminsearchbox" placeholder="Enter Borrower Name" name="search">
+    </div> -->
+    <div class="col-md-6 form-group">
+        <input type="text" class="form-control" [(ngModel)]="userFilter" placeholder="Search">
+    </div>
+    <div class="table-responsive col-md-12">
+        <div class="table-responsive flexcroll" id="loanTableStyle" style="height: 100%;">
+            <table class="table table-striped table-bordered text-center">
+                <thead class="tableheader">
+                    <tr>
+                        <th style="text-align: center">Serial No</th>
+                        <th style="text-align: center">Loan Id</th>
+                        <th style="text-align: center">Company Name</th>
+                        <th style="text-align: center">Requested Date</th>
+                        <th style="text-align: center">Invoice Amount</th>
+                        <th style="text-align: center">Loan Status</th>
+                            <th style="text-align: center">Loan Details</th>
+                        <th style="text-align: center">Invoice</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="viewhistory.length>0">
+                     
+                    <tr  class="cursor" *ngFor="let view of viewhistory | filter: userFilter;let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{view.id}}</td>
+                        <td>{{view.borrower_Name}}</td>
+                        <!-- <td (click)="loan_details(view)">{{view.requested_date | date:'dd-MM-yy'}}</td> -->
+                         <td> {{view.requested_date  | date: 'dd'}}/{{view.requested_date  | date:'MM'}}/{{view.requested_date | date : 'yyyy'}}</td>
+                        <td>{{view.loan_amount}}</td>
+                        <td>
+                            <button *ngIf="view.status =='Accepted'" class="btn btn-primary" (click)="disburse(view.id)">Disburse</button>
+                            <button  *ngIf="view.status !='Accepted' && view.status !='Bided'" class="btn btn-primary" style="color: #ffffff;" (click)="changestatus(view.id)">Active</button>
+                             <button  *ngIf="view.status =='Bided' && (view.status !='Accepted'||view.status !='Disbursed')" class="btn btn-primary" style="color: #ffffff;" (click)="upfrontView(view.id)">Assigned</button>
+                        </td>
+                        <td><button class="btn btn-primary" style="color: #ffffff;" (click)="loan_details(view)" [disabled]="view.status =='Bided' && (view.status !='Accepted'||view.status !='Disbursed')">View</button></td>
+                        <td> <button type="button"  class="btn btn-primary sppp" (click)="Viewinvoices1(view.invoice)">View </button> </td>
+                     
+                    </tr>
+                  
+                </tbody>
+                <tbody>
+                <tr *ngIf="viewhistory.length==0">
+                        <td colspan="6" class="text-center orangefont">No Active Loans</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+
+<div id="myModal" #disburseviewPopup class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+             <button type="button" class="btn btn-default crossymbol" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">
+                            Thank you for disbursing the loan...!!!
+                        </h4>
+                        <p>Please acknowledge the same with the Transaction ID</p>
+                </div>
+                <div class="modal-body">
+                    <!--     <label for="inputEmail3">Borrower Disbursement Transaction ID </label>
+                        <input type="text" class="form-control" [(ngModel)]="borrower_disbursement"
+                        id="inputEmail3" placeholder="Please Enter the Transaction ID"/> -->
+                        <label  for="inputPassword3" >FINCHAIN Disbursement Transaction ID</label>
+                  
+                      <input type="text" class="form-control" [(ngModel)]="finchain_disbursement"
+                          id="inputPassword3" placeholder="Please Enter the Transaction ID"/>
+                         <label class="image-upload-container btn btn-bwm">
+
+  <label for="inputEmail3">Upload challen/screenshot </label>
+ <input
+  style="display: none"
+  type="file"    accept="image/*" (change)="processFile($event)"
+  #fileInput>
+</label>
+ <button (click)="fileInput.click()">Upload</button>
+                  
+                </div>
+               
+                        <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary" [disabled]="!(finchain_disbursement)" (click)="disbursement_details(finchain_disbursement)">
+                           
+                                ok
+                            </button>
+                    <button type="button" class="btn btn-default" (click)="cancel1();" >Close</button>
+                   
+                </div>
+            
+        </div>
+    </div>
+    </div>
+   <!-- active view closed loan -->
+   <div  #closedloan class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                   <button type="button" class="btn btn-default crossymbol" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">
+                             Close Loan!!!
+                        </h4>
+                        
+                </div>
+                <div class="modal-body">
+                        <p style="text-align: center;"> Are you sure to close the loan?</p>
+                </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" (click)="closeloanstatus()">
+        close loan
+        </button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" >Cancel</button>
+    </div>
+            
+        </div>
+    </div>
+   </div>
+    <div class="modal fade confirm" *ngIf="show1" #loandetailsView>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header loanModalHeader">
+                                    
+                        <button type="button" class="btn btn-default crossymbol" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title" *ngIf="disbursement">Loan ID&nbsp;&nbsp;&nbsp;{{loandetails[0].loan}}</h3>
+                    </div>
+                    <div class="modal-body">
+        
+                        <div *ngIf="disbursement" >
+                            
+                            <table class="table table-striped table-condensed table-responsive" id="tblGrid">
+                                            <tbody>
+                                                    <div class="col-md-12" style=" padding: -1px 35px 10px;">
+                                <div>
+
+                                      <tr>
+                                        <th>Company Name</th> 
+                                        <td>&nbsp;&nbsp;&nbsp;{{loandetails[0].borrower_name}}</td>
+                                      
+                                      </tr>
+                                      <tr>
+                                            <th>Loan Amount</th>
+                                            
+                                            <td>&nbsp;&nbsp;&nbsp;{{loandetails[0].loan_amount}}</td>
+                                        </tr>
+                                        <tr>
+                                                <th>Balance Amount</th>
+                                                <!-- {{companydetails.joined_date | date : "dd/MM/y"}} -->
+                                                <td>&nbsp;&nbsp;&nbsp;{{loan_data.balance}}</td>
+                                            </tr>
+                                            <tr>
+                                                    <th>Disbursed Amount</th>
+                                                    <td>&nbsp;&nbsp;&nbsp;{{loandetails[0].disbursed_amount}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Interest Amount</th>
+                                                    <td>&nbsp;&nbsp;&nbsp;{{loan_data.interest_amount}}</td>
+                                                </tr>
+                                            </div>
+                                            <div >
+                                                <tr>
+                                                    <th>Payment Type</th>
+                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{  loandetails[0].repayment_type }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Disbursed Date</th>
+                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{loandetails[0].disbursed_date | date : "dd/MM/y"}}</td>
+                                                </tr>
+                                                <tr>
+                                                        <th>Paid Amount</th>
+                                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{paid_amt || 0}}</td>
+                                                    </tr>
+                                                  
+                                                    <tr>
+                                                        <th>Closing Date</th>
+                                                       
+                                                        <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{lastdate | date : "dd/MM/y" || 0}} </td>
+                                                    </tr> 
+
+                                                 <!--    <tr>
+                                                        <th>View Invoice</th>
+                                                       
+                                                        <td> <button type="button"  class="btn btn-primary sppp" (click)="Viewinvoices()">View </button> </td>
+                                                    </tr>  -->
+                                                </div>
+                                                
+                                </div>
+                                
+
+                                    
+                                    </tbody>
+                                    <div class="abc">
+                                        <button type="button"  class="btn btn-primary sppp" (click)="Enteramount(loandetails[0]);">Enter Amount</button>
+                                      </div>
+                                    
+                                  </table>
+                                  
+                                   <div class="table-responsive">
+                              <table class="table table-striped table-bordered text-center " >
+                                            <thead class="tableheader">
+                                                <tr>
+                                                    <th style="text-align: center">Serial No</th>
+                                                    <th style="text-align: center">Payable</th>
+                                                    <th style="text-align: center">Penaulty Amount</th>
+                                                    <th style="text-align: center">Payable Amount</th>
+                                                    <th style="text-align: center">Payable date</th>
+                                                    <th style="text-align: center">Payment Status</th>
+                                                    <th style="text-align: center">Updated Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                 
+                                                <tr  class="cursor" *ngFor="let  detail of loandetails ;let i = index">
+                                                    <td>{{i+1}}</td>
+                                                    <td>{{detail.payable}}</td>
+                                                    <td>{{detail.penalty_amount}}</td>
+                                                    <td>{{detail.payable_amount}}</td>
+                                                    <td>{{detail.payable_date}}</td>
+                                                    <td>
+                                                        <button class="btn btn-primary">{{detail.payment_status}}</button>
+                                                    </td>
+                                                    <td>{{detail.updated_date}}</td>
+                                                 
+                                                </tr>
+                                              
+                                            </tbody>
+                                           
+                                        </table>
+                                    </div>
+                                   
+                                </div>
+                         
+                    </div>
+                   
+                </div>
+                
+            </div>
+        </div> 
+
+        <div class="modal fade  confirm" *ngIf="show2" #bankdetailsView>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header loanModalHeader">
+                                        
+                            <button type="button" class="btn btn-default crossymbol" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Loan ID&nbsp;&nbsp;&nbsp;{{loan.id}}</h3>
+                        </div>
+                        <div class="modal-body aaad">
+        <div>
+                <table class="table table-striped table-condensed table-responsive" id="tblGrid">
+                        <thead id="tblHead">
+                                <tr>
+                                        <td colspan="2" style="text-align: center;font-size: 18px;color: white;padding: inherit;background:  #337ab7;">Loan Details</td>
+                                    </tr>
+                                </thead> 
+                                <tbody>
+                          <tr>
+                            <th>Loan Amount</th>
+                            <td>{{loan.loan_amount}}</td>
+                          
+                          </tr>
+                          <tr>
+                            <th>Interest Amount</th>
+                            <td>{{loan.interest_amount}}</td>
+                            </tr>
+                            <tr>
+                                <th>Processing Fee</th>
+                                <td>{{loan.processing_fee}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Membership Fee</th>
+                                    <td>{{loan.membership_fee}}</td>
+                                    </tr>
+                                    <tr>
+                                            <th>Insurance</th>
+                                            <td>{{loan.insurance}}</td>
+                                    </tr>
+                                    <tr>
+                                            <th>Disbursement Amount (to Finchian)</th>
+                                            <td>{{loan.rtm_disbursement}}</td>
+                                    </tr>
+                                   
+                         <th colspan="2" style="text-align: center;font-size: 18px;color: white;padding: inherit;background:  #337ab7;">Borrowing Company Bank Details</th>           
+                             <tr>
+                                <th>Name</th>
+                                <td>{{holder_name}}</td>
+                            </tr>
+                            <tr>
+                                <th>Bank Name</th>
+                                <td>{{selected_bank}}</td>
+                            </tr>
+                            <tr>
+                                <th>Branch Name </th>
+                                <td>{{branch_name}}</td>
+                            </tr>
+                            <tr>
+                                <th>Account Number</th>
+                                <td>{{account_number}}</td>
+                            </tr>
+                            <tr>
+                                <th>IFSC Code</th>
+                                <td>{{ifsc_code}}</td>
+                            </tr>
+                            <th colspan="2" style="text-align: center;font-size: 18px;color: white;padding: inherit;background:  #337ab7;">FINCHAIN Bank Details</th>
+                            <tr>
+                                <th>Name</th>
+                                <td>FINCHAIN Technologies Private Limited
+                            </tr>
+                            <tr>
+                                <th>Bank Name</th>
+                                <td>State Bank of India</td>
+                            </tr>
+                            <tr>
+                                <th>Branch Name </th>
+                                <td>Sahakarnagar, Bangalore</td>
+                            </tr>
+                            <tr>
+                                <th>Account Number</th>
+                                <td>36511888680</td>
+                            </tr>
+                            <tr>
+                                <th>IFSC Code</th>
+                                <td>SBIN0005191</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!-- Enter Amount POPUp -->
+                    <div id="myModal" #EneterAmountpopup class="modal fade sss">
+                        <div class="modal-dialog">
+                            <div class="modal-content mobi">
+                                <div class="modal-header">
+                                    <button type="button" class="btn btn-default crossymbol" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                            Please Enter The Amount...!!!
+                                        </h4>
+                                        
+                                </div>
+                                <div class="modal-body wed" style="height: 283px;">
+                                        <label for="inputEmail3">Enter Amount</label>
+                                        <input type="text" class="form-control" [(ngModel)]="AmountName"
+                                        id="inputEmail3" (keypress)="keyPress($event)" placeholder="Please Enter the Amount"/>
+                                          <label for="inputEmail3">Payment Mode </label>
+                                        <select name="edit" [(ngModel)]="PaymentMode" class="form-control">
+                                            <option [ngValue]="null" disabled [selected]="true"> Please select one option </option>
+                                            <option *ngFor="let select of paymentModemethods"> {{ select }}</option>
+                                    </select>
+                                        <label  for="inputPassword3" >Enter Remarks</label>
+                                  
+                                        <input type="text" class="form-control" [(ngModel)]="enter_Remarks"
+                                            id="inputPassword3" placeholder="Please Enter the Remarks"/>
+                                            <label for="inputtransaction">Transaction ID</label>
+                                        <input type="text" class="form-control" [(ngModel)]="transac_id"
+                                        id="inputtransaction" (keypress)="keyPress($event)" placeholder="Please Enter the Transaction ID">
+                                </div>
+                                        <div class="modal-footer">
+                                                <button type="submit" class="btn btn-primary" [disabled]="!(AmountName && enter_Remarks && PaymentMode && transac_id)" (click)="SendPayment(AmountName,PaymentMode,enter_Remarks,transac_id)">
+                                           
+                                                ok
+                                            </button>
+                                    <button type="button" class="btn btn-default" (click)="cancel1();" >Close</button>
+                                   
+                                </div>
+                            
+                        </div>
+                    </div>
+                    </div>
+                    <!-- Rate of interest popup modal -->
+<div class="modal fade" #acceptpopup >
+    <div class="modal-dialog">
+        <div class="modal-content">
+       <!--      <div class="modal-header loanModalHeader">
+               
+                <div class="col-xs-11 col-sm-11 col-md-11">
+                    <h3 class="modal-title">How would you like to get the Interest Amount</h3>
+                </div>
+                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
+                <!-- <div class="col-xs-1 col-sm-1 col-md-1" style="padding: 5px;">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#popuplender">Help</button>
+                </div> -->
+           <!--  </div> -->
+            <div class="modal-body">
+                <div class="modal-body">
+                    <div style="text-align: center;">
+                   <p>
+                   Agreed Rate of Interest will be deducted upfront from the actual invoice Rasied
+               </p>
+                  
+                </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary"  (click)="loanaccepted('upfront')">OK</button>
+                        <button class="btn btn-primary" type="button" data-dismiss="modal" >Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+ <!-- Modal -->
+  <div class="modal fade"  role="dialog">
+    <div class="modal-dialog modal-sm modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" #invoicepopup id="openModal">
+    <div class="modal-dialog modal-md moddwidth modal-sm modal-lg">
+        <div class="modal-content mcontent">
+            <div class="modal-header loanModalHeader">
+               <button type="button" class="btn btn-default crossymbol" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">Invoice</h3>
+
+            </div>
+             <div class="modal-body asss">
+<pdf-viewer [src]="invoices" 
+[render-text]="true"
+style="display: block;"
+></pdf-viewer>
+</div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

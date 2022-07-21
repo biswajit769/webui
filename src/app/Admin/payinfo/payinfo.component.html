@@ -1,0 +1,120 @@
+<div class="layoutdesign1">
+        <div class="layoutdesign" style="display: inline-block; vertical-align: top; width: 944px;">
+                <div class="row">
+                        <div class="col-md-7 textviews">
+                            <span style="word-break: break-word;">Transactions </span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="btn btn-default btn-sm btn-custom-sm">Refresh
+                                                    </div>
+                                                </div>
+                                            
+                 </div>
+              
+            <div class="bs-example">
+                  
+                <!-- Bootstrap Grid -->
+                <div class="row" style="
+                margin-left: 6px;">
+                    <div class="col-md-4"><span style="white-space: initial; font-weight: bold; text-align: center; padding: 19px 0px 0px 10px; color: rgb(159, 159, 159); font-size: 12px; display: inline-block; position: relative; vertical-align: top;">TOTAL NO.OF SUCCESS COLLECTIONS</span></div>
+                    <div class="col-md-4"><span class="textzero">0</span>
+                        <div
+                            style="white-space: initial; font-weight: bold; text-align: center; padding: 19px 0px 0px 10px; color: rgb(159, 159, 159); font-size: 12px; display: inline-block; position: relative; vertical-align: top;">
+                            <span style="word-break: break-word;">TOTAL NO.OF SUCCESS COLLECTIONS</span></div>
+                    </div>
+                    <div class="col-md-4"> <span class="textamount">&#x20b9;0.00</span>
+                        <div class="textView"
+                            style="white-space: initial; font-weight: bold; text-align: center; padding: 19px 0px 0px 10px; color: rgb(159, 159, 159); font-size: 12px; display: inline-block; position: relative; vertical-align: top;">
+                            <span style="word-break: break-word;">TOTAL AMOUNT COLLECTED</span></div>
+                    </div>
+                </div>
+            </div>
+    
+            <div style="background: rgb(255, 255, 255); height: 60px; display: block;">
+                <div style="padding: 15px 0px 0px 20px; background: rgb(255, 255, 255); display: inline-block; vertical-align: top;">
+                        <div class="row">
+                                <div class="col-md-6">
+                    <div class="textView"
+                        style="white-space: initial; font-weight: 400; padding: 0px 20px 0px 0px; font-size: 12px; color: rgb(159, 159, 159); display: inline-block; vertical-align: top;">
+                        <span style="word-break: break-word;">VIEW BY:</span></div>
+                    <div style="padding: 0px; display: inline-block; vertical-align: top;">
+                        <div class="linearLayout"
+                            style="padding: 0px 15px 0px 0px; cursor: pointer; display: inline-block; vertical-align: top;">
+                            <label class="rad">
+                                <input type="radio" name="rad1" value="a" checked>
+                                <i></i> <span style="color: rgb(159, 159, 159);">ALL</span>
+                            </label>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="linearSearch">
+                            <!-- Actual search box -->
+                            <div class="form-group has-feedback has-search" style="margin-top: -13px;">
+                                <span class="glyphicon glyphicon-search fa-2x form-control-feedback"></span>
+                                <input type="text" [(ngModel)]="filtersclear" (keyup)="doFilter($event.target.value)"
+                                    class="form-control" placeholder="Search by VPA/TransactionID/OrderId"
+                                    style="font-size: 16px; font-weight: 400; color: rgb(121, 121, 121); height: 40px; background: rgb(251, 251, 251); width: 250px; margin: 0px 0px 0px 15px; display: inline-block; vertical-align: top;">
+                                    <span class="glyphicon glyphicon-remove-circle fa-2x relativeLayouts" title="Clear Search Content"
+                                    (click)="clear(filtersclear)"></span>
+                                </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+      
+        <div class="linearLayouts">
+                <div class="bs-example">
+                  
+                        <!-- Bootstrap Grid -->
+                        <div class="row">
+                            <div class="col-md-2 filters"
+                                    style="background-color: #f8f8f8;" (click)="openDialog();">
+                                    <i class="glyphicon glyphicon-filter"></i> <span style="word-break: break-word;">Filter </span>
+                                </div>
+                               <!--  <div class="col-md-2  Downloads" style="background-color: #f8f8f8;" (click)="generatePdf()">
+                                        <i class="glyphicon glyphicon-download-alt"></i><span style="word-break: break-word;">Download</span>
+                                </div> -->
+                                <div class="col-md-6 pagger" style="background-color: #f8f8f8;">
+                                        <mat-paginator #paginator [pageSize]="2" [pageSizeOptions]="[1, 10, 20]"
+                                            style="background-color: #f8f8f8;" class="pagger1">
+                                        </mat-paginator>
+                                </div>
+                           
+                        </div>
+                    </div>
+        </div>
+        <div class="example-container mat-elevation-z8" id="html2Pdf">
+            <mat-table #table [dataSource]="dataSource">
+                <!-- Position Column -->
+                <ng-container matColumnDef="LoanId">
+                    <mat-header-cell *matHeaderCellDef> LoanId. </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.loan_id}} </mat-cell>
+                </ng-container>
+    
+                <!-- Name Column -->
+                <ng-container matColumnDef="CompanyName">
+                    <mat-header-cell *matHeaderCellDef> CompanyName </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.borrower_name}} </mat-cell>
+                </ng-container>
+    
+                <!-- Weight Column -->
+                <ng-container matColumnDef="Amount">
+                    <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.paid_amount}} </mat-cell>
+                </ng-container>
+    
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="Status">
+                    <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+                </ng-container>
+    
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+        </div>

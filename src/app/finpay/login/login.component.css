@@ -1,0 +1,234 @@
+
+* {margin: 0; padding: 0;}
+
+h3{
+    margin-top: 121px;
+    margin-left: 22px;
+}
+.example-full-width{
+        margin-left: 22px;
+        margin-top: 15px;
+        width: 100%;
+
+}
+.loginBtn{
+    margin-left: 50px;
+    width: 70%;
+    border-radius: 22px;
+    margin-top: 12px;
+}
+.error {
+    color: #ed3561;
+    margin-top: 5px;
+}
+
+body {
+    font-family: montserrat, arial, verdana;
+}
+#msform {
+    width: 494px;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+}
+#new{
+    padding: 10px;
+    margin-left: 52px;
+}
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 20px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    box-sizing: border-box;
+    margin: 0 1%;
+    position: relative;
+    padding: 32px 26px;
+    width: 96%;
+}
+#msform fieldset:not(:first-of-type) {
+    display: none;
+}
+#msform input, #msform textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+}
+#msform .action-button {
+    width: 100px;
+    background: #27AE60;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+.close{
+    /*background-color: darkgray;*/
+    padding: 8px 10px;
+    float: left;
+    /*color: red;*/
+}
+.close2{
+    float: right;
+    padding: 1px 7px;
+    background-color: darkgray;
+    border-radius: 6px;
+    /*margin-top: -10px;*/
+}
+#msform .action-button:hover, #msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+.fs-title {
+    font-size: 24px;
+    text-transform: uppercase; 
+    color: #2C3E50;
+    margin-bottom: 10px;
+    color: #000;
+    line-height: 1.36;
+    font-weight: 300;
+    letter-spacing: .5px;
+    margin-bottom: 30px;
+    font-weight: 400;
+    margin-top: 40px;
+}
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+
+.bnOtp{
+    margin: 1px 0px 2px -64px;
+    position: absolute;
+    padding: 1px;
+    width: auto;
+    height: 10%;
+}
+
+
+@media only screen and (min-width:320px) and (max-width: 767px) {
+    #msform {
+    width: 325px;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+    margin-top: 120px;
+}
+
+#align{
+
+    padding-right: 134px;
+
+}
+#new{
+    padding: 10px;
+    margin-left: 52px;
+}
+/* 
+.popupalign{
+    top: 47%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100%;
+    left: 0;
+    height: 524px;
+} */
+
+
+.labelalign{
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.71;
+    color: #6c6b76;
+    top: -26px;
+    padding-right: 300px;
+
+}
+
+
+.textbb{
+    border-radius: 8px;
+    border: 2px solid #cecece;
+    padding: 10px 10px 10px 8px;
+    font-size: 20px;
+    letter-spacing: .83px;
+    color: #6c6b76;
+}
+
+
+
+
+
+button {
+    /*background: #ed3561;*/
+    padding: 10px 30px;
+    font-size: 14px!important;
+    border-radius: 15px;
+    font-weight: 500;
+}
+
+
+.btn:focus,.btn:hover, .btn.btn-default.focus, .btn.btn-default:hover {
+    color: #fff;
+    background-color: #919191;
+    border-color: #7a7a7a;
+}
+
+ .otp-message {
+    font-size: 14px;
+    margin: 30px 0px 6px 97px;
+    text-align: left;
+    color: #888;
+}
+
+
+
+.lp-link {
+    font-weight: 400;
+    color: #ed3561;
+}
+
+.padalign{
+    padding-top: 13px;
+    padding-bottom: 30px;
+}
+
+.tnc_text{
+    font-size: 11px;
+    max-width: 240px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+.lp-color {
+    color: #ed3561;
+}
+
+
+.go-back {
+    position: absolute;
+    top: 34px;
+    left: 10px;
+    /*margin-top: -10px;*/
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .5px;
+    color: #ed3561;
+    cursor: pointer;
+    text-align: left;
+
+}          }

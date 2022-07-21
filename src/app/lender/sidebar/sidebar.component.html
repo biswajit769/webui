@@ -1,0 +1,241 @@
+<div class="col-md-12">
+    <div class="row">
+        <div id="mylendericon">
+            <button style="font-size:30px;cursor:pointer;" (click)="openNav()">&#9776;</button>
+        </div>
+        <div class="col-md-3">
+            <div class="row" id="lenderdashboardbody">
+                <ul class="lenderdashboardleft dots">
+                    <div class="col-md-12 text-center" style="height:180px;">
+                        <div class="container123">
+                            <div class="avatar-upload">
+
+                                <div class="col-md-offset-3 avatar-preview">
+                                    <img [src]="profil" alt="" class="img1">
+                                </div>
+                                <div class="avatar-edit">
+                                    <label for="cameraicon"
+                                        class="share-media-button__label mvA share-media-button__label--square">
+
+                                        <svg viewBox="0 0 24 24" class="vide  poto" color="#3770a0" width="36px" height="36px"
+                                            x="0" y="0" preserveAspectRatio="xMinYMin meet" class="artdeco-icon"
+                                            focusable="false">
+                                            <path
+                                                d="M21,6H18L16.5,3h-9L6,6H3A1,1,0,0,0,2,7V19a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V7A1,1,0,0,0,21,6ZM7.36,8l1.5-3h6.28l1.5,3H20v2H16.58a5,5,0,0,0-9.16,0H4V8H7.36Zm7.76,4A3.13,3.13,0,1,1,12,8.88,3.13,3.13,0,0,1,15.13,12ZM4,18V11H7.1a5,5,0,1,0,9.8,0H20v7H4Z"
+                                                class="large-icon" style="fill: currentColor"></path>
+                                        </svg>
+                                    </label>
+
+                                    <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg"
+                                        (change)="changefrontimage1($event)">
+
+                                    <label for="imageUpload" title="Upload Image"></label>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="text-center"><span>
+                            <p>Welcome {{current_user.companyName}}</p>
+                        </span></div>
+
+                    <a routerLink="/lenderdashboard" routerLinkActive="active">
+                        <li><img src="assets/images/Dashboard.png" class="img2">Home</li>
+                    </a>
+                    <a routerLink="/viewprofile" routerLinkActive="active">
+                        <li><img src="assets/images/View profile.png" class="img2">View Profile</li>
+                    </a>
+                    <a routerLink="/rateofinterest" routerLinkActive="active">
+                        <li><img src="assets/images/roim.png" class="img2" style="height: 60px;">Preferences</li>
+                    </a>
+
+                    <a routerLink="/invoices" routerLinkActive="active">
+                        <li><img src="assets/images/invoice_logo.png" class="img2">Invoice</li>
+                    </a>
+`
+
+
+                    <a (click)="newloan_accept();" style="cursor: pointer">
+
+
+                        <li><img src="assets/images/Loan Request.png" class="img2">Loan Requests <span
+                                *ngIf="count > 0"> <img src="assets/images/bell.jpg" style="margin-left:-26px;width: 60px; border-radius: 33px;"><mark>{{count}}</mark></span></li>
+                    </a>
+                    <a routerLink="/loanhistory">
+                        <li><img src="assets/images/Loan History.png" class="img2">Loan History</li>
+                    </a>
+                    <a routerLink="/todaysdues" routerLinkActive="active">
+                        <li><img src="assets/images/Todays due.png" class="img2">Payment Info</li>
+                    </a>
+                    <a routerLink="/loanExtension" routerLinkActive="active">
+                        <li>
+                            <!-- <img src="assets/images/acc.jpg" class="img2"> -->
+                           <!-- <svg style="width:56px;height:40px" viewBox="0 0 24 24">
+            <path fill="#3e52bb" d="M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z" />
+            </svg> -->
+                            <span class="glyphicon glyphicon-transfer" style="font-size: 24px; color:#3e52bb; margin:17px;padding: 0px;  "></span>
+                            <span style="font-size:12px; position: absolute;margin-top: 0px; padding:20px 0px 0px 0px">Account Statement</span><span
+                                ng-show="loanextensionnotify"><label
+                                    class="notification"></label></span></li>
+                    </a>
+                    <!-- <a routerLink="/latepayments" routerLinkActive="active">
+                        <li><img src="assets/images/Notification.png" class="img2">Late Payment<span
+                                ng-show="latepaymentnotify"><label
+                                    class="notification"></label></span></li>
+                    </a> -->
+
+
+
+                    <a routerLink="/Borrowerremarks" routerLinkActive="active">
+                        <li><img src="assets/images/Lost oppurtunity1.png" class="img2">Borrower Remarks</li>
+                    </a>
+
+                    <a routerLink="/pendingdocs" routerLinkActive="active">
+                        <li><img src="assets/images/uploaddocuments.png" class="img2">Upload documents</li>
+                    </a>
+
+                   <!--  <a routerLink="/Searchborrower" routerLinkActive="active">
+                        <li><img src="assets/images/My Borrower.png" class="img2">Search Borrower</li>
+                    </a> -->
+                   
+
+                    <a routerLink="/Helpspage" routerLinkActive="active">
+                        <li><img src="assets/images/Help.png" class="img2">Help</li>
+                    </a>
+                </ul>
+            </div>
+            
+
+            <div class="col-xs-12 col-sm-12 col-md-9">
+                <div class="rtm-score-strip">
+                    <table class="table-responsive col-md-12 col-sm-12 col-xs-12">
+                        <tr>
+                            <th>Current Rate of Interest : {{intr}}</th>
+                            <th>Loans Accepted : {{acceptedloan}}</th>
+                            <th>Loan Disbursed : {{disburseloan}}</th>
+                            <th>On FINCHAIN Since :{{findate |date:'dd'}}/{{findate |date:'MM'}}/{{findate |date:'yyyy'}}</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="mydiv" class="sidenav" *ngIf="show" style="width: 100%;">
+            <div>
+                <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+                <li>
+                    <div class="col-xs-5">
+                        <div class="container123">
+                            <div class="avatar-upload">
+
+                                <div class="col-md-offset-3 avatar-preview">
+                                    <img [src]="profil" alt="" class="img1">
+                                </div>
+                                <div class="avatar-edit">
+                                    <label for="cameraicon"
+                                        class="share-media-button__label mvA share-media-button__label--square">
+
+                                        <svg viewBox="0 0 24 24" class="vide" color="#3770a0" width="36px" height="36px"
+                                            x="0" y="0" preserveAspectRatio="xMinYMin meet" class="artdeco-icon"
+                                            focusable="false">
+                                            <path
+                                                d="M21,6H18L16.5,3h-9L6,6H3A1,1,0,0,0,2,7V19a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V7A1,1,0,0,0,21,6ZM7.36,8l1.5-3h6.28l1.5,3H20v2H16.58a5,5,0,0,0-9.16,0H4V8H7.36Zm7.76,4A3.13,3.13,0,1,1,12,8.88,3.13,3.13,0,0,1,15.13,12ZM4,18V11H7.1a5,5,0,1,0,9.8,0H20v7H4Z"
+                                                class="large-icon" style="fill: currentColor"></path>
+                                        </svg>
+                                    </label>
+
+                                    <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg"
+                                        (change)="changefrontimage1($event)">
+
+                                    <label for="imageUpload" title="Upload Image"></label>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div>
+                        <table class="lenderamount">
+                            <tr class="lenderrow1">
+                                <th>Current Rate of Interest</th>
+
+                                <th> {{intr}}</th>
+                            </tr>
+                            <tr class="lenderrow2">
+                                <th>Loans Accepted</th>
+                                <th>{{acceptedloan}}</th>
+                            </tr>
+                            <tr class="lenderrow3">
+                                <th>Loans Disbur.</th>
+                                <th class="amtdetails">{{disburseloan}}</th>
+                            </tr>
+                            <tr class="lenderrow4">
+                                <th>On FINCHAIN Since</th>
+                                <th>{{findate |date:'dd'}}/{{findate |date:'MM'}}/{{findate |date:'yyyy'}}</th>
+                            </tr>
+                        </table>
+                    </div>
+                </li>
+            </div>
+            <div>
+                <li><span>Welcome{{current_user.companyName}} &nbsp;</span></li>
+                <a routerLink="/lenderdashboard" routerLinkActive="active" (click)="closeNav()">
+                    <li><img src="assets/images/Dashboard.png" class="img2">Home</li>
+                </a>
+                <a routerLink="/viewprofile" routerLinkActive="active" (click)="closeNav()">
+                    <li><img src="assets/images/View profile.png" class="img2">View Profile</li>
+                </a>
+                <a routerLink="/rateofinterest" routerLinkActive="active" (click)="closeNav()">
+                    <li><img src="assets/images/roim.png" class="img2">Preferences</li>
+                </a>
+
+                <a routerLink="/invoices" routerLinkActive="active" (click)="closeNav()">
+                        <li><img src="assets/images/invoice_logo.png" class="img2">Invoice</li>
+                    </a>
+
+
+
+
+                <a (click)="loanrequestCountView()" (click)="newloan_accept();" routerLinkActive="active" (click)="closeNav()">
+                    <li><img src="assets/images/Loan Request.png" class="img2">Loan Requests<span
+                            *ngIf="count > 0"><mark>{{count}}</mark></span></li>
+                </a>
+                <a routerLink="/loanhistory" routerLinkActive="active">
+                    <li><img src="assets/images/Loan History.png" class="img2" (click)="closeNav()">Loan History</li>
+                </a>
+                <a routerLink="/todaysdues" routerLinkActive="active">
+                    <li><img src="assets/images/Todays due.png" class="img2" (click)="closeNav()">Payment Info</li>
+                </a>
+                <a routerLink="/loanExtension" routerLinkActive="active" (click)="closeNav()">
+                    <li><img src="assets/images/Loan Extension.png" class="img2">Account Statement<span
+                            ng-show="loanextensionnotify"><label
+                                class="notification"></label></span></li>
+                </a>
+                <a routerLink="/latepayments" routerLinkActive="active" (click)="closeNav()">
+                    <li><img src="assets/images/Notification.png" class="img2">Late Payment<span
+                            ng-show="latepaymentnotify"><label class="notification"></label></span>
+                    </li>
+                </a>
+                <a routerLink="/Borrowerremarks" routerLinkActive="active" (click)="closeNav()">
+                    <li><img src="assets/images/Lost oppurtunity1.png" class="img2">Borrower Remarks</li>
+                </a>
+                <a routerLink="/pendingdocs" routerLinkActive="active" (click)="closeNav()">
+                    <li><img src="assets/images/uploaddocuments.png" class="img2">Upload documents</li>
+                </a>
+
+               <!--  <a routerLink="/Searchborrower" routerLinkActive="active" (click)="closeNav()">
+                    <li><img src="assets/images/My Borrower.png" class="img2">Search Borrower</li>
+                </a> -->
+
+                <a routerLink="/Helpspage" routerLinkActive="active" (click)="closeNav()">
+                    <li><img src="assets/images/Help.png" class="img2">Help</li>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

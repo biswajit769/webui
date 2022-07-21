@@ -1,0 +1,79 @@
+
+  <div class="managelenderPage">
+    <div id="addfeestyle"><button type="button" class="btn btn-default myButtonadd" ng-click="addfee()"><i class="glyphicon glyphicon-plus"></i>Add fee</button></div>
+    <div class="table-responsive" id="disbursementMargin">
+        <table class="table table-striped  table-bordered">
+            <thead id="myloanhead">
+                <tr class="tableTextCenter">
+                    <th>Minimium Loan Amount</th>
+                    <th>Maximum Loan Amount</th>
+                    <th>Processing Fee(Rs.)</th>
+                    <th>Processing Fee(%)</th>
+                    <th>Membership Fee</th>
+                    <th>Insurance</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="myduesbody">
+                <tr ng-repeat= "fee in adminfeeInfo" class="tableTextCenter">
+                    <!-- <td ng-show="feeid">{{fee.id}}</td>                   -->
+                    <td>
+                          <div class="popover-wrapper">
+                            <!-- <a href="#" editable-text="fee.min_loan_amount" onaftersave="updateFee(fee,fee.id)" style="color: brown;">{{fee.min_loan_amount || 'empty'}}</a> -->
+                          </div>
+                    </td>
+                      
+                    <td> 
+                           <div class="popover-wrapper">
+                            <!-- <a href="#" editable-text="fee.max_loan_amount" onaftersave="updateFee(fee,fee.id)" style="color: brown;">{{fee.max_loan_amount || 'empty'}}</a> -->
+                          </div>
+                    </td>
+                     
+                    <td>
+                          <div class="popover-wrapper" ng-disabled="disamount">
+                            <!-- <a href="#" editable-text="fee.processing_fee_in_amount" onaftersave="updateFee(fee,fee.id)" style="color: brown;" class={{disablefee1}} ng-click="disablePercent()">{{fee.processing_fee_in_amount || 'empty'}}</a> -->
+                          </div>
+                    </td>
+                    <td>
+                          <div class="popover-wrapper" ng-disabled="disperc">
+                            <!-- <a href="#" editable-text="fee.processing_fee_in_percentage" onaftersave="updateFee(fee,fee.id)" style="color: brown;" class={{disablefee2}} ng-click="disableAmount()">{{fee.processing_fee_in_percentage || 'empty'}}</a> -->
+                          </div>
+                    </td>
+                    <td>
+                          <div class="popover-wrapper">
+                            <!-- <a href="#" editable-text="fee.membership_fee" onaftersave="updateFee(fee,fee.id)" style="color: brown;">{{fee.membership_fee || 'empty'}}</a> -->
+                          </div>
+                    </td>
+                    <td>
+                          <div class="popover-wrapper">
+                            <!-- <a href="#" editable-text="fee.insurance" onaftersave="updateFee(fee,fee.id)" style="color: brown;">{{fee.insurance}}</a> -->
+                          </div>
+                    </td>
+                    <td>
+                      <div>
+                        <a class="btn btn-small btn-danger myButtondelete" data-toggle="modal" data-target="#deleteConfirmationModal" ng-click="setCurrentFee(fee)">delete</a>
+                      </div>
+                    </td>
+    
+                     
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal fade" id="deleteConfirmationModal" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+        <div class="modal-dialog modal-vertical-centered">
+            <div class="modal-content">
+                <div class="modal-header" id="popupcolor">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Delete Parmanently</h4>
+                </div>
+                <div class="modal-body" id="popupbodycolor">
+                    <p>Are you sure you want to delete this record</p>
+                </div>
+                <div class="modal-footer" id="popupbodycolor">
+                    <button type="button" class="btn btn-default" ng-click="currentFee = null" data-dismiss="modal">Cancel</button>
+                    <a type="button" class="btn btn-danger" ng-click="deleteFee()">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>

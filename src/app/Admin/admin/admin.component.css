@@ -1,0 +1,103 @@
+#tableswidths{
+    width: 81%; 
+    margin-top: 5%;
+
+}
+
+
+@media screen and (max-width:500px){
+
+    #tableswidths{
+        width:100%; 
+    margin-top: 5%;
+    }
+}
+
+
+#admin-left {
+    list-style-type: none;
+}
+#myicon {
+    display: none;
+    margin-top: 88px;
+}
+
+
+/*/new css*/
+#adminForDesktop {
+        display: block;
+       background: #337ab6;
+    height:1304px;
+    }
+
+#admindashboardleft {
+    
+    padding-top: 18px;
+    height: 800px;
+}
+#admindashboardleft ul a li {
+    color:white;
+}
+
+#featuresFont {
+    font-size: 15px;
+    margin-left: -54px;
+    margin-top:25%;
+}
+
+
+#admin-right {
+    list-style-type: none;
+    /*padding:2px;*/
+        margin-top: 27px;
+    list-style-type: none;
+    margin-bottom: -29px;
+}
+
+#adminactive {
+      padding: 22px 37px;
+    /*padding: 12px 0px 18px 46px;*/
+    list-style-type: none;
+}
+#glyphdynstyle {
+        font-size: 18px;
+    float: left;
+    margin-left: -17px;
+    margin-right: 18px;
+    color:white;
+}
+
+
+
+
+
+
+
+
+@media only screen and (min-width:320px) and (max-width: 767px) {
+    #adminMobileMenu {
+        list-style: none;
+        text-align: center;
+        margin-top: 20px;
+    }
+   #myicon {
+    display: block;
+    margin-top: 88px;
+}
+
+  #adminForDesktop {
+        display: none;
+        background: #337ab6;
+    height:900px;
+    }
+
+
+#featuresFont {
+   font-size: 25px;
+    margin-top: -60px;
+    padding: -44px;
+    padding-top: -81px;
+   
+}
+
+}

@@ -1,0 +1,181 @@
+<style type="text/css">
+  .loader2 {
+      border: 2px solid white;
+      border-radius: 50%;
+      border-top: 4px solid #ed6560;
+      width: 40px;
+      height: 40px;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+  }
+  
+  .modal-header {
+      padding: 15px;
+      border-bottom: 1px solid #e5e5e5;
+      background-color: #ed6506;
+      text-align: center;
+      color: white;
+  }
+  .crossymbol  {
+      float: right;
+      size: -19px;
+      width: 20px;
+      height: 18px;
+      padding-top: 0px;
+      padding-left: 6px;
+      float: right;
+  }
+  
+  </style>
+  <div class="lender-registration">
+      <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+          <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 text-center coinimage">
+                  <div class="col-xs-12 col-sm-12 col-md-6  threecoinimage">
+                      <img alt="coin" src="assets/images/3-coin-one-image.jpg">
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-6 text-center lenderlanding">
+                      <div>
+                          <div class="row lenderheader">
+                              <h2 class="text-center lenderheader2" style="padding-bottom: 10px;">Lend, Build, Grow</h2>
+                              <div class="col-xs-offset-2 col-sm-offset-4 col-md-offset-3 ">
+                                  <h4 class="text-left features">
+                          <p><span class="glyphicon glyphicon-ok"> </span> &nbsp; Attractive returns
+                          </p>
+                          <p><span class="glyphicon glyphicon-ok"> </span> &nbsp; Easy Entry
+                          </p>
+                          <p><span class="glyphicon glyphicon-ok"> </span> &nbsp; Diversification of portfolio</p>
+                      </h4>
+                              </div>
+                              <a data-backdrop="static" data-keyboard="false" data-toggle="modal" (click)="createaccpop()"><button id="comeon" class="apply anchor text-justify">Create Account</button></a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                  <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                          <!--  <div class="row"> -->
+                          <h2 class="howitworksheading12 text-center lenderlandhead1">What is peer-to-peer lending?</h2>
+                          <div class="landingimg3 text-center">
+                              <img alt="peer" src="assets/images/512by512.png">
+                          </div>
+                          <div>
+                              <p class="text-justify howitworkspara1">
+                                  Peer-to-peer lending is a new method of financing debt that allows people to borrow and lend money without the intervention of traditional financial intermediaries, such as banks or private moneylenders. Peer-to-peer lending helps connect creditworthy borrowers to lenders to enable quick, hassle-free, and cost-effective loans. Peer-to-peer lending has grown rapidly in recent years and is fast emerging as a preferred source of fixed income for investors.</p>
+                              <p class="text-justify howitworkspara1">
+                                  Given the low returns currently offered on historically “safe” fixed deposits, and the relatively high risk exposure investors must bear to generate moderate returns on equity investments, peer-to-peer lending offers an attractive investment opportunity to achieve high returns at moderate risk to investors.
+                              </p>
+                              <p class="text-justify howitworkspara1">
+                                  <strong>RTM</strong> is a purpose-built peer-to-peer lending platform which aims to revolutionize traditional moneylending practices in Karnataka. Through our peer-to-peer marketplace, we hope to catalyse a wave of lending and borrowing experiences that leverage JAM (Jan-Dhan, Aadhaar, Mobile), demonetisation and the government’s drive to transform India into a digital economy.
+                              </p>
+                          </div>
+                          <!--     </div> -->
+                      </div>
+                      <h2 class="howitworksheading12 text-center lenderlandhead">Why lend through RTM?</h2>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                          <div class="row">
+                              <div class="col-xs-12 col-sm-6 col-md-6">
+                                  <div class="text-center landingimg1">
+                                      <img src="assets/images/LLP1.png">
+                                      <p class="barrowersubhead" alt="returns"><strong>  High Risk-Adjusted Returns</strong></p>
+                                  </div>
+                                  <p class="text-justify howitworkspara1 ">
+                                      Earn higher interest income that traditional lending routes. Deploy money sitting idle in your bank account and sit back and relax while you earn monthly income.
+                                  </p>
+                              </div>
+                              <div class="col-xs-12 col-sm-6 col-md-6">
+                                  <div class="text-center landingimg5">
+                                      <img src="assets/images/LLP2.png" alt="proceesing">
+                                      <p class="barrowersubhead"><strong>No Registration or Processing Fees</strong></p>
+                                  </div>
+                                  <p class="text-justify howitworkspara1 ">
+                                      We are the <strong> Only</strong> peer-to-peer lending platform in India to charge our lenders <strong>Zero</strong> Registration and <strong>Zero</strong> Processing Fees. Lend on our marketplace at no cost to yourself!
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12">
+                          <div class="row">
+                              <div class="col-xs-12 col-sm-6 col-md-6">
+                                  <div class="text-center landingimg1">
+                                      <img src="assets/images/LLP3.png" alt="investment">
+                                      <p class="barrowersubhead"><strong>Choose your Investment Terms</strong></p>
+                                  </div>
+                                  <p class="text-justify howitworkspara1 ">
+                                      Choose and setup the interest rate you want to lend at. We also let you decide the borrowers that you would like to lend to, depending on your preference of geographic location, profession and community.
+                                  </p>
+                              </div>
+                              <div class="col-xs-12 col-sm-6 col-md-6">
+                                  <div class="text-center landingimg1">
+                                      <img src="assets/images/LLP4.png" alt="Protection">
+                                      <p class="barrowersubhead"><strong>Lender Protection</strong></p>
+                                  </div>
+                                  <p class="text-justify howitworkspara1 ">
+                                      Lend only to borrowers who will be enrolled by RTM into comprehensive term insurance plans to safeguard your investment.
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-12 col-md-12" style="padding-bottom: 15px;">
+                          <div class="row">
+                              <div class="col-xs-12 col-sm-6 col-md-6">
+                                  <div class="text-center landingimg1">
+                                      <img src="assets/images/LLP5.png" alt="credit">
+                                      <p class="barrowersubhead"><strong>Meticulous Credit Checks and Analysis</strong></p>
+                                  </div>
+                                  <p class="text-justify howitworkspara1 ">
+                                      Our best-in-class underwriting algorithm and industry-leading credit checking processes ensure that only the most creditworthy borrowers are allowed to lend from you.
+                                  </p>
+                              </div>
+                              <div class="col-xs-12 col-sm-6 col-md-6">
+                                  <div class="text-center landingimg1">
+                                      <img src="assets/images/LLP6.png" alt="mind">
+                                      <p class="barrowersubhead"><strong>Peace of Mind</strong></p>
+                                  </div>
+                                  <p class="text-justify howitworkspara1 ">
+                                      Our best-in-class underwriting algorithm and industry-leading credit checking processes ensure that only the most creditworthy borrowers are allowed to lend from you.
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                      <h2 class="howitworksheading12 text-center lenderlandhead">What are the eligibility criteria to lend on RTM?</h2>
+                      <p class="text-center howitworkspara1 " style="padding: 5px;">
+                          To become an individual investor and lend on RTM, you must meet the following minimum requirements:
+                      </p>
+                      <div class="text-center landingimg hidden-xs" style="padding: 11px;">
+                          <img src="assets/images/LLP7.PNG" alt="">
+                      </div>
+                      <div class="text-center landingimg visible-xs" style="padding: 11px;">
+                          <img src="assets/images/LLP12.PNG" alt="rtm">
+                      </div>
+                      <div class="col-xs-12 col-md-offset-2 col-md-8 text-center">
+                          <p class=" howitworkspara1 " style="padding: 5px;">
+                              We also welcome investment companies to lend through RTM and require that companies meet the following minimum eligibility criteria: </p>
+                      </div>
+                      <div class="text-center landingimg hidden-xs" style=" padding: 8px;">
+                          <img src="assets/images/LLP8.PNG" alt="">
+                      </div>
+                      <div class="text-center landingimg visible-xs" style=" padding: 8px;">
+                          <img src="assets/images/LLP13.PNG" alt="">
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div id="Successregisterationlender" class="modal fade successregisterationlender" role="dialog">
+              <div class="modal-dialog" style="background:white;">
+                  <div class="modal-header">
+                      <h3 class="modal-title">Congratulations Lender!</h3>
+                  </div>
+                  <div class="modal-body">
+                      <p id="messagestyle" style="text-align: center;">You have successfully registered with RTM </p>
+                      <div id="buttonStyle">
+                          <button class="btn btn-primary" ng-click="Successregisterationlender()">Ok</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  

@@ -1,0 +1,186 @@
+<div ng-model="rolee" class="acccd">
+	<div ng-if="rolee ==='Admin'">
+		<div class="col-md-12 " id="adminhometop">
+			<h3 id="adminwelcome">Welcome to Admin Dashboard</h3>
+		</div>
+		<div class="col-md-12" id="splitmargin">
+ <div class="row">
+    <div class="col-sm-3 col-md-4" id="adminhomecircle">
+    <a routerLink="/admin/manageborrower">
+					
+						
+							<i class="glyphicon glyphicon-user" id="admincircleicon"></i><br>
+							<span id="adminlabel1">New </span><br>
+							<span id="adminlabel1">Borrowers</span><br>
+							
+							<span class="counter" id="admincountstyle1">
+								{{ autoStartVar1 | number:0}}
+							</span>
+						
+					
+				</a> 
+    </div>
+    <div class="col-sm-3 col-md-4" id="adminhomecircle">
+    <a routerLink="/admin/manageCompanyProcess">
+					
+						
+							<i class="glyphicon glyphicon-user" id="admincircleicon"></i><br>
+							<span id="adminlabel1">Processing</span><br>
+							<span id="adminlabel1">Applications</span><br>
+							
+							<span class="counter" value="autoStartVar12" to="trueborrowercount" id="admincountstyle1"
+								>
+								{{ autoStartVar2 | number:0 }}
+							</span>
+						
+				</a>
+    </div>
+    <div class="col-sm-3 col-md-4" id="adminhomecircle">
+   	<a routerLink="/admin/manageCompletedProcess">
+					
+							<i class="glyphicon glyphicon-user" id="admincircleicon"></i><br>
+							<span id="adminlabel1">Completed</span><br>
+							<span id="adminlabel1">Applications</span><br>
+							
+							<span class="counter" value="autoStartVar22" to="closedappl" id="admincountstyle1"
+								>
+								{{ autoStartVar3 | number:0 }}
+							</span>
+					
+				</a>
+
+    </div>
+	</div>
+		</div>
+
+
+
+
+		<div class="col-md-12" id="splitmargin">
+
+  <div class="row">
+    <div class="col-sm-3 col-md-4" id="adminhomecircle">
+    <a routerLink="/admin/managelenders">
+					
+						
+							<i class="glyphicon glyphicon-user" id="admincircleicon"></i><br>
+							<span id="adminlabel1">Processing</span><br>
+							<span id="adminlabel1">NBFC</span><br>
+							<span class="counter" id="admincountstyle1">
+								{{ autoStartVar4 | number:0 }}
+							</span>
+						
+					
+				</a> 
+    </div>
+    <div class="col-sm-3 col-md-4" id="adminhomecircle">
+    <a routerLink="/admin/registerednbfc">
+					
+						
+							<i class="glyphicon glyphicon-user" id="admincircleicon"></i><br>
+							<span id="adminlabel1">Registered</span><br>
+							<span id="adminlabel1">NBFC</span><br>
+							
+							<span class="counter" value="autoStartVar12" to="trueborrowercount" id="admincountstyle1"
+								>
+								{{ autoStartVar9 | number:0 }}
+							</span>
+						
+				</a>
+    </div>
+    <div class="col-sm-3 col-md-4" id="adminhomecircle">
+   	<a routerLink="/admin/manageloans/pendingloans">
+					
+							<i class="glyphicon glyphicon-user" id="admincircleicon"></i><br>
+							<span id="adminlabel1">Loans</span><br>
+							<span id="adminlabel1">Pending</span><br>
+							
+							<span class="counter" value="autoStartVar22" to="closedappl" id="admincountstyle1"
+								>
+								{{ autoStartVar6 | number:0 }}
+							</span>
+					
+				</a>
+
+    </div>
+	</div>
+		</div>
+
+		<div class="col-md-12" id="splitmargin">
+
+ <div class="row">
+    <div class="col-sm-3 col-md-4" id="adminhomecircle">
+    <a routerLink="/admin/manageloans/acceptedloans">
+					
+						
+							<i class="glyphicon glyphicon-user" id="admincircleicon"></i><br>
+							<span id="adminlabel1">Loans</span><br>
+							<span id="adminlabel1">Accepted</span><br>
+							<span class="counter" id="admincountstyle1">
+							{{ autoStartVar7 | number:0 }}
+							</span>
+						
+					
+				</a> 
+    </div>
+    <div class="col-sm-3 col-md-4" id="adminhomecircle">
+    <a routerLink="/admin/manageloans/dibursedloans">
+					
+						
+							<i class="glyphicon glyphicon-user" id="admincircleicon"></i><br>
+							<span id="adminlabel1">Loans</span><br>
+							<span id="adminlabel1">Disbursed</span><br>
+							
+							<span class="counter" value="autoStartVar12" to="trueborrowercount" id="admincountstyle1"
+								>
+									{{ autoStartVar8 | number:0 }}
+							</span>
+						
+				</a>
+    </div>
+    <div class="col-sm-3 col-md-4" id="adminhomecircle">
+   	<a routerLink="/admin/manageloans/closedloans">
+					
+							<i class="glyphicon glyphicon-user" id="admincircleicon"></i><br>
+							<span id="adminlabel1">Closed</span><br>
+							<span id="adminlabel1">Loans</span><br>
+							
+							<span class="counter" value="autoStartVar22" to="closedappl" id="admincountstyle1"
+								>
+								{{ autoStartVar10 | number:0 }}
+							</span>
+					
+				</a>
+
+    </div>
+	</div>
+		</div>
+
+
+
+
+		<div class="col-md-12" id="splitmargin">
+
+<div class="row">
+    <div class="col-sm-3 col-md-4" id="adminhomecircle">
+    <a routerLink="/admin/nonkarnataka">
+					
+						
+							<i class="glyphicon glyphicon-user" id="admincircleicon"></i><br>
+							<span id="adminlabel1">Non</span><br>
+							<span id="adminlabel1">Karnataka</span><br>
+							<span class="counter" id="admincountstyle1">
+							{{ autoStartVar5 | number:0 }}
+							</span>
+						
+					
+				</a> 
+    </div>
+  
+	</div>
+		</div>
+
+	
+
+	</div>
+</div>

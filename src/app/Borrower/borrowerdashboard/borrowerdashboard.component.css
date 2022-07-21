@@ -1,0 +1,772 @@
+li:hover{
+    background-color:#d2e8ff;
+    color: #ff0000;
+}
+
+#dashboardbody {
+    position: fixed
+}
+
+.textposition {
+    position: absolute;
+    margin-top: 90px    ;
+    margin-left: -150px;
+    opacity: 1px;
+}
+.crossymbol  {
+
+    float: right;
+    size: -19px;
+    width: 20px;
+    height: 18px;
+    padding-top: 0px;
+    padding-left: 6px;
+    float: right;
+}
+.arrow{
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    background: #3379b6;
+    text-align: center;
+    color: white;
+}
+
+.rtmindex .rtmfooter {
+    visibility: hidden;
+    display: none;
+}
+
+table.rtmscore tr th {
+    text-align: center;
+}
+
+.Profile-input-file1 {
+    height: 169px;
+    width: 200px;
+    
+    border-bottom-left-radius: 83%;
+    border-bottom-right-radius: 83%;
+    position: absolute;
+    top: 0px;
+    z-index: 999;
+    opacity: 0 !important;
+    cursor: pointer;
+    opacity: 1;
+}
+
+
+
+
+@media only screen and (min-width:320px) and (max-width: 767px) {
+    .Profile-input-file1 {
+        height: 91px;
+        left: 18%;
+        border-bottom-left-radius: 83%;
+        border-bottom-right-radius: 83%;
+        position: absolute;
+        top: 0px;
+        z-index: 999;
+        opacity: 0 !important;
+        cursor: pointer;
+        opacity: 1;
+    }
+}
+
+
+.borrowerdashboardleft li img {
+    width: 25%;
+    padding: 16px;
+}
+
+
+.viewprofile select {
+width: 75%;
+}
+table.loan-tbl th{
+
+text-align: center;
+}
+
+.tableheader {
+   background: grey;
+   color: white;
+}
+
+.orangefont {
+   color: orange;
+   font-weight: bold;
+}
+
+#loanextensionheader{
+   background: #ed6506;
+   color: white;
+}
+
+
+   #popupfooterbutton,
+   #popupfooterbutton:hover,
+   #popupfooterbutton:active,
+   #popupfooterbutton:visited {
+background-color: rgba(78, 67, 67, 0.75) !important;
+border-color: rgba(78, 67, 67, 0.75);
+background: rgba(78, 67, 67, 0.75);
+}
+
+
+.borrowerdashboardleft {
+    float: left;
+    padding: 0px;
+    list-style-type: none;
+        font-size: initial;
+}
+
+#dashboardbody {
+    width: 319px;
+    margin-top: 65px;
+    max-height: 94%;
+    overflow: scroll;
+   /* position: fixed; 
+    width: 24%; */
+    background: rgb(251, 246, 243);
+}
+
+.sidenav {
+    display: none;
+}
+
+#dashboardbody::-webkit-scrollbar {
+    display: none;
+}
+
+.loanhistoryicon h3 img {
+    width: 50px;
+}
+
+.loanhistoryicon {
+    margin: 0px;
+}
+
+.table .loanhistoryheading {
+    background: #f18641;
+}
+
+.borrowerdashboardleft a li {
+    color: #000000;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.borrowerimg {
+   max-width: 80%;
+max-height: 165px;
+min-width: 80%;
+min-height: 165px;
+margin: 11px 0px 10px 0px;
+border-radius: 50%;
+background: wheat;
+}
+
+#myicon {
+    display: none;
+}
+
+.gridbox {
+    background: wheat;
+    padding: 25px 31px;
+    color: rgb(35, 86, 129);
+    border-radius: 15px;
+    margin: 27px;
+}
+
+.sidenav {
+    height: 100%;
+    /* width: 0; */
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+
+
+.sidenav li img.borrowerimgmobile {
+  
+    max-width: 106%;
+    min-width: 100%;
+    border-radius: 50%;
+    margin: -7px 10px 10px -13px;
+    background: wheat;
+}
+
+
+.sidenav li {
+list-style-type: none;
+padding: 9px 19px;
+}
+
+.sidenav a {
+
+text-decoration: none;
+color: #000000;
+transition: 0.3s;
+font-weight: bolder;
+}
+
+.sidenav a:hover,
+.offcanvas a:focus {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    top: 0;
+    float: right;
+    right: 25px;
+    /* margin-top: 60px; */
+    font-size: 36px;
+    /* margin-left: 50px;*/
+}
+
+.borrowerdashboardleft span {
+    font-size: medium;
+    font-weight: bolder;
+}
+
+
+
+.uploaddocs .boldtext {
+    font-weight: bolder;
+    color: #676161;
+}
+
+.uploaddocs input[type="button"] {
+    margin-top: 13px;
+
+}
+
+.dashboarddetails {
+    margin-top: 20px;
+}
+
+.sidenav li.active,
+.sidenav li:hover,
+.sidenav li.active:focus {
+    background: wheat;
+    color: white;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+@media only screen and (min-width:320px) and (max-width: 767px) {
+    .sidenav.responsive {position: relative;}
+    .sidenav.responsive a.closebtn {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    
+    .sidenav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    .Profile-input-file {
+        height: 151px;
+        width:83px;
+        left: 18%;
+        border-bottom-left-radius: 83%;
+        border-bottom-right-radius: 83%;
+        position: absolute;
+        top: 0px;
+        z-index: 999;
+        opacity: 0 !important;
+        cursor: pointer;
+        opacity: 1;
+    }
+      
+      .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: black;
+        display: block;
+        transition: 0.3s;
+        font-weight:bold; 
+        margin-left: -30px;
+      }
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        background-color: white;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+    
+    .sidenav span {
+        font-size: medium;
+        font-weight: bolder;
+    }
+
+    .sidenav .img2 {
+        width: 8%;
+        margin: 0px 6px;
+    }
+    
+    .sidenav li .img2 .lenderimg {
+        width: 8%
+    }
+
+    .sidenav .img2.lenderprofile {
+        max-height: 89px;
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 89px;
+        border-radius: 50%;
+        background: wheat;
+    }
+    
+    .sidenav li {
+        list-style-type: none;
+        padding: 9px 19px;
+        font-size: 12px;
+        margin-top: 10px;
+    }
+    .sidenav a:hover,
+    .offcanvas a:focus {
+        color: #f1f1f1;
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        margin-top:80px;
+
+      }
+
+      .lenderamount1 .lenderrow2 th {
+        background: #3379b6;
+        padding: 2px 0px;
+        color: white;
+        width: 70%;
+    }
+    .lenderamount1 .lenderrow3 th {
+        background: #3379b6;
+        padding: 2px 0px;
+        color: white;
+        width: 70%;
+    }
+    .lenderamount1 .lenderrow4 th {
+        background: #3379b6;
+        padding: 2px 0px;
+        color: white;
+        width: 70%;
+    }
+    .sideenav span {
+        font-size: medium;
+        font-weight: bolder;
+    }
+    .borrowerimg {
+        max-width: 83px;
+     max-height: 165px;
+     min-width: 83px;
+     min-height: 165px;
+     margin: 11px 0px 10px 0px;
+     border-radius: 50%;
+     background: wheat;
+     }
+
+     #myicon {
+        text-align: left;
+        padding: 5px 5px 5px;
+        display: block;
+        margin-top:80px;
+    }
+    #dashboardbody {
+        position: absolute;
+        display: none;
+    }
+    .borrowerdashboardleft li img {
+        width: 32%;
+        padding: 26px;
+        margin: 7px;
+    }
+    .table > tbody > tr > th
+    {
+        padding: 0px;
+    }
+    .table {
+        border: 0px;
+    }
+    .sideenav span {
+        font-size: medium;
+        font-weight: bolder;
+    }
+    
+    .sidenav {
+        display: block;
+    }
+    ul.borrowerdashboardleft {
+        display: none;
+    }
+    .rtm-score-strip{
+        visibility: hidden;
+    }
+    .rtmscore1 .row1 th {
+        background: #3379b6;
+        padding: 2px 0px;
+        color: white;
+        width: 58%;
+    }
+    .rtmscore1 .row2 th {
+        background: #3379b6;
+        padding: 2px 0px;
+        color: white;
+        width: 58%;
+    }
+    .rtmscore1 .row3 th {
+        background: #3379b6;
+        padding: 2px 0px;
+        color: white;
+        width: 58%;
+    }
+    .rtmscore1 .row4 th {
+        background: #3379b6;
+        padding: 2px 0px;
+        color: white;
+        width: 58%;
+    }
+    
+}
+ 
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+@media only screen and (min-width:768px) and (max-width: 1024px) {
+    #dashboardicon {
+        margin-top: 28px;
+        display: block;
+    }
+    .sidenav {
+        display: block;
+    }
+    #myicon {
+        text-align: left;
+        margin-left: 1px;
+        padding: 4px 3px 11px;
+        /* background: white; */
+        display: block;
+    }
+    ul.borrowerdashboardleft {
+        display: none;
+    }
+   
+    .dashboarddetailscolor {
+        position: absolute;
+        z-index: -999;
+        background: white;
+    }
+    .borrowerdashboardleft li img {
+        width: 32%;
+        padding: 26px;
+        margin: 7px;
+    }
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        color: #235681;
+        transition: 0.3s;
+        font-size: xx-large;
+        font-weight: bolder;
+    }
+    .sidenav span {
+        font-size: xx-large;
+        font-weight: bolder;
+    }
+    .gridbox {
+        background: wheat;
+        padding: 25px 18px;
+        color: rgb(35, 86, 129);
+        border-radius: 15px;
+        margin: 27px 59px;
+    }
+}
+.sidenav-container {
+    height: 100%;
+  }
+   
+ /* .sidenav {
+    width: 250px;
+    box-shadow: 3px 0 6px rgba(0, 0,0, .24)
+  } */
+
+  .sidenav .mat-toolbar {
+    background: inherit;
+  } 
+  
+   .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .mat-drawer-inner-container{
+      margin-top:59px;
+  }
+
+ .mat-toolbar{
+     margin-top:59px;
+     position: fixed;
+    
+     z-index: 999;
+     
+ }
+ .mat-nav-list a li img {
+    width: 25%;
+    padding: 16px;
+}
+.mat-nav-list a li {
+    list-style-type: none;
+}
+
+ /* image profile css start below*/
+.container123{
+    position: relative;
+    display: inline-block;
+}
+.container123:hover .avatar-edit {
+    display: block;
+}
+.avatar-edit {
+    display: none;
+    }
+
+
+.img1{
+   width: 151px;
+    height: 151px;
+    border-radius: 74px;
+}
+
+
+.avatar-upload {
+    position: relative;
+    max-width: 205px;
+}
+.avatar-upload .avatar-edit input {
+    display: none;
+}
+.avatar-upload .avatar-edit {
+       position: absolute;
+    left: 40px;
+    z-index: 1;
+    bottom: 4px;
+}
+ .avatar-edit {
+    display: none;
+     background: rgba(0, 0, 0, 0.3);
+  
+    height: 61px;
+    
+    width: 96%;
+    
+    border-radius: 0px 0px 112px 112px;
+    }
+
+.avatar-upload .avatar-edit input + label {
+   display: inline-block;
+    width: 27px;
+    height: 43px;
+    margin-bottom: 3px;
+    margin-left: -26px;
+    border-radius: 100%;
+    background: #ffffff;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    opacity: 0;
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+.avatar-upload .avatar-edit input + label:hover {
+    background: #f1f1f1;
+    border-color: #d6d6d6;
+}
+
+.avatar-upload .avatar-edit input + label:after {
+    content: "\f040";
+    font-family: "FontAwesome";
+    color: #757575;
+    position: absolute;
+    top: 5px;
+    left: 46px;
+    right: 0;
+    text-align: center;
+    margin: auto;
+}
+
+.avatar-upload .avatar-preview {
+    width: 151px;
+    height: 151px;
+    background-color: #e2caca;
+    position: relative;
+    border-radius: 100%;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    margin-top: -10px;
+}
+
+.avatar-upload .avatar-preview > div {
+    width: 100%;
+    height: 100%;
+    margin-top: -50%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.container123 {
+    width: auto;
+    padding: 20px;
+    margin-left: -66px;
+}
+.element {
+  display: inline-flex;
+  align-items: center;
+}
+.element> input{
+    display: none;
+}
+i.fa-camera {
+  margin: 10px;
+  cursor: pointer;
+  font-size: 30px;
+}
+i:hover {
+  opacity: 0.6;
+}
+
+ 
+
+@media only screen and (min-width:320px) and (max-width: 767px) {
+    .avatar-upload {
+        margin-top: -32px;
+    margin-left: -150px;}
+.container123 {
+    width: auto;
+    padding: 20px;
+    margin-left: 6px;
+}
+.container123:hover .avatar-edit {
+    display: block;
+}
+.avatar-edit {
+    display: none;
+    }
+
+.avatar-upload .avatar-preview {
+    width: 151px;
+    height: 151px;
+    background-color: #e2caca;
+    position: relative;
+    border-radius: 100%;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    margin-top: -10px;
+     margin-left: 89px;
+}
+
+.avatar-upload .avatar-edit {
+       position: absolute;
+    left: 69px;
+    z-index: 1;
+    bottom: 4px;
+}
+.img1{
+    width: 149px;
+    margin-left: 2px;
+ }
+
+ .avatar-edit {
+    display: none;
+     background: rgba(0, 0, 0, 0.3);
+  
+    height: 61px;
+    
+    width: 96%;
+    
+    border-radius: 0px 0px 112px 112px;
+    }
+
+.avatar-upload .avatar-edit input + label {
+   display: inline-block;
+    width: 27px;
+    height: 43px;
+    margin-bottom: 3px;
+    margin-left: -26px;
+    border-radius: 100%;
+    background: #ffffff;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    opacity: 0;
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+.avatar-upload .avatar-edit input + label:hover {
+    background: #f1f1f1;
+    border-color: #d6d6d6;
+}
+
+.avatar-upload .avatar-edit input + label:after {
+    content: "\f040";
+    font-family: "FontAwesome";
+    color: #757575;
+    position: absolute;
+    top: 5px;
+    left: 46px;
+    right: 0;
+    text-align: center;
+    margin: auto;
+}
+
+.avatar-upload .avatar-preview {
+    width: 151px;
+    height: 151px;
+    background-color: #e2caca;
+    position: relative;
+    border-radius: 100%;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    margin-top: -10px;
+}
+
+ 
+
+}
+
+
+
+
+

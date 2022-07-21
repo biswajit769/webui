@@ -1,0 +1,98 @@
+.container-fluid{
+    background-color: lightblue;
+    padding: 20px;
+}
+
+.container-fluid .navbar-brand{
+    margin-left: 100%;
+}
+
+#alignment-example{
+    margin-left: 31%;
+}
+
+#pay{
+    margin-right: 13%;
+}
+.log{
+    margin-left: 10%;
+}
+
+.log1{
+        background: none!important;
+        border: none;
+        padding: 0!important;
+        font-size: 21px;
+        color:white;
+        cursor: pointer;
+        margin-left: 25px;
+    }
+
+.privacy {
+        text-align: justify;
+        padding: 0 200px 20px;
+        line-height: 30px;
+        font-size: 18px;
+        background: #fff;
+        }
+
+.privacy h1 {
+        font-size: 40px;
+        color: #aaaaaa;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        text-align: center;
+        margin-top: 60px;
+    }
+
+.privacy .subtext {
+        text-align: center;
+        margin-bottom: 50px;
+        color: #575757;
+        margin-top: 20px;
+    }
+
+.bold {
+        font-weight: bold;
+    }
+.privacy .gap {
+        margin-top: 30px;
+    }
+
+@media screen and (max-width:700px){
+
+    .container-fluid .navbar-brand{
+        margin-left: 0%;
+    }
+
+    #alignment-example{
+        margin-left: 0%;
+    }
+    
+    .log1{
+        background: none!important;
+        border: none;
+        padding: 0!important;
+        font-size: 21px;
+        color:white;
+        cursor: pointer;
+        margin-left: 0px;
+      }
+
+    .privacy {
+        padding: 0 20px;
+    }
+    .privacy {
+        text-align: justify;
+        line-height: 30px;
+        font-size: 18px;
+        background: #fff;
+    }
+    .privacy .dataList li {
+        font-size: 16px;
+    }
+    .privacy .dataList {
+        list-style-type: disc;
+        padding: 20px;
+    }
+}

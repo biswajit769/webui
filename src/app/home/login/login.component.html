@@ -1,0 +1,64 @@
+<div class="col-xs-12 col-sm-12 col-md-12 login-page" style="
+    margin: 48px;
+    margin-top: -69px;">
+
+  <div class="col-md-12 col-sm-12">
+    <div class="row"> 
+        
+        <div class="col-md-offset-4 col-md-4 col-md-offset-4 col-sm-offset-4 col-sm-4     
+          col-sm-offset-4 login-form1">
+              <div class="col-md-12 text-center">
+                  <img alt="login" src="assets/images/finchain1.jpg">
+              </div>
+            
+              <div class="col-md-12 text-center">
+                    <form novalidate [formGroup]="loginForm" (ngSubmit)="login(loginForm)" class="login-form">
+                        <span *ngIf="error_message" class="invalid-feedback">
+                            <span>{{error_message}}</span>
+                          </span>
+                      <br>
+                      <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="iconn"> <i class="glyphicon glyphicon-user"></i></span>
+                            <input type="text" formControlName="mobile" class="form-control" id="uname"  placeholder="Enter Mobile Number"  minlength=10 maxlength=10 (keypress)="keyPress($event)"/>
+                            </div>
+                            <span *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                                <span *ngIf="f.mobile.errors.required">Mobile No. is required</span>
+                            </span>
+                        </div>
+                      <br>
+                      <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="iconn1"> <i class="glyphicon glyphicon-lock"></i></span>
+                             <input type="password" formControlName="password" class="form-control"  id="psw" placeholder="Enter Password"  *ngIf="!shows"/>
+                              <input type="text" formControlName="password" class="form-control"  id="psw" placeholder="Enter Password"  *ngIf="shows"/>
+                             <a class="eyeicon"><i class="fa" (click)="showpassword()" [ngClass]="buttonName"></i></a>
+                             </div>
+                             <span *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                 <span *ngIf="f.password.errors.required">Password is required</span>
+                             </span>
+                         </div>
+                      <div>
+                          <button class="btn btn-primary text-center" style="margin: 10px;" type="submit">Login</button>
+                          <p><a class="tex-center hovercolor" routerLink="/forgotpassword">Forgot Password?</a></p>
+                      </div>
+                          <p class="tex-center">New to FINCHAIN? Sign-up as</p>
+                          
+                         <div class="col-xs-4 col-sm-4" style="margin-left: 45px;">
+                                 
+                              <a routerLink="/CompanyInitialRegistration" class="signup"><button class="btn btn-primary text-center">Company</button></a>
+                          </div>
+                          <!-- <div class="col-xs-6 col-sm-4">
+                             <a routerLink="/nbfcInitialRegistration" class="signup orange"><button class="btn btn-primary text-center">NBFC</button></a>
+                          </div> -->
+                        
+                  </form>
+                 
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+ 
+

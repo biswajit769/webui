@@ -1,0 +1,133 @@
+/* Side Navigation */
+.icon-bar{
+  background-color: black!important;
+}
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top: 60px;
+        left: 225px;
+        width: 225px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        border-top: 1px rgba(0,0,0,.5) solid;
+        background: linear-gradient( rgba(0, 0, 0, 0.8), 
+          rgba(0, 0, 0, 0.8) ),url('/assets/img1/citi.jpeg') 
+        no-repeat center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+        color: white;
+        min-height: 100%;
+        display: inline-block;
+        height: auto;
+    }
+
+    .side-nav>li>a {
+        width: 225px;
+        border-bottom: 1px rgba(0,0,0,.3) solid;
+    }
+
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+        outline: none;
+        background-color: #1a242f !important;
+    }
+}
+
+
+
+.navbar .nav > li > a > .label {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  position: absolute;
+  top: 14px;
+  right: 6px;
+  font-size: 10px;
+  font-weight: normal;
+  min-width: 15px;
+  min-height: 15px;
+  line-height: 1.0em;
+  text-align: center;
+  padding: 2px;
+}
+
+.navbar .nav > li > a:hover > .label {
+  top: 10px;
+}
+.navbar-brand {
+    padding: 5px 15px;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color:#c75858;
+  }
+.logoicn {
+    font-size: 20px;
+}
+
+/*mycss------------------------*/
+
+
+.btndiv{
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 10px;
+    position: relative;
+    float: right;
+    margin-right: 16px;
+}
+.navdiv{
+    background-color:black;
+    /*color: black;*/
+    box-shadow: 0px 1px 1px 1px #cacaca;
+/*#252733*/
+}
+.logoicon{
+    width: 80px;
+    height:60px;
+    padding:5px;
+    border-radius:30px;
+}
+
+li a{
+    color:white!important;
+}
+.navbar-toggle{
+    background-color: white !important;
+    color: black !important;
+    margin-right: 97px;
+    margin-top: 13px;
+}
+.navdiv1{
+  color: black;
+  background-color:white; 
+}
+
+
+@media only screen and (min-width: 360px) and (max-width:640px) {
+
+.btndiv{
+   margin-top: -50px;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #c75858;
+  }
+
+}
+
+@media only screen and (min-width: 320px) and (max-width:568px) {
+  .btndiv{
+    margin-top: -48px;
+  }
+
+}

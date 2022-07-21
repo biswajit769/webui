@@ -1,0 +1,71 @@
+
+<h1 style="margin-top:10%;"><img  alt="request" src="assets/images/Loan Request.png" class="headinglend5">&nbsp; Preferences</h1>
+<div class="lenderresp5">
+   <form  novalidate [formGroup]="RateOfInterstForm">
+        <div class="col-md-8 well well-lg">
+            <h5 style="font-weight:bold;">SELECT YOUR RATE OF INTEREST</h5>
+               <select name="rateinterest" formControlName="rateinterest" class="form-control" required style="position: static;">
+                <option value="" [disabled]="true">----Select Interest---- </option>
+                <option *ngFor="let interest of rateofinterests">
+                    {{interest}}
+                </option>
+            </select>
+             <span *ngIf="rateForm.submitted && rateForm.rateinterest.errors" class="invalid-feedback">
+                                <span style="color:red" *ngIf=" rateForm.rateinterest.errors.required">Rate of Interest is Required</span>
+                            </span><br>
+            
+                <div style="text-align:center;" *ngIf="updaterateinterestloader">
+                    <div class="loader"></div>
+                </div>
+            
+            <button class="btn btn-primary" (click)="saveinterest(RateOfInterstForm)" type="submit" style="margin-top: 20px;">Update ROI
+            </button>
+            <div *ngIf="updated" style="color:green; top:10px;" class="glyphicon glyphicon-ok"> Updated</div>
+        </div>
+    </form>
+</div>
+<div class="col-md-8 well well-lg">
+    <h5 style="font-weight:bold;">FILTER YOUR BORROWERS</h5>
+    <!-- <div class="col-md-4">
+        <input type="radio" ng-model="filter.borrowers" value="profession" (click)="professions()" ng-disabled="edit">Select Profession </div>
+    <div class="col-md-4">
+        <input type="radio" ng-model="filter.borrowers" value="Religion" (click)="Religion()" ng-disabled="edit">Select Religion </div> -->
+    <div class="col-md-4" style="margin-left: 230px;">
+        <input type="radio"  value="State" data-toggle="modal" data-target="#myModal">Select State</div>
+</div>
+
+ <div class="modal fade popup" #rateintrest id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Select State</h4>
+        </div>
+        <form [formGroup]="stateForm" (ngSubmit)="selectStates()">
+        <div class="modal-body">
+       
+            <label>
+              <input type="checkbox" formControlName="selectAll">
+              Select/Deselect all
+            </label><br>
+            <label formArrayName="statePreferences" *ngFor="let genre of stateForm['controls']['statePreferences']['controls']; let i = index">
+              <input type="checkbox" [formControlName]="i">
+              {{statePreferences[i].genre}}
+            </label><br>
+  </div>
+
+ 
+       
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-default" (click)="ok()" style="background-color: #337ab6;color: white;margin-right: 15px;">Submit</button>
+
+          <button type="button" class="btn btn-default" style="background-color: #ff6666;color: white;"   data-dismiss="modal">Close</button>
+        </div>
+    </form> 
+      </div>
+      
+    </div>
+  </div>
+

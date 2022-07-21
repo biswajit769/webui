@@ -1,0 +1,89 @@
+<div class="menu">
+  <div class="container-fluid">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+  </div>
+  <div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a routerLink="/invoicemanagent/signup2" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a routerLink="/invoicemanagent/Invoicelogin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</div>
+</div>
+
+
+<div class="Backgroud ">
+<form id="msform" [formGroup]="singForm" (ngSubmit)="sigupdata(singForm.value)">
+  <ul id="progressbar">
+    <li class="active1" id="step1">Account Setup</li>
+    <li class="active1" id="step2">Personal Details</li>
+    <li class="active1" id="step3">Social Profiles</li>
+  </ul>
+  <fieldset *ngIf="forms1">
+    <h2 class="fs-title">Create your account</h2>
+    <h3 class="fs-subtitle">This is step 1</h3>
+  <input type="text" name="email" formControlName="email" (keypress)="keyPress1($event)" class="form-control"  required placeholder="Please Type Your Name" />
+    <div *ngIf="S.email.invalid && (S.email.dirty || S.email.touched)">
+      <div *ngIf="S.email.errors.required" style="color: red;font-size: 12px;">Name is required</div>
+    </div>
+    <input type="text" name="mob" formControlName="mob" (input)="checknum($event)" minlength="10" maxlength="10" dont-begin-with-zero="mob" (keypress)="mobnum($event)" pattern="[7-9]{1}[0-9]{9}" required  placeholder="Enter Mobile Number" />
+    <button class="bnOtp btn btn-default btn-info" type="button" (click)="generateotp()" [disabled]="moblen !==10" *ngIf="optgent" data-toggle="collapse" data-target="#demo">Send Otp</button>
+    <button class="bnOtp btn btn-default btn-info" type="button" (click)="generateotp()" [disabled]="moblen !==10" *ngIf="!optgent">Resend</button>
+    <div  *ngIf="S.mob.invalid && (S.mob.dirty || S.mob.touched)">
+      <p *ngIf="S.mob.errors.required" style="color: red; font-size: 12px;">Mobile Number is required</p>
+      <p *ngIf="S.mob.errors.pattern" style="color: red; font-size: 12px;">Mobile number should be in valid format.</p>
+    </div>
+    <input type="text" name="otp" formControlName="otp" id="demo" class="collapse"  placeholder="Enter Your Otp" /> 
+    <input type="password" name="cpass" formControlName="cpass" class="form-control" minlength="8" [pattern]="pastpattern" required placeholder="Password" />
+   <div *ngIf="S.cpass.invalid && (S.cpass.dirty || S.cpass.touched)">
+      <div *ngIf="S.cpass.errors.required" style="color: red; font-size: 12px;">Password is required</div>
+      <div *ngIf="S.cpass.errors.pattern" style="color: red;font-size: 12px;">Password must be at least 8 characters,Include a number,a Special character,a uppercase letter,a lowercase letter</div>
+    </div>
+    <input type="button" name="next" class="next action-button" (click)="Next()" value="Next" />
+  </fieldset>
+  <fieldset *ngIf="forms2">
+    <h2 class="fs-title">Personal Details</h2>
+    <h3 class="fs-subtitle">Your presence on the social network</h3>
+    <input type="text" name="Cname" formControlName="Cname" required (keypress)="keyPress1($event)"   placeholder="Company name" />
+    <div *ngIf="S.Cname.invalid && (S.Cname.dirty || S.Cname.touched)">
+      <div *ngIf="S.Cname.errors.required" style="color: red;font-size: 12px;">Company Name is required</div>
+    </div>
+    <input type="text" name="gstname" formControlName="gstname" maxlength="15" minlength="15" placeholder="GST Number" />
+    <div class="GST" *ngIf="S.gstname.errors && (S.gstname.invalid &&  S.gstname.dirty)">
+        <p *ngIf="S.gstname.errors.required" style="color: red;font-size: 12px;"> GST Number is Required</p>
+        <p *ngIf="S.gstname.errors.maxlength || S.gstname.errors.minlength " style="color: red"> GST Number length should be 15 digits</p>
+        <p *ngIf="S.gstname.errors?.pattern" style="color: red;font-size: 12px;">GST Number not valid.</p>
+    </div>
+    <textarea name="address" formControlName="address"  placeholder="Address"></textarea>
+    <input type="button" name="previous" class="previous action-button"  (click)="Previous()" value="Previous" />
+    <input type="button" name="next" class="next action-button" (click)="Next()" value="Next" />
+  </fieldset>
+  <fieldset *ngIf="forms3">
+    <h2 class="fs-title">Social Profiles</h2>
+    <h3 class="fs-subtitle">We will never sell it</h3>
+    <input type="text" name="twitter"  formControlName="twitter" required placeholder="Twitter" />
+    <div *ngIf="S.twitter.invalid && (S.twitter.dirty || S.twitter.touched)">
+      <div *ngIf="S.twitter.errors.required" style="color: red;font-size: 12px;">Twitter Address is required</div>
+    </div>
+    <input type="text" name="facebook" formControlName="facebook" required placeholder="Facebook" />
+    <div *ngIf="S.facebook.invalid && (S.facebook.dirty || S.facebook.touched)">
+      <div *ngIf="S.facebook.errors.required" style="color: red;font-size: 12px;">Facebook Address is required</div>
+    </div>
+    <input type="text" name="gplus" formControlName="gplus" required placeholder="Google Plus" />
+    <div *ngIf="S.gplus.invalid && (S.gplus.dirty || S.gplus.touched)">
+      <div *ngIf="S.gplus.errors.required" style="color: red;font-size: 12px;">Google Address is required</div>
+    </div>
+    <input type="button" name="previous" class="previous action-button"  (click)="Previous()" value="Previous" />
+    <input type="submit" name="submit" class="submit action-button" value="Submit" />
+  </fieldset>
+</form>
+</div>
+
+

@@ -1,0 +1,74 @@
+   <div class="form-group" style="width:80%;">
+      <label for="usr" style="font-size:20px;">Search Invoice:</label>
+      <input type="text" class="form-control" [(ngModel)]="Searchfilter" id="usr" placeholder="Search ...">
+    </div>
+
+
+<h1 style="text-align:center;">Invoice Details</h1>
+
+
+<div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr>
+       
+        <th>NBFC Name</th>
+        <th>Invoice Amount</th>
+        <th>Invoice</th>
+        <th>Loan Status</th>
+       
+      </tr>
+    </thead>
+    <tbody *ngFor="let data of viewhistory | filter: Searchfilter;let i = index;">
+      <tr *ngIf="data.status=='Disbursed' || data.status=='Closed'">
+        
+        <td>{{data.lender_name}}</td>
+        <td>{{data.loan_amount}}</td>
+        <td><button class="btn btn-primary" (click)="Viewinvoices1(data.invoice)">View </button> </td>
+        <td>
+          
+        <button class="btn btn-primary" *ngIf="data.status=='Disbursed'">Active</button>
+        <button class="btn btn-primary" *ngIf="data.status=='Closed'">Closed</button>
+
+        </td>
+        
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+
+  <br>
+
+
+<div class="modal fade" #invoicepopup id="openModal">
+    <div class="modal-dialog modal-md moddwidth modal-sm modal-lg">
+        <div class="modal-content mcontent">
+            <div class="modal-header loanModalHeader">
+               <button type="button" class="btn btn-danger crossymbol" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title Invoicest">Invoice</h3>
+
+            </div>
+             <div class="modal-body asss">
+<pdf-viewer [src]="invoices" 
+[render-text]="true"
+style="display: block;"
+></pdf-viewer>
+</div>
+        </div>
+    </div>
+</div>
+
+
+<br>
+
+
+
+<div style="display:none;">
+<pdf-viewer [src]="invoices" 
+              [render-text]="true"
+              style="display: block;">
+                
+</pdf-viewer>
+
+</div>

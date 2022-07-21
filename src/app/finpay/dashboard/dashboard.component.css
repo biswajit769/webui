@@ -1,0 +1,59 @@
+.material-icons{
+	margin-top: 20px;
+	color: #fff;
+}
+p{
+	text-align: center;
+	color: #fff;
+}
+h5{
+	text-align: center;
+	color: #fff;
+}
+h3{
+	text-align: center;
+	color: #fff;
+}
+a{
+	color: #fff;
+}
+#anc{
+	margin-left: 115px;
+    text-decoration: underline;
+}
+.fin{
+	    margin-top: 36px;
+}
+
+.btn1{
+    color: #fff;
+    background-color: #0b9cd4;
+    border: 1px solid white;
+    width: 88%;
+    margin-left: 18px;
+    border-radius: 20px;
+    height: 40px;
+}
+.btn2{
+    color: black;
+    background-color: #fff;
+    border-color: #fff;
+    width: 88%;
+    margin-left: 18px;
+    border-radius: 20px;
+    height: 40px;
+}
+.pay{
+	margin-top: 5px;
+}
+
+.body{
+	background-color: deepskyblue;
+	background-image: url(https://s3.ap-south-1.amazonaws.com/images.lazypay.in/lp-arrow-bg.svg);
+    background-attachment: fixed;
+     background-repeat: no-repeat;
+      background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  height: 640px;
+}

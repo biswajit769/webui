@@ -1,0 +1,46 @@
+<div class="container">
+  <fieldset *ngIf="forms1">
+  <i class="material-icons close" (click)="close()">close</i>
+      <form class="example-form" [formGroup]="loginForm">
+        <h3>Enter your mobile</h3>
+
+          <mat-form-field class="example-full-width">
+          <input matInput placeholder="Mobile number" formControlName="mobile" [(ngModel)]="model.mobile"  required="" value="" maxlength="10" >
+          </mat-form-field><br>
+          <span *ngIf="error_message" class="help-block">{{error_message}}</span><br>
+        <button type="button" id="otp-btn" class="btn btn-primary ripple-container loginBtn" (click)="Next(model.mobile)">NEXT</button>
+        <p class="tex-center" id="new" data-dismiss="modal">New to FINCHAINPAY?<a routerLink="/finpay/signup"> Sign-up</a> as</p>
+        <p class="tnc_text">By continuing, you agree to our<a class="lp-color" href=""
+            target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a> and <a
+            href="" target="_blank" class="lp-color"
+            rel="noopener noreferrer">Privacy Policy</a></p>
+      </form>
+    </fieldset>
+</div>
+
+    <div class="modal-body">
+      <form id="msform">
+      <fieldset *ngIf="forms2">
+          <p class="go-back" (click)="Previous()" >Back</p>
+          <a class="close2" (click)="closs()">×</a> 
+        <h2 class="fs-title">Confirm OTP</h2>
+        <!-- <h3 class="fs-subtitle">Your presence on the social network</h3> -->
+        <p class="otp-message">OTP sent to</p>
+        <div id="wrapper acc">
+          <div id="dialog">
+            <!-- <button class="close">×</button> -->
+            <div>
+              <ng-otp-input  (onInputChange)="onOtpChange($event,model.mobile)"  [config]="{length:6}"></ng-otp-input>
+              <span *ngIf="invalidotp" class="help-block">{{invalidotp}}</span><br>
+
+
+              <p class="padalign">Didn't receive OTP? <span class="lp-link" (click)="Next(model.mobile)"> RESEND OTP</span></p>
+
+
+              <button class="btn btn-primary btn-embossed" (click)="verifyotp()">Verify</button>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>

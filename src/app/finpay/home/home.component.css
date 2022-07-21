@@ -1,0 +1,42 @@
+.container-fluid{
+    background-image: url(https://s3.ap-south-1.amazonaws.com/images.lazypay.in/lp-arrow-bg.svg);
+    height: 640px;
+    width: 100%;
+    background-attachment: fixed;
+     background-repeat: no-repeat;
+      background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+
+#resp{
+        margin-left: 500px;
+    }
+.headertag{
+    margin-top: 360px;
+    font-size: 30px;
+    margin-left: -3px;
+    font-weight: bold;
+    font-style: normal;
+    position: absolute;
+    color: #0056b3;
+}
+#underline{
+    margin-top: 7px;
+    color: #0056b3;
+}
+#tagline{
+    margin-top: -17px;
+
+
+}
+
+
+  @media (min-width: 260px) and (max-width: 720px) {
+.headertag{
+    margin-top: 290px;
+    }
+#resp{
+        margin-left: 60px;
+    }
+}

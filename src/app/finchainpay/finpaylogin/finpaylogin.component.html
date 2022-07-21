@@ -1,0 +1,43 @@
+<app-finpay-home></app-finpay-home>
+
+<div class="modal fade popupalign" id="myModal" role="dialog">
+    <div class="modal-body">
+      <form id="msform" class="container" [formGroup]="myForm">
+        <fieldset *ngIf="forms1">
+          <button type="button" class="close" (click)="close()" data-dismiss="modal">&times;</button>
+          <h2 class="fs-title">Login</h2>
+          <label class="labelalign" id="align">Mobile number</label>
+          <input class="textbb" id="mobile" formControlName="mobile"  [(ngModel)]="model.mobile" placeholder="" type="text" maxlength="10" required="" value="">
+          <span *ngIf="error_message" class="help-block">{{error_message}}</span><br>
+          <button class="btn loginBtn" id="otp-btn" (click)="Next(model.mobile)">PROCEED<div class="ripple-container"></div></button>
+          <p class="tex-center" id="new" data-dismiss="modal">New to FINCHAINPAY?<a routerLink="/finchainpay/flow-signup"> Sign-up</a> as</p>
+        </fieldset>
+        
+        <fieldset *ngIf="forms2">
+            <p class="go-back" (click)="Previous()" >Back</p>
+            <a class="close" (click)="closs()">×</a> 
+          <h2 class="fs-title">Confirm OTP</h2>
+          <p class="otp-message">OTP sent to</p>
+          <div id="wrapper acc">
+            <div id="dialog">
+              <div>
+                <ng-otp-input  (onInputChange)="onOtpChange($event,model.mobile)"  [config]="{length:6}"></ng-otp-input> 
+                <span *ngIf="invalidotp" class="help-block">{{invalidotp}}</span><br>
+                <p class="padalign">Didn't receive OTP? <a class="lp-link" (click)="Next(model.mobile)"> RESEND OTP</a></p>
+                <button class="btn btn-primary btn-embossed" (click)="verifyotp()">Verify</button>
+              </div> 
+            </div>
+          </div>
+          <p class="tnc_text">By continuing, you agree to our<a class="lp-color" href=""
+              target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a> and <a
+              href="" target="_blank" class="lp-color"
+              rel="noopener noreferrer">Privacy Policy</a></p>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+
+
+
+ 

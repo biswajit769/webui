@@ -1,0 +1,576 @@
+<nav class="navbar navbar-inverse sticky">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li>
+      
+
+      <li *ngIf="tablesatages=='Stages0'" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Compose<span
+            class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="test"  (click)="initial()">Send Initial Mail <span class="caret"></span></a>
+            <!-- <ul class="dropdown-menu">
+              <li><a (click)="initial()">Send</a></li>
+            </ul> -->
+          </li>
+          <!-- <li><a class="test">Second<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a (click)="second()">Send</a></li>
+              </ul></li>
+          <li><a class="test">Third<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a (click)="third()">Send</a></li>
+              </ul></li> -->
+        </ul>
+      </li>
+      
+
+
+      <li><a>Lead</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span
+            class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a (click)="stage02()">Stage->-2</a></li>
+          <li><a (click)="stage01()">Stage->-1</a></li>
+          <li><a (click)="stage()">Stage->0</a></li>
+          <li><a (click)="stage03()">Stage->1</a></li>
+          <li><a (click)="stage04()">Stage->2</a></li>
+          <li><a (click)="stage05()">Stage->3</a></li>
+          <li><a (click)="stage06()">Stage->4</a></li>
+          <li><a (click)="stage07()">Stage->5</a></li>
+          <li><a (click)="stage08()">Stage->6</a></li>
+        </ul>
+      </li>
+      <li *ngIf="tablesatages=='Stages0'"> <a><input type="file" class="choosefiles" (change)="Selectsfiles1($event)" required accept=".csv"></a></li>
+      <li *ngIf="tablesatages=='Stages0'"> <a>
+          <button class="btn btn-primary" [disabled]="messagestatus=='values'"  (click)="Csvdata(csvdata)">Upload</button>
+        </a></li>
+    </ul>
+    <form class="formm">
+      <div class="input-group">
+        <input type="text" class="form-control" name="search" [(ngModel)]="userFilter.Company_Name" autocomplete="off"
+          placeholder="Search by Company Name">
+      </div>
+    </form>
+  </div>
+</nav>
+<div class="header">
+  <h3>Welcome to CRM Dashbord</h3>
+</div>
+<div *ngIf="s" class="container-fluid">
+
+  <div class="table-responsive">
+    <table class="table">
+      <caption class="cap">Initial Stage Details</caption>
+      <thead>
+        <tr>
+          <th>Sl No</th>
+          <th>Company Name</th>
+          <th>Contact Person Name</th>
+          <th>Designation</th>
+          <th>Email-Id</th>
+          <th>Action</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let data of totaldatas |filterBy:userFilter |paginate: { itemsPerPage: 13, currentPage: p }; let i=index;">
+          <td>{{i+1}}</td>
+          <td>{{data.Company_Name}}</td>
+          <td>{{data.Contact_Person}}</td>
+          <td>{{data.Designation}}</td>
+          <td>{{data.Email_Id}}</td>
+
+          <td class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><button class="btn btn-primary"
+                style="color:white;">Move To &nbsp;<span class="caret"></span></button></a>
+            <ul class="dropdown-menu">
+              <li><a (click)="Movestage(data,'stage02')">Stage->-2</a></li>
+              <li><a (click)="Movestage(data,'stage01')">Stage->-1</a></li>
+              <li><a (click)="Movestage(data,'stage')">Stage->0</a></li>
+              <li><a (click)="Movestage(data,'stage1')">Stage->1</a></li>
+              <li><a (click)="Movestage(data,'stage2')">Stage->2</a></li>
+              <li><a (click)="Movestage(data,'stage3')">Stage->3</a></li>
+              <li><a (click)="Movestage(data,'stage4')">Stage->4</a></li>
+              <li><a (click)="Movestage(data,'stage5')">Stage->5</a></li>
+              <li><a (click)="Movestage(data,'stage6')">Stage->6</a></li>
+            </ul>
+          </td>
+
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div *ngIf="s1" class="container-fluid">
+  <div class="table-responsive">
+    <table class="table">
+
+      <caption class="cap">Stage -1 Details</caption>
+
+      <thead>
+        <tr>
+          <th>Sl No</th>
+          <th>Company Name</th>
+          <th>Contact Person Name</th>
+          <th>Contact Number</th>
+          <th>Email-Id</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let data of stagest01 |filterBy:userFilter |paginate: { itemsPerPage: 13, currentPage: p };let i=index;">
+          <td>{{i+1}}</td>
+          <td>{{data.Company_Name}}</td>
+          <td>{{data.Contact_Person}}</td>
+          <td>{{data.Designation}}</td>
+          <td>{{data.Email_Id}}</td>
+          <td class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><button class="btn btn-primary"
+                style="color:white;">Move To &nbsp;<span class="caret"></span></button></a>
+            <ul class="dropdown-menu">
+              <li><a (click)="Movestage(data,'stage02')">Stage->-2</a></li>
+              <li><a (click)="Movestage(data,'stage01')">Stage->-1</a></li>
+              <li><a (click)="Movestage(data,'stage')">Stage->0</a></li>
+              <li><a (click)="Movestage(data,'stage1')">Stage->1</a></li>
+              <li><a (click)="Movestage(data,'stage2')">Stage->2</a></li>
+              <li><a (click)="Movestage(data,'stage3')">Stage->3</a></li>
+              <li><a (click)="Movestage(data,'stage4')">Stage->4</a></li>
+              <li><a (click)="Movestage(data,'stage5')">Stage->5</a></li>
+              <li><a (click)="Movestage(data,'stage6')">Stage->6</a></li>
+            </ul>
+          </td>
+
+        </tr>
+
+
+
+      </tbody>
+
+
+
+    </table>
+  </div>
+  
+</div>
+
+<div *ngIf="s2" class="container-fluid">
+  <div class="table-responsive">
+    <table class="table">
+      <caption class="cap">Stage -2 Details</caption>
+      <thead>
+        <tr>
+          <th>Sl No</th>
+          <th>Company Name</th>
+          <th>Contact Person Name</th>
+          <th>Contact Number</th>
+          <th>Email-Id</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+
+
+        <tr *ngFor="let data of stagest02 |filterBy:userFilter |paginate: { itemsPerPage: 13, currentPage: p };let i=index;">
+          <td>{{i+1}}</td>
+          <td>{{data.Company_Name}}</td>
+          <td>{{data.Contact_Person}}</td>
+          <td>{{data.Designation}}</td>
+          <td>{{data.Email_Id}}</td>
+          <td class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><button class="btn btn-primary"
+                style="color:white;">Move To &nbsp;<span class="caret"></span></button></a>
+            <ul class="dropdown-menu">
+              <li><a (click)="Movestage(data,'stage02')">Stage->-2</a></li>
+              <li><a (click)="Movestage(data,'stage01')">Stage->-1</a></li>
+              <li><a (click)="Movestage(data,'stage')">Stage->0</a></li>
+              <li><a (click)="Movestage(data,'stage1')">Stage->1</a></li>
+              <li><a (click)="Movestage(data,'stage2')">Stage->2</a></li>
+              <li><a (click)="Movestage(data,'stage3')">Stage->3</a></li>
+              <li><a (click)="Movestage(data,'stage4')">Stage->4</a></li>
+              <li><a (click)="Movestage(data,'stage5')">Stage->5</a></li>
+              <li><a (click)="Movestage(data,'stage6')">Stage->6</a></li>
+            </ul>
+          </td>
+
+
+        </tr>
+
+
+
+
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+
+<div *ngIf="s3" class="container-fluid">
+  <div class="table-responsive">
+    <table class="table">
+      <caption class="cap">Stage 1 Details</caption>
+      <thead>
+        <tr>
+          <th>Sl No</th>
+          <th>Company Name</th>
+          <th>Contact Person Name</th>
+          <th>Contact Number</th>
+          <th>Email-Id</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of stagest1 |filterBy:userFilter |paginate: { itemsPerPage: 13, currentPage: p };let i=index;">
+          <td>{{i+1}}</td>
+          <td>{{data.Company_Name}}</td>
+          <td>{{data.Contact_Person}}</td>
+          <td>{{data.Designation}}</td>
+          <td>{{data.Email_Id}}</td>
+          <td class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><button class="btn btn-primary"
+                style="color:white;">Move To &nbsp;<span class="caret"></span></button></a>
+            <ul class="dropdown-menu">
+              <li><a (click)="Movestage(data,'stage02')">Stage->-2</a></li>
+              <li><a (click)="Movestage(data,'stage01')">Stage->-1</a></li>
+              <li><a (click)="Movestage(data,'stage')">Stage->0</a></li>
+              <li><a (click)="Movestage(data,'stage1')">Stage->1</a></li>
+              <li><a (click)="Movestage(data,'stage2')">Stage->2</a></li>
+              <li><a (click)="Movestage(data,'stage3')">Stage->3</a></li>
+              <li><a (click)="Movestage(data,'stage4')">Stage->4</a></li>
+              <li><a (click)="Movestage(data,'stage5')">Stage->5</a></li>
+              <li><a (click)="Movestage(data,'stage6')">Stage->6</a></li>
+            </ul>
+          </td>
+
+
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+
+<div *ngIf="s4" class="container-fluid">
+  <div class="table-responsive">
+    <table class="table">
+      <caption class="cap">Stage 2 Details</caption>
+      <thead>
+        <tr>
+          <th>Sl No</th>
+          <th>Company Name</th>
+          <th>Contact Person Name</th>
+          <th>Contact Number</th>
+          <th>Email-Id</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of stagest2 |filterBy:userFilter |paginate: { itemsPerPage: 13, currentPage: p };let i=index;">
+          <td>{{i+1}}</td>
+          <td>{{data.Company_Name}}</td>
+          <td>{{data.Contact_Person}}</td>
+          <td>{{data.Designation}}</td>
+          <td>{{data.Email_Id}}</td>
+          <td class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><button class="btn btn-primary"
+                style="color:white;">Move To &nbsp;<span class="caret"></span></button></a>
+            <ul class="dropdown-menu">
+              <li><a (click)="Movestage(data,'stage02')">Stage->-2</a></li>
+              <li><a (click)="Movestage(data,'stage01')">Stage->-1</a></li>
+              <li><a (click)="Movestage(data,'stage')">Stage->0</a></li>
+              <li><a (click)="Movestage(data,'stage1')">Stage->1</a></li>
+              <li><a (click)="Movestage(data,'stage2')">Stage->2</a></li>
+              <li><a (click)="Movestage(data,'stage3')">Stage->3</a></li>
+              <li><a (click)="Movestage(data,'stage4')">Stage->4</a></li>
+              <li><a (click)="Movestage(data,'stage5')">Stage->5</a></li>
+              <li><a (click)="Movestage(data,'stage6')">Stage->6</a></li>
+            </ul>
+          </td>
+
+
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+
+<div *ngIf="s5" class="container-fluid">
+  <div class="table-responsive">
+    <table class="table">
+      <caption class="cap">Stage 3 Details</caption>
+      <thead>
+        <tr>
+          <th>Sl No</th>
+          <th>Company Name</th>
+          <th>Contact Person Name</th>
+          <th>Contact Number</th>
+          <th>Email-Id</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of stagest3 |filterBy:userFilter |paginate: { itemsPerPage: 13, currentPage: p };let i=index;">
+          <td>{{i+1}}</td>
+          <td>{{data.Company_Name}}</td>
+          <td>{{data.Contact_Person}}</td>
+          <td>{{data.Designation}}</td>
+          <td>{{data.Email_Id}}</td>
+          <td class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><button class="btn btn-primary"
+                style="color:white;">Move To &nbsp;<span class="caret"></span></button></a>
+            <ul class="dropdown-menu">
+              <li><a (click)="Movestage(data,'stage02')">Stage->-2</a></li>
+              <li><a (click)="Movestage(data,'stage01')">Stage->-1</a></li>
+              <li><a (click)="Movestage(data,'stage')">Stage->0</a></li>
+              <li><a (click)="Movestage(data,'stage1')">Stage->1</a></li>
+              <li><a (click)="Movestage(data,'stage2')">Stage->2</a></li>
+              <li><a (click)="Movestage(data,'stage3')">Stage->3</a></li>
+              <li><a (click)="Movestage(data,'stage4')">Stage->4</a></li>
+              <li><a (click)="Movestage(data,'stage5')">Stage->5</a></li>
+              <li><a (click)="Movestage(data,'stage6')">Stage->6</a></li>
+            </ul>
+          </td>
+
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+
+
+<div *ngIf="s6" class="container-fluid">
+  <div class="table-responsive">
+    <table class="table">
+      <caption class="cap">Stage 4 Details</caption>
+      <thead>
+        <tr>
+          <th>Sl No</th>
+          <th>Company Name</th>
+          <th>Contact Person Name</th>
+          <th>Contact Number</th>
+          <th>Email-Id</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of stagest4 |filterBy:userFilter |paginate: { itemsPerPage: 13, currentPage: p };let i=index;">
+          <td>{{i+1}}</td>
+          <td>{{data.Company_Name}}</td>
+          <td>{{data.Contact_Person}}</td>
+          <td>{{data.Designation}}</td>
+          <td>{{data.Email_Id}}</td>
+          <td class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><button class="btn btn-primary"
+                style="color:white;">Move To &nbsp;<span class="caret"></span></button></a>
+            <ul class="dropdown-menu">
+              <li><a (click)="Movestage(data,'stage02')">Stage->-2</a></li>
+              <li><a (click)="Movestage(data,'stage01')">Stage->-1</a></li>
+              <li><a (click)="Movestage(data,'stage')">Stage->0</a></li>
+              <li><a (click)="Movestage(data,'stage1')">Stage->1</a></li>
+              <li><a (click)="Movestage(data,'stage2')">Stage->2</a></li>
+              <li><a (click)="Movestage(data,'stage3')">Stage->3</a></li>
+              <li><a (click)="Movestage(data,'stage4')">Stage->4</a></li>
+              <li><a (click)="Movestage(data,'stage5')">Stage->5</a></li>
+              <li><a (click)="Movestage(data,'stage6')">Stage->6</a></li>
+            </ul>
+          </td>
+
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+
+
+<div *ngIf="s7" class="container-fluid">
+  <div class="table-responsive">
+    <table class="table">
+      <caption class="cap">Stage 5 Details</caption>
+      <thead>
+        <tr>
+          <th>Sl No</th>
+          <th>Company Name</th>
+          <th>Contact Person Name</th>
+          <th>Contact Number</th>
+          <th>Email-Id</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of stagest5 |filterBy:userFilter |paginate: { itemsPerPage: 13, currentPage: p };let i=index;">
+          <td>{{i+1}}</td>
+          <td>{{data.Company_Name}}</td>
+          <td>{{data.Contact_Person}}</td>
+          <td>{{data.Designation}}</td>
+          <td>{{data.Email_Id}}</td>
+          <td class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><button class="btn btn-primary"
+                style="color:white;">Move To &nbsp;<span class="caret"></span></button></a>
+            <ul class="dropdown-menu">
+              <li><a (click)="Movestage(data,'stage02')">Stage->-2</a></li>
+              <li><a (click)="Movestage(data,'stage01')">Stage->-1</a></li>
+              <li><a (click)="Movestage(data,'stage')">Stage->0</a></li>
+              <li><a (click)="Movestage(data,'stage1')">Stage->1</a></li>
+              <li><a (click)="Movestage(data,'stage2')">Stage->2</a></li>
+              <li><a (click)="Movestage(data,'stage3')">Stage->3</a></li>
+              <li><a (click)="Movestage(data,'stage4')">Stage->4</a></li>
+              <li><a (click)="Movestage(data,'stage5')">Stage->5</a></li>
+              <li><a (click)="Movestage(data,'stage6')">Stage->6</a></li>
+            </ul>
+          </td>
+
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+
+
+<div *ngIf="s8" class="container-fluid">
+  <div class="table-responsive">
+    <table class="table">
+      <caption class="cap">Stage 6 Details</caption>
+      <thead>
+        <tr>
+          <th>Sl No</th>
+          <th>Company Name</th>
+          <th>Contact Person Name</th>
+          <th>Contact Number</th>
+          <th>Email-Id</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of stagest6 |filterBy:userFilter |paginate: { itemsPerPage: 13, currentPage: p };let i=index;">
+          <td>{{i+1}}</td>
+          <td>{{data.Company_Name}}</td>
+          <td>{{data.Contact_Person}}</td>
+          <td>{{data.Designation}}</td>
+          <td>{{data.Email_Id}}</td>
+          <td class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><button class="btn btn-primary"
+                style="color:white;">Move To &nbsp;<span class="caret"></span></button></a>
+            <ul class="dropdown-menu">
+              <li><a (click)="Movestage(data,'stage02')">Stage->-2</a></li>
+              <li><a (click)="Movestage(data,'stage01')">Stage->-1</a></li>
+              <li><a (click)="Movestage(data,'stage')">Stage->0</a></li>
+              <li><a (click)="Movestage(data,'stage1')">Stage->1</a></li>
+              <li><a (click)="Movestage(data,'stage2')">Stage->2</a></li>
+              <li><a (click)="Movestage(data,'stage3')">Stage->3</a></li>
+              <li><a (click)="Movestage(data,'stage4')">Stage->4</a></li>
+              <li><a (click)="Movestage(data,'stage5')">Stage->5</a></li>
+              <li><a (click)="Movestage(data,'stage6')">Stage->6</a></li>
+            </ul>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+<pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+
+
+
+
+
+<pre style="display:none;" id="messages0">  Hi XYZ,
+
+Greetings from FinChain Technologies Pvt. Ltd!
+
+We are a Fintech startup providing a comprehensive Invoice Management Solution including features like INVOICE DISCOUNTING.
+
+Finchain provides you with a Blockchain, AI based secure platform which allows to manage invoices and payments digitally, hassle free and in a seamless manner.
+
+About Finchain:
+We are a Fintech startup based out of Bangalore with a core team having 40 years of experience in Technology, Banking and Payments Industry with Top Global MNC's.
+
+We request you for a meeting sometime next week to present our product features to you/your team. 
+
+Looking forward for the opportunity to collaborate with your prestigious company.
+
+Best,
+John
+</pre>
+
+
+<pre style="display:none;" id="messages1">
+
+
+Hi XYZ,
+
+Hope you are doing great. We are an Invoice Discounting Company where we bridge the gap between the invoice date and due date.
+
+Please let me know if we can meet you and discuss how we can collaborate.
+
+Best,
+John
+
+</pre>
+
+
+<pre style="display:none;" id="messages2">
+
+
+
+Hi XYZ,
+
+Hope this email finds you well. I was following up with you on the below email. 
+
+Please let me if we can have a call/meeting based on your availability.
+
+Best,
+John
+
+</pre>
+
+
+<pre style="display:none;" id="messages3">
+
+
+  Hi XYZ,
+
+Hope you are doing great. I was checking if there is any opportunity for us to collaborate.
+
+Please let me know your feedback.
+
+Best,
+John
+</pre>
+
+
+
+
+
+
+<!-- popup modal -->
+
+
+
+  
+
+ 
+  <div class="modal fade" id="myModal" role="dialog" #successmessage>
+    <div class="modal-dialog">
+    
+     
+      <div class="modal-content modals">
+       
+        <div class="modal-body modalhead">
+           <h4 class="modal-title">Successfully uploaded</h4>
+        </div>
+        <div class="modal-footer" style="text-align:center;">
+          <button  type="button" class="btn btn-primary" style="margin-top:31px;" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  

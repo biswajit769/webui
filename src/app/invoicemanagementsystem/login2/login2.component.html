@@ -1,0 +1,124 @@
+
+<div class="menu">
+  <div class="container-fluid">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+  </div>
+  <div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a routerLink="/invoicemanagent/signup2" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a routerLink="/invoicemanagent/Invoicelogin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</div>
+</div>
+<div class="container-fluid login">
+  <div class="row">
+      <div class="col-md-3 col-md-offset-4">
+          <div class="panel panel-default logindesign">
+              <div class="panel-heading">
+                  <span class="glyphicon glyphicon-lock"></span> Login</div>
+              <div class="panel-body">
+                  <form class="form-horizontal" role="form" novalidate [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                  <div class="form-group">
+                      <label for="inputMobile" class="col-sm-3 control-label">
+                          Mobile</label>
+                      <div class="col-sm-9">
+                          <input type="text" class="form-control" (keypress)="keyPress($event)" formControlName="Mobile" minlength="10" maxlength="15" id="inputMobile" placeholder="Mobile Number" required>
+                          <span *ngIf="submitted && loginformsvalidForm.Mobile.errors" class="invalid-feedback">
+                            <span *ngIf="loginformsvalidForm.Mobile.errors.required">Mobile number is required</span>
+                         
+                          </span>
+                          <div class="invalid-feedback" *ngIf="loginformsvalidForm.Mobile.errors && (loginformsvalidForm.Mobile.dirty || loginformsvalidForm.Mobile.touched)">
+                            
+                            <p *ngIf="loginformsvalidForm.Mobile.errors.minlength">Please Enter 10 digits mobile Number</p>
+                          </div>
+                        
+                        </div>
+                        </div>
+                  
+                  
+                      <label for="inputPassword3" class="col-sm-3 control-label">
+                          Password</label>
+                      <div class="col-sm-9">
+                          <div id="wrapper">
+                              <div class="form-group">
+                                  <input type="password" class="form-control" minlength="7" maxlength="15"  id="password" placeholder="Password" formControlName="password" required>
+                                <i class="glyphicon glyphicon-eye-open form-control-feedback" id="glst" (click)="PasswordShow();" style="cursor:pointer"></i>
+                              </div>
+                            </div>
+                          <div *ngIf="submitted && loginformsvalidForm.password.errors" class="invalid-feedback">
+                            <div *ngIf="loginformsvalidForm.password.errors.required">Password is required</div>
+                            <div *ngIf="loginformsvalidForm.password.errors.minlength">Password must be at least 6 characters</div>
+                        </div>
+                        </div>
+
+                  <div class="form-group last">
+                      <div class="col-sm-offset-3 col-sm-9">
+                          <button type="submit" class="btn btn-primary btn-sm" style="float: left">
+                              Sign in</button>
+                               <button type="button" class="btn btn-danger btn-sm" style="float: right" data-target="#pwdModal" data-toggle="modal">
+                              Reset Password</button>
+                      </div>
+                  </div>
+                  </form>
+              </div>
+              <div class="panel-footer">
+                  Not Registred? <a routerLink="/invoicemanagent/signup2">Register here</a></div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Forgot password popup modal -->
+
+<!--modal-->
+<div id="pwdModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h1 class="text-center">What's My Password?</h1>
+      </div>
+      <div class="modal-body">
+          <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="text-center">
+                          
+                          <p>If you have forgotten your password you can reset it here.</p>
+                            <div class="panel-body">
+                                <fieldset>
+                                    <form [formGroup]="userAddressValidations" (ngSubmit)="resetPassword();">
+                                    <div class="form-group">
+                                        <input class="form-control input-lg" placeholder="Enter Your Registred Mobile Number" name="mobile" type="text" formControlName="mobileNumber" maxlength="10" (keypress)=keyPress($event)>
+                                        <span class="invalid-feedback" *ngIf="userAddressValidations.get('mobileNumber').touched && userAddressValidations.get('mobileNumber').hasError('required')">
+                                            Please fill out this field.
+                                        </span>
+                                          <span class="invalid-feedback" *ngIf="userAddressValidations.get('mobileNumber').hasError('pattern')">
+                                            It is not a valid mobile number.
+                                          </span>
+                                      </div>
+                                    <input class="btn btn-lg btn-primary btn-block" value="Send My Password" type="submit" [disabled]="userAddressValidations.invalid">
+                                  </form>
+                                  </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+          <div class="col-md-12">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+		  </div>	
+      </div>
+  </div>
+  </div>
+</div>

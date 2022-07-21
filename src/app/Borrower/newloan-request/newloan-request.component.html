@@ -1,0 +1,204 @@
+ 
+
+
+<div class="jumbotron abc123">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2><img alt="new loan" src="assets/images/Loan Request.png" style="width: 15%;">&nbsp; New loan request</h2>
+                <form  (ngSubmit)="getrateofInterstLendrlist(newloanForm.value)"  [formGroup]="newloanForm"  novalidate>
+                    <div class="form-group">
+                        <label for="loan_amount">Amount</label>
+                        <input type="text" class="form-control swidth" (keypress)="keyPress($event)" formControlName="loan_amount" id="loan_amount" name="loan_amount"   placeholder="Please Enter Amount" id="Amounts" required  />
+                        <!-- <div *ngIf="newloanForm.submitted && loanAmount.invalid" class="invalid-feedback">
+                            <div *ngIf="loanAmount.errors.required">Amount is required</div>
+                        </div> -->
+                    </div>
+                    
+
+                   <div class="form-group">
+                        <label for="tenure">Tenure (In days)</label>
+                       <select name="tenure" id="tenure" formControlName="tenure"  class="form-control swidth" required> 
+                      
+                    <option value="" [disabled]="true">--Select Tenure Type--</option>
+                    <option *ngFor="let repays of repayment_typess" [ngValue]="repays">{{repays}}</option>
+                       </select>
+                    </div>
+
+
+<!-- 
+                    <div class="form-group">
+                        <label for="repayment_type">Repayment Type</label>
+                       <select name="repayment_type" id="repayment_type" formControlName="repayment_type"  class="form-control swidth" required> 
+                      
+                    <option value="" [disabled]="true">--Select Repayment Type--</option>
+                    <option *ngFor="let repay of repayment_types" [ngValue]="repay">{{repay}}</option>
+                       </select>
+
+                    </div> -->
+                    <label for="repayment_type">Expected Discounted Rate</label>
+     <div class="form-check">
+                      <label *ngFor="let role of ddays">&nbsp;&nbsp;
+                          <input type="checkbox" name="check" [(checklist)]="days"
+                        [checklistValue]="role.text"> <span class="label-text">   {{role.text}}&nbsp;&nbsp; </span>
+                      </label>
+                    </div> 
+
+                   <!--  <label for="repayment_type">The Rate Of Interest Looking For</label>
+     <div class="dropdown" style="width: 200px">
+
+                    <button class="btn btn-default dropdown-toggle sdss" type="button" data-toggle="dropdown"> 
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu" style="max-height: 200px;
+                    overflow: auto;
+                    width: 424%;">
+                        <li class="text1" *ngFor="let role of RateOfInterstRange">
+                            <div> 
+                                    <input type="checkbox" name="checkbox" id="{{role}}"   style="width:10%;display:inline-block" value="value" [(checklist)]="ratesList" [checklistValue]="role">
+                                    <label for="{{role}}"> {{role}}</label>
+                                    
+                                
+                               </div>
+                        </li>
+
+                    </ul>
+                </div> -->
+
+
+                    <div class="form-group">
+                        <label for="loanInvoice">Upload Invoice</label>
+ 
+                        <input type="file"  name="loanInvoice" id="loanInvoice" accept="application/pdf" (change)="UploadInvoice($event)" required>
+<span style="color:red">{{error_msg}}</span>
+                    
+                        <!-- <div *ngIf="newloanForm.submitted && loanrepayment_type.invalid" class="invalid-feedback">
+                            <div *ngIf="loanrepayment_type.errors.required">Upload Invoice is required</div>
+                        </div>  -->
+                    </div>
+
+
+                    <div class="form-group">
+
+                         <button type="button" (click)="help()" class="btn btn-primary">Terms & Conditions</button>
+                        <button style="margin-left: 10px" [disabled]="!selectedFile || !newloanForm.valid || show1"  class="btn btn-primary">Apply</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Rate of interest popup modal -->
+<!-- <div class="modal fade" #rateofinterst>
+    <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header loanModalHeader">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h3 class="modal-title">Lender Available based on Interest</h3>
+            </div>
+            <div class="modal-body">
+             
+              <table class="table table-striped" id="tblGrid">
+                <thead id="tblHead">
+                  <tr>
+                    <th>No of Nbfc</th>
+                    <th>Rate of Interest</th>
+                    <th class="text-right">Select</th>
+                  </tr>
+                </thead> 
+                <tbody>
+                  <tr *ngFor ="let d of newloan1;"> 
+                      <td>{{d.interest_rate__count}}</td>
+                      <td>{{d.interest_rate}}</td>
+                    <td><input type="checkbox" name="name1" (click)="selectinterest1(d.interest_rate)"/>&nbsp;</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+            </div>
+            <div class="modal-footer">
+                    <span style="color:red;"> {{error}} </span>
+              <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" [disabled]="hide2" (click)="raiseloan()">Save</button>
+            </div>
+                    
+          </div>
+        </div>
+      </div> -->
+      <!-- modal error popup -->
+      <div class="modal fade" #nolender>
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header loanModalHeader">
+                                
+                    <h4 class="modal-title">Your profile is incomplete!!</h4>   
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">Currently we cannot process the loan since we didn't find any matching Lending NBFC</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary btn-block" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <div class="modal fade" #helppage>
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header loanModalHeader">
+                                
+                    <h4 class="modal-title">Terms & Conditions</h4>   
+                </div>
+                <div class="modal-body">
+                        <p>
+                               <b> 1.UPFRONT PAYMENT </b> E.g. If the Loan Amount is Rs. 1,00,000 at a 15% Annual Interest Rate for a Duration of twelve months, the Interest of Rs. 15,000 is deducted UPFRONT from the amount you are lending out. Hence, the net amount you need to lend to the borrower is Rs. 85,000. The borrower 
+                                will need to repay the loan amount (i.e. Rs.85,000) 
+                                in addition to the interest of Rs. 15,000 by the end of the loan term.
+                            </p>
+                            <p>
+                       <b> 2.AS A PART OF LOAN REPAYMENT</b> E.g. If the Loan Amount is Rs. 1,00,000 at a 15% Annual Interest Rate for a Duration of twelve months, the Interest of Rs. 15,000 is amortized (i.e. spread out) over the loan period. You will lend Rs. 1,00,000 to the borrower. If you selected EMI as your preferred repayment method, the borrower will pay you back Rs. 9,583 per month for twelve months. This monthly repayment is a combination of Part Principal Paid and Part Monthly Interest. Over the duration, the loan is paid in full.
+                            </p>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary btn-block" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+    <div class="modal fade" #availableamountpopup>
+            <div class="modal-dialog modal-confirm">
+                <div class="modal-content">
+                    <div class="modal-header loanModalHeader">
+                                    
+                        <h4 class="modal-title">Low Balance!</h4>   
+                    </div>
+                    <div class="modal-body">
+                            <p id="messagestyle">Your balance is low, please contact our Customer Care  for more information</p>
+                            <p><b> Note:</b> Please apply for loan below or equal to your available credit limit/-</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary btn-block" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div class="modal fade" #suceessloan>
+            <div class="modal-dialog modal-confirm">
+                <div class="modal-content">
+                    <div class="modal-header loanModalHeader">
+                                    
+                        <h4 class="modal-title">Thank you for choosing FINCHAIN.</h4>   
+                    </div>
+                    <div class="modal-body">
+                        <p>Your loan request has been placed successfully, please wait for one of our Lending NBFC to come forward to help your financial needs.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary btn-block" data-dismiss="modal" (click)="close()">OK</button>
+                    </div>
+                    </div>
+                   
+                </div>
+            </div>
+     

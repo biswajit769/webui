@@ -1,0 +1,51 @@
+<div class="col-md-12 col-xs-12 col-sm-12" id="admintop">
+  <div id="myicon">
+        <span style="font-size:30px;cursor:pointer;" (click)="openNav()">&#9776;</span>
+    </div> 
+  <div class="row">
+      <div class="col-md-2 col-xs-12" [ngStyle]="showtab1 && {'display':'block'}"  id="adminForDesktop">
+          <div class="col-md-12">
+              <div class="row" id="admindashboardleft" >
+                 
+                  <div class="row" id="featuresFont">
+                      <ul id="admin-right">
+                          <a routerLink="admin-home" (click)="openNav();"><li id="adminactive"><b><i class="glyphicon glyphicon-home" id="glyphdynstyle"></i>Home</b></li></a>
+                      </ul>
+                      <ul class="features"  id="admin-right">
+                            <div>
+                                <a routerLink="manageloans" (click)="openNav();"><li id="adminactive"><b><i id="glyphdynstyle" class="fa fa-folder-open custom"></i>Manage Loan</b></li></a>
+                            </div>
+                            <div>
+                                <a routerLink="nbfcInitialRegistration" (click)="openNav();"><li id="adminactive"><b><i id="glyphdynstyle" class="fa fa-bank"></i>Register NBFC</b></li></a>
+                            </div>
+                             <div>
+                              <a routerLink="managefee" (click)="openNav();"><li id="adminactive"><b><i class="fa fa-money" id="glyphdynstyle"></i>Manage Fee</b></li></a>
+                            </div>
+                            <div>
+                                <a routerLink="manageborrower" (click)="openNav();"><li id="adminactive"><b><i class="glyphicon glyphicon-user" id="glyphdynstyle"></i>Manage Borrowers</b></li></a>
+                            </div>                                                    
+                         
+                            <div>
+                                <a routerLink="managelenders" (click)="openNav();"><li id="adminactive"><b><i class="fa fa-inr" id="glyphdynstyle"></i>Manage Lenders</b></li></a>
+                            </div>
+                            <div> 
+                              <a routerLink="payinfo" (click)="openNav();"><li id="adminactive"><b><i class="glyphicon glyphicon-credit-card" id="glyphdynstyle"></i>Pay Info</b></li></a>
+                            </div>
+                            <div>
+                                <a routerLink="paymentinfo" (click)="openNav();"><li id="adminactive"><b><span class="glyphicon glyphicon-list-alt" id="glyphdynstyle"></span>Payment Info</b></li></a>
+                            </div>
+                           
+                          
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-10 col-xs-12" id="tableswidths">
+          <router-outlet></router-outlet>
+      </div>
+  </div>
+</div>
+
+
+

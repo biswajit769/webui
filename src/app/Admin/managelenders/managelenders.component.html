@@ -1,0 +1,550 @@
+
+   
+     
+      <span id="visitedborr1">Processing NBFC</span>
+      <div  class="row">
+        <input type="text" class="adminsearchbox1"  placeholder="Enter Lender Name" [(ngModel)]="filterStatus">
+         <span id="itemsperpagemargin">
+        <select id="itemperpagestyle" [(ngModel)]="selectpages" (change)="pages(selectpages)">
+        <option value="" disabled="">Select Records Per Page</option>
+          <option>10</option>
+          <option>20</option>
+          <option>30</option>
+          <option>40</option>
+        </select>
+      </span>
+      </div>
+      
+      <div class="table-responsive flexcroll" id="disbursementMargin">
+      <table class="table table-striped  table-bordered">
+      <thead id="myloanhead">
+      <tr class="tableTextCenter">
+        <th>Front photo</th>
+        <th>Company Name</th>
+        <th>Mobile number</th>
+        <th>City</th>
+        <th>Action</th>
+        <th>Lender Form</th>
+          
+      </tr>
+      
+        
+      </thead>
+      <tbody id="myduesbody">
+      <tr class="tableTextCenter" *ngFor="let nbfcdata of nbfcinfo|leanderSearch:filterStatus">
+        <td><img alt="nbfc image" [src]="nbfcdata.front_photo" style="height:110px; width:150px"></td>
+        <td>{{nbfcdata.companyName}}</td>
+        <td>{{nbfcdata.mobile_number}}</td>
+        <td>{{nbfcdata.selectedcity}}</td>
+        <td>
+          <button *ngIf="!nbfcdata.is_active" class="btn btn-success" (click)="sendnbfctrue(nbfcdata)">Activate</button>
+          <button *ngIf="nbfcdata.is_active" class="btn btn-danger" (click)="sendnbfctrue(nbfcdata)">Deactivate</button>  
+       </td>
+        <td> 
+          <button class="applicationbutton" (click)="callborrinpopup(nbfcdata.id)"><i class="glyphicon glyphicon-file"></i><span>NBFC Form</span></button>
+        </td>
+          
+      </tr>
+      
+      </tbody>
+      
+          <tbody *ngIf="nbfcinfo.length==0">
+                  <tr>
+                    <th colspan="25" class="text-center" id="spanmessage">No records found</th>
+                   </tr> 
+                </tbody>
+        
+      </table>
+      
+      
+     
+      <div id="paginationStyle">
+     
+      </div>
+
+
+<div id="myModal" #nbfcpopup class="modal fade " role="dialog">
+    <div class="modal-dialog"> 
+
+           <form [formGroup]="companyRegForm">
+
+  <div class="col-md-12">
+                <div class="modal-body backg">
+
+                    <div id="alignInPopup">
+                        <button class="btn btn-primary myButtonedit" *ngIf="status2" (click)="enableEdit()">Edit </button>
+                        <button class="btn btn-primary myButtonedit" *ngIf="status3" (click)="nbfcadminupdate()">Save</button>
+                        <button class="btn btn-primary myButtonedit" ng-show="admincancel" *ngIf="status3" (click)="enableCancel()">Cancel</button>
+                        <span style="float: right;"><button id="closepopid" (click)="cancel()"><img alt="close" src="assets/images/CLOSE.png" style="width: 32px;"></button></span>
+                    </div>
+
+                    <div class="table-responsive scrremove" id="popupTableBottom">
+                        <table class="table table-striped  table-bordered">
+                            <thead>
+                              <tr>
+                                <td colspan="2">
+                                <h5 id="profileHead1"><b>PROFILE DETAILS</b></h5>
+                              </td>
+                             </tr>
+                            </thead>
+                            <tbody id="popupBodyStyle">
+                                <tr *ngIf="status2">
+                                    <td id="firstRmTable">Photo:</td>
+                                    <td>
+                                        <img alt="nbfc image" [src]="nbfcData.front_photo" style="height: 100px" />
+                                    </td>
+                                </tr>
+                                <tr *ngIf="status3">
+                                    <td id="firstRmTable">
+                                        Photo:
+                                    </td>
+                                    <td id="firstRmTable">
+                                        <p><b style="color: brown;font-size: 13px;">Photo:</b></p>
+                                        <input type="file" (change)="UploadDoc($event)" name="front_photo"  />
+                                        <span><button class="btn btn-primary" (click)="frontphoto(nbfcData)"  id="uploadwhileedit">Upload</button></span>
+                                        <p *ngIf="borrphotosuccess" style="color: green;font-weight: bolder;">uploaded successfully</p>
+                                        <p *ngIf="borrphotofailure" style="color: red;font-weight: bolder;">
+                                            please upload a valid photo
+                                        </p>
+                                        <p *ngIf="borrphotoinvalid" style="color: red;font-weight: bolder;">
+                                            file format invalid, please upload an image file
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr >
+                                    <td>Name</td>
+                                    <td *ngIf="showw">{{nbfcData.companyName}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1" formControlName="companyname"  [(ngModel)]="nbfcData.companyName"  >
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                        <th class="colourful">DOE</th>
+                                         <td *ngIf="showw">{{nbfcData.date_of_establishment}}</td>
+                          <th class="colourful" *ngIf="!showw">
+                            
+                               <mat-form-field >
+                        <mat-label>DOE (mm/dd/yyyy)</mat-label>
+                        <input matInput required [disabled]="status1"  formControlName="doe"  name="doe" [(ngModel)]="nbfcData.date_of_establishment" [matDatepicker]="picker"
+                            placeholder="Choose a date">
+                        <mat-datepicker-toggle class="mat-icon" matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker class="mat-icon"  #picker></mat-datepicker>
+                    </mat-form-field><br>
+                             
+                          </th>
+                                </tr>
+                                 
+                                <tr> 
+                                    <td>Enter Company Type</td>
+                                    <td *ngIf="showw">{{nbfcData.companytype}}</td>
+                                    <td *ngIf="!showw">
+                                        <select class="sizzz"  formControlName="organization"  [(ngModel)]="nbfcData.companytype" >
+                                           <option value="" >--Select Option--</option>
+                                            <option *ngFor="let company of companytypes" [disabled]="status1" >{{company}}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>Business PAN</td>
+                                    <td *ngIf="showw">{{nbfcData.bussiness_pan}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1" formControlName="pancard"  [(ngModel)]="nbfcData.bussiness_pan"  maxlength="10" minlength="10"  capitalize>
+                                    </td>
+                                </tr>
+                                  <tr>
+                                    <td>Enter GST Number</td>
+                                    <td *ngIf="showw">{{nbfcData.gst_number}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1" formControlName="gstnumber"  [(ngModel)]="nbfcData.gst_number" maxlength="10" minlength="10" capitalize>
+                                    </td>
+                                </tr>
+                                   <tr>
+                                    <td>Number Of Years In Business</td>
+                                    <td *ngIf="showw">{{nbfcData.year_of_estd}}</td>
+                                    <td *ngIf="!showw">
+                                        <select class="sizzz"  formControlName="bussiness_since" [(ngModel)]="nbfcData.year_of_estd" >
+                                            <option value="" [disabled]="true">---Select Option-- </option>
+                                            <option *ngFor="let years of numberofyearsinbusiness" >{{years}}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>Company Turnover</td>
+                                    <td *ngIf="showw">{{nbfcData.company_turnover}}</td>
+                                    <td *ngIf="!showw">
+                                        <select class="sizzz"  [(ngModel)]="nbfcData.company_turnover"  formControlName="companyturnover">
+                                            <option value="" [disabled]="true">---Select Option-- </option>
+                                            <option *ngFor="let turnover of company_turnover" >{{turnover}}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                              
+                                
+                                     <tr>
+                                    <td>Enter Director Identification Number (DIN)</td>
+                                    <td *ngIf="showw">{{nbfcData.director_identification_number}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1"   [(ngModel)]="nbfcData.director_identification_number"  maxlength="10" minlength="10" capitalize formControlName="din">
+                                    </td>
+                                </tr>
+                                     <tr>
+                                    <td>Enter Licence Number</td>
+                                    <td *ngIf="showw">{{nbfcData.Licence_number}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1"  [(ngModel)]="nbfcData.Licence_number"  maxlength="10" minlength="10" formControlName="cin" capitalize>
+                                    </td>
+                                </tr>
+                                   <tr>
+                                    <td>Enter Company Website</td>
+                                    <td *ngIf="showw">{{nbfcData.companywebsite}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1"   [(ngModel)]="nbfcData.companywebsite" formControlName="company_website">
+                                    </td>
+                                </tr>
+
+                                     <tr>
+                                    <td>Official EmailId</td>
+                                    <td *ngIf="showw">{{nbfcData.email_id}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1" 
+                                        formControlName="email_id"  [(ngModel)]="nbfcData.email_id">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Office Contact Number</td>
+                                    <td *ngIf="showw">{{nbfcData.contact_phone_number}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1"  [(ngModel)]="nbfcData.contact_phone_number"  minlength="10" maxlength="10" formControlName="officenumber">
+                                    </td>
+                                </tr>
+                                  <tr>
+                                    <td>Enter Director Name</td>
+                                    <td *ngIf="showw">{{nbfcData.director_name}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1"  [(ngModel)]="nbfcData.director_name"  formControlName="directorname">
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>Enter Director Mobile Number</td>
+                                    <td *ngIf="showw">{{nbfcData.director_mobile_number}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1"  [(ngModel)]="nbfcData.director_mobile_number"  minlength="10" maxlength="10" formControlName="directornumber">
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>Enter Company Partner Name</td>
+                                    <td *ngIf="showw">{{nbfcData.partner_name}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1"  [(ngModel)]="nbfcData.partner_name"  formControlName="partnerName">
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>Enter Company Partner Mobile Number</td>
+                                    <td *ngIf="showw">{{nbfcData.partner_contact_number}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1"  [(ngModel)]="nbfcData.partner_contact_number"  minlength="10" maxlength="10" formControlName="partnernumber">
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>Enter Aadhar Card Number</td>
+                                    <td *ngIf="showw">{{nbfcData.adharcard_number}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1"   [(ngModel)]="nbfcData.adharcard_number"  minlength="12" maxlength="12"  formControlName="aadhaar_card">
+                                    </td>
+                                </tr>
+
+
+
+
+
+                               
+                            </tbody>
+                        </table>
+                    </div>
+
+                
+
+                    <div class="table-responsive scrremove" id="popupTableBottom">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                              <tr>
+                                <td colspan="2">
+                                <h5 id="profileHead"><b>BANK DETAILS</b></h5>
+                              </td>
+                            </tr>
+                            </thead>
+                            <tbody id="popupBodyStyle">
+                                <tr>
+                                    <td id="firstRmTable">Bank</td>
+                                     <td *ngIf="showw">{{nbfcData.bank}}</td>
+                                    <td *ngIf="!showw">
+                                        <select class="sizzz" formControlName="bankname"    [(ngModel)]="nbfcData.bank">
+                                            <option value="" [disabled]="true">--- Select Bank --</option>
+                                            <option *ngFor="let bankdata of banklist" >{{bankdata.bankName}}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>  
+                                    <td>IFSC Number</td>
+                                     <td *ngIf="showw">{{nbfcData.ifsc_code}}</td>
+                                    <td *ngIf="!showw">
+                                    
+                                            <input class="sizzz" type="text" [readonly]="status1"  formControlName="ifsccode"   [(ngModel)]="nbfcData.ifsc_code"  minlength="11" maxlength="11"  capitalize >
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Branch Name</td>
+                                     <td *ngIf="showw">{{nbfcData.branch_name}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1"  formControlName="branchname"  [(ngModel)]="nbfcData.branch_name"  >
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Account Name</td>
+                                     <td *ngIf="showw">{{nbfcData.holder_name}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1"  formControlName="accountname"  [(ngModel)]="nbfcData.holder_name" >
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Account Number</td>
+                                     <td *ngIf="showw">{{nbfcData.account_number}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1"  formControlName="accountnumber" [(ngModel)]="nbfcData.account_number"  minlength="6" maxlength="20" >
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Account Type</td>
+                                     <td *ngIf="showw">{{nbfcData.acounttypes}}</td>
+                                    <td *ngIf="!showw">
+                                        <select class="sizzz" formControlName="accounttype1" [(ngModel)]="nbfcData.acounttypes">
+                                            <option value="" [disabled]="true">--Select Account Type--</option>
+                                            <option *ngFor="let actype of accounttype">{{actype}}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="table-responsive scrremove" id="popupTableBottom">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                              <tr>
+                                <td colspan="2">
+                                <h5 id="profileHead"><b>COMPANY OFFICE</b></h5>
+                              </td>
+                            </tr>
+                            </thead>
+                            <tbody id="popupBodyStyle">
+
+                                <tr>
+                                    <td id="firstRmTable">Present address status  {{nbfcData.present_address_type}} </td>
+                                     <td *ngIf="showw">{{nbfcData.present_address_type}}</td>
+                                    <td *ngIf="!showw">
+                                        <select class="sizzz" [(ngModel)]="nbfcData.present_address_type" formControlName="addresstype">
+                                            <option value="" [disabled]="true">--- Select Present Address Status --- </option>
+                                            <option value="Owned">Owned</option>
+                                            <option value="Rented">Rented</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Staying from</td>
+                                     <td *ngIf="showw">{{nbfcData.year_of_estd}}</td>
+                                    <td *ngIf="!showw">
+                                        <select class="sizzz" [(ngModel)]="nbfcData.year_of_estd" required formControlName="stayedDurations">
+                                            <option value="" ng-disabled="true">---For how long you had been at this address---
+                                            </option>
+                                            <option *ngFor="let stay of stayduration">
+                                                {{stay}}
+                                            </option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Flat/Room/Door/Block No.</td>
+                                     <td *ngIf="showw">{{nbfcData.permanent_office_roomno}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" [readonly]="status1"  formControlName="housenumber" type="text"  [(ngModel)]="nbfcData.permanent_office_roomno" >
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Building name</td>
+                                     <td *ngIf="showw">{{nbfcData.permanentbuildingname}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" [readonly]="status1" type="text" formControlName="Building"  [(ngModel)]="nbfcData.permanentbuildingname">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Street</td>
+                                     <td *ngIf="showw">{{nbfcData.permanent_street}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" [readonly]="status1"  type="text"  [(ngModel)]="nbfcData.permanent_street"  formControlName="permanent_street">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Landmark</td>
+                                     <td *ngIf="showw">{{nbfcData.permanent_landmark}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" [readonly]="status1"  type="text" [(ngModel)]="nbfcData.permanent_landmark"  formControlName="landmark">
+                                    </td>
+                                </tr>
+                                  <tr>
+                                    <td>State</td>
+                                     <td *ngIf="showw">{{nbfcData.selectedState}}</td>
+                                    <td *ngIf="!showw">
+                                        <select class="sizzz"   [(ngModel)]="nbfcData.selectedState"   (change)="onSelect($event.target.value)" formControlName="states">
+                                            <option value="" [disabled]="true">--- Select State ----</option>
+                                             <option *ngFor="let data of states" >{{data.name}}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>District</td>
+                                     <td *ngIf="showw">{{nbfcData.selecteddistric}}</td>
+                                    <td *ngIf="!showw">
+                                        <select class="sizzz"  [(ngModel)]="nbfcData.selecteddistric"  formControlName="districs">
+                                           <option value="" [disabled]="true">--Select District--</option>
+                                            <option *ngFor="let district of districts">{{district.name}}</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>City</td>
+                                     <td *ngIf="showw">{{nbfcData.selectedcity}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" [readonly]="status1"  type="text"   [(ngModel)]="nbfcData.selectedcity" formControlName="city" >
+                                    </td>
+                                </tr>
+                              
+                                <tr>
+                                    <td>PIN code</td>
+                                     <td *ngIf="showw">{{nbfcData.pin_code}}</td>
+                                    <td *ngIf="!showw">
+                                        <input class="sizzz" type="text" [readonly]="status1"  [(ngModel)]="nbfcData.pin_code" minlength="6" maxlength="6" formControlName="pincode">
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+
+             
+                    <div class="table-responsive scrremove" id="popupTableBottom" *ngIf="status3">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                               <tr>
+                                <td colspan="4">
+                                <h5 class="brdocsmobile" id="profileHead"><b>Review NBFC Docs</b></h5>
+                              </td>
+                            </tr>
+                            </thead>
+                            <tbody id="popupBodyStyle">
+                              
+                                
+                                <tr >
+                                    <td id="firstRmTable">
+                                        Bank Statement
+                                    </td>
+                                     <td *ngIf="nbfcData.bank_statement== null">
+                                        <h5 style="color: red;"><b>Not uploaded</b></h5>
+                                    </td>
+                                    <td *ngIf="nbfcData.bank_statement"><a class="btn btn-default btn-sm" (click)="showPopup3(nbfcData.bank_statement)" id="pdfstylebutton"><span class="glyphicon glyphicon-file spss"></span> <b class="spss">Bank Statement</b></a></td>
+                                    <td>
+                                        <input type="file"(change)="UploadDoc($event)"  formControlName="bank_stat" name="bank_statement" />
+                                        <button class="btn btn-primary" (click)="bank_statement(nbfcData)"id="uploadwhileedit">Upload</button>
+                                        <p  style="color: green;font-weight: bolder;">uploaded successfully</p>
+                                        <p  style="color: red;font-weight: bolder;">please upload a valid pdf file</p>
+                                        <p  style="color: red;font-weight: bolder;">Invalid file format, please upload a pdf file</p>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="present" [(ngModel)]="nbfcData.verify_bank_statement" (click)="triggerverification1(nbfcData.verify_bank_statement)" formControlName="bank_stat_verify">
+                                    </td>
+                                </tr>
+                       
+                                <tr >
+                                    <td id="firstRmTable">
+                                       Licence Copy
+                                    </td>
+                                     <td *ngIf="nbfcData.licence_copy== null">
+                                        <h5 style="color: red;"><b>Not uploaded</b></h5>
+                                    </td >
+                                    <td *ngIf="nbfcData.licence_copy"><a class="btn btn-default btn-sm" (click)="showPopup4(nbfcData.licence_copy)" id="pdfstylebutton"><span class="glyphicon glyphicon-file spss"></span><b class="spss"> Licence Copy</b></a></td>
+                                    <td>
+                                        <input type="file"  formControlName="it_return" (change)="UploadDoc($event)" value="" name="
+                                        it_return"  />
+                                        <button class="btn btn-primary" (click)="licencecopy(nbfcData)"  id="uploadwhileedit">Upload</button>
+                                        <p  style="color: green;font-weight: bolder;">uploaded successfully</p>
+                                        <p  style="color: red;font-weight: bolder;">please upload a valid pdf file</p>
+                                        <p  style="color: red;font-weight: bolder;">Invalid file format, please upload a pdf file</p>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" name="present" [(ngModel)]="nbfcData.verify_licence_copy" (click)="triggerverification2(nbfcData.verify_licence_copy)" formControlName="balance_sheet">
+                                    </td>
+                                </tr>           
+                            
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-responsive scrremove" id="popupTableBottom"   *ngIf="status2" >
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                              <tr>
+                                <td colspan="2">
+                                <h5 id="profileHead"><b>NBFC DOCUMENTS</b></h5>
+                              </td>
+                            </tr>
+                            </thead>
+                            <tbody id="popupBodyStyle">
+                               
+                              
+                                <tr>
+                                    <td id="firstRmTable">
+                                        Bank Statement
+                                    </td>
+                                    <td *ngIf="nbfcData.verify_bank_statement == true">
+                                        <p style="color: green;">Verified<span class="glyphicon glyphicon-ok" style="margin-left: 9px;"></span></p>
+                                    </td>
+                                    <td *ngIf="nbfcData.verify_bank_statement == false">
+                                        <p style="color: red;">Not verified<span class="glyphicon glyphicon-remove" style="margin-left: 9px;"></span></p>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td id="firstRmTable">
+                                       Licence Copy
+                                    </td>
+                                    <td *ngIf="nbfcData.verify_licence_copy == true">
+                                        <p style="color: green;">Verified<span class="glyphicon glyphicon-ok" style="margin-left: 9px;"></span></p>
+                                    </td>
+                                    <td *ngIf="nbfcData.verify_licence_copy == false">
+                                        <p style="color: red;">Not verified<span class="glyphicon glyphicon-remove" style="margin-left: 9px;"></span></p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="alignInPopup">
+                        <button class="btn btn-primary myButtonedit" *ngIf="status2" (click)="enableEdit()">Edit</button>
+                        <button class="btn btn-primary myButtonedit"  *ngIf="status3" (click)="nbfcadminupdate()">Save</button>
+                        <button class="btn btn-primary myButtonedit" ng-show="admincancel" *ngIf="status3" (click)="enableCancel()">Cancel</button>
+                    </div>
+                    <div id="actdeactstyle">
+    <button *ngIf="!nbfcData.is_active" class="btn btn-success" (click)="sendnbfctrue(nbfcData)">Activate</button>
+    <button *ngIf="nbfcData.is_active" class="btn btn-danger" (click)="sendnbfctrue(nbfcData)">Deactivate</button></div>
+
+               
+                <div class="modal-footer" id="buttontocenter">
+                    <button class="btn btn-warning" type="button" (click)="cancel()">close</button>
+                </div>
+            </div>
+    </div>
+  </form>
+      </div>
+    </div>

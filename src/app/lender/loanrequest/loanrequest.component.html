@@ -1,0 +1,534 @@
+<div class="lenderrespp">
+    <h1 style="margin-top:10%;">
+        <img alt="History" src="assets/images/Loan History.png" style="width: 5%" class="headinglendd">&nbsp;
+        New Loan Request
+    </h1>
+    <div style="text-align:center;" *ngIf="newloanrequestloader">
+    <!--     <div class=loader></div> -->
+    </div>
+
+    <div class="table-responsive tabledashboard">
+        <div class="Loan loanrequest icon">
+            <table class="table table-striped table-bordered text-center sortable">
+                <thead class="tableheader">
+                    <tr>
+                        <th style="text-align: center;">Company Name</th>
+                        <th style="text-align: center;">Loan Amount</th>
+                        <th style="text-align: center;">Tenure</th>
+                        <th style="text-align: center;">Expected Discounted Rate </th>
+                        <!-- <th style="text-align: center;">Interest</th> -->
+                         <th style="text-align: center;">Invoice</th>
+                        <th style="text-align: center;">Action</th>
+                       
+                        <th style="text-align: center;">Bid End Time</th>
+
+                    </tr>
+                </thead>
+
+                <tbody *ngIf="results?.length > 0">
+                    <tr *ngFor="let data of results;let i = index">
+                        <td (click)="company_details(data.company)">{{data.company.fields.companyName}}</td>
+                    
+                        <td (click)="company_details(data.company)">{{data.loan.fields.loan_amount}}</td>
+
+                        <td (click)="company_details(data.company)">{{data.loan.fields.tdays}}</td>
+                             <td (click)="company_details(data.company)">{{data.loan.fields.expected_roi}}</td>
+                    
+                          <td>
+                            <button type="button" class="btn btn-primary frmBtn" style="margin-bottom:3px;" (click)="viewinvoice(data)">View</button>
+                        </td>
+                        <td>
+                             
+                            <div style="display: inline;">
+                            <!-- <button type="button" class="btn btn-primary frmBtn" (click)="acceptloan(data.loan.pk)">Accept</button> -->
+                           &nbsp; <button type="button" class="btn btn-primary frmBtn" [disabled]="(getTime(data) == 'expired')"
+                                (click)="bid(data)">BID</button>
+                            </div>
+                            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+                                aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Loan Accepted</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            You have accepted the loan. Our RM(Relationship Manager) will contact you
+                                            soon to tell you when to disburse the amount.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" (click)="close()"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </td>
+                      
+                        <td>
+                      
+            <p class="time">H:{{seconds.h}} M:{{seconds.m}} S:{{seconds.s}}</p>
+                                                
+                                     
+                                    <!-- <button [ngStyle]="{'border':'none','background-color':getTime(data)=='expired'?'red':''}" [disabled]="(getTime(data) == 'expired')"
+                                        type="button" id="countdown" class="btn btn-primary frmBtn" style="margin-bottom:3px;">{{getTime(data)}}</button>  -->
+                              
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr *ngIf="results.length==0">
+                        <td class="text-center orangefont" colspan="7">No New Loans </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" *ngIf="show1" #companyview>
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header loanModalHeader">
+
+                <button type="button" class="btn btn-default crossymbol" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">Company Details</h3>
+            </div>
+            <div class="modal-body">
+
+
+                <table class="table table-striped table-condensed table-responsive" id="tblGrid">
+                    <thead id="tblHead">
+                        <tr>
+                            <td colspan="2" style="text-align: center;font-size: 18px;color: white;padding: inherit;background:  #337ab7;">Profile
+                                Details</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Company Name</th>
+                            <td>{{companydetails.fields.companyName}}</td>
+
+                        </tr>
+                        <tr>
+                            <th>Finchain Score</th>
+
+                            <td>{{companydetails.fields.finchain_score}}</td>
+                        </tr>
+                        <tr>
+                            <th>DOE</th>
+                            <td>{{companydetails.fields.joined_date | date : "dd/MM/y"}}</td>
+                        </tr>
+                        <tr>
+                            <th>City</th>
+                            <td>{{companydetails.fields.selectedcity}}</td>
+                        </tr>
+                        <tr>
+                            <th>District</th>
+                            <td>{{companydetails.fields.selecteddistric}}</td>
+                        </tr>
+                        <tr>
+                            <th>State</th>
+                            <td>{{companydetails.fields.selectedState}}</td>
+                        </tr>
+                        <tr>
+                            <th>Turnover</th>
+                            <td>{{companydetails.fields.company_turnover}}</td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+
+                <div class="modal-footer">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal">OK</button>
+
+                <button class="btn btn-success" type="button" (click)="borrinpopupDetails(companydetails)">details</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" *ngIf="show2" #companyalldetailsView>
+    <div class="modal-dialog modal-confirm" style="width: 728px;">
+        <div class="modal-content">
+            <div class="modal-header loanModalHeader">
+
+                <button type="button" class="btn btn-default crossymbol" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">Company Details</h3>
+            </div>
+            <div class="modal-body">
+
+
+                <table class="table table-striped table-bordered table-condensed table-responsive" id="tblGrid">
+                    <thead id="tblHead">
+                        <tr>
+                            <td colspan="2" style="text-align: center;font-size: 18px;color: white;padding: inherit;background:  #337ab7;">PROFILE
+                                DETAILS</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Company Name</th>
+                            <td>{{companydetails.fields.companyName | uppercase}}</td>
+
+                        </tr>
+                        <tr>
+                            <th>Finchain Score</th>
+
+                            <td>{{companydetails.fields.finchain_score}}</td>
+                        </tr>
+                        <tr>
+                            <th>DOE</th>
+                            <td>{{companydetails.fields.joined_date | date : "dd/MM/y"}}</td>
+                        </tr>
+                        <tr>
+                            <th>City</th>
+                            <td>{{companydetails.fields.selectedcity}}</td>
+                        </tr>
+                        <tr>
+                            <th>District</th>
+                            <td>{{companydetails.fields.selecteddistric}}</td>
+                        </tr>
+                        <tr>
+                            <th>State</th>
+                            <td>{{companydetails.fields.selectedState}}</td>
+                        </tr>
+                        <!-- <tr>
+                                                    <th>Turnover</th>
+                                                    <td>{{companydetails.company_turnover}}</td>
+                                                </tr> -->
+
+
+                    </tbody>
+                </table>
+                <table class="table table-striped table-bordered table-condensed table-responsive" id="tblGrid">
+                    <thead id="tblHead">
+                        <tr>
+                            <td colspan="2" style="text-align: center;font-size: 18px;color: white;padding: inherit;background:  #337ab7;">BANK
+                                DETAILS</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Bank Name</th>
+                            <td>{{companydetails.fields.bank | uppercase}}</td>
+
+                        </tr>
+                        <tr>
+                            <th>IFSC Number</th>
+
+                            <td>{{companydetails.fields.ifsc_code}}</td>
+                        </tr>
+                        <tr>
+                            <th>Branch Name</th>
+                            <td>{{companydetails.fields.branch_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Account Name</th>
+                            <td>{{companydetails.fields.holder_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Account Number</th>
+                            <td>{{companydetails.fields.account_number}}</td>
+                        </tr>
+                        <tr>
+                            <th>Account type</th>
+                            <td>{{companydetails.fields.acounttypes}}</td>
+                        </tr>
+                        <!-- <tr>
+                                                        <th>Turnover</th>
+                                                        <td>{{companydetails.company_turnover}}</td>
+                                                    </tr>
+                                                      -->
+
+                    </tbody>
+                </table>
+
+                <table class="table table-striped table-bordered table-condensed table-responsive" id="tblGrid">
+                    <thead id="tblHead">
+                        <tr>
+                            <td colspan="2" style="text-align: center;font-size: 18px;color: white;padding: inherit;background:  #337ab7;">FINANCIAL
+                                DETAILS</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Turn Over</th>
+                            <td>{{companydetails.fields.company_turnover}}</td>
+
+                        </tr>
+                        <tr>
+                            <th>Number Of Employees</th>
+
+                            <td>{{companydetails.fields.number_of_employees}}</td>
+                        </tr>
+                        <tr>
+                            <th>CIN</th>
+                            <td>{{companydetails.fields.corporate_identification_number}}</td>
+                        </tr>
+                        <tr>
+                            <th>Emailid</th>
+                            <td>{{companydetails.fields.email_id}}</td>
+                        </tr>
+                        <tr>
+                            <th>Company Website</th>
+                            <td>{{companydetails.fields.company_website_link}}</td>
+                        </tr>
+                        <tr>
+                            <th>GST Number</th>
+                            <td>{{companydetails.fields.gst_number}}</td>
+                        </tr>
+                        <tr>
+                            <th>Partner Name</th>
+                            <td>{{companydetails.fields.partner_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Mobile Number</th>
+                            <td>{{companydetails.fields.partner_mobile_number}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+                <table class="table table-striped table-bordered table-condensed table-responsive" id="tblGrid">
+                    <thead id="tblHead">
+                        <tr>
+                            <td colspan="2" style="text-align: center;font-size: 18px;color: white;padding: inherit;background:  #337ab7;">RESIDENTIAL
+                                DETAILS</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Present Adress Status Owned</th>
+                            <td>{{companydetails.fields.present_address_type}}</td>
+
+                        </tr>
+                        <tr>
+                            <th>Staying From</th>
+
+                            <td>{{companydetails.fields.longstay}}</td>
+                        </tr>
+                        <tr>
+                            <th>Building Number</th>
+                            <td>{{companydetails.fields.office_roomno}}</td>
+                        </tr>
+                        <tr>
+                            <th>Building Name</th>
+                            <td>{{companydetails.fields.permanentbuildingname}}</td>
+                        </tr>
+                        <tr>
+                            <th>Street</th>
+                            <td>{{companydetails.fields.company_street}}</td>
+                        </tr>
+                        <tr>
+                            <th>Land Mark</th>
+                            <td>{{companydetails.fields.permanent_landmark}}</td>
+                        </tr>
+                        <tr>
+                            <th>District</th>
+                            <td>{{companydetails.fields.selecteddistric}}</td>
+                        </tr>
+                        <tr>
+                            <th>City</th>
+                            <td>{{companydetails.fields.selectedcity}}</td>
+                        </tr>
+                        <tr>
+                            <th>State</th>
+                            <td>{{companydetails.fields.selectedState}}</td>
+                        </tr>
+                        <tr>
+                            <th>Pincode</th>
+                            <td>{{companydetails.fields.pin_code}}</td>
+                        </tr>
+                        <!-- <tr>
+                                                        <th>Permanent Adress</th>
+                                                        <td>{{companydetails.partner_mobile_number}}</td>
+                                                    </tr> -->
+                    </tbody>
+                </table>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal">close</button>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Rate of interest popup modal -->
+<div class="modal fade" #acceptpopup>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header loanModalHeader">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <div class="col-xs-11 col-sm-11 col-md-11">
+                    <h3 class="modal-title">How would you like to get the Interest Amount</h3>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1" style="padding: 5px;">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#popuplender">Help</button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+
+                    <input type="radio" name="deduction_type" [(ngModel)]="deduction" value="upfront">Up Front
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="deduction_type" [(ngModel)]="deduction" value="later">Later
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" [disabled]="!deduction" (click)="loanaccepted(deduction)">OK</button>
+                        <button class="btn btn-warning" type="button" click="cancel()">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bidra" #bidpopup>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header loanModalHeader">
+                <button type="button" class="close" (click)="cancel()" aria-hidden="true">×</button>
+                <div class="col-xs-11 col-sm-11 col-md-11">
+                    <h3 class="modal-title">BID YOUR RATE OF INTRESET</h3>
+                </div>
+
+            </div>
+            <div class="modal-body">
+                <input type="text" class="form-control" (keypress)="validateNumber($event)" placeholder="Please Enter Your BID Interest"
+                    [(ngModel)]="deduction" minlength="1" maxlength="4">
+                    <span style="color:red">{{error_bid_msg}}</span>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" [disabled]="!deduction" (click)="bidAmnt(deduction)">BID</button>
+                    <button class="btn btn-warning" type="button" (click)="cancel()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<!-- <div class="modal fade" #invoicepopup id="openModal">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content mcontent">
+            <div class="modal-header loanModalHeader">
+                <button type="button" class="close" (click)="closed();" aria-hidden="true">×</button>
+                <h3 class="modal-title">Invoice</h3>
+
+            </div>
+<pdf-viewer [src]="invoice" 
+[render-text]="true"
+style="display: block;"
+></pdf-viewer>
+        </div>
+    </div>
+</div> -->
+
+
+
+<div class="modal fade" #invoicepopup id="openModal">
+    <div class="modal-dialog modal-md moddwidth modal-sm modal-lg">
+        <div class="modal-content mcontent">
+            <div class="modal-header loanModalHeader">
+                <button type="button" class="btn btn-primary close clpos" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="modal-title">Invoice</h3>
+
+            </div>
+            <div class="modal-body">
+<pdf-viewer [src]="invoice" 
+[render-text]="true"
+style="display: block;"
+></pdf-viewer>
+</div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" #bidedpopupView id="openModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header loanModalHeader">
+               
+                <h3 class="modal-title">Alloted</h3>
+
+            </div>
+            <div class="modal-body">
+               <p class="text-center">Invoice is alloted to <strong>&nbsp;{{lender_bidedd}}</strong>&nbsp;NBFC</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary"  (click)="Bidalloted_popup()">Ok</button>
+                
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" #rebidepopupVIew id="createModal" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header loanModalHeader">
+               
+                <h3 class="modal-title">Rebidding the Invoice.</h3>
+
+            </div>
+            <div class="modal-body">
+               <p class="text-center">Since No one has Bided,the Bid process will continue..</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true"  (click)="rebided()">Rebid</button>
+                
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" #bidpopupsucess id="createModal" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header loanModalHeader">
+               
+                <h3 class="modal-title">Bid Sucessfull.</h3>
+
+            </div>
+            <div class="modal-body Bid_Sucessfull">
+               <p class="text-center">You have Sucessfully Bided.Kindly wait till the bid process completes.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Ok</button>
+                
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

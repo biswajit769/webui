@@ -1,0 +1,82 @@
+<div class="col-md-12 col-sm-12 element">
+    <div class="row" style="margin-top: 180px;"> 
+        
+        <div class="col-md-offset-4 col-md-4 col-md-offset-4 col-sm-offset-4 col-sm-4 col-sm-offset-4 alignment">
+            <div class="contatiner-fluid ">
+                <h2 mat-dialog-title color="primary">CREATE YOUR ACCOUNT<span class="glyphicon glyphicon-lock"></span>
+                </h2>
+            </div>
+            <form class="userForm" novalidate (ngSubmit)="borrowerRegForm(borrowFrm.value, borrowFrm.valid)" #borrowFrm="ngForm">
+                <mat-form-field class="full-width">
+                    <mat-label>Company Name</mat-label>
+                    <input matInput id="companyName" (keypress)="keyPress1($event)" placeholder="Please enter your Company Name"
+                        name="companyName" [(ngModel)]="model.companyName" #companyNames="ngModel" required>
+                </mat-form-field><br>
+                <span class="help-block" *ngIf="companyNames.invalid && companyNames.touched">
+                    Company Name is required
+                </span>
+                <mat-form-field class="full-width">
+                    <mat-label>DOE (mm/dd/yyyy)</mat-label>
+                    <input matInput required #companyDoe="ngModel" name="doe" [(ngModel)]="model.doe" [matDatepicker]="picker"
+                        placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field><br>
+                <span class="help-block" *ngIf="companyDoe.errors && (companyDoe.invalid && companyDoe.touched)">
+                    <p *ngIf="companyDoe.errors.required">DOE is required</p>
+                </span>
+                
+                <mat-form-field class="full-width">
+                    <mat-label>MOBILE</mat-label>
+                    <input matInput type="text" #userMobile="ngModel" (input)="sendotp($event.target.value);" minlength=10
+                        maxlength=10 pattern="[7-9]{1}[0-9]{9}" (keypress)="keyPress($event)" [(ngModel)]="model.mobile"
+                        placeholder="Enter your mobile number" name="mobile" required>
+                </mat-form-field> <br>
+                <button *ngIf="!verified" mat-raised-button (click)="sendotp(model.mobile)" style="float: right;
+                margin-top: -55px;color: white;
+                background-color: #3379b6;">{{buttonName}}</button>
+                <span  class="help-block" *ngIf="(Otpsent && userMobile.valid && !invalidotp)">OTP Sent</span>
+                <span class="help-block" *ngIf="invalidotp && !verified && userMobile.valid">{{invalidotp}}</span> 
+
+                <span *ngIf="(error_message && userMobile.valid && !Otpsent)" class="help-block">{{error_message}}</span>
+                
+                <span class="help-block" *ngIf="userMobile.errors && (userMobile.invalid && userMobile.touched)">
+                    <p *ngIf="userMobile.errors.required">Mobile Number is required</p>
+                    <p *ngIf="userMobile.errors.pattern">Mobile number should be in valid format.</p>
+                </span>
+                <mat-form-field class="full-width">
+                    <mat-label>OTP</mat-label>
+                    <input matInput type="text" (input)="verifyotp(model.resendotp,model.mobile)" maxlength="6" minlength="6"
+                        (keypress)="keyPress($event)" [(ngModel)]="model.resendotp" placeholder="Enter your OTP" name="resendotp"
+                        required>
+                </mat-form-field>
+                <span class="help-block" *ngIf="invalidotp && !verified">{{invalidotp}}</span>
+                <span *ngIf="verified" class="fa fa-stack fa-lg" style="color: green; margin-left: -40px;">Verified
+                    <i class="fa fa-certificate fa-stack-2x" style="color: green;margin-top: -37px;
+                                             margin-left: 63px;"></i>
+                    <i class="fa fa-check fa-stack-1x fa-inverse" style="margin-top: -37px;
+                                 margin-left: 63px;"></i>
+                </span><br>
+                <mat-form-field class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput #adminPassword="ngModel" type="password" [pattern]="pwdPattern" name="adminPassword" id="adminPassword"
+                        placeholder="Enter Password" [(ngModel)]="model.password" required>
+                </mat-form-field><br>
+                <span class="help-block" *ngIf="adminPassword.errors && (adminPassword.invalid && adminPassword.touched)">
+                    <p *ngIf="adminPassword.errors.required">Password is required</p>
+                    <p *ngIf="adminPassword.errors.pattern">valid password requires 6-20 characters with one number and
+                        uppercase character</p>
+                </span>
+                <p>By clicking Join now, you agree to the <a class="abc" (click)="terms()">TERMS AND CONDITIONS</a> ,
+                    <a class="abc" (click)="privacy()">PRIVACY POLICY .</a></p>
+               
+                <p class="text-center"> 
+                    <button type="submit" style="background-color: #337ab7; color:white;font-size: 15px;" [disabled]="borrowFrm.invalid" mat-raised-button color="primary">JOIN NOW</button>
+                </p> 
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+

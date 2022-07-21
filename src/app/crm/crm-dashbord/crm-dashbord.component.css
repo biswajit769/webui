@@ -1,0 +1,79 @@
+.modals{
+    width: 100%;
+    height: 185px;
+}
+
+
+
+.modalhead{
+
+text-align:center;
+background-color:#428bca;
+color:white;
+}
+
+
+
+
+
+
+style=""
+
+
+
+.input-group{
+width: 80%;
+}
+.my-pagination{
+  text-align: center;
+}
+.cap{
+  text-align: center;
+    color: #347ab7;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.formm{
+    float: right;
+    margin-top: 12px;
+    margin-bottom: 7px;
+    width: 48%;
+    padding-right: 20px;
+}
+
+.header {
+    background-color: #f1f1f1;
+    padding: 18px;
+    margin-top: 112px;
+    text-align: center;
+  }
+  
+ 
+  .content {
+    padding: 16px;
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 80px;
+    width: 100%;
+    z-index:100;
+  }
+  
+  .sticky + .content {
+    padding-top: 60px;
+  }
+
+  @media only screen and (max-width:767px) and (min-width:320px){
+.header{
+  margin-top: 176px;
+}
+.formm{
+  width: 94%;
+}
+.nav > li {
+  position: relative;
+  display: inline-block;
+}
+}

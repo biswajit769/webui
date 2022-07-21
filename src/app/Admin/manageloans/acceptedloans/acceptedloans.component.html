@@ -1,0 +1,168 @@
+  <div> 
+  <div>
+  <span id="itemsperpagemargin" style="margin-top: 0px;
+      margin-bottom: 10px;"></span>
+      <input  type="text" class="adminsearchbox1" placeholder="Enter Company Name" name="search" [(ngModel)]="companySearch">
+      <span id="itemsperpagemargin">
+    <select id="itemperpagestyle">
+    <option value="" disabled="">Select Records Per Page</option> 
+      <option>10</option>
+      <option>20</option>
+      <option>30</option>
+      <option>40</option>
+    </select>
+  </span>
+
+  <div class="table-responsive flexcroll" id="loanTableStyle" style="height: 100%;">
+  <table class="table table-striped  table-bordered" id="mytableborder">
+          <thead id="myloanhead">
+             <tr class="tableTextCenter">
+                  <th>Loan Id</th>
+                  <th>Company Id</th>
+                  <th>Company Name</th>
+                  <th>NBFC Id</th>
+                  <th>Loan Amount</th>
+                  <th>Status</th>
+                 <th>Company District</th>
+              
+                  <th>View Details</th>
+             </tr>
+          </thead>
+              <tbody  id="myduesbody">
+                  <tr class="tableTextCenter"  *ngFor="let loandetails of acceptedloans|searchCompany:companySearch">
+                  <td>{{loandetails.id}}</td> 
+                  <td>{{loandetails.company}}</td> 
+                  <td>{{loandetails.companyName}}</td> 
+                  <td>{{loandetails.nbfc}}</td> 
+                  <td>{{loandetails.loan_amount}}</td> 
+                  <td>{{loandetails.status}}</td> 
+                    <td>
+                 
+              
+                  </td>          
+  
+                  
+               
+                  <td>
+                    <button class="viewdetailsbutton" (click)="getCompleteAcceptedLoans1(loandetails.id)"><i class="glyphicon glyphicon-file"></i><span> View Details</span></button>
+                  </td>
+                  
+                  
+                  </tr>
+              </tbody>
+              <tbody *ngIf="acceptedloans.length==0">
+              <tr>
+                <th colspan="25" class="text-center" id="spanmessage">No records found</th>
+               </tr> 
+              </tbody>
+        </table>
+        </div>
+        </div>
+        
+
+  
+
+  </div>
+
+
+  <div id="myModal" #acceptedloan class="modal fade " role="dialog">
+    <div class="modal-dialog" >
+<div class="modal-content">
+        <div class="modal-header" style="background-color: #337ab6;
+    height: 92px;">
+           <a (click)="cancel()" style="color: black;"><i class="glyphicon glyphicon-remove" id="placecloseicon"></i></a>
+          <h3 id="loandetpopuphead">Accepted Loan Details</h3>
+        </div>
+        <div class="modal-body" style="padding: 0px">
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered placecenter">
+           
+                
+              <tr>
+                <th>Loan Id</th>
+                <td>{{acceptedld.id || 'empty'}}</td>
+              </tr>
+              <tr>
+                <th>Company Id</th>
+                <td>{{acceptedld.company || 'empty'}}</td>
+              </tr>
+              <tr>
+                <th>NBFC Id</th>
+                <td>{{acceptedld.nbfc}}</td>
+              </tr>
+              <tr>
+                <th>NBFC Name</th>
+                <td>{{acceptedld.lender_name}}</td>
+              </tr>
+               <tr>
+                <th>Loan Amount</th>
+                <td>{{acceptedld.loan_amount}}</td>
+              </tr>
+              <tr>
+                <th>Tenure</th>
+                <td>{{acceptedld.tenure}}</td>
+              </tr>
+              <tr>
+                <th>Accepted Interest</th>
+                <td>{{acceptedld.accepted_interest}}</td>
+              </tr>
+              <tr>
+                <th>Requested date</th>
+                <td>{{acceptedld.requested_date}}</td>
+              </tr>
+              <tr>
+                <th>Repayment type</th>
+                <td>{{acceptedld.repayment_type || 'empty'}}</td>
+              </tr>
+              <tr>
+                <th>Membership type</th>
+                <td>{{acceptedld.membership_type|| 'empty'}}</td>
+              </tr>
+              <tr >
+                <th>Selected interest</th>
+                <td>{{acceptedld.selected_interest || 'empty'}}</td>
+              </tr>
+              <tr>
+              <tr>
+                <th>Processing fee</th>
+               <td>{{acceptedld.processing_fee || 'empty'}}</td>
+              </tr>
+              <tr>
+                <th>Membership fee</th>
+                <td>{{acceptedld.membership_fee || 'empty'}}</td> 
+              </tr>
+              <tr>
+                <th>Interest amount</th>
+                <td>{{acceptedld.interest_amount || 'empty'}}</td> 
+              </tr>
+              <tr>
+                <th>Insurance</th>
+                <td>{{acceptedld.insurance || 'empty'}}</td> 
+              </tr>
+              
+              <tr>
+                <th>Status</th>
+                <td>{{acceptedld.status || 'empty'}}</td> 
+              </tr>
+              <tr>
+                <th>Loan Purpose</th>
+                <td>{{acceptedld.loan_purpose || 'empty'}}</td>
+              </tr>
+              <tr>
+                <th>Company District</th>
+                <td>{{acceptedld.selecteddistric || 'empty'}}</td>
+              </tr>  
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer" id="recordsmodalfooter">
+          <button class="btn btn-default" (click)="cancel()">Ok</button>
+        </div>
+      </div>
+       </div>
+      </div>
+
+
+
+
+

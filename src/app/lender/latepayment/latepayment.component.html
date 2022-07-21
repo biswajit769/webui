@@ -1,0 +1,42 @@
+<div class="lenderresps">
+    <h1 style="margin-top: 10%"><img alt="Notification" src="assets/images/Notification.png" class="headinglendss">&nbsp; Late Payment</h1>
+    <div style="text-align:center;" ng-show="latepaymentloader">
+    <div class="loader"></div>
+    </div>
+  
+    <div class="table-responsive tabledashboard">
+        <div class="latepayment icon ">
+            <table class="table table-striped table-bordered text-center">
+            <thead class="tableheader">
+                <tr>
+                    <th>Borrower Name</th>
+                    <th>Loan Id</th>
+                    <th>Loan Amount</th>
+                    <th>New Repayment Amount</th>
+                    <th>New Repayment Date</th>
+                    <th>Loan Request Date</th>
+                    <th>Disbursment Date</th>
+                </tr>
+            </thead>
+                 <tbody ng-show ="lenderlatepayment.length>0" >
+                <!-- <tr ng-repeat="details in lenderlatepayment"> -->
+                    <!-- <td>{{details.borrowername}}</td>
+                    <td>{{details.loanid}}</td>
+                    <td>{{details.loanamount}}</td>
+                    <td>{{details.newrepaymentamount}}</td>
+                    <td>{{details.newrepaymentdate}}</td>
+                    <td>{{details.loanrequesteddate}}</td>
+                    <td>{{details.disburseddate}}</td> -->
+                <!-- </tr> -->
+               </tbody>
+                <tbody ng-show="lenderlatepayment.length==0">
+                    <tr>
+            <td colspan="8" class="text-center orangefont">No Request Found for the Late Payment</td>
+                    </tr>
+                </tbody>           
+            </table>
+            
+            
+        </div>
+    </div>
+    </div>

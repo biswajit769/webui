@@ -1,0 +1,896 @@
+ 
+ /* -------newdashboard css------ */
+/* Add a black background color to the top navigation */
+.sideenav {
+    background-color: #333;
+    overflow: hidden;
+    
+}
+#lenderdashboardbody{
+    max-height: 94%;
+    position: fixed;
+    width: 21%;
+    background: rgb(251, 246, 243);
+    overflow: scroll;
+}
+
+/* #lenderdashboardbody:hover{
+background: lightblue;
+} */
+
+#footer{
+    background: black;
+    height:50px;
+    }
+/* Style the links inside the navigation bar */
+.sideenav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.sideenav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add an active class to highlight the current page */
+.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.sideenav .closebtnlend {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .sideenav a:not(:first-child) {display: none;}
+    .sideenav a.closebtnlend {
+      float: right;
+      display: block;
+    }
+  }
+  
+  /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+  @media only screen and (min-width:320px) and (max-width: 767px) {
+    .sidenav.responsive {position: relative;}
+    .sidenav.responsive a.closebtn {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .sidenav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    .Profile-input-file{
+        height: 151px;
+        width:83px;
+        left: 18%;
+        border-bottom-left-radius: 83%;
+        border-bottom-right-radius: 83%;
+        position: absolute;
+        top: 0px;
+        z-index: 999;
+        opacity: 0 !important;
+        cursor: pointer;
+        opacity: 1;
+    }
+    /* .cursor {
+        cursor: pointer;
+    } */
+      
+      .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: black;
+        display: block;
+        transition: 0.3s;
+        font-weight:bold; 
+      }
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: white;
+        overflow-x: hidden;
+        overflow:scroll;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+    
+
+   
+    
+    .sidenav span {
+        font-size: medium;
+        font-weight: bolder;
+    }
+
+    .sidenav .img2 {
+        width: 8%;
+        margin: 0px 6px;
+    }
+    
+    .sidenav li img.lenderimg {
+        width: 8%
+    }
+
+    .sidenav img.lenderprofile {
+        max-height: 89px;
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 89px;
+        border-radius: 50%;
+        background: wheat;
+    }
+    
+    .sidenav li {
+        list-style-type: none;
+        padding: 9px 19px;
+        font-size: 12px;
+        margin-top: 10px;
+    }
+    .sidenav a:hover,
+    .offcanvas a:focus {
+        color: #f1f1f1;
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        margin-top: 58px;
+
+      }
+
+      .lenderamount1 .lenderrow2 th {
+        background:lightblue;
+        padding: 2px 0px;
+        color: white;
+        width: 70%;
+    }
+    .lenderamount1 .lenderrow3 th {
+        background: #ff6600;
+        padding: 2px 0px;
+        color: white;
+        width: 70%;
+    }
+    .lenderamount1 .lenderrow4 th {
+        background: #ff9933;
+        padding: 2px 0px;
+        color: white;
+        width: 70%;
+    }
+    .sideenav span {
+        font-size: medium;
+        font-weight: bolder;
+    }
+    .borrowerimg {
+        max-width: 83px;
+     max-height: 165px;
+     min-width: 83px;
+     min-height: 165px;
+     margin: 11px 0px 10px 0px;
+     border-radius: 50%;
+     background: wheat;
+     }
+     /* .lenderimg {
+    max-height: 165px;
+    max-width: 80%;
+    min-width: 80%;
+    min-height: 165px;
+    margin: 9px 0px 0px 0px;
+    border-radius: 50%;
+    background: wheat;
+    margin-top: -175px;
+} */
+  }
+
+
+
+/*  */
+.lenderdashboardleft {
+    float: left;
+    padding: 0px;
+    list-style-type: none;
+}
+
+.lenderdashboardleft li {
+    list-style-type: none;
+}
+
+.lenderdashboardleft li img {
+    width: 25%;
+    padding: 16px;
+}
+
+.sideenav {
+    display: none;
+}
+
+#lenderdashboardbody {
+    margin-top: 66px;
+    max-height: 94%;
+    /* overflow: scroll;  */
+    position: fixed;
+    width: 21%;
+    background: rgb(251, 246, 243);
+}
+
+#lenderdashboardbody::-webkit-scrollbar {
+    display: none;
+}
+
+.loanhistoryicon {
+    margin: 0px;
+}
+
+.lenderdashboardleft a li {
+    color: #000000;
+    font-weight: bolder;
+    text-decoration: none;
+} 
+
+/* ul.lenderdashboardleft li.active,
+ul.lenderdashboardleft li:hover,
+ul.lenderdashboardleft li.active:focus {
+    transition: all 1s;
+    transform: scale(1.1);
+    background: #d8ad81 !important;
+    color: white !important;
+} */
+
+.notification {
+    background: #ed6506;
+    border-radius: 10px;
+    width: 22px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.lenderamount,
+th,
+td {
+    font-size: 15px;
+    margin-top: 22px;
+    margin-bottom: 15px;
+    width: auto;
+}
+
+.lenderamount .lenderrow1 th {
+    background: #337ab7;
+    padding: 2px 0px;
+    color: white;
+    width: 58%;
+}
+
+.textposition {
+    position: absolute;
+    margin-top: 30px    ;
+    margin-left: -150px;
+}
+
+.lenderamount .lenderrow2 th {
+    background: #337ab7;
+    padding: 2px 0px;
+    color: white;
+    width: 58%;
+}
+
+.rtmindex .rtmfooter {
+    visibility: hidden;
+    display: none;
+}
+
+.lenderamount .lenderrow3 th {
+    background: #337ab7;
+    padding: 2px 0px;
+    color: white;
+    width: 58%;
+}
+
+.lenderamount .lenderrow4 th {
+    background: #337ab7;
+    padding: 2px 0px;
+    color: white;
+    width: 58%;
+}
+
+.lenderamount .lenderrow5 th {
+    background: #337ab7;
+    padding: 2px 0px;
+    color: white;
+    width: 58%;
+}
+.borrowerimg {
+    max-width: 80%;
+ max-height: 165px;
+ min-width: 80%;
+ min-height: 165px;
+ margin: 11px 0px 10px 0px;
+ border-radius: 50%;
+ background: wheat;
+ }
+.lenderimg {
+    max-height: 165px;
+    max-width: 80%;
+    min-width: 80%;
+    min-height: 165px;
+    margin: 9px 0px 0px 0px;
+    border-radius: 50%;
+    background: wheat;
+    margin-top: -175px;
+}
+
+.lenderdashboardleft span {
+    font-size: medium;
+    font-weight: bolder;
+    padding-top: 60px;
+}
+
+.lenderamount th.amtdetails {
+    width: auto;
+}
+.lenderdashboardleft li img {
+    width: 25%;
+    padding: 16px;
+}
+
+.Profile-input-file {
+    height: 16px;
+    width: 83px;
+    /* left: 33%; */
+    border-bottom-left-radius: 83%;
+    border-bottom-right-radius: 83%;
+    position: absolute;
+    top: 0px;
+    z-index: 999;
+    opacity: 0 !important;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.lenderbody{
+overflow: scroll;
+}
+
+.sideenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sideenav img {
+    width: 10%;
+    margin: 0px 8px;
+}
+
+.sideenav li img.lenderimg {
+    width: 10%
+}
+
+.sideenav li {
+    list-style-type: none;
+    padding: 9px 19px;
+}
+
+.sideenav a {
+    text-decoration: none;
+    color: #000000;
+    transition: 0.3s;
+    font-weight: bolder;
+}
+
+.sideenav a:hover,
+.offcanvas a:focus {
+    color: #f1f1f1;
+}
+
+.sideenav .closebtnlend {
+    top: 0;
+    float: right;
+    font-size: 36px;
+    padding: 0px 10px;
+}
+
+.sideenav li.active,
+.sideenav li:hover,
+.sideenav li.active:focus {
+    
+    color: white !important;
+    background: #d8ad81 !important;
+}
+div {
+    display: block;
+}
+.text-center {
+    text-align: center;
+}
+.lenderdashboardleft a li {
+    color: #000000;
+    font-weight: bolder;
+    text-decoration: none;
+}
+.lenderdashboardleft li {
+    list-style-type: none;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    /* text-decoration: underline; */
+}
+.lenderdashboardleft {
+    float: left;
+    padding: 0px;
+}
+ul, menu, dir {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+a:hover { 
+    background-color: wheat;
+}
+.sideenav:hover{
+    background-color: wheat;
+}
+
+/*------------dashboarddetails------------*/
+
+#mylendericon {
+    display: none;
+}
+#mySideenav{
+    display: none;
+}
+.rtm-score-strip{
+    margin-bottom: 93px;
+    margin-top: 82px;
+    background: #337ab7;
+    position: fixed;
+    width: 929px;
+    z-index: 999;
+    /*margin-left: 311px;*/
+    margin-left: 24%;
+    color: #ffffff;
+}
+
+
+@media screen and (max-height: 450px) {
+    .sideenav {
+        padding-top: 15px;
+    }
+    .sideenav a {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width:320px) and (max-width: 767px) {
+    .rtm-score-strip{
+        display: none;
+    }
+    .sideenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: white;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    
+    }
+    .sideenav {
+        display: block;
+    }
+    #mylendericon {
+        text-align: left;
+        padding: 5px 5px 5px;
+        display: block;
+        margin-top:82px;
+    }
+    #lenderdashboardbody {
+        position: absolute;
+        display: none;
+    }
+    .lenderdashboardleft li img {
+        width: 32%;
+        padding: 26px;
+        margin: 7px;
+    }
+    .table > tbody > tr > th
+    {
+        padding: 0px;
+    }
+    .table {
+        border: 0px;
+    }
+    .sideenav img.lenderprofile {
+        max-height: 89px;
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 89px;
+        border-radius: 50%;
+        background: wheat;
+    }
+    .lenderamount1 .lenderrow1 th {
+        background: #337ab7;
+        padding: 3px 0px;
+        color: white;
+        width: 86%;
+    }
+    .lenderamount1 .lenderrow2 th {
+        background: #337ab7;
+        padding: 3px 0px;
+        color: white;
+        width: 86%;
+    }
+    .lenderamount1 .lenderrow3 th {
+        background: #337ab7;
+        padding: 3px 0px;
+        color: white;
+        width: 86%;
+    }
+    .lenderamount1 .lenderrow4 th {
+        background: #337ab7;
+        padding: 3px 0px;
+        color: white;
+        width: 86%;
+    }
+    .sideenav span {
+        font-size: medium;
+        font-weight: bolder;
+    }
+    .lenderPortfolioMain .lenderPortfolioTable {
+        border: 1px solid #ddd;
+    }
+}
+
+
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
+.container123{
+position: relative;
+display: inline-block;
+}
+.container123:hover .avatar-edit {
+display: block;
+}
+.avatar-edit {
+display: none;
+}
+
+
+.img1{
+width: 151px;
+height: 151px;
+border-radius: 74px;
+}
+
+
+.avatar-upload {
+position: relative;
+max-width: 205px;
+}
+.avatar-upload .avatar-edit input {
+display: none;
+}
+.avatar-upload .avatar-edit {
+position: absolute;
+left: 40px;
+z-index: 1;
+bottom: 4px;
+}
+.avatar-edit {
+display: none;
+background: rgba(0, 0, 0, 0.3);
+
+height: 61px;
+
+width: 96%;
+
+border-radius: 0px 0px 112px 112px;
+}
+
+.avatar-upload .avatar-edit input + label {
+display: inline-block;
+width: 27px;
+height: 43px;
+margin-bottom: 3px;
+margin-left: -26px;
+border-radius: 100%;
+background: #ffffff;
+border: 1px solid transparent;
+box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+cursor: pointer;
+opacity: 0;
+font-weight: normal;
+transition: all 0.2s ease-in-out;
+}
+
+
+
+.avatar-upload .avatar-edit input + label:hover {
+background: #f1f1f1;
+border-color: #d6d6d6;
+}
+
+.avatar-upload .avatar-edit input + label:after {
+content: "\f040";
+font-family: "FontAwesome";
+color: #757575;
+position: absolute;
+top: 5px;
+left: 46px;
+right: 0;
+text-align: center;
+margin: auto;
+}
+
+.avatar-upload .avatar-preview {
+width: 151px;
+height: 151px;
+background-color: #e2caca;
+position: relative;
+border-radius: 100%;
+box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+margin-top: -10px;
+}
+
+.avatar-upload .avatar-preview > div {
+width: 100%;
+height: 100%;
+margin-top: -50%;
+border-radius: 100%;
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+}
+
+.container123 {
+width: auto;
+padding: 20px;
+margin-left: -66px;
+}
+.element {
+display: inline-flex;
+align-items: center;
+}
+.element> input{
+display: none;
+}
+i.fa-camera {
+margin: 10px;
+cursor: pointer;
+font-size: 30px;
+}
+i:hover {
+opacity: 0.6;
+}
+
+
+
+@media only screen and (min-width:320px) and (max-width: 767px) {
+   label{
+        margin-left: 51px;
+    }
+    ul.dots a {
+        text-decoration: none;
+        font-size: 12px;
+        color: #34495e;
+      }
+      ul.dots a:hover {
+        text-decoration: none;
+        font-size: 12px;
+        color: #bdc3c7;
+      }
+      
+      ul.dots li:hover {
+        background: #2c3e50;
+      }
+      ul.dots li span {
+        /* display: block; */
+        
+        padding: 10px;
+       
+        position: relative;
+      }
+      ul.dots li mark {
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 10px;
+        border: 2px solid #FFF;
+        width: 20px;
+        height: 20px;
+        background-color: #f44336;
+        position: absolute;
+        top: 5px;
+        left: 17px;
+        font-size: 10px;
+        /* line-height: 20px; */
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        color: #FFF;
+        font-weight: 800;
+      }
+     
+
+    .avatar-upload {
+        margin-top: -32px;
+    margin-left: -150px;}
+.container123 {
+    width: auto;
+    padding: 20px;
+    margin-left: 6px;
+}
+.container123:hover .avatar-edit {
+    display: block;
+}
+.avatar-edit {
+    display: none;
+    }
+
+.avatar-upload .avatar-preview {
+    width: 151px;
+    height: 151px;
+    background-color: #e2caca;
+    position: relative;
+    border-radius: 100%;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    margin-top: -10px;
+     margin-left: 89px;
+}
+
+.avatar-upload .avatar-edit {
+    position: absolute;
+    left: 92px;
+    z-index: 1;
+    bottom: 4px;
+    width: 145px;
+}
+.img1{
+    width: 149px;
+    margin-left: 2px;
+ }
+
+ .avatar-edit {
+    display: none;
+     background: rgba(0, 0, 0, 0.3);
+  
+    height: 61px;
+    
+    width: 96%;
+    
+    border-radius: 0px 0px 112px 112px;
+    }
+
+.avatar-upload .avatar-edit input + label {
+   display: inline-block;
+    width: 27px;
+    height: 43px;
+    margin-bottom: 3px;
+    margin-left: -26px;
+    border-radius: 100%;
+    background: #ffffff;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    opacity: 0;
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+.avatar-upload .avatar-edit input + label:hover {
+    background: #f1f1f1;
+    border-color: #d6d6d6;
+}
+
+.avatar-upload .avatar-edit input + label:after {
+    content: "\f040";
+    font-family: "FontAwesome";
+    color: #757575;
+    position: absolute;
+    top: 5px;
+    left: 46px;
+    right: 0;
+    text-align: center;
+    margin: auto;
+}
+
+.avatar-upload .avatar-preview {
+    width: 151px;
+    height: 151px;
+    background-color: #e2caca;
+    position: relative;
+    border-radius: 100%;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    margin-top: -10px;
+}
+
+ 
+
+}
+
+
+
+
+  ul.dots a {
+    text-decoration: none;
+    font-size: 12px;
+    color: #34495e;
+  }
+  ul.dots a:hover {
+    text-decoration: none;
+    font-size: 12px;
+    color: #bdc3c7;
+  }
+  
+  ul.dots li:hover {
+    background: #d2e8ff;
+  }
+  ul.dots li span {
+    /* display: block; */
+    
+    padding: 10px;
+   
+    position: relative;
+  }
+  ul.dots li mark {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 10px;
+    border: 2px solid #FFF;
+    width: 20px;
+    height: 20px;
+    background-color: #f44336;
+    position: absolute;
+    top: 5px;
+    left: 17px;
+    font-size: 10px;
+    /* line-height: 20px; */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #FFF;
+    font-weight: 800;
+  }
+ 

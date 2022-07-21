@@ -1,0 +1,435 @@
+<div class="appbody">
+	<header id="header">
+
+<section class="container-fluid nav-header">
+<div class="row">
+	<div class="col-xs-4 col-sm-6">
+		<div class="lp-logo header-logo">
+			<h2><b>FINCHAINPAY</b></h2>
+		</div>
+	</div>
+</div>
+</section>
+
+</header>
+
+
+<div class="application">
+	<div class="loader-section hidden">
+		<div style="height: 100%; max-height: 100vh; position: relative;">
+			<div class="loader">
+				
+			</div></div></div>
+			<div class="app-component">
+				<div class="tile-container"><div>
+					<div class="loader-section hidden">
+						<div style="height: 100%; max-height: 100vh; position: relative;">
+							<!-- <div class="loader">
+								
+							</div> -->
+						</div>
+					</div>
+						<form class="Signup" [formGroup]="signupForm">
+	<mat-horizontal-stepper labelPosition="bottom" #stepper>
+
+		<mat-step [stepControl]="firstFormGroup">
+	
+		<ng-template matStepLabel>Your Details</ng-template>
+	<div class="row ">
+		<div class="">
+			<div class="col-xs-12">
+				<h1 class="section-heading text-center">Tell us about yourself</h1>
+			</div>
+			<div class="clear-both">
+				
+			</div>
+		</div>
+		<div class="sub-section">
+			<div class="col-xs-12">
+				<h3 class="sub-heading sub-h">Personal Information</h3>
+			</div>
+			<div class="col-xs-12">
+				<div class="row">
+					<div class="clear-both">
+						
+					</div>
+				</div>
+					<div class="row">
+						<div class="col-sm-6 mb-40"><div class="material-component fw-component"><div class="group"><label>PAN Number</label>
+							<input class="newInput" id="panNumber" type="text" maxlength="10" formControlName="PANnumber" required="" value="">
+							<!-- <p class="error">Enter valid PAN number</p> -->
+
+							<span class="adac "
+                                *ngIf="editform.PANnumber.errors && (editform.PANnumber.invalid && editform.PANnumber.dirty)">
+                                <p *ngIf="editform.PANnumber.errors.required"> PAN Number is Required</p>
+                                <p *ngIf="editform.PANnumber.errors.maxlength || editform.PANnumber.errors.minlength ">PAN
+                                  Number length should be 10 digits</p>
+                                <p *ngIf="editform.PANnumber.errors?.pattern">
+                                  PAN Number not valid.
+                                </p>
+                              </span>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 mb-40">
+					<div class="material-component fw-component">
+						<div class="group">
+							<label>Name as per PAN card</label>
+							<input class="newInput" id="nameOnPan" type="text" formControlName="Name" required="" value="" (keypress)="keyPress1($event)">
+							<!-- <p class="error">Enter a valid name</p> -->
+							<span class="error" *ngIf="editform.Name.errors && (editform.Name.invalid && editform.Name.dirty)">
+							<p *ngIf="editform.Name.errors.required">Enter a valid name</p>
+						</span>
+						</div>
+					</div>
+				</div>
+				<div class="clear-both">
+					
+				</div>
+			</div>
+			<div class="row">
+					<div class="col-sm-6 mb-40">
+							<div class="material-component fw-component">
+								<div class="group">
+									<label>Mobile Number</label>
+									<input class="newInput" id="locality" maxlength="10" type="text" formControlName="mobile" required="" value="" (keypress)="keyPress($event)">
+									
+									<span class="error" *ngIf="editform.mobile.errors && (editform.mobile.invalid && editform.mobile.dirty)">
+									<p *ngIf="editform.mobile.errors.required">
+									Mobile Number is Required</p>
+									</span>
+								</div>
+							</div>
+						</div>
+				
+				<div class="col-sm-6 mb-40">
+					<div class="material-component fw-component">
+						<div class="group">
+							<label>Email</label>
+							<input class="newInput" id="email" type="text" formControlName="Email" required="" value="">
+		
+							<span class="error" *ngIf="editform.Email.errors && (editform.Email.invalid && editform.Email.dirty)">
+							<p *ngIf="editform.Email.errors.required">EmailId is Required</p>
+							<p *ngIf="editform.Email.errors.pattern">
+                                  Email Id not valid.
+                                </p>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="clear-both">
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6 mb-40">
+					<div class="text-label">Gender</div>
+					<div class="inline-content">
+						<div class="md-radio">
+								<input id="male" type="radio" class="custom-control-input" value="male"  formControlName="gender" name="gender" required>
+								<label class="custom-control-label" for="male">Male</label>
+							
+						</div>
+						<div class="md-radio">
+								<input id="female" type="radio" class="custom-control-input" value="female"  formControlName="gender" name="gender" required>
+								<label class="custom-control-label" for="female">Female</label>
+						
+						</div>
+						<div class="md-radio">
+								<input id="Others" type="radio" class="custom-control-input" value="others"  formControlName="gender" name="gender" required>
+								<label class="custom-control-label" for="others">Others</label>
+						</div>
+					</div>
+					<span class="error" *ngIf="editform.gender.errors?.required"><p>Select gender</p></span>
+				</div>
+				
+				<div class="col-sm-6 mb-40">
+						<div class="material-component fw-component">
+							<div class="group">
+								<label>Date of Birth (dd/mm/yyyy)</label>
+								<input class="newInput" id="dob" type="Date" maxlength="14" formControlName="DOB" required="" value="">
+								<!-- <p class="error">Enter valid date of birth in the format dd / mm / yyyy</p> -->
+							</div>
+						</div>
+					</div>
+
+
+			</div>
+		</div>
+		<div class="clear-both">
+			
+		</div>
+	</div>
+	<div class="sub-section">
+		<div class="col-xs-12">
+			<h3 class="sub-heading">Employment Information</h3>
+		</div>
+		<div class="col-xs-12">
+			<div class="row">
+				<div class="col-sm-6 mb-40">
+					<div class="text-label">Employment status</div>
+					<div class="inline-content">
+						<div class="md-radio">
+							<input id="Salaried" type="radio" class="custom-control-input" value="Salaried"  formControlName="Type" name="Type">
+							<label class="custom-control-label" for="Salaried">Salaried</label>
+							<!-- <input class="newInput" id="Salaried" type="radio" name="emp-status" checked="">
+							<label for="Salaried">Salaried</label> -->
+						</div>
+						<div class="md-radio">
+							<input id="_Others" type="radio" class="custom-control-input" value="Others"  formControlName="Type" name="Type">
+							<label class="custom-control-label" for="_Others">Others</label>
+							<!-- <input class="newInput" id="_Others" type="radio" name="emp-status"><label for="_Others">Others</label> -->
+						</div>
+					</div>
+					<span class="error" *ngIf="editform.Type.errors?.required"><p>Select Employment Type</p></span>
+				</div>
+				<div class="col-sm-6 mb-40">
+					<div class="material-component fw-component">
+						<div class="group">
+							<label>What's your monthly income?</label>
+							<input class="newInput" type="text" id="monthlySalary" formControlName="Income" required="" value="" (keypress)="keyPress($event)">
+							<!-- <p class="error">Please enter monthly income</p> -->
+							<span class="error" *ngIf="editform.Income.errors && (editform.Income.invalid && editform.Income.dirty)">
+							<p *ngIf="editform.Income.errors.required">Please enter monthly income</p>
+						</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="clear-both"></div>
+	</div>
+	<div class="sub-section">
+		<div class="col-xs-12">
+			<h3 class="sub-heading sub-h">Current Address Details</h3>
+		</div>
+		<div class="col-xs-12">
+			<div class="row">
+				<div class="col-sm-6 mb-40">
+					<div class="material-component fw-component">
+						<div class="group">
+							<label>House No., Building Name</label>
+							<input class="newInput" id="houseNo" maxlength="100" type="text" formControlName="Address" required="" value="">
+							<!-- <p class="error">Enter valid details</p> -->
+							<span class="error" *ngIf="editform.Address.errors && (editform.Address.invalid && editform.Address.dirty)">
+							<p *ngIf="editform.Address.errors.required">
+							Enter valid details</p>
+						</span>
+						</div>
+						</div>
+					</div>
+					<div class="col-sm-6 mb-40">
+						<div class="material-component fw-component">
+							<div class="group">
+								<label>Locality, Area or Street</label>
+								<input class="newInput" id="locality" maxlength="200" type="text" formControlName="Locality" required="" value="">
+								<!-- <p class="error">Enter valid details</p> -->
+								<span class="error" *ngIf="editform.Locality.errors && (editform.Locality.invalid && editform.Locality.dirty)">
+								<p *ngIf="editform.Locality.errors.required">
+								Enter valid details</p>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 mb-40">
+						<div class="material-component fw-component">
+							<div class="group">
+								<label>Pincode</label>
+								<input class="newInput" id="currentPinCode" type="text" formControlName="PINcode" maxlength="6" required="" value="" (keypress)="keyPress($event)">
+								<!-- <p class="error">Enter a valid Pincode</p> -->
+								<span class="error" *ngIf="editform.PINcode.errors && (editform.PINcode.invalid && editform.PINcode.dirty)">
+								<p *ngIf="editform.PINcode.errors.required">
+									Enter a valid Pincode</p>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 mb-40">
+						<div class="material-component fw-component">
+							<div class="group">
+								<label>City</label>
+								<input class="newInput" id="city" type="text" formControlName="City" required="" value="" (keypress)="keyPress1($event)">
+								<!-- <p class="error">Enter valid city</p> -->
+								<span class="error" *ngIf="editform.City.errors && (editform.City.invalid && editform.City.dirty)">
+								<p *ngIf="editform.City.errors.required">
+									Enter valid city</p>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="clear-both">
+						
+					</div>
+				</div>
+			</div>
+			<div class="clear-both">
+				
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<div class="text-center tnc-container">
+				<div class="md-checkbox">
+					<input class="newInput" id="consentStatement" formControlName="Consent" type="checkbox" required="">
+					<label for="consentStatement" class="md-check-label f-13 fw-normal">I verify that the above details are true and correct and hereby provide consent to check my credit score from bureau.</label>
+					
+					<span class="error" *ngIf="editform.Consent.errors?.required"><p>Please provide the consent</p></span>
+				
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<!-- <div class="text-center"><button type="submit" [disabled]="signupForm.invalid" class="btn">Next</button>
+			</div> -->
+			<div class="text-center">
+                <button mat-raised-button class="btn btn-primary" matStepperNext>Next</button>
+            </div>
+	</div>
+</div>
+<!-- </form> -->
+</mat-step>
+
+<div class="example-container ">
+<mat-step [stepControl]="secondFormGroup" >
+	<!-- <form class="Signup" [formGroup]="signupForm" (ngSubmit)="Signup(signupForm)"> -->
+        <!-- <form [formGroup]="kycForm" (ngSubmit)="Second(kycForm)"> -->
+            
+
+        <!-- <form [formGroup]="kycForm" (ngSubmit)="Second(kycForm)"> -->
+            <ng-template matStepLabel>KYC Details</ng-template>
+            <div class="row">	
+            <div >
+            	<div>
+            <mat-form-field>
+            	            
+                <input matInput placeholder="Aadhaar Number" formControlName="aadhaarNo" required minlength=12 maxlength=12 (keypress)="keyPress($event)">
+                </mat-form-field><br>
+            				  <span 
+                                *ngIf="editform.aadhaarNo.errors && (editform.aadhaarNo.invalid && editform.aadhaarNo.touched)">
+                                <p *ngIf="editform.aadhaarNo.errors.required">Aadhar Number is required</p>
+                                <p
+                                  *ngIf="editform.aadhaarNo.errors.maxlength || editform.aadhaarNo.errors.minlength ">
+                                Aadhar Number should be in valid format.</p>
+                              </span>
+                                          
+
+                <!-- <p class="error">Enter valid Aadhaar number</p> -->
+
+        	
+            <mat-form-field>
+                <input matInput placeholder="Name as per Aadhaar" (keypress)="keyPress1($event)"  formControlName="name" required>
+            </mat-form-field><br>
+           	</div>
+
+  </div>
+
+	<div>
+		<div>
+
+            <label id="edit1" for="singleFile">Aadhaar card:</label>
+			<input id="edit1" type="file" (change)="aadhaarUpload($event)"/>
+
+			<br>
+
+			<label id="edit2" for="singleFile">Pan card:</label>
+			<input id="edit2" type="file" (change)="panUpload($event)"/>
+			<br>
+			</div>
+		</div>
+	</div>
+            <div class="text-center">
+                <!-- <button mat-button matStepperPrevious>Back</button> -->
+                <!-- <button mat-button matStepperNext>Next</button> -->
+                <button mat-raised-button class="btn btn-primary" matStepperNext>Next</button>
+            </div>
+        <!-- </form> -->
+    </mat-step>
+</div>
+<mat-step [stepControl]="thirdFormGroup" >
+    <!-- <form [formGroup]="paymentForm" (ngSubmit)="Third(paymentForm)"> -->
+    	<!-- <form class="Signup" [formGroup]="signupForm" (ngSubmit)="Signup(signupForm)"> -->
+        <ng-template matStepLabel>Setup auto payment</ng-template>
+                    <div class="row">	
+
+        <div>
+        	<mat-form-field>
+
+                <input matInput placeholder="Account Holder Name" (keypress)="keyPress1($event)" formControlName="accountHolderName" required>
+
+            </mat-form-field>
+
+            <h4>Bank Name:</h4>
+		<mat-form-field>
+  			<mat-label>Choose Bank</mat-label>
+  				<mat-select formControlName="bank" >
+    				<mat-option *ngFor="let bank of banks" [value]="bank">{{bank}}</mat-option>
+    				<!-- <mat-option value="HDFC">HDFC </mat-option> -->
+    				<!-- <mat-option value="ICICI">ICICI</mat-option> -->
+    				
+  				</mat-select>
+		</mat-form-field><br>
+
+<mat-form-field>
+                <input matInput placeholder="Account number" minlength=15 maxlength=15 (keypress)="keyPress($event)"formControlName="accountNo" required>
+            </mat-form-field><br>
+        </div>
+
+<div>
+            <mat-form-field>
+                <input matInput placeholder="IFSC code" minlength=12 maxlength=12 formControlName="ifscCode" required>
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input matInput placeholder="Branch" (keypress)="keyPress1($event)"formControlName="branch" required>
+            </mat-form-field><br>
+
+            <label id="singleFile1" for="singleFile">Upload 3months bank statements:</label>
+			<input id="singleFile1" type="file" (change)="statementUpload($event)"/>
+			<br>
+</div>
+</div>
+        
+        <div class="text-center">
+            <!-- button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button> -->
+           <button mat-raised-button class="btn btn-primary" matStepperNext (click)="Signup(signupForm.value)">Submit</button>
+        </div>
+    <!-- </form> -->
+</mat-step>
+
+    </mat-horizontal-stepper>
+    	</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+							
+
+
+
+
+
+
+<div class="modal fade" id="myModalopen" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        
+        <div class="modal-body">
+          <h3>Thank you for Successfully Registering.</h3>
+        </div>
+        <div class="modal-footer">
+		<div class="text-center">
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="nextpage()">Ok</button>
+          </div>	
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  

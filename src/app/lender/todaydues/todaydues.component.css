@@ -1,0 +1,51 @@
+.pay-info {
+    padding: 20px 5px;
+    text-align: center;
+}
+
+p {
+    font-weight: bold;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .pay-info {
+        height: 70px;
+        padding: 12px 0;
+    }
+}
+
+p {
+    font-size: 13px;
+}
+
+/*//new css*/
+.filters{
+	float:left;
+	position: relative;
+	cursor: pointer;
+	    font-size: 20px;
+}
+.Downloads{
+	cursor: pointer;
+	font-size: 20px;
+}
+.example-stretched-tabs {
+    max-width: 800px;
+  }
+  .buttonstyle 
+  { 
+    background: #ffffff;
+    background-position: 0px -401px;
+    border: solid 1px #777;
+    color: #777;
+    font-weight: bold;
+    height: 34px;
+    margin-top: -1px;
+    padding-bottom: 2px;
+    width: 250px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+  }
+ 
+  .buttonstyle:hover {background: white;background-position: 0px -501px;color: #000000; }

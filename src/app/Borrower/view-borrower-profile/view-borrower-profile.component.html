@@ -1,0 +1,696 @@
+<div class="lendere">
+  <h1 style="margin-top:10%;"><img alt="loan History" src="assets/images/Loan History.png" class="bheading">&nbsp; View Profile</h1>
+  <div class="col-md-offset-1 col-md-8">
+    <form [formGroup]="companyUpdateForm">
+      <div class="row viewprofile">
+        <!-- <div class="editdiv">
+                  <button class="btn btn-success editbutton" *ngIf="status1"  name="edit" (click)="update()">Edit</button>
+                  <button class="btn btn-warning editbutton cancelbutton" *ngIf="status2" (click)="cancel()">Cancel</button>
+                  <button class="btn btn-success editbutton" data-toggle="modal" data-target="#success" *ngIf="status2" (click)="save(companydetails)">Save</button>
+              </div> -->
+        <!-- <div style="text-align:center">
+                  <div *ngIf="viewborrowerprofileloading">
+                      <div class="loader"></div>
+                  </div>
+                </div> -->
+
+        <table class="table-responsive width">
+          <div class="table-head table-header">COMPANY DETAILS</div>
+          <table class="table table-striped table bordered">
+            <thead>
+            </thead>
+            <tr>
+              <th>Company Name</th>
+
+              <th>
+                {{companydetails.companyName}}
+
+                <!--  <input type="text" [readonly]="true"  [(ngModel)]="companydetails.companyName" class="form-control"  [readonly]="true" formControlName="fullname"  name="fullname" style=" font-size: 13px;border:none;background-color: #f9f9f9;">
+                              <div class="alert alert-danger" role="alert" *ngIf="editform.fullname.dirty  && editform.fullname.errors?.required" id="executiveFormErrorStyle"> Please enter Company Name</div> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th class="colourful">DOE</th>
+              <th class="colourful">
+
+                <!-- {{date | date: 'dd'}}/{{date | date:'MM'}}/{{date | date: 'yyyy'}} -->
+
+                <!-- {{companydetails.date_of_establishment}} -->
+                {{companydetails.date_of_establishment | date:'dd/MM/yyyy'}}
+                <!--        <mat-form-field class="full-width">
+                        <mat-label>DOE (mm/dd/yyyy)</mat-label>
+                        <input matInput required  formControlName="doe" class="form-control" [readonly]="true" [disabled]="status3"  name="doe" [(ngModel)]="companydetails.date_of_establishment" [matDatepicker]="picker"
+                            placeholder="Choose a date" style="background-color: #f5f5f0;">
+                        <mat-datepicker-toggle class="mat-icon" matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker class="mat-icon" *ngIf="iconss" [disabled]="true" #picker></mat-datepicker>
+                    </mat-form-field><br> -->
+
+              </th>
+            </tr>
+
+            <tr>
+              <th>Company Type</th>
+              <th id="companytypes">
+                {{companydetails.companytype}}
+
+                <!-- <select    [ngClass]="{'noeditable': !edit, 'editing': edit}" formControlName="organization"  [(ngModel)]="companydetails.companytype"  name="organization" class="form-control" [disabled]="true" required>
+                                  <option value="" [disabled]="true" style="display:none;">--Select Option--</option>
+                                  <option *ngFor="let company of companytypes" [disabled]="true" style="display:none;" >{{company}}</option>
+                              </select>  -->
+              </th>
+            </tr>
+
+            <tr>
+              <th class="colourful">Business PAN</th>
+              <th class="colourful">
+                {{companydetails.bussiness_pan}}
+                <!--  <input type="text" class="form-control" [readonly]="true"  formControlName="pancard" name="pancard" 
+                [(ngModel)]="companydetails.bussiness_pan" placeholder="Enter Business PAN Number"  style="border:none;background-color: #f5f5f0;">
+                            <span
+                            *ngIf="editform.pancard.errors && (editform.pancard.invalid && editform.pancard.dirty)">
+                         <p *ngIf="editform.pancard.errors.required"> PAN Number is Required</p>
+                         <p *ngIf="editform.pancard.errors.maxlength || editform.pancard.errors.minlength ">PAN Number length should be 10 digits</p>
+                         <div *ngIf="editform.pancard.errors?.pattern">
+                                PAN Number not valid.
+                           </div> 
+                         </span> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th>GST Number</th>
+              <th>
+                {{companydetails.gst_number}}
+
+                <!--  <input type="text" class="form-control" 
+                              [(ngModel)]="companydetails.gst_number"  [readonly]="true" name="gstnumber" formControlName="gstnumber" placeholder="Enter GST Number" style="border:none;background-color:#f9f9f9;">
+                              <span 
+                              *ngIf="editform.gstnumber.errors && (editform.gstnumber.invalid &&  editform.gstnumber.dirty)">
+                              <p *ngIf="editform.gstnumber.errors.required"> GST Number is Required</p>
+                              <p *ngIf="editform.gstnumber.errors.maxlength || editform.gstnumber.errors.minlength ">GST Number length should be 15 digits</p>
+                              <div *ngIf="editform.gstnumber.errors?.pattern">
+                                GST Number not valid.
+                              </div> 
+                              </span> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th class="colourful">Number Of Years <br />
+                in Business</th>
+              <th class="colourful">
+
+                {{companydetails.business_years}}
+                <!-- <select style="background-color:  #f5f5f0;" [ngClass]="{'noeditable': !edit, 'editing': edit}" [(ngModel)]="companydetails.business_years" name="bussiness_since"  formControlName="bussiness_since" class="form-control"   required>
+                                    <option value="" style="display:none;" [disabled]="true">--Select Option--</option>
+                                    <option *ngFor="let years of numberofyearsinbusiness"  [disabled]="true" style="display:none;">{{years}}</option>
+                              </select>  -->
+              </th>
+            </tr>
+
+            <tr>
+              <th>Company Turnover</th>
+              <th>
+
+                {{companydetails.company_turnover}}
+                <!-- <select  [ngClass]="{'noeditable': !edit, 'editing': edit}" [(ngModel)]="companydetails.company_turnover" name="companyturnover"  formControlName="companyturnover" class="form-control" required>
+                                    <option value=""  [disabled]="true" style="display:none;">--Select Option--</option>
+                                    <option *ngFor="let turnover of company_turnover" [disabled]="true" style="display:none;">{{turnover}}</option>
+                              </select>  -->
+              </th>
+            </tr>
+            <tr>
+              <th class="colourful">Number of Employees</th>
+              <th class="colourful">
+                {{companydetails.number_of_employees}}
+
+
+                <!-- <select style="background-color:  #f5f5f0;" [ngClass]="{'noeditable': !edit, 'editing': edit}" [(ngModel)]="companydetails.number_of_employees" name="employee_count"  formControlName="employee_count" class="form-control"   required>
+                                    <option value="" [disabled]="true" style="display:none;">--Select Option--</option>
+                                    <option *ngFor="let employees_no of numberofemployees" [disabled]="true" style="display:none;">{{employees_no}}</option>
+                              </select>  -->
+              </th>
+            </tr>
+            <tr>
+              <th>DIN (Director <br /> Identification Number)</th>
+              <th>
+                {{companydetails.director_identification_number}}
+
+                <!-- <input type="text" [readonly]="true"  class="form-control"  formControlName="din" name="din" 
+                               [(ngModel)]="companydetails.director_identification_number" placeholder="Enter DIN" style="border:none;background-color:#f9f9f9;">
+                               <span  *ngIf="editform.din.errors && (editform.din.invalid && editform.din.dirty)">
+                                <p *ngIf="editform.din.errors.required">DIN Number is required</p>
+                                <p *ngIf="editform.din.errors.maxlength || editform.din.errors.minlength ">DIN number should be in valid format.</p>
+                               </span> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th class="colourful">CIN (Corporate <br /> Identification Number)</th>
+              <th class="colourful" id="Corporates">
+                {{companydetails.corporate_identification_number}}
+
+                <!-- <input type="text" [readonly]="true" class="form-control"  formControlName="cin" name="cin" 
+                               [(ngModel)]="companydetails.corporate_identification_number" placeholder="Enter CIN" style="background-color: #f5f5f0;border:none;">
+                               <span *ngIf="editform.cin.errors && (editform.cin.invalid && editform.cin.dirty)">
+                               <p *ngIf="editform.cin.errors.required">CIN Number is required</p>
+                               <p *ngIf="editform.cin.errors.maxlength || editform.cin.errors.minlength ">CIN number should be in valid format.</p>
+                               </span> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th>Company Website</th>
+              <th>
+                {{companydetails.company_website_link}}
+
+
+                <!-- <input type="text"  [readonly]="true" class="form-control"  formControlName="company_website" name="company_website" 
+                                [(ngModel)]="companydetails.company_website_link" placeholder="Enter Your Company Website" style="border:none;background-color:#f9f9f9;">
+                                <span *ngIf="editform.company_website.errors && (editform.company_website.invalid && editform.company_website.dirty)">
+                                <p *ngIf="editform.company_website.errors.required"> company website address Required
+                                </p>  
+                                <p *ngIf="editform.company_website.errors?.pattern">
+                                    company website address is Invalid
+                                </p> 
+                                </span> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th class="colourful">Official EmailID</th>
+              <th class="colourful">
+
+                {{companydetails.email_id}}
+                <!-- <input type="text" [readonly]="true" class="form-control" formControlName="email_id" name="email_id" [(ngModel)]="companydetails.email_id" placeholder="finchain@gowdanar.com" style="background-color: #f5f5f0;border:none;">
+                                <span *ngIf="editform.email_id.errors && (editform.email_id.invalid && editform.email_id.dirty)">
+                                <p *ngIf="editform.email_id.errors.required"> Official EmailId is Required</p>
+                                <p *ngIf="editform.email_id.errors?.pattern">
+                                    Email Id not valid.
+                                </p> 
+                                </span> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th>Office Contact <br> Number</th>
+              <th>
+
+                {{companydetails.contact_phone_number}}
+                <!-- <input type="text" [readonly]="true" class="form-control" formControlName="officenumber"  placeholder="Enter Office Contact Number" name="officenumber" [(ngModel)]="companydetails.contact_phone_number" style="border:none;background-color:#f9f9f9;" required>
+                                <span *ngIf="editform.officenumber.errors && (editform.officenumber.invalid && editform.officenumber.dirty)">
+                                <p *ngIf="editform.officenumber.errors.required">Office Number is required</p>
+                                <p *ngIf="editform.officenumber.errors.maxlength || editform.officenumber.errors.minlength || editform.officenumber.errors?.pattern"> Number should be in valid format.</p>
+                                </span> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th class="colourful">Director Name</th>
+              <th class="colourful">
+
+                {{companydetails.director_name}}
+                <!-- <input type="text" [readonly]="true"  class="form-control" formControlName="directorname" name="directorname" 
+                                [(ngModel)]="companydetails.director_name" placeholder="Enter Director Name" style="background-color: #f5f5f0;border:none;">
+                                <span *ngIf="editform.directorname.errors && (editform.directorname.invalid && editform.directorname.dirty)">
+                                <p *ngIf="editform.directorname.errors.required">Director Name is required</p>
+                                </span> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th>Director Mobile <br> Number</th>
+              <th>
+                {{companydetails.director_mobile_number}}
+
+                <!-- <input type="text" [readonly]="true" class="form-control" formControlName="directornumber"  [(ngModel)]="companydetails.director_mobile_number" style="border:none;background-color:#f9f9f9;" required>
+                                <span *ngIf="editform.directornumber.errors && (editform.directornumber.invalid && editform.directornumber.dirty)">
+                                <p *ngIf="editform.directornumber.errors.required">Mobile Number is required</p>
+                                <p *ngIf="editform.directornumber.errors.maxlength || editform.directornumber.errors.minlength || editform.directornumber.errors?.pattern">Number should be in valid format.</p>
+                                </span> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th class="colourful">Company Partner <br> Name</th>
+              <th class="colourful">
+
+                {{companydetails.partner_name}}
+                <!-- <input type="text" [readonly]="true" class="form-control" formControlName="partnerName" name="partnerName" 
+                                [(ngModel)]="companydetails.partner_name" placeholder="Enter Your Company Partner Name" style="background-color:#f5f5f0;border:none;"> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th>Partner Mobile <br> Number</th>
+              <th>
+
+                {{companydetails.partner_mobile_number}}
+                <!-- <input type="text" [readonly]="true" [(ngModel)]="companydetails.partner_mobile_number" class="form-control" formControlName="partnernumber" style="border:none;background-color:#f9f9f9;" required>
+                                 <span *ngIf="editform.partnernumber.errors && (editform.partnernumber.invalid && editform.partnernumber.touched)">
+                                <p *ngIf="editform.partnernumber.errors.required">Mobile Number is required</p>
+                                <p *ngIf="editform.partnernumber.errors.maxlength || editform.partnernumber.errors.minlength || editform.partnernumber.errors?.pattern"> Number should be in valid format.</p>
+                                </span> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th class="colourful">Aadhar Card Number</th>
+              <th class="colourful">
+                {{companydetails.adharcard_number}}
+                <!-- <input type="text" class="form-control" [readonly]="true"  name="aadhaar_card" formControlName="aadhaar_card" [(ngModel)]="companydetails.adharcard_number" style="background-color: #f5f5f0;border:none;" required>
+                              <div class="alert alert-danger" role="alert" *ngIf="editform.aadhaar_card.dirty  && editform.aadhaar_card.errors?.required"> Invalid Aadhar Number</div> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th>Company Office</th>
+              <th>
+
+                {{companydetails.present_address_type}}
+                <!-- <div>
+                                 <fieldset [disabled]="true">
+                                    <input type="radio" formControlName="addresstype" name="addresstype" id="owned" value="Owned" [(ngModel)]="companydetails.present_address_type" required>&nbsp;Own Building &nbsp;
+                                    <br />
+                                    <input type="radio" formControlName="addresstype" name="addresstype" id="rented" value="Rented" [(ngModel)]="companydetails.present_address_type" required>&nbsp;Rented Building
+                                  </fieldset>
+                               </div> -->
+              </th>
+            </tr>
+          </table>
+        </table>
+
+
+
+
+
+
+        <table class="table-responsive width">
+          <div class="table-head">ADDRESS DETAILS</div>
+
+          <table class="table table-striped table bordered">
+            <thead class="profile">
+            </thead>
+            <tr>
+              <th>Flat/Room/Door <br> /Block No.</th>
+              <th>
+
+
+                {{companydetails.office_roomno}}
+                <!-- <input type="text" [readonly]="true" formControlName="housenumber" class="form-control" placeholder="Enter Flat/Room/Door/Block No." name="housenumber" [(ngModel)]="companydetails.office_roomno" style="border:none;background-color:#f9f9f9;" required>
+                        <span class="help-block"
+                        *ngIf="editform.housenumber.errors && (editform.housenumber.invalid && editform.housenumber.dirty)">
+                     <p *ngIf="editform.housenumber.errors.required"> Enter House. No (or) Flat No</p>
+                     </span> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th class="colourful">Building/Apartment <br> Name</th>
+              <th class="colourful">
+                {{companydetails.permanentbuildingname}}
+
+                <!-- <input type="text" [readonly]="true" class="form-control" formControlName="Building" placeholder="Enter Bldg name / Apt Name" name="Building" [(ngModel)]="companydetails.permanentbuildingname" style="background-color:#f5f5f0;border:none;" required> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th>Street</th>
+              <th>
+                {{companydetails.company_street}}
+
+                <!-- <input type="text" [readonly]="true" class="form-control" formControlName="permanent_street" placeholder="Enter street name" name="permanent_street" [(ngModel)]="companydetails.company_street" style="border:none;background-color:#f9f9f9;" required> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th class="colourful">Landmark</th>
+              <th class="colourful">
+                {{companydetails.permanent_landmark}}
+
+                <!-- <input type="text" [readonly]="true" class="form-control" formControlName="landmark"  placeholder="Enter Landmark" name="landmark" [(ngModel)]="companydetails.permanent_landmark" style="background-color: #f5f5f0;border:none;"> -->
+              </th>
+            </tr>
+
+            <tr>
+              <th>State</th>
+              <th>
+
+                {{companydetails.selectedState}}
+                <!-- <select [ngClass]="{'noeditable': !edit, 'editing': edit}"  [(ngModel)]="companydetails.selectedState" name="states" formControlName="states" class="form-control"  (change)="onSelect($event.target.value)">
+                          <option value=""  [disabled]="true" style="display:none;">--Select State--</option>
+                          <option *ngFor="let data of states" [disabled]="true" style="display:none;">{{data.name}}</option>
+                          </select> -->
+              </th>
+            </tr>
+
+            <!-- <tr>
+                          <th class="colourful">District</th>
+                          <th class="colourful">
+                          
+                         {{companydetails.selecteddistric}}
+                          <select style="background-color:  #f5f5f0;" [ngClass]="{'noeditable': !edit, 'editing': edit}"  [(ngModel)]="companydetails.selecteddistric"  formControlName="districts" name="districts" class="form-control" (change)="select($event.target.value)">
+                          <option value="" [disabled]="true" style="display:none;">--Select District--</option>
+                          <option *ngFor="let district of districts" [disabled]="true" style="display:none;">{{district.name}}</option>
+                          </select> 
+                          </th>
+                     </tr> -->
+
+            <!--  <tr>
+                          <th>City</th>
+                          <th>
+                          <select   [(ngModel)]="companydetails.selectedcity"  name="city"   formControlName="city" class="form-control">
+                          <option value="" [disabled]="status3">--Select City...</option>
+                          <option *ngFor="let citi of city">{{citi.name}}</option>
+                          </select> 
+                          
+                          </th>
+                     </tr> -->
+
+            <tr>
+              <th class="colourful">City</th>
+              <th class="colourful">
+                {{companydetails.selectedcity}}
+                <!-- <input type="text" [readonly]="true" class="form-control" formControlName="city"  placeholder="Enter Landmark" name="city" [(ngModel)]="companydetails.selectedcity" style="background-color: #f5f5f0;border:none;"> -->
+              </th>
+            </tr>
+
+
+            <tr>
+              <th class="colourful">How long have you <br> been in this address</th>
+              <th class="colourful">
+
+                {{companydetails.longstay}}
+                <!-- <select style="background-color:  #f5f5f0;" [ngClass]="{'noeditable': !edit, 'editing': edit}" [(ngModel)]="companydetails.longstay"  formControlName="stayedDurations" name="stayedDurations"  
+                                        class="form-control"  required>           
+                              <option  value="" [disabled]="true" style="display:none;"> ---For how long you had been at this address---</option>
+                              <option *ngFor="let stay of stayduration" [disabled]="true" style="display:none;">{{stay}}
+                              </option>
+                              </select>  -->
+              </th>
+            </tr>
+
+            <tr>
+              <th class="colourful">Pincode</th>
+              <th class="colourful">
+                {{companydetails.pin_code}}
+
+                <!-- <input type="text" [readonly]="true" class="form-control" [(ngModel)]="companydetails.pin_code" (keypress)="keyPress($event)" formControlName="pincode" placeholder="Enter pincode" name="pincode" minlength="6" maxlength="6"   required="true" style="border:none;background-color:#f9f9f9;" > -->
+
+              </th>
+            </tr>
+
+
+          </table>
+        </table>
+
+
+
+      
+
+        <table class="table-responsive width">
+          <div class="table-head">DOCUMENTS DETAILS</div>
+
+          <table class="table table-striped table bordered">
+            <thead class="profile">
+            </thead>
+            <tr>
+              <th>Business PAN:</th>
+              <th>
+
+                <button type="submit"  class="btn btn-primary DOCUMENTST"
+                  (click)="viewdocs('Business_pan')">View</button>
+              </th>
+            </tr>
+
+            <tr>
+              <th class="colourful">Latest 6 Months<br> Bank Statement:</th>
+              <th class="colourful">
+                <button type="submit"  class="btn btn-primary DOCUMENTST"
+                  (click)="viewdocs1('bank_stmnt_borwr')">View</button>
+              </th>
+            </tr>
+
+            <tr>
+              <th>3 Years Company <br> Balance Sheet:</th>
+              <th>
+                <button type="submit"  class="btn btn-primary DOCUMENTST"
+                  (click)="viewdocs2('Balance_sheet')">View</button>
+              </th>
+            </tr>
+            <tr>
+              <th class="colourful">Present Address <br>Proof Documents:</th>
+              <th class="colourful"> 
+                <button type="submit"  class="btn btn-primary DOCUMENTST"
+                  (click)="viewdocs3('present_address_proof')">View</button>
+              </th>
+            </tr>
+          </table>
+        </table>
+
+
+
+
+
+
+
+
+
+        <div class="editdiv">
+          <button class="btn btn-success editbutton" *ngIf="status1" name="edit" (click)="update()">Edit</button>
+          <button class="btn btn-warning editbutton cancelbutton" *ngIf="status2" (click)="cancel()">Cancel</button>
+          <button class="btn btn-success editbutton" data-toggle="modal" data-target="#success" *ngIf="status2"
+            (click)="save(companydetails)">Save</button>
+        </div>
+
+
+        <table class="table-responsive width">
+          <div class="table-head">BANK DETAILS</div>
+          <table class="table table-striped table bordered">
+            <thead class="profile">
+            </thead>
+            <tr>
+              <th>Bank</th>
+              <th>
+
+                <span *ngIf="banks">{{companydetails.bank}}</span>
+
+
+                <select *ngIf="banks1" [ngClass]="{'noeditable': !edit, 'editing1': edit}"
+                  [(ngModel)]="companydetails.bank" name="bank" formControlName="bank" class="form-control">
+                  <option value="" [disabled]="true">--Select Bank--</option>
+                  <option *ngFor="let bankdata of bankname" [disabled]="status3">{{bankdata.bankName}}</option>
+                </select>
+
+              </th>
+            </tr>
+
+            <tr>
+              <th class="colourful">IFSC Number</th>
+              <th class="colourful">
+
+                <span *ngIf="ifscs"> {{companydetails.ifsc_code}}</span>
+
+                <div *ngIf="ifsc1"><input type="text" class="form-control" name="ifsc_code" [readonly]="status3"
+                    formControlName="ifsc_code" [(ngModel)]="companydetails.ifsc_code" required>
+                  <br>
+                  <div class="alert alert-danger" role="alert"
+                    *ngIf="editform.ifsc_code.dirty  && editform.ifsc_code.invalid" id="executiveFormErrorStyle">
+                    Invalid IFCS Number</div>
+                </div>
+              </th>
+            </tr>
+            <tr>
+              <th>Branch Name</th>
+              <th>
+                <span *ngIf="branch">{{companydetails.branch_name}}</span>
+
+                <div *ngIf="branch1"><input type="text" class="form-control" [readonly]="status3" name="branch_name"
+                    formControlName="branch_name" [(ngModel)]="companydetails.branch_name" required>
+                  <div class="alert alert-danger" role="alert"
+                    *ngIf="editform.branch_name.dirty && editform.branch_name.errors?.required"
+                    id="executiveFormErrorStyle">Enter Branch Name</div>
+                </div>
+              </th>
+            </tr>
+            <tr>
+              <th class="colourful">Account Name</th>
+              <th class="colourful">
+                <span *ngIf="name">{{companydetails.holder_name}}</span>
+
+                <div *ngIf="name1"> <input type="text" class="form-control" [readonly]="status3" name="holder_name"
+                    formControlName="holder_name" [(ngModel)]="companydetails.holder_name">
+                  <div class="alert alert-danger" role="alert"
+                    *ngIf="editform.holder_name.dirty && editform.holder_name.errors?.required"
+                    id="executiveFormErrorStyle">Enter Account Name</div>
+                </div>
+              </th>
+            </tr>
+            <tr>
+              <th>Account Number</th>
+              <th>
+
+                <span *ngIf="number">{{companydetails.account_number}}</span>
+
+                <div *ngIf="number1"><input type="text" class="form-control" [readonly]="status3" name="account_number"
+                    formControlName="account_number" [(ngModel)]="companydetails.account_number" required>
+                  <div class="alert alert-danger" role="alert"
+                    *ngIf="editform.account_number.dirty && editform.account_number.errors?.required"
+                    id="executiveFormErrorStyle">Enter Account Number</div>
+                </div>
+              </th>
+            </tr>
+            <tr>
+              <th class="colourful">Account Type</th>
+              <th class="colourful">
+
+                <span *ngIf="account"> {{companydetails.acounttypes}}</span>
+
+                <select *ngIf="account1" [ngClass]="{'noeditable': !edit, 'editing1': edit}"
+                  formControlName="acounttypes" class="form-control" [(ngModel)]="companydetails.acounttypes"
+                  name="acounttypes">
+                  <option value="" [disabled]="true">--Select Account Type --</option>
+                  <option *ngFor="let actype of accounttype" [disabled]="status3">{{actype}}</option>
+                </select>
+              </th>
+            </tr>
+
+          </table>
+        </table>
+
+
+
+
+
+
+        <!-- <div class="editdiv">
+                  <button class="btn btn-success editbutton" ng-show="edit" *ngIf="status1" (click)="update()">Edit</button>
+                  <button class="btn btn-warning editbutton cancelbutton" *ngIf="status2" (click)="cancel()">Cancel</button>
+                  <button class="btn btn-success editbutton"  *ngIf="status2" (click)="save(companydetails)">Save</button>
+              </div> -->
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<div class="modal fade" #updatesucess>
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header heads">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="text-center" style="margin-top: -5px;
+                        color: #eee;">Thank You</h3>
+      </div>
+      <div class="modal-body">
+        <h4 class="text-center">Details Updated Successfully</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- background-color: #337ab7; -->
+<!-- <div class="modal-header heads" style="background-color: #337ab7; height:50px;">
+                        <button type="button" class="close"  data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 class="text-center" style="margin-top: -5px;
+                        color: #eee;">Thank You</h3>
+                    </div> -->
+
+
+
+<div class="modal" #Businesspan id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style=" background: #3379b6;">
+        <h4 class="modal-title sssr">Business PAN:</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <pdf-viewer [src]="buss" [render-text]="true" style="display: block;"></pdf-viewer>
+        <div *ngIf="((buss | slice:-3:-1) != 'pd')">
+
+          <img src="{{buss}}" style="width: 100%; height: 100%" alt="No Document">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" #Businesspan1 id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style=" background: #3379b6;">
+        <h4 class="modal-title sssr">Latest 6 Months Bank Statement:</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <pdf-viewer [src]="buss1" [render-text]="true" style="display: block;"></pdf-viewer>
+        <div *ngIf="((buss1 | slice:-3:-1) != 'pd')">
+
+          <img src="{{buss1}}" style="width: 100%; height: 100%" alt="No Document">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" #Businesspan2 id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style=" background: #3379b6;">
+        <h4 class="modal-title sssr">3 Years Company Balance Sheet:</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <pdf-viewer [src]="buss2" [render-text]="true" style="display: block;"></pdf-viewer>
+        <div *ngIf="((buss2 | slice:-3:-1) != 'pd')">
+
+
+          <img src="{{buss2}}" style="width: 100%; height: 100%" alt="No Document">
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" #Businesspan3 id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style=" background: #3379b6;">
+        <h4 class="modal-title sssr">Present Address Proof Documents:</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <pdf-viewer [src]="buss3" [render-text]="true" style="display: block;"></pdf-viewer>
+        <div *ngIf="((buss3 | slice:-3:-1) != 'pd')">
+
+          <img src="{{buss3}}" style="width: 100%; height: 100%" alt="No Document">
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

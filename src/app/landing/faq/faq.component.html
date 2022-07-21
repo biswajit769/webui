@@ -1,0 +1,107 @@
+<div class="howitworks">
+  <div class="col-xs-12 col-sm-12 col-md-12 faqtop">
+      <span>FAQs</span>
+  </div>
+  <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 ">
+      <div class="col-xs-12 col-sm-12 col-md-12 ">
+          <ul class="tab tabs faqtabs faqanchfont  text-center">
+              <li style="text-decoration: none;" routerLink="registration">Registration </li>
+              <li style="text-decoration: none;"  routerLink="borrowerfaq">Borrower</li>
+              <!-- <li style="text-decoration: none;" ng-class="{'active':currentpage=='lendersfaq'}"  ui-sref="faq.lendersfaq">Lender</li> -->
+              <li style="text-decoration: none;"  routerLink="FeesPricing">Fees & Pricing</li>
+          </ul>
+          <div class="tab-content">
+              <!-- <ui-view>
+              </ui-view> -->
+              <router-outlet></router-outlet>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12">
+              <div class="row">
+                  <table class="faqtable">
+                      <tr>
+                          <th>Fees</th>
+                          <th>NBFC</th>
+                          <th>Borrower</th>
+                      </tr>
+                      <tr>
+                          <td>Registration</td>
+                          <td>₹ 0</td>
+                          <td>₹ 1,500</td>
+                      </tr>
+                      <tr>
+                          <td>Create a Borrower account</td>
+                          <td>N/A</td>
+                          <td>₹ 0</td>
+                      </tr>
+                      <tr>
+                          <th><strong>Other Charges</strong></th>
+                          <td></td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <td>Amortization Schedule Charges</td>
+                          <td>₹ 0</td>
+                          <td>₹ 0</td>
+                      </tr>
+                      <tr>
+                          <td>No Dues Certificate</td>
+                          <td>₹ 0</td>
+                          <td>₹ 0</td>
+                      </tr>
+                      <tr>
+                          <td>Service Tax</td>
+                          <td>₹ 0</td>
+                          <td>As applicable</td>
+                      </tr>
+                      <tr>
+                          <td>Prepayment fees</td>
+                          <td>N/A</td>
+                          <td></td>
+                      </tr>
+                      <tr>
+                          <td>Change in loan amount before receiving any funding commitment post-listing</td>
+                          <td>N/A</td>
+                          <td>100</td>
+                      </tr>
+                      <tr>
+                          <td>Change in bank account details</td>
+                          <td></td>
+                          <td>200</td>
+                      </tr>
+                      <tr>
+                          <td>Late payment and collection fees</td>
+                          <td>N/A</td>
+                          <td>24% p.a. with a minimum of ₹ 100 for the number of days defaulted</td>
+                      </tr>
+                      <tr>
+                          <td>Cheque / ECS / SI / NACH Bounce Charges</td>
+                          <td>N/A</td>
+                          <td>250</td>
+                      </tr>
+                      <tr>
+                          <td>Repayment Instruction Swap Charges</td>
+                          <td>N/A</td>
+                          <td>200</td>
+                      </tr>
+                      <tr>
+                          <td>Stamp Duty Charges</td>
+                          <td>N/A</td>
+                          <td>Collected at time of processing fee collection</td>
+                      </tr>
+                      <tr>
+                          <td>Legal / Collection Charges</td>
+                          <td>N/A</td>
+                          <td>As applicable in the event of default</td>
+                      </tr>
+                      <tr>
+                          <td>Documentation Charges</td>
+                          <td>₹ 0</td>
+                          <td>₹ 0</td>
+                      </tr>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+

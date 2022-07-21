@@ -1,0 +1,449 @@
+.footercontactus p{
+    color: white;
+}
+
+.footers1{
+    width: 102%;
+    height: 150px;
+    background:black;
+    color: white;
+    margin-left: -15px;
+    bottom:0px;
+}
+.footerss1{
+    width: 102%;
+    height: 165px;
+    background:black;
+    color: white;
+    margin-left: -15px;
+    bottom: 0px;
+}
+
+#imaget{
+   width: 98px;
+    margin-left:75px;
+    margin-top: -10px;
+    height: 90px;
+}
+
+@media screen and (min-width:500px){
+    .footerss1{
+        display: none;
+    }
+}
+
+@media screen and (max-width:500px){
+ 
+ .hide{
+    display:none;
+ }
+
+#imaget{
+    width: 46px;
+    height: 46px;
+    margin-left:15px;
+    margin-top:8px;
+}
+.footers1{
+   width: 100%;
+    height: 117px;
+    background-color: black;
+    color: white;
+    margin-left: 0px;
+}
+
+.footerss1{
+    width: 100%;
+    height: 155px;
+    background-color: black;
+    color: white;
+    margin-left: 0px;
+    margin-top:118px;
+    margin-bottom: -40px;
+}
+}
+
+.column6{
+    font-size:1vw;
+    float:left;
+    width:25%;
+    height:100%;
+}
+
+.column5{
+    font-size:1vw;
+    float:left;
+    width:25%;
+    height:100%;
+}
+
+.column4{
+    font-size:1vw;
+    float:left;
+    width:25%;
+    height:100%;
+}
+.column3{
+    font-size: calc(12px + 1vw);
+    float:left;
+    width:25%;
+    height:100%;
+}
+
+.column2{
+    font-size:1vw;
+    float:left;
+    width:25%;
+    height:100%;
+}
+
+
+.column1{
+    font-size:1vw;
+    float:left;
+    width:25%;
+    height:100%;
+}
+
+
+.legal{
+    font-size: calc(6px + 1vw);
+    color:white;
+
+}
+
+
+
+.FOLLOWUS{
+    font-size:1vw;
+    color:white;
+}
+
+.copyright{
+    font-size: calc(6px + 1vw);
+    text-align:center;
+    color: white;
+    margin-top: 20px;
+
+}
+
+
+.findus{
+    font-size:1vw;
+    margin-left:0px;
+    color:white;
+}
+
+#contacs{
+    font-size: calc(6px + 1vw);
+    color:white;
+}
+#contacs p a{
+    font-size: calc(6px + 1vw);
+    color:white;
+}
+.fotet{
+    position: relative;
+    bottom: 0;
+    left:0;
+    right:0;
+}
+.rtmindex .organisations2 a img {
+    margin-left: -6px;
+    height: 85px;
+    margin-top: -29px;
+    width: 91px;
+}
+.rtmindex .organisations2 span img {
+  
+    margin-left: -20px;
+    
+    margin-top: -24px;
+}
+/* #rtmfooterid {
+    display: none;
+} */
+
+.rtmindex .socialnetworks ul li a svg {
+    fill: #eee;
+    vertical-align: middle;
+    transition: fill .3s;
+    /* padding: 20px; */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.rtmindex ul.rtmfooterul {
+    list-style: none;
+    margin-left: -28px;
+}
+
+.rtmindex ul.rtmfooterulhome {
+    list-style: none;
+    padding-left: -40px;
+    margin-left: -20px;
+    text-align: left;
+}
+
+.rtmindex .rtmfooterul li {
+    display: inline;
+}
+
+.rtmindex .aboutuspara {
+    font-size: 13px;
+    font-weight: 400;
+    color: #8c8c8c;
+}
+
+#rtmfooterhome {
+    display: none;
+}
+
+.rtmindex ul.rtmfooterul {
+    list-style: none;
+    font-size: 13px;
+    color: white;
+    padding-left: -40px;
+    margin-left: -30px;
+}
+
+.rtmindex .rtmfooterul a {
+    color: white;
+    font-size: 14px;
+}
+
+.rtmindex ul.rtmfooterulhome {
+    list-style: none;
+    padding-left: -40px;
+    margin-left: -20px;
+    text-align: left;
+}
+
+.rtmindex ul.footer-social {
+    list-style: none;
+    margin-left: -74px;
+    margin-top: -28px;
+}
+
+.rtmindex .footer-social li {
+    display: inline;
+}
+
+.rtmindex ul.footer-termspriv {
+    list-style: none;
+}
+
+.rtmindex ul.footer-termspriv a {
+    list-style: none;
+    color: white;
+    font-size: 15px;
+}
+
+.rtmindex .footer-termspriv li {
+    display: inline;
+}
+.rtmindex {
+    /* position: absolute; */
+    /* bottom: 0; */
+
+    width: 100%;
+    
+    /* Set the fixed height of the footer here */
+    /* height: 60px; */
+   
+  }
+
+
+.rtmindex .footercontactus {
+    width:126px;
+   
+    margin: 0 auto;
+    padding: 5px 0 0 0;
+    list-style-type: none;
+    text-align: center;
+    display: table;
+}
+
+.rtmindex .footercontactus ul li {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.rtmindex .footercontactus ul li a {
+    color: white;
+    margin-left: -11px;
+    font-size: 13px;
+}
+
+.rtmindex .footercontactus h3 {
+    margin: 0px;
+    font-size: 15px;
+    color: white;
+    padding-bottom: 6px;
+}
+
+.rtmindex .footerhelp {
+    width: 118px;
+    /*Whatever you want to define*/
+    margin: 0 auto;
+    padding: 5px 0 0 0;
+    list-style-type: none;
+    text-align: center;
+    display: table;
+}
+
+.rtmindex .footerhelp ul li {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.rtmindex .footerhelp ul li a {
+    color: white;
+    margin-left: -11px;
+    font-size: 13px;
+}
+
+.rtmindex .footerhelp h3 {
+    margin: 0px;
+    font-size: 15px;
+    color: white;
+    padding-bottom: 6px;
+}
+
+.rtmindex .socialnetworks ul {
+    list-style-type: none;
+    margin-left: -60px;
+}
+
+.rtmindex .socialnetworks ul li {
+    display: inline;
+}
+
+.rtmindex .socialnetworks h3 {
+    margin: 0px;
+    font-size: 15px;
+    color: white;
+    padding-bottom: 13px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.rtmindex .socialnetworks {
+    width: 152px;
+    list-style-type: none;
+    text-align: center;
+}
+
+.rtmindex .disclimer .para {
+    text-align: center;
+}
+
+.rtmindex .disclimer p {
+    color: white;
+    font-size: 13px;
+}
+
+.rtmindex .playstore img {
+    width: 100%;
+}
+
+.rtmindex .playstore1 h3 {
+    margin: 0px;
+    font-size: 15px;
+    color: white;
+    padding-bottom: 6px;
+}
+
+.rtmindex .godaddy span script{
+    width: 111px;
+    height: 31px;
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    .rtmindex .rtmfooter {
+        display: none;
+    }
+    #rtmfooterhome {
+        display: block;
+    }
+    #rtmfooterhome {
+        background-color: #07131c;
+        padding-top: 15px;
+        margin-bottom: 0px;
+        margin-top: 6px;
+    }
+    .rtmindex #footer {
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        background-color: #07131c;
+    }
+}
+
+@media only screen and (min-width:300px) and (max-width: 520px) {
+    .rtmindex .organisations2 a img {
+        width: 100%;
+        /*margin-top: -30px;*/
+        margin-left: -16px;
+    }
+    .rtmindex .rtmfooterul {
+        margin-top: -20px;
+        margin-left: -38px !important;
+    }
+    .rtmindex ul.footer-termspriv {
+        list-style: none;
+        font-size: 11px;
+        color: white;
+    }
+    .rtmindex ul.rtmfooterul {
+        list-style: none;
+        font-size: 11px;
+        color: white;
+        margin-left: -24px;
+        margin-top: -16px;
+        margin-bottom: 0px;
+    }
+    .rtmindex .rtmfooterul a {
+        color: white;
+        font-size: 12px;
+    }
+    .rtmindex .footer-termspriv a {
+        color: white;
+        font-size: 10px !important;
+    }
+}
+
+@media only screen and (min-width: 520px) and (max-width: 767px) {
+    .rtmindex .organisations2 a img {
+        width: 94%;
+        /* margin-top: -30px;*/
+        margin-left: -16px;
+    }
+    .rtmindex .rtmfooterul {
+        margin-top: -20px;
+    }
+    .rtmindex ul.rtmfooterul {
+        list-style: none;
+        font-size: 13px;
+        color: white;
+        margin-left: -29px;
+        margin-top: -18px;
+        margin-bottom: 0px;
+    }
+    .rtmindex .rtmfooterul a {
+        color: white;
+        font-size: 16px !important;
+    }
+    .rtmindex .footer-termspriv a {
+        color: white;
+        font-size: 16px !important;
+    }
+    .rtmindex ul.footer-termspriv {
+        list-style: none;
+        margin-top: 20px;
+    }
+}

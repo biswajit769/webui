@@ -1,0 +1,62 @@
+<!-- <h2 mat-dialog-title>Delete all{{data.id}}</h2> -->
+<mat-dialog-content>Date Updated</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="row">
+        <div class="col-lg-12 tab">
+          <!-- Nav tabs -->
+          <form>
+            <input class="buttonstyle" (click)="todays('day')"  [ngStyle]="showtab1 && {'background-color':'rgb(196, 225, 237)','border': '1px solid rgb(49, 27, 146)'}"  Value="TODAY"/>&nbsp;&nbsp;
+            <input class="buttonstyle"  (click)="Last2days('lasttwo')" [ngStyle]="showtab2 && {'background-color':'rgb(196, 225, 237)','border': '1px solid rgb(49, 27, 146)'}" Value="Last 2 days"/>&nbsp;&nbsp;
+            <input class="buttonstyle" (click)="Last7days('week')" [ngStyle]="showtab3 && {'background-color':'rgb(196, 225, 237)','border': '1px solid rgb(49, 27, 146)'}"  Value="Last 7 days"/>&nbsp;&nbsp;
+            <input class="buttonstyle" (click)="Last30days('thirtydys')" [ngStyle]="showtab4 && {'background-color':'rgb(196, 225, 237)','border': '1px solid rgb(49, 27, 146)'}"  Value="Last 30 days"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input  class="buttonstyle1"  #dp="bsDaterangepicker" bsDaterangepicker  [ngStyle]="showtab5 && {'background-color':'rgb(196, 225, 237)','border': '1px solid rgb(49, 27, 146)'}"  [(ngModel)]="data" (ngModelChange)="dataChanged(data)" name="data" placeholder="Custom"  [bsConfig]="{ dateInputFormat: 'MM/DD/YYYY' }">
+                  <span class="glyphicon glyphicon-calendar"   style="margin-left: -26px;"(click)="dp.toggle()" ></span>
+             
+            <div class="example-button-row"><br><br><br><br><br>
+                <button mat-stroked-button color="primary"  [mat-dialog-close]="alldates">APPLY</button>
+                <button mat-stroked-button color="primary"  [mat-dialog-close]="true">CLEAR</button>
+              </div>   
+        </form>
+
+        </div>
+      </div>
+      
+ 
+</mat-dialog-actions>
+<style>
+/* css for popup */
+.example-stretched-tabs {
+    max-width: 800px;
+  }
+  .buttonstyle 
+  { 
+    text-align: center;
+    background: #ffffff;
+    background-position: 0px -401px;
+    border: solid 1px #777;
+    color: #777;
+    font-weight: bold;
+    height: 34px;
+    margin-top: -1px;
+    padding-bottom: 2px;
+    width: 92px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .buttonstyle1 
+  { 
+    text-align: center;
+    background: #ffffff;
+    background-position: 0px -401px;
+    border: solid 1px #777;
+    color: #777;
+    font-weight: bold;
+    height: 34px;
+    margin-top: -1px;
+    padding-bottom: 2px;
+    width: 190px;
+    cursor: pointer;
+  }
+  .buttonstyle:hover {background: white;background-position: 0px -501px;color: #000000; }
+</style>

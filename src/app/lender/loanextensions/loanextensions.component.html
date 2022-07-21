@@ -1,0 +1,58 @@
+<div class="col-md-12 col-sm-12 toppest1">
+  <div class="col-md-3 col-sm-2">
+    <h3 class="text-center" (click) = "GetDetails()">
+      <img alt="filter" src="assets/images/filter.png" style="height: 33px;">Filter
+    </h3>
+  </div>
+  <div class="col-md-6 col-sm-4 "><h3 class="text-center">
+    Account Statement</h3></div>
+    <div class="col-md-3 col-sm-2" ><h3 class="text-center" (click)= "DownloadPdf()"> <img alt="Download"src="assets/images/down.png" style="height: 33px;">Download</h3></div>
+  
+    </div>
+<div class="col-md-offset-1 col-md-10 tableres" #content>
+  <div class="table-responsive">
+    <table class="table table-bordered tableText">
+      <thead class="backcolor">
+        <th class="mainHead text-center" >Sl.No</th>
+        <th class="mainHead text-center">COMPANY NAME</th>
+        <th class="mainHead text-center">AMOUNT</th>
+        <th class="mainHead text-center">LOAN ID</th>
+        <th class="mainHead text-center">TRANSACTION ID</th>
+        <th class="mainHead text-center">INVOICE ID</th>
+      </thead>
+      <tbody class="tableText1">
+        <tr *ngFor = "let data of weekdata; let i = index">
+          <td>{{i+1}}</td>
+          <td>{{data.borrower_name}}</td>
+          <td>{{data.todays_amount}}</td>
+          <td>{{data.id}}</td>
+          <td>{{data.transaction_id}}</td>
+          <td>{{data.status}}</td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <h3 *ngIf="weekdata['length'] == 0" style=" text-align: center;color: red;">Sorry we couldn't find any results.</h3>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

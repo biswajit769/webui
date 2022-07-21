@@ -1,0 +1,610 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="row">
+        <div class="col-lg-12 tab">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs nav-justified" role="tablist" style="margin-left: -10px;">
+            <li role="presentation"><a [ngStyle]="showtab1 && {'background-color': '#336699'}"
+                href="javascript: void(0);" (click)="activeloanstab()">Active Loans<span
+                  *ngIf="disbursed_loanlist.length!=0"><mark>{{disbursed_loanlist.length}}</mark></span></a></li>
+            <li role="presentation"><a [ngStyle]="showtab2 && {'background-color': '#336699'}"
+                href="javascript: void(0);" (click)="acceptedloanstab()">Approved Loans<span
+                  *ngIf="accepted_loanlist.length!=0"><mark>{{accepted_loanlist.length}}</mark></span></a></li>
+            <li role="presentation"><a [ngStyle]="showtab3 && {'background-color': '#336699'}"
+                href="javascript: void(0);" (click)="pendinloanstab()">Pending Loans<span
+                  *ngIf="pendingloans_loanlist.length !=0"><mark>{{pendingloans_loanlist.length }}</mark></span></a>
+            </li>
+            <li role="presentation"><a [ngStyle]="showtab4 && {'background-color': '#336699'}"
+              href="javascript: void(0);" (click)="extendedloantab()">Closed Loans<span
+                *ngIf="extendedloans_loanlist.length!=0"><mark>{{extendedloans_loanlist.length}}</mark></span></a>
+          </li>
+          </ul>
+
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="tab-content">
+          <div class="tab-pane fade in active" *ngIf="showtab1">
+            <div class="row">
+              <nav class="navbar">
+                <input type="text" class="form-control input-lg input-search" [(ngModel)]="seerch"
+                  placeholder="search...">
+                <!-- <div class="page">
+                  <div class="select-dropdown">
+                    <select name="someName" [(ngModel)]="currentpages">
+                      <option *ngFor="let key of itemsperPage" [value]="key.value">{{ key.label }}</option>
+                    </select>
+                  </div>
+                </div> -->
+              </nav>
+
+              <div class="text-center" style="margin-left:-35px;" *ngIf="disbursed_loanlist.length > 0">
+                <div class="table-responsive" id="loanTableStyle">
+                  <table class="table table-striped table-bordered text-center" style="width:86%">
+                    <thead class="tableheader">
+                    <tr>
+                        <th class="text-center">Serial No</th>
+                        <th class="text-center">Loan Amount</th>
+                        <th class="text-center">Tenure</th>
+                        <th class="text-center">Requested Date</th>
+                        <th class="text-center">Loan Details</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        *ngFor="let dat of disbursed_loanlist | filter: seerch | paginate: { itemsPerPage: currentpages, currentPage: p};let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{dat.loan_amount}}</td>
+                        <td>{{dat.tdays}}</td>
+                        <td>
+                          {{dat.requested_date  | date: 'dd'}}/{{dat.requested_date  | date:'MM'}}/{{dat.requested_date | date : 'yyyy'}}
+                        </td>
+
+                        <td>
+                        <!--   <div class="btn-group" role="group" id="dinu">
+
+                            <button *ngIf="dat.status =='Disbursed'" type="button" class="btn btn-primary"
+                              (click)="Disbursed(dat)">Active</button>
+                          </div> -->
+                          <div id="dinu">
+                              <button type="button" class="btn btn-primary" (click)="loandetailsView(dat);">View</button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- in case you want to show empty message -->
+                      <tr>
+
+                        <td colspan="6" *ngIf="(disbursed_loanlist | filter: seerch).length === 0"
+                          style="color: #ff0052;">No matching Name</td>
+
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="sss">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-md-10 text-center" *ngIf="disbursed_loanlist.length == 0">
+
+                <table class="table table-bordered table-hover" style="margin-left:-39px;">
+
+
+                  <tbody>
+
+                    <!-- in case you want to show empty message -->
+                    <tr>
+
+                      <td style="color: #ff0052;">No Data Found </td>
+                    </tr>
+                  </tbody>
+
+                </table>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- acceptedloans tab2 -->
+
+          <div class="tab-pane fade in active" *ngIf="showtab2">
+            <div class="row bg">
+              <nav class="navbar">
+                <input type="text" class="form-control input-lg input-search" [(ngModel)]="seerch"
+                  placeholder="search...">
+                <!--  <div class="page">
+                  <div class="select-dropdown">
+                    <select name="someName" [(ngModel)]="currentpages">
+                      <option *ngFor="let key of itemsperPage" [value]="key.value">{{ key.label }}</option>
+                    </select>
+                  </div>
+                </div> -->
+              </nav>
+
+
+              <div class="text-center" style="margin-left:-35px" *ngIf="accepted_loanlist.length > 0">
+                <div class="table-responsive" id="loanTableStyle">
+                  <table class="table table-striped table-bordered text-center" style="width:86%">
+                    <thead class="tableheader">
+
+                      <!-- <tr>
+                          <th colspan="6"  class="text-center brclr">Accepted-Loan Count:&nbsp;|&nbsp;   {{accepted_loanlist.length}}</th>
+                        </tr> -->
+                      <tr style="border:none;">
+                        <th class="text-center brclr">Serial No</th>
+                        <th class="text-center brclr">Loan Amount</th>
+                        <th class="text-center brclr">Tenure</th>
+                        <th class="text-center">Bidding Rate of Interest</th>
+                        <th class="text-center brclr">Requested Date</th>
+                        <th class="text-center brclr">Loan Details</th>
+                      </tr>
+
+                    </thead>
+                    <tbody>
+                      <tr
+                        *ngFor="let dat of accepted_loanlist | filter: seerch | paginate: { itemsPerPage: currentpages, currentPage: pager2};let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{dat.loan_amount}}</td>
+                        <td>{{dat.tdays}}</td>
+                        <td>{{dat.accepted_interest}}</td>
+                        <td>
+                          {{dat.requested_date  | date: 'dd'}}/{{dat.requested_date  | date:'MM'}}/{{dat.requested_date | date : 'yyyy'}}
+                        </td>
+
+                        <td>
+                       <!--    <div class="btn-group" role="group" id="dinu">
+                            <button *ngIf="dat.status =='Accepted'" type="button" class="btn btn-primary"
+                              (click)="Accepted(dat)">Accepted</button>
+                            <button *ngIf="dat.status =='Extended'" type="button" class="btn btn-primary"
+                              (click)="Extended(dat)">Extended</button>
+                            <button *ngIf="dat.status =='Disbursed'" type="button" class="btn btn-primary"
+                              (click)="Disbursed(dat)">Active</button>
+                            <button *ngIf="dat.status =='Pending'" type="button" class="btn btn-primary"
+                              (click)="Pending(dat)">Pending</button></div> -->
+                              <div id="dinu">
+                              <button type="button" class="btn btn-primary" (click)="loandetailsView(dat);">View</button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- in case you want to show empty message -->
+                      <tr>
+
+                        <td colspan="6" *ngIf="(accepted_loanlist | filter: seerch).length === 0"
+                          style="color: #ff0052;">
+                          No matching Name</td>
+
+                      </tr>
+                    </tbody>
+
+                  </table >
+                  <div class="sss">
+                  <pagination-controls (pageChange)="pager2 = $event"></pagination-controls>
+                </div>
+                </div>
+              </div>
+
+              <div class="col-md-10 text-center" style="margin-left:-3px;" *ngIf="accepted_loanlist.length == 0">
+
+                <table class="table table-bordered table-hover" style="margin-left:-39px;">
+
+
+                  <tbody>
+
+                    <!-- in case you want to show empty message -->
+                    <tr>
+
+                      <td style="color: #ff0052;">No Data Found </td>
+                    </tr>
+                  </tbody>
+
+                </table>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Pending loans tab 3 ////////////////////-->
+
+          <div class="tab-pane fade in active" *ngIf="showtab3">
+            <div class="row bg">
+              <nav class="navbar">
+                <input type="text" class="form-control input-lg input-search" [(ngModel)]="seerch"
+                  placeholder="search...">
+                
+              </nav>
+
+
+              <div class="text-center" style="margin-left:-35px;" *ngIf="pendingloans_loanlist.length > 0">
+
+                <div class="table-responsive" id="loanTableStyle">
+                  <table class="table table-striped table-bordered text-center" style="width:86%">
+                    <thead class="tableheader">
+                    
+                      <tr style="border:none;">
+                        <th class="text-center brclr">Serial No</th>
+                        <th class="text-center brclr">Loan Amount</th>
+                        <th class="text-center brclr">Tenure</th>
+                        <th class="text-center brclr">Requested Date</th>
+                        <th class="text-center brclr">Loan Status</th>
+                      </tr>
+
+                    </thead>
+                    <tbody>
+                      <tr
+                        *ngFor="let dat of pendingloans_loanlist | filter: seerch | paginate: { itemsPerPage: currentpages, currentPage: pager3};let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{dat.loan_amount}}</td>
+                        <td>{{dat.tdays}}</td>
+                        <td>
+                          {{dat.requested_date  | date: 'dd'}}/{{dat.requested_date  | date:'MM'}}/{{dat.requested_date | date : 'yyyy'}}
+                        </td>
+
+                        <td>
+                          <div class="btn-group" role="group" id="dinu">
+
+                            <button *ngIf="dat.status =='Pending'" type="button" class="btn btn-primary"
+                              (click)="Pending(dat)">Pending</button>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- in case you want to show empty message -->
+                      <tr>
+
+                        <td colspan="6" *ngIf="(pendingloans_loanlist | filter: seerch).length === 0"
+                          style="color: #ff0052;">No matching Name</td>
+
+                      </tr>
+                    </tbody>
+
+                  </table>
+                  <div class="sss">
+                  <pagination-controls (pageChange)=" pager3 = $event"></pagination-controls>
+                </div>
+                </div>
+              </div>
+
+              <div class="col-md-10 text-center" style="margin-left:-3px;" *ngIf="pendingloans_loanlist.length == 0">
+
+                <table class="table table-bordered table-hover" style="margin-left:-39px;">
+
+
+                  <tbody>
+
+                    <!-- in case you want to show empty message -->
+                    <tr>
+
+                      <td style="color: #ff0052;">No Data Found </td>
+                    </tr>
+                  </tbody>
+
+                </table>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- extended Loan tab 4 ////////////////////////?///////-->
+
+           <!-- extended Loan tab 4 -->
+           <div class="tab-pane fade in active" *ngIf="showtab4">
+            <div class="row bg">
+              <nav class="navbar">
+                <input type="text" class="form-control input-lg input-search" [(ngModel)]="seerch"
+                  placeholder="search..." >
+             
+              </nav>
+
+              <div class="text-center" style="margin-left:-35px;" *ngIf="extendedloans_loanlist.length > 0">
+
+                <div class="table-responsive" id="loanTableStyle">
+                  <table class="table table-striped table-bordered text-center" style="width:86%">
+                    <thead class="tableheader">
+                   
+                    <tr style="border:none;">
+                      <th class="text-center brclr">Serial No</th>
+                      <th class="text-center brclr">Loan Amount</th>
+                      <th class="text-center brclr">Tenure</th>
+                      <th class="text-center brclr">Requested Date</th>
+                      <th class="text-center brclr">Loan Details</th>
+                    </tr>
+
+                  </thead>
+                  <tbody>
+                    <tr
+                      *ngFor="let dat of extendedloans_loanlist | filter: seerch | paginate: { itemsPerPage: currentpages, currentPage: pager4};let i = index">
+                      <td>{{i+1}}</td>
+                      <td>{{dat.loan_amount}}</td>
+                      <td>{{dat.tdays}}</td>
+                      <td>{{dat.requested_date  | date: 'dd'}}/{{dat.requested_date  | date:'MM'}}/{{dat.requested_date | date : 'yyyy'}}</td>
+                
+
+                      <td>
+                        <div class="btn-group" role="group" id="dinu">
+
+                          <button *ngIf="dat.status =='Closed'" type="button" class="btn btn-primary"
+                            (click)="Extended(dat)">Closed</button></div>
+                        <div id="dinu">
+                          <button type="button" class="btn btn-primary" (click)="loandetailsView(dat);">View</button>
+
+                        </div>
+                      </td>
+                    </tr>
+
+                    <!-- in case you want to show empty message -->
+                    <tr>
+
+                      <td colspan="6" *ngIf="(extendedloans_loanlist | filter: seerch).length === 0"
+                        style="color: #ff0052;">No matching Name</td>
+
+                    </tr>
+                  </tbody>
+
+                </table>
+                <div class="sss">
+                <pagination-controls (pageChange)=" pager4 = $event"></pagination-controls>
+              </div>
+              </div>
+
+              <div class="col-md-10 text-center" style="margin-left:-3px;" *ngIf="extendedloans_loanlist.length == 0">
+
+                <table class="table table-bordered table-hover" style="margin-left:-39px;">
+
+
+                  <tbody>
+
+                    <!-- in case you want to show empty message -->
+                    <tr>
+
+                      <td style="color: #ff0052;">>No Data Found </td>
+                    </tr>
+                  </tbody>
+
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- </div> -->
+    </div>
+  </div>
+
+</div>
+<!-- modal -->
+<div class="modal fade" id="upload-video-url" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body payment">
+        <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+        <h3 class="title"><i class="fa fa-video-camera"></i> Add video URLs</h3>
+        <p>Add Vimeo and Youtube links of your recent and best videos. These will be displayed on your portfolio page so
+          choose the works that reflects your talents and expertise. First impression is important so make it count.</p>
+        <input class="input-form" type="text" placeholder="http://">
+        <p class="add-link"><a>+ Add more links</a></p>
+        <p class="align-center"><a class="btn flat btn-create">Save</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal LoanDisbursed popup -->
+<div class="modal fade" *ngIf="!show4" aria-hidden="true" data-backdrop="false" #loandisbursed>
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header loanModalHeader">
+        <i class="fa fa-times-circle" aria-hidden="true" (click)="closeDisbursedLoan(loanid)"
+          style="font-size:28px;color:white;float:right"></i>
+
+        <h4 class="modal-title">Your loan has been disbursed!</h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-center">
+          Congratulations! Your loan amount against <strong> Loan ID --{{loanid}} </strong> has been disbursed
+          successfully.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" style="text-align: center;" (click)="checkDisbursedLoan(loanid)">Ok</button>
+        <button class="btn btn-primary" style="text-align: center;" (click)="closeDisbursedLoan(loanid)">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal LoanDisbursed popup -->
+
+<div class="modal fade" aria-hidden="true" #loandetailsViewpopup>
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content" *ngIf="show4">
+      <div class="modal-header loanModalHeader">
+        <i class="fa fa-times-circle" aria-hidden="true" data-dismiss="modal"
+          style="font-size:28px;color:white;float:right"></i>
+        <h4 class="modal-title"><strong>Loan Details</strong>!</h4>
+      </div>
+      <div class="modal-body">
+        <div class="bs-example">
+          <div class="table-responsive">
+            <table class="table table-striped table-condensed table-hover data-table" id="tblGrid">
+              <thead>
+                <tr style="background-color: #337ab7;color: white;font-size: 16px;">
+                  <th colspan="8" style="text-align: center"> Loan ID:&nbsp;{{loanviews.id}}</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th style="width: 332px;">Loan Amount</th>
+                  <td>{{loanviews.loan_amount}}</td>
+                </tr>
+                <tr>
+                  <th style="width: 332px;">Interest</th>
+                  <td>{{loanviews.accepted_interest}}</td>
+                </tr>
+                <tr>
+                  <th>Tenure</th>
+                  <td>{{loanviews.tenure}}</td>
+                </tr>
+                <tr>
+                  <th>Interest Amount</th>
+                  <td>{{loanviews.interest_amount}}</td>
+                </tr>
+                <tr>
+                  <th>Repayment Type</th>
+                  <td>{{loanviews.repayment_type}}</td>
+                </tr>
+                <tr>
+                  <th>Processing Fee</th>
+                  <td>{{loanviews.processing_fee}}</td>
+                </tr>
+                <!-- <tr>
+                  <th>Membership Fee</th>
+                  <td>{{loanviews.membership_fee}}</td>
+                </tr>
+                <tr>
+                  <th>Insurance</th>
+                  <td>{{loanviews.insurance}}</td>
+                </tr> -->
+                <tr>
+                  <th>Repayment Amount</th>
+                  <td>{{loanviews.total_return_amount}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="bs-example">
+          <div class="table-responsive">
+            <table class="table table-striped table-condensed table-hover" id="tblGrid">
+              <thead>
+                <tr style="background-color: #337ab7;color: white;font-size: 16px;">
+                  <th colspan="8" style="text-align: center"> NBFC Bank Details</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>Name</th>
+                  <td>{{lender_bankdetalis.holder_name}}</td>
+                </tr>
+                <tr>
+                  <th>Bank Name</th>
+                  <td>{{lender_bankdetalis.bank}}</td>
+                </tr>
+                <tr>
+                  <th>Branch Name</th>
+                  <td>{{lender_bankdetalis.branch_name}}</td>
+                </tr>
+                <tr>
+                  <th>Account Number</th>
+                  <td>{{lender_bankdetalis.account_number}}</td>
+                </tr>
+                <tr>
+                  <th>IFSC Code</th>
+                  <td>{{lender_bankdetalis.ifsc_code}}</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="bs-example">
+          <div class="table-responsive">
+            <table class="table table-striped table-condensed table-hover" id="tblGrid">
+              <thead>
+                <tr style="background-color: #337ab7;color: white;font-size: 16px;">
+                  <th colspan="8" style="text-align: center"> Company Disbursement Details</th>
+
+                </tr>
+              </thead>
+              <tbody class=text-center>
+                <tr>
+                  <th>Serial No</th>
+                  <th>Payable Date</th>
+                  <th>Payable Amount</th>
+                  <th>payment Status</th>
+                  <th>Updated Date</th>
+                </tr>
+                <tr *ngFor="let data of company_Disbursed_list;let i = index">
+                  <td>{{i+1}}</td>
+                  <td>{{data.payable_date}}</td>
+                  <td>{{data.payable_amount}}</td>
+                  <td>{{data.payment_status}}</td>
+                  <td>{{data.updated_date}}</td>
+
+                  <td>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" style="text-align: center;" (click)="checkDisbursedLoan(loanid)">Ok</button>
+        <button class="btn btn-primary" style="text-align: center;" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container">
+  
+
+  <!-- Modal -->
+  <div class="modal fade" #logPoper id="logPoper" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header head">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title head">FINAL REGISTRATION</h4>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+          <p>PLEASE COMPLETE YOUR REGISTRATION</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click) = "GotoPage()">OK</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+
+
+<!-- <div class="container">
+  
+
+  <div class="modal fade" #DocumentPoper id="DocumentPoper" role="dialog">
+    <div class="modal-dialog"> 
+      <div class="modal-content">
+        <div class="modal-header head">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title head">PLEASE UPLOAD YOUR DOCUMENTS</h4>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+          <p>UPLOAD ALL DOCUMENTS</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click) = "GotoPage1()">OK</button>
+        </div>
+      </div>
+      
+    </div>
+  </div> -->
+  
+</div>

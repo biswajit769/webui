@@ -1,0 +1,23 @@
+
+  <button type="button" class="close" (click)="crossmark()">&times;</button>
+    <!-- <button type="button" class="close" [mat-dialog-close] = "onNoClick">&times;</button> -->
+
+<h1 mat-dialog-title style="text-align: center;">Updated Date</h1>
+<div mat-dialog-content>
+    <button mat-stroked-button   (click) = "today1('day')" [ngStyle]="{'background-color': backcolor}">Today</button>&nbsp;&nbsp;
+        <button mat-stroked-button   (click) = "yesterday1('yesterday')"  [ngStyle]="{'background-color': bccolor}">Yesterday</button>&nbsp;&nbsp;
+        <button mat-stroked-button   (click) = "last2dys('lasttwo')"  [ngStyle]="{'background-color': bcgcolor}">Last 2 Days</button>&nbsp;&nbsp;
+        <button mat-stroked-button   (click) = "oneweek('week')"  [ngStyle]="{'background-color': bgcolor}">Last 7 Days</button>&nbsp;&nbsp;
+        <button mat-stroked-button   (click) = "thirtydys('thiUpdated rtydys')"  [ngStyle]="{'background-color': backclr}">Last 30 Days</button>&nbsp;&nbsp;
+        <mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateChange)="getByEnteredDate($event)">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <!-- <button mat-raised-button style="margin-left: 400px;" [mat-dialog-close]="weekdata">Close</button> -->
+  <button mat-raised-button style="color: #0c0c50;margin-left: 569px;
+" [mat-dialog-close]="weekdata" cdkFocusInitial>Apply</button>
+</div>

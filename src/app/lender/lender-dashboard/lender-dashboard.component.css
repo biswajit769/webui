@@ -1,0 +1,179 @@
+/* #tblGrid,table, th, td {
+    border:disabled;
+  } */
+  #openModal img  {
+    width: 575px;
+    height:auto;
+}
+.crossymbol {
+    float: right;
+    size: -19px;
+    width: 20px;
+    height: 20px;
+    padding-top: 0px;
+    padding-left: 5px;
+}
+
+.btn-primary{
+        width: 80px;
+}
+
+
+.sppp{
+            width: 108px;
+}
+
+.abc {
+    margin-top: 10px;
+    text-align: right;
+    /* margin-bottom: 18px;
+    border-bottom: 1px solid #8d8d8d; */
+}
+
+.close {
+    background: #23dd29;
+    color: #171616;
+    line-height: 25px;
+    position: absolute;
+    right:4px;
+    text-align: center;
+    top:3px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+.close:hover {
+    background: #09a5c0;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #8d8d8d;
+    background-color:#337ab7;
+    text-align: center;
+    color: white;
+    
+}
+
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+    color: white;
+}
+
+
+.modal-body table.loan-table>tbody>tr>th {
+    text-align: center;
+}
+
+/*.modal-dialog {
+    width: 720px;
+}*/
+
+
+
+
+
+/*.modal {
+    margin-top: 138px;
+    }
+    */
+.tableheader {
+    background: #337ab7;
+    color: white;
+}
+.orangefont {
+    color: orange;
+    font-weight: bold;
+ }
+ .modal-body .form-horizontal .col-sm-2,
+.modal-body .form-horizontal .col-sm-10 {
+    width: 100%
+}
+
+.modal-body .form-horizontal .control-label {
+    text-align: left;
+}
+.modal-body .form-horizontal .col-sm-offset-2 {
+    margin-left: 15px;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  
+    .confirm{
+        overflow-x: scroll;
+         max-height:85%;  
+         margin-top: 50px; 
+         margin-bottom:50px;
+        
+        }
+        .mobi{
+            width: 360px
+        }
+    
+  }
+  
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  
+  @media (min-width: 320px) and (max-width: 767px) {
+    .confirm{
+       
+            overflow-x: scroll;
+    max-height: 91%;
+    margin-top: 50px;
+    margin-bottom: -27px;
+        
+        }
+        .mobi{
+            width: 360px
+        }
+        .moddwidth{
+    width: 340px;
+}
+.sss{
+        margin-top: 80px;
+    width: 365px;
+    margin-left: -7px;
+
+}
+
+.wed{
+        height: 283px;
+    width: 295px;
+    margin-left: 18px;
+
+}
+
+/*.modal-body {
+    height: 570px;
+  overflow: auto;
+}*/
+   
+  }
+
+.asss{
+        height: 564px;
+}
+
+  .modal {
+  overflow: hidden;
+}
+
+.modal-body {
+  /*  height: 570px;*/
+  overflow: auto;
+}
+
+
+.aaad{
+        height: 529px;
+}

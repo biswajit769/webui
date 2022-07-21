@@ -1,0 +1,565 @@
+
+
+<br>
+<br>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="ssss">
+
+       <div class="col-xs-12 col-md-12 text-center ">
+     <div class="col-md-offset-1 col-md-8 assss">
+        <form [formGroup]="lenderegForm">
+            <div class="row212 viewprofile bcolor zcx">
+<aw-wizard #wizard  [navBarLayout]="'large-filled-symbols'">
+           
+  <aw-wizard-step [stepTitle]="'NBFC DETAILS'" [navigationSymbol]="{ symbol: '&#xf0b1;', fontFamily: 'FontAwesome' }">
+
+
+    <div class="centered-content">
+      <div>
+       
+         <div style="text-align:center">
+                  <!-- <div >
+                      <div class="loader"></div>
+                  </div> -->
+                </div>
+<div >
+              <fieldset class="alignll">  
+              <table class="table-responsive width">
+                  <div class="table-head"></div>
+
+                  <table class="table">
+                      <thead>
+                      </thead>
+                          <tr>
+                          <th>Company Type</th>
+                          <th class="colourful">
+                          
+                              <select formControlName="organization"  [(ngModel)]="lenderor.companytype"  name="organization" class="form-control" required>
+                                  <option value="" >--Select Option--</option>
+                                  <option *ngFor="let company of companytypes" [value]="company">{{company}}</option>
+                              </select> 
+                             
+                          </th>
+                       </tr>
+     
+                      <tr>
+                          <th class="colourful">Business PAN</th>
+                          <th class="colourful abac">
+                              <input type="text" class="form-control"  formControlName="pancard" name="pancard"
+                [(ngModel)]="lenderor.bussiness_pan" placeholder="Enter Business PAN Number" required>
+                            <span class="adac"
+                            *ngIf="editform.pancard.errors && (editform.pancard.invalid && editform.pancard.dirty)">
+                         <p  *ngIf="editform.pancard.errors.required"> PAN Number is Required</p>
+                         <p  *ngIf="editform.pancard.errors.maxlength || editform.pancard.errors.minlength ">PAN Number length should be 10 digits</p>
+                         <div *ngIf="editform.pancard.errors?.pattern">
+                                PAN Number not valid.
+                           </div> 
+                         </span>
+                          </th>
+                        </tr>
+    
+                        <tr> 
+                          <th>GST Number</th>
+                          <th>
+                              <input type="text" class="form-control" 
+                              [(ngModel)]="lenderor.gst_number"   name="gstnum" formControlName="gstnum" placeholder="Enter GST Number"  maxlength="15" minlength="15" required>
+                              <span class="adac" 
+                              *ngIf="editform.gstnum.errors && (editform.gstnum.invalid &&  editform.gstnum.dirty)">
+                              <p *ngIf="editform.gstnum.errors.required"> GST Number is Required</p>
+                              <p *ngIf="editform.gstnum.errors.maxlength || editform.gstnum.errors.minlength ">GST Number length should be 15 digits</p>
+                              <div *ngIf="editform.gstnum.errors?.pattern">
+                                GST Number not valid.
+                              </div> 
+                              </span>
+
+                          </th>
+                        </tr>
+    
+                        <tr>
+                           <th class="colourful">Number Of Years in Business</th>
+                           <th class="colourful">
+                              <select [(ngModel)]="lenderor.year_of_estd" name="years_in_business"  formControlName="years_in_business" class="form-control"   required>
+                                    <option value="" [disabled]="true" >--Select Option--</option>
+                                    <option *ngFor="let years of numberofyearsinbusiness"   [value]="years">{{years}}</option>
+                              </select> 
+                            </th>
+                        </tr>
+    
+                        <tr>
+                          <th>Company Turnover</th>
+                            <th>
+                              <select [(ngModel)]="lenderor.company_turnover" name="companyturnover"  formControlName="companyturnover" class="form-control" required>
+                                    <option value="Select Option" [disabled]="true" >--Select Option--</option>
+                                    <option *ngFor="let turnover of company_turnover"  [value]="turnover">{{turnover}}</option>
+                              </select> 
+                            </th> 
+                        </tr>  
+                        <tr>
+      
+                         <tr>
+                          <th>Director Identification Number</th>
+                             <th>
+                               <input type="text"   class="form-control"  formControlName="din" name="din" 
+                               [(ngModel)]="lenderor.director_identification_number" placeholder="Enter DIN" required>
+                               <span class="adac" *ngIf="editform.din.errors && (editform.din.invalid && editform.din.dirty)">
+                                <p *ngIf="editform.din.errors.required">DIN Number is required</p>
+                                <p *ngIf="editform.din.errors.maxlength || editform.din.errors.minlength ">DIN number should be in valid format.</p>
+                               </span>
+                             </th> 
+                        </tr>
+    
+                        <tr>
+                          <th class="colourful">License Number</th>
+                             <th class="colourful">
+                               <input type="text"  class="form-control"  formControlName="lie_number" name="cin" 
+                               [(ngModel)]="lenderor.Licence_number" placeholder="Enter CIN" required>
+                               <span class="adac" *ngIf="editform.lie_number.errors && (editform.lie_number.invalid && editform.lie_number.dirty)">
+                               <p *ngIf="editform.lie_number.errors.required">CIN Number is required</p>
+                               <p *ngIf="editform.lie_number.errors.maxlength || editform.lie_number.errors.minlength ">CIN number should be in valid format.</p>
+                               </span>
+                             </th> 
+                        </tr>
+    
+                        <tr>
+                          <th>Company Website</th>
+                             <th>
+                                <input type="text"   class="form-control"  formControlName="company_website" name="company_website" 
+                                [(ngModel)]="lenderor.companywebsite" placeholder="Enter Your Company Website" required>
+                                <span class="adac" *ngIf="editform.company_website.errors && (editform.company_website.invalid && editform.company_website.dirty)">
+                                <p *ngIf="editform.company_website.errors.required"> company website address Required
+                                </p>  
+                                <p *ngIf="editform.company_website.errors?.pattern">
+                                    company website address is Invalid
+                                </p> 
+                                </span>
+                             </th> 
+                        </tr>
+    
+                       <tr>
+                          <th class="colourful">Official EmailID</th>
+                             <th class="colourful">
+                                <input type="text"  class="form-control" formControlName="email_id" name="email_id" [(ngModel)]="lenderor.email_id" placeholder="finchain@gowdanar.com" required>
+                                <span class="adac" *ngIf="editform.email_id.errors && (editform.email_id.invalid && editform.email_id.dirty)">
+                                <p *ngIf="editform.email_id.errors.required"> Official EmailId is Required</p>
+                                <p *ngIf="editform.email_id.errors?.pattern">
+                                    Email Id not valid.
+                                </p> 
+                                </span>
+                             </th> 
+                        </tr>
+    
+                       <tr>
+                          <th>Office Contact Number</th>
+                             <th>
+                                <input type="text"  class="form-control" formControlName="officenumber"  placeholder="Enter Office Contact Number" name="officenumber" [(ngModel)]="lenderor.contact_phone_number" required  maxlength="10" minlength="10" (keypress)="keyPress($event)">
+                                <span class="adac" *ngIf="editform.officenumber.errors && (editform.officenumber.invalid && editform.officenumber.dirty)">
+                                <p *ngIf="editform.officenumber.errors.required">Office Number is required</p>
+                                <p *ngIf="editform.officenumber.errors.maxlength || editform.officenumber.errors.minlength || editform.officenumber.errors?.pattern"> Number should be in valid format.</p>
+                                </span>
+                             </th> 
+                        </tr> 
+                    </table>
+             
+
+
+
+           <div class="fdfd">
+                    <button type="button"   class="btn btn-outline-rounded btn-info qwea " awNextStep>Skip <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span>
+      </button>  
+       </div>
+  <div class="fdfd90">
+  
+                     <button type="button"   class="btn btn-outline-rounded btn-info qwea" awNextStep (click)="nbfcfinalSubmit(lenderor)">Continue <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span>
+      </button>  
+  </div>
+
+
+
+                </table>
+
+    
+    </fieldset>
+</div>
+ 
+
+      </div>
+
+    </div>
+   
+  </aw-wizard-step>
+  <!--  -->
+ <aw-wizard-step class="property" [stepTitle]="'PERSONAL DETAILS'" [navigationSymbol]="{ symbol: '&#xf0c0;', fontFamily: 'FontAwesome' }">
+ 
+    <div class="centered-content">
+      <div>
+       <div >
+      <fieldset class="alignll34">  
+              <table class="table-responsive width">
+                  <div class="table-head"></div>
+
+                  <table class="table">
+                      <thead>
+                      </thead>
+                        <tr>
+                          <th class="colourful">Director Name</th>
+                             <th class="colourful">
+                                <input type="text"  class="form-control" formControlName="directorname" name="directorname" (keypress)="keyPress1($event)"
+                                [(ngModel)]="lenderor.director_name" placeholder="Enter Director Name" required>
+                                <span class="adac" *ngIf="editform.directorname.errors && (editform.directorname.invalid && editform.directorname.dirty)">
+                                <p *ngIf="editform.directorname.errors.required">Director Name is required</p>
+                                </span>
+                             </th> 
+                        </tr>
+     
+                      <tr>
+                          <th>Director Mobile Number</th>
+                             <th>
+                                <input type="text"  class="form-control" formControlName="directornumber"  [(ngModel)]="lenderor.director_mobile_number" placeholder="Enter Director Mobile Number" required maxlength="10" minlength="10" (keypress)="keyPress($event)">
+                                <span class="adac" *ngIf="editform.directornumber.errors && (editform.directornumber.invalid && editform.directornumber.dirty)">
+                                <p *ngIf="editform.directornumber.errors.required">Mobile Number is required</p>
+                                <p *ngIf="editform.directornumber.errors.maxlength || editform.directornumber.errors.minlength || editform.directornumber.errors?.pattern">Number should be in valid format.</p>
+                                </span>
+                             </th> 
+                        </tr>
+    
+                      <tr>
+                          <th class="colourful">Company Partner Name</th>
+                             <th class="colourful">
+                                <input type="text"  class="form-control" formControlName="partnerName" name="partnerName" 
+                                [(ngModel)]="lenderor.partner_name" placeholder="Enter Your Company Partner Name" required (keypress)="keyPress1($event)">
+                             </th> 
+                        </tr>
+    
+                        <tr>
+                          <th>Company Partner Mobile Number</th>
+                             <th>
+                                 <input type="text"  [(ngModel)]="lenderor.partner_contact_number" class="form-control" formControlName="partnernumber" placeholder="Enter Company Partner Mobile Number" required maxlength="10" minlength="10" (keypress)="keyPress($event)">
+                                 <span class="adac" *ngIf="editform.partnernumber.errors && (editform.partnernumber.invalid && editform.partnernumber.touched)">
+                                <p *ngIf="editform.partnernumber.errors.required">Mobile Number is required</p>
+                                <p *ngIf="editform.partnernumber.errors.maxlength || editform.partnernumber.errors.minlength || editform.partnernumber.errors?.pattern"> Number should be in valid format.</p>
+                                </span>
+                             </th> 
+                        </tr>
+    
+                       <tr>
+                          <th class="colourful">Aadhar Card Number</th>
+                          <th class="colourful">
+                              <input type="text" class="form-control"   name="aadhaar_card" formControlName="aadhaar_card" [(ngModel)]="lenderor.adharcard_number" placeholder="Aadhar Card Number" required maxlength="12" minlength="12" (keypress)="keyPress($event)">
+                              
+                                <span class="adac" *ngIf="editform.aadhaar_card.errors && (editform.aadhaar_card.invalid && editform.aadhaar_card.touched)">
+                                <p *ngIf="editform.aadhaar_card.errors.required">Aadhar Number is required</p>
+                                <p *ngIf="editform.aadhaar_card.errors.maxlength || editform.aadhaar_card.errors.minlength "> Aadhar Number should be in valid format.</p>
+                                </span>
+                          </th>
+                        </tr>
+                        
+           
+                 </table>
+  
+
+               <div class="fdfd">
+                    <button type="button"   class="btn btn-outline-rounded btn-info qwea " awNextStep>Skip <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span>
+      </button>  
+       </div>
+<div class="fdfd901">
+              <button type="button" class="btn btn-outline-rounded btn-info qwea" awPreviousStep><span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button>
+               </div>  
+
+  <div class="fdfd90">
+  
+                     <button type="button"   class="btn btn-outline-rounded btn-info qwea" awNextStep (click)="nbfcfinalSubmit(lenderor)">Continue <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span>
+      </button>  
+  </div> 
+
+
+
+                </table>
+                              
+   
+    </fieldset>
+</div>
+
+      </div>
+
+  
+    </div>
+  </aw-wizard-step>
+
+<aw-wizard-step class="property1" [stepTitle]="'ADDRESS DETAILS'" [navigationSymbol]="{ symbol: '&#xf2bb;', fontFamily: 'FontAwesome' }">
+    
+    <div class="centered-content">
+      <div>
+       <div >
+      <fieldset class="alignll180">  
+              <table class="table-responsive width">
+                  <div class="table-head"></div>
+
+                  <table class="table abvf">
+                      <thead>
+                      </thead>
+                         <tr>
+                          <th class="colourful">Company Address</th>
+                             <th class="colourful">
+                              <select [(ngModel)]="lenderor.present_address_type" name="employee_count"  formControlName="addresstype" class="form-control"   required>
+                                    <option value="" [disabled]="true">--Select Option--</option>
+                                    <option *ngFor="let adress of adresstype"  [value]="adress">{{adress}}</option>
+                              </select> 
+                             </th> 
+                        </tr>
+
+                        <tr>
+                          <th class="colourful">Building No</th>
+                             <th class="colourful">
+                            
+                             <input type="text" formControlName="housenumber" class="form-control" placeholder="Enter House. No (or) Flat No" name="house_no" [(ngModel)]="lenderor.permanent_office_roomno" required="true">
+                             <span class="help-block"
+                            *ngIf="editform.housenumber.errors && (editform.housenumber.invalid && editform.housenumber.dirty)">
+                             <div *ngIf="editform.housenumber.errors.required"> Building No</div>
+                     </span> 
+                             </th> 
+                        </tr>
+     
+                      <tr>
+                          <th>Building Name</th>
+                             <th>
+               
+                            <input type="text" class="form-control" formControlName="house_building" id="bldgname" placeholder="Enter Bldg name / Apt Name" name="house_building" [(ngModel)]="lenderor.permanentbuildingname" required="true">
+                             </th> 
+                        </tr>
+    
+                      <tr>
+                          <th class="colourful">Street</th>
+                             <th class="colourful">
+                                <input type="text" class="form-control" formControlName="housepermanent_street" id="street" placeholder="Enter street name" name="housepermanent_street" [(ngModel)]="lenderor.permanent_street" required="true">
+                             </th> 
+                        </tr>
+
+    
+                        <tr>
+                          <th>Landmark</th>
+                             <th>
+                           <input type="text" class="form-control" formControlName="house_landmark" id="landmark" placeholder="Enter Landmark" name="house_landmark" [(ngModel)]="lenderor.permanent_landmark" required="true">
+                             </th> 
+                        </tr>
+    
+                       <tr>
+                          <th class="colourful">State</th>
+                          <th class="colourful">
+                        
+                          <select   [(ngModel)]="lenderor.selectedState" formControlName="states" class="form-control"  (change)="onSelect($event.target.value)" required>
+                           <option value="" [disabled]="true">--Select State--</option>
+                           <option *ngFor="let data of states" [value]="data.name">{{data.name}}</option>
+                         </select>  
+                          </th>
+                        </tr>
+
+                        <tr>
+                          <th class="colourful">District</th>
+                          <th class="colourful">
+
+                            <!-- <div *ngIf="lenderor.selectedState === 'Karnataka'"> -->
+                                        
+                                  <select   [(ngModel)]="lenderor.selecteddistric" formControlName="districs" class="form-control" formControlName="districs" (change)="select($event.target.value)" required>
+                                  <option value="" [disabled]="true">--Select District--</option>
+                                  <option *ngFor="let district of districts" [value]="district.name">{{district.name}}</option>
+                                  </select> 
+                            <!-- </div> -->
+                          </th>
+                        </tr>  
+
+
+                         <tr>
+                          <th class="colourful">City</th>
+                          <th class="colourful">
+
+
+                                <input type="text" [(ngModel)]="lenderor.selectedcity"  formControlName="city" name="city" class="form-control" required> 
+
+                            </th>
+                        </tr> 
+
+                         <tr>
+                          <th class="colourful">How long have you been in this address</th>
+                          <th class="colourful">  
+                            <select id="present-adress-duration"  [(ngModel)]="lenderor.longstay" formControlName="stayedDurations" name="present-adress-duration"  class="form-control"  required>                                             <option  value="" [disabled]="true"> ---For how long you had been at this address---</option>
+                            <option *ngFor="let stay of stayduration" [value]="stay">
+                                                    {{stay}}
+                            </option>
+                          </select>  
+                          </th>
+                          </tr>  
+
+                           <tr>
+                             <th class="colourful">Pincode</th>
+                             <th class="colourful">
+                                <input type="text" class="form-control" [(ngModel)]="lenderor.pin_code" formControlName="pincode" id="pincode" placeholder="Enter pincode" name="pincode" minlength="6" maxlength="6"   required="true" >
+                             </th>
+                           </tr>                    
+                        
+           
+                 </table>
+               <div class="spaaaa">
+                                  <div class="fdfd">
+                    <button type="button"   class="btn btn-outline-rounded btn-info qwea " awNextStep>Skip <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span>
+      </button>  
+       </div>
+<div class="fdfd901">
+              <button class="property3" type="button" class="btn btn-outline-rounded btn-info qwea" awPreviousStep><span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button>
+               </div>  
+
+  <div class="fdfd90">
+  
+                     <button type="button"   class="btn btn-outline-rounded btn-info qwea" awNextStep (click)="nbfcfinalSubmit(lenderor)">Continue <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span>
+      </button>  
+  </div> 
+</div>
+                </table>
+                              
+   
+    </fieldset>
+</div>
+
+      </div>
+
+  
+    </div>
+  </aw-wizard-step>
+
+<aw-wizard-step class="property2" [stepTitle]="'BANK DETAILS'" [navigationSymbol]="{ symbol: '&#xf19c;', fontFamily: 'FontAwesome' }">
+
+    <div class="centered-content">
+      <div>
+       <div >
+      <fieldset class="alignll70">  
+              <table class="table-responsive width">
+                  <div class="table-head"></div>
+
+                  <table class="table">
+                      <thead>
+                      </thead>
+                        <tr>
+                          <th class="colourful">Select Bank</th>
+                             <th class="colourful">
+                             <select   [(ngModel)]="lenderor.bank" name="bankname" formControlName="bankname" class="form-control"  (change)="selctifsc($event.target.value)" required>
+                                         <option value="" [disabled]="true">--Select Bank--</option>
+                                        <option *ngFor="let bankdata of banklist" [value]="bankdata.bankName">{{bankdata.bankName}}</option>
+                                      </select> 
+                             </th> 
+                        </tr>
+     
+                      <tr>
+                          <th>Account Type</th>
+                             <th>
+                                 <select   formControlName="accounttype1" [(ngModel)]="lenderor.acounttypes" id="accounttype1" name="accounttype1"  class="form-control" required>
+                                        <option value="" [disabled]="true">--Select Account Type --</option>
+                                        <option *ngFor="let actype of accounttype"[value]="actype">{{actype}}</option>
+                                      </select>
+                             </th> 
+                        </tr>
+    
+                      <tr>
+                          <th class="colourful">Account Holder Name</th>
+                             <th class="colourful">
+                                   <input type="text" formControlName="accountname" (keypress)="keyPress1($event)" [(ngModel)]="lenderor.holder_name" class="form-control" id="accountname"  placeholder="Enter account Name"  required="true" dont-begin-with-zero="a-z A-Z">
+                             </th> 
+                        </tr>
+    
+                        <tr>
+                          <th>Account Number</th>
+                             <th>
+                             <input type="text" min="1" (keypress)="keyPress($event)" class="form-control" formControlName="accountnumber" name="accountnumber" [(ngModel)]="lenderor.account_number" id="accountnumber" placeholder="Enter Account Number" ng-trim="false" minlength="6" maxlength="20" required="true" dont-begin-with-zero="accnum">
+                             </th> 
+                        </tr>
+    
+                       <tr>
+                          <th class="colourful">Branch Name</th>
+                          <th class="colourful">
+                                  <input type="text" class="form-control" (keypress)="keyPress1($event)" id="branchname" formControlName="branchname" name="branchname" [(ngModel)]="lenderor.branch_name" placeholder="Enter branch name" required="true">
+                          </th>
+                        </tr>
+
+                          <tr>
+                          <th class="colourful">IFSC Code</th>
+                          <th class="colourful">
+
+                              <input type="text" name="ifscnames"  id="ifscnames" formControlName="ifscnames" [(ngModel)]="lenderor.ifsc_code" placeholder="Enter IFSC Code" trim="false" maxlength="11" minlength="7" required class="form-control" style="margin-right:15px">
+                          </th>
+                          </tr>    
+                        
+           
+                 </table>
+                
+                    
+
+
+
+               <div class="fdfd">
+                 <a routerLink="/pendingdocs">
+                    <button type="button"   class="btn btn-outline-rounded btn-info qwea " awNextStep>Skip <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span>
+      </button>  
+    </a>
+       </div>
+<div class="fdfd901">
+              <button type="button" class="btn btn-outline-rounded btn-info qwea" awPreviousStep><span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button>
+               </div>  
+
+  <div class="fdfd90">
+  
+                     <button type="button"   class="btn btn-outline-rounded btn-info qwea" awNextStep (click)="nbfcfinalSubmitfinal(lenderor)">Submit <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span>
+      </button>  
+  </div> 
+
+
+
+
+
+
+                </table>
+                              
+   
+    </fieldset>
+</div>
+
+      </div>
+
+  
+    </div>
+  </aw-wizard-step>
+
+
+
+
+
+
+
+
+
+
+
+
+</aw-wizard>
+   </div>
+</form>
+</div>
+  
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

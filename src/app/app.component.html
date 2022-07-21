@@ -1,0 +1,19 @@
+<div id="content" class="container-fluid">
+    <div class="row">
+        <div *ngIf="hideElement2">
+            <app-header [hidden]="hideheader1"></app-header>
+        </div>
+        <div class="container col-md-12">
+            <div class="row" style="
+                overflow: hidden;">
+
+                <router-outlet></router-outlet>
+
+            </div>
+        </div>
+
+
+         <div [hidden]="hideElement"><app-footer></app-footer></div>
+    </div>
+
+</div>

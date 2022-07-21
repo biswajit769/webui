@@ -1,0 +1,152 @@
+  <div>
+      <div>
+          <span id="itemsperpagemargin" style="margin-top: 0px;
+  margin-bottom: 10px;"></span>
+          <input ng-model="searchText" type="text" class="adminsearchbox1" placeholder="Enter borrower name.." name="search" ng-change="demofunc10(searchText)">
+          <span id="itemsperpagemargin">
+<select id="itemperpagestyle" ng-model="limitedrecords1" ng-change="limitrecords(limitedrecords1)">
+<option value="" disabled="">Select Records Per Page</option> 
+  <option>10</option>
+  <option>20</option>
+  <option>30</option>
+  <option>40</option>
+</select>
+</span>
+          <div class="table-responsive flexcroll" id="loanTableStyle" style="height: 100%;">
+              <table class="table table-striped  table-bordered" id="mytableborder">
+                  <thead id="myloanhead">
+                      <tr class="tableTextCenter">
+                          <th>Loan Id</th>
+                          <th>Borrower Name</th>
+                          <th>Lender Name</th>
+                          <th>Loan Amount</th>
+                          <th>Repayment type</th>
+                          <th>Interest Amount</th>
+                          <th>Borrower Disbursement</th>
+                          <th>Loan Details</th>
+                      </tr>
+                  </thead>
+                  <tbody dir-paginate="ld in adminclosedlist | itemsPerPage:usersPerPage" total-items="totalUsers" current-page="current" id="myduesbody">
+                      <tr class="tableTextCenter" *ngFor="let closed of closedloans">
+                          <td>{{closed.id}}</td>
+                          <td>{{closed.companyName}}</td>
+                          <td>{{closed.lender_name}}</td>
+                          <td>{{closed.loan_amount}}</td>
+                          <td>{{closed.repayment_type}}</td>
+                          <td>{{closed.interest_amount}}</td>
+                          <td>{{closed.borrower_disbursement}}</td>
+
+                          <td>
+                              <button class="applicationbutton3" (click)="getCompleteClosedLoans(closed.id)"><i class="glyphicon glyphicon-file"></i><span> View Details</span></button>
+                          </td>
+
+                      </tr>
+                  </tbody>
+                  <tbody *ngIf="closedloans.length==0">
+                      <tr>
+                          <th colspan="25" class="text-center" id="spanmessage">No records found</th>
+                      </tr>
+                  </tbody> 
+              </table>
+          </div>
+      </div>
+     
+
+  </div>
+
+
+   <div id="myModal" #closedloan class="modal fade " role="dialog">
+    <div class="modal-dialog">
+<div class="modal-content">
+        <div class="modal-header" style="background-color: #337ab6;
+    height: 92px;">
+           <a (click)="cancel()" style="color: black;"><i class="glyphicon glyphicon-remove" id="placecloseicon"></i></a>
+          <h3 id="loandetpopuphead">Closed Loan Details</h3>
+        </div>
+        <div class="modal-body" style="padding: 0px">
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered placecenter">
+                
+              <tr>
+                <th>Loan Id</th>
+                <td>{{closedld.id || 'empty'}}</td>
+              </tr>
+              <tr>
+                <th>Company Id</th>
+                <td>{{closedld.company || 'empty'}}</td>
+              </tr>
+              <tr>
+                <th>Company Name</th>
+                <td>{{closedld.companyName || 'empty'}}</td>
+              </tr>
+                <tr>
+                <th>Company Mobile Number</th>
+                <td>{{closedld.company_mobile_number || 'empty'}}</td>
+              </tr>
+              <tr>
+                <th>NBFC Id</th>
+                <td>{{closedld.nbfc}}</td>
+              </tr>
+              <tr>
+                <th>NBFC Name</th>
+                <td>{{closedld.lender_name}}</td>
+              </tr>
+               <tr>
+                <th>NBFC Mobile Number</th>
+                <td>{{closedld.nbfc_mobile_number}}</td>
+              </tr>
+               <tr>
+                <th>Loan Amount</th>
+                <td>{{closedld.loan_amount}}</td>
+              </tr>
+              <tr>
+                <th>Tenure</th>
+                <td>{{closedld.tenure}}</td>
+              </tr>
+              <tr>
+                <th>Accepted Interest</th>
+                <td>{{closedld.accepted_interest}}</td>
+              </tr>
+              <tr>
+                <th>Requested Date</th>
+                <td>{{closedld.requested_date}}</td>
+              </tr>
+               <tr>
+                <th>Disbursed Date</th>
+                <td>{{closedld.requested_date}}</td>
+              </tr>
+                 <tr>
+                <th>Closed Date</th>
+                <td>{{closedld.closed_date}}</td>
+              </tr>
+              <tr>
+                <th>Repayment Type</th>
+                <td>{{closedld.repayment_type || 'empty'}}</td>
+              </tr>
+              <tr>
+                <th>Interest Amount</th>
+                <td>{{closedld.interest_amount || 'empty'}}</td> 
+              </tr>
+              <tr>
+                <th>Status</th>
+                <td>{{closedld.status || 'empty'}}</td> 
+              </tr>
+              <tr>
+                <th>Borrower Disbursement</th>
+                <td>{{closedld.borrower_disbursement || 'empty'}}</td>
+              </tr>  
+               <tr>
+                <th>Total Return Amount</th>
+                <td>{{closedld.total_return_amount || 'empty'}}</td>
+              </tr>  
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer" id="recordsmodalfooter">
+          <button class="btn btn-default" (click)="cancel()">Ok</button>
+        </div>
+      </div>
+       </div>
+      </div>
+
+

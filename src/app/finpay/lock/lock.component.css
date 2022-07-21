@@ -1,0 +1,30 @@
+.container-fluid{
+    /*background-image: url(https://s3.ap-south-1.amazonaws.com/images.lazypay.in/lp-arrow-bg.svg);*/
+    height: 640px;
+    width: 100%;
+    background-attachment: fixed;
+     background-repeat: no-repeat;
+      background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+.headertag{
+    color: black;
+}
+#tagline{
+    color: black;
+}
+b{
+	    font-weight: 100;
+}
+img {
+	height: 350px;
+	margin-top: 100px;
+	margin-left: 90px;
+}
+button{
+	margin-top: 50px;
+	margin-left: 90px;
+	width: 150px;
+	border-radius: 15px;
+}

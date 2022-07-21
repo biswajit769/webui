@@ -1,0 +1,234 @@
+th {
+    text-align: left;
+}
+
+td {
+    width: 359px;
+    margin-left: 3px;
+}
+.mcontent{
+    width: 150%;
+}
+    .loanrequest th {
+    text-align: center;
+}
+
+.lenderrespp img.headinglendd {
+    width: 5%;
+}
+
+table.sortable tr:hover{cursor:pointer;}
+
+.frmBtn {
+    width:65px
+} 
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+    .time {
+        letter-spacing: 0.05em;
+    font-size: 16px;
+    padding: 0px 0;
+    /* text-align: center; */
+    /* font-family: 'Share Tech Mono', monospace; */
+    color: #ffffff;
+    position: relative;
+    left: 51%;
+    margin-top: 15px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: #16708d;
+    text-shadow: 0 0 20px rgba(10, 175, 230, 1), 0 0 20px rgba(10, 175, 230, 0);
+    }
+    .date {
+        letter-spacing: 0.1em;
+        font-size: 24px;
+    }
+    .text {
+        letter-spacing: 0.1em;
+        font-size: 12px;
+        padding: 20px 0 0; 
+    }
+    
+
+
+
+
+                .moddwidth{
+       width: 579px;
+    margin-left: 259px;
+}
+
+
+.bidra{
+        height: 294px;
+    margin-top: 165px;
+}
+
+@media only screen and (min-width:320px) and (max-width: 767px) {
+    .lenderrespp h1 {
+        color: black;
+        font-size: large;
+        font-weight: bold;
+    }
+    .lenderrespp img.headinglendd {
+        width: 15%;
+    }
+            .moddwidth{
+    width: 226px;
+    margin-left: 11px;
+    margin-top: 78px;
+
+}
+
+.modal-body {
+    height:549px;
+    overflow: auto;
+    }
+
+
+.Bid_Sucessfull{
+    height:119px;
+    overflow: auto;
+
+}
+    
+.bidra{
+        height: 294px;
+    margin-top: 165px;
+}
+   
+}
+
+.loader {
+    border: 2px solid white;
+    border-radius: 50%;
+    border-top: 4px solid #ed6560;
+    width: 40px;
+    height: 40px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    float: center;
+}
+
+.crossymbol {
+
+    float: right;
+    size: -19px;
+    width: 20px;
+    height: 18px;
+    padding-top: 0px;
+    padding-left: 6px;
+}
+/* .modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #ed6506;
+    text-align: center;
+    color: white;
+} */
+.loanModalHeader {
+    background-color: #337ab7;
+    color: white;
+    text-align: center;
+}
+
+.css {
+    margin-left: 3px;
+    margin-bottom:3px;
+}
+
+#loanModalBody {
+    background: whitesmoke;
+}
+.invalid-feedback{
+color:red;
+}
+#loanModalFooter {
+    background: whitesmoke;
+}
+.tableheader {
+    background: #3379b6;
+    color: white;
+}
+.orangefont {
+    color: orange;
+    font-weight: bold;
+ }
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+   
+
+#openModal img  {
+    width: 575px;
+    height:auto;
+}
+
+
+
+
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+.close:hover {
+    background: #09a5c0;
+}
+.clpos{
+        margin-top: 11px;
+    margin-right: 16px;
+}
+
+
+.modal {
+  overflow: hidden;
+}
+
+.modal-body {
+    height:549px;
+    overflow: auto;
+}
+
+
+.Bid_Sucessfull{
+    height:119px;
+    overflow: auto;
+
+}

@@ -1,0 +1,381 @@
+.loader2 {
+    border: 2px solid white;
+    border-radius: 50%;
+    border-top: 4px solid #ed6560;
+    width: 40px;
+    height: 40px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+.closebutton {
+    float: right;
+    size: -19px;
+    width: 20px;
+    height: 18px;
+    padding-top: 0px;
+    padding-left: 6px;
+}
+.modal-header {
+    padding: 23px;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #3f51b5;
+    text-align: center;
+    color: white;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader2 {
+    border: 2px solid white;
+    border-radius: 50%;
+    border-top: 4px solid #ed6560;
+    width: 40px;
+    height: 40px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* borrowerlanding page css */
+
+
+.borrowerlandingpage .sub-content {
+    margin-top: 15px;
+}
+
+.borrowerlandingpage button {
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    border: 0px;
+    margin-top: 10px;
+    border-radius: 11px;
+}
+
+.borrowerlandingpage .anchor a {
+    text-decoration: none;
+    color: white;
+}
+
+.borrowerlandingpage .link {
+    color: #23527c;
+}
+
+.borrowerlandingpage .blog {
+    background: rgb(35, 86, 129);
+    padding: 10px 40px;
+}
+
+.borrowerlandingpage .apply {
+    background: #ed6506;
+    padding: 10px 36px;
+}
+
+.borrowerlandingpage .borrowerlandimg img {
+    width: 22%;
+    padding: 10px;
+}
+
+.borrowerlandingpage .borrowerlandimg1 img {
+    width: 28%;
+    padding: 10px;
+}
+
+.borrowerlandingpage .borrowerimg1 img {
+    width: 21%;
+    padding: 10px;
+}
+
+.borrowerlandingpage .borrowerimg4 img {
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.borrowerlandingpage .borrowerimg5 img {
+    width: 22%;
+    padding: 10px;
+}
+
+.borrowerlandingpage .borrowerimg6 img {
+    width: 29%;
+    padding: 10px;
+}
+
+.borrowerlandingpage .borrowerimg6a img {
+    width: 71%;
+    padding: 10px;
+}
+
+.borrowerlandingpage .borrowerimg6b img {
+    width: 71%;
+    padding: 10px;
+    height: 406px;
+}
+
+.borrowerlandingpage .borrowerlandimg2 img {
+    width: 74%;
+    padding: 10px;
+}
+
+.borrowerlandingpage .borrowerlandpagepara {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.borrowerlandingpage .borrowerlandmain img {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.borrowerlandingpage .borrowerlandhead {
+    font-family: Gotham A, Gotham B, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #ed6506;
+    padding-top: 10px;
+}
+
+.borrowerlandingpage .relatedul a {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.borrowerlandingpage .borrowerlandhead1 {
+    font-family: Gotham A, Gotham B, sans-serif;
+    font-size: 28px;
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #ed6506;
+    padding: 30px;
+}
+
+.borrowerlandingpage .borrowerlandtop h4 {
+    text-align: center;
+}
+
+.custom-bullet li:before {
+    content: "\e013";
+    font-family: 'Glyphicons Halflings';
+    font-size: 14px;
+    float: left;
+    margin-top: 4px;
+    color: #595959;
+}
+
+.borrowerlandingpage .uldiv {
+    width: 240px;
+    margin: 0 auto;
+    padding: 5px 0 0 0;
+    list-style-type: none;
+    text-align: center;
+    display: table;
+}
+.borrowerlandingpage .uldiv ul{
+   margin-left: -38px;
+}
+
+.borrowerlandingpage .uldiv ul li {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.borrowerlandingpage .uldiv1 {
+    width: 320px;
+    margin: 0 auto;
+    padding: 5px 0 0 0;
+    list-style-type: none;
+    text-align: center;
+    display: table;
+}
+.borrowerlandingpage .uldiv1 ul li {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    list-style-type: none;
+    margin-left: 32px;
+}
+
+.borrowerlandingpage .uldiv1 ul li {
+    font-size: 18px;
+    padding: 6px
+}
+
+.borrowerlandingpage .uldiv1 ul li p {
+    margin-bottom: 10px;
+}
+
+.borrowerlandingpage p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #595959;
+    margin-bottom: 10px;
+    font-family: Gotham A, Gotham B, sans-serif;
+}
+.borrowerlandingpage .lenderlandhead {
+    font-family: Gotham A, Gotham B, sans-serif;
+    font-size: 28px;
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #ed6506;
+    padding: 30px;
+}
+.borrowerlandingpage .howitworkspara1 p {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #595959;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.borrowerlandingpage .landingimg img {
+    width: 50%;
+}
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    .borrowerlandingpage .content {
+        margin-top: 0px;
+    }
+    .borrowerlandingpage .borrowerlandimg img {
+        width: 41%;
+    }
+    .borrowerlandingpage .borrowerlandimg1 img {
+        width: 34%;
+    }
+    .borrowerlandingpage .borrowerimg1 img {
+        width: 39%;
+    }
+    .borrowerlandingpage .borrowerimg4 img {
+        width: 100%;
+    }
+    .borrowerlandingpage .borrowerimg5 img {
+        width: 25%;
+    }
+    .borrowerlandingpage .borrowerimg6 img {
+        width: 34%;
+    }
+    .borrowerlandingpage .borrowerimg6a img {
+        width: 100%;
+    }
+    .borrowerlandingpage .borrowerimg6b img {
+        width: 98%;
+        height: 438px;
+    }
+    .borrowerlandingpage .borrowerlandimg2 img {
+        width: 100%;
+    }
+     .borrowerlandingpage .landingimg img {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+     .borrowerlandingpage .lenderlandhead {
+        padding: 15px;
+    }   
+    .borrowerlandingpage .content {
+        margin-top: 0px;
+    }
+    .borrowerlandingpage .borrowerlandimg img {
+        width: 44%;
+    }
+    .borrowerlandingpage .borrowerlandimg1 img {
+        width: 78%;
+    }
+    .borrowerlandingpage .borrowerimg1 img {
+        width: 32%;
+    }
+    .borrowerlandingpage .borrowerimg4 img {
+        width: 100%;
+    }
+    .borrowerlandingpage .borrowerimg5 img {
+        width: 61%;
+    }
+    .borrowerlandingpage .borrowerimg6 img {
+        width: 78%;
+    }
+    .borrowerlandingpage .borrowerimg6a img {
+        width: 100%;
+    }
+    .borrowerlandingpage .borrowerimg6b img {
+        width: 100%;
+        height: 311px;
+    }
+    .borrowerlandingpage .borrowervisible {
+        display: none !important;
+    }
+    .borrowerlandingpage .borrowerparagraph {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .borrowerlandingpage .borrowerlandimg2 img {
+        width: 100%;
+    }
+    .borrowerlandingpage .borrowerlandpagepara {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .borrowerlandingpage .borrowerlandhead1 {
+        font-family: Gotham A, Gotham B, sans-serif;
+        font-size: 24px;
+        text-align: center;
+        font-weight: 400;
+        line-height: 1.2;
+        color: #ed6506;
+        padding: 0px;
+    }
+    .barrowerlandingpage .borrowerlandtop {
+        text-align: left;
+    }
+    .borrowerlandingpage .landingimg img {
+        width: 100%;
+    }
+}
+
+
+
+
+.brldnpg{
+    margin-top: 5%;
+}

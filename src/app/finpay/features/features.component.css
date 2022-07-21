@@ -1,0 +1,59 @@
+
+.card{
+	margin-top: 50px;
+}
+.material-icons{
+	margin-top: 20px;
+    
+}
+#icon{
+	margin-left:45px;
+}
+#titl h4{
+	margin-top: 30px;
+	text-align: center;
+}
+.card img{
+	float:right;
+}
+
+/*h5{
+	font-size: 16px;
+	font-weight: bold;
+}*/
+h3{
+	/*font-weight: bold;*/
+}
+p{
+	font-size: 14px;
+}
+.abc{
+	display: flex;
+	margin-left: 18px;
+	font-size: 13px;
+
+}
+.btn-primary{
+	margin-left: 20px;
+    width: 87%;
+    border-radius: 20px;
+    margin-top: 10px;
+    height: 42px;
+}
+#border{
+	height: 80px; 
+	width: 100%; 
+	border-width:3px;  
+    border-style: ridge;
+    margin-top: 40px;
+
+}
+#pap{
+	margin-left: 8px;
+}
+
+@media only screen and (max-width: 640px){
+.body{
+background-image: url(https://s3.ap-south-1.amazonaws.com/images.lazypay.in/lp-arrow-bg.svg);
+}
+}
